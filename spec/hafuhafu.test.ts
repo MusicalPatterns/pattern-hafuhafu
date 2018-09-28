@@ -6,7 +6,7 @@ import * as from from '../../../src/utilities/from'
 describe('hafuhafu', () => {
     let result: Note[] = []
     const expectedLength: number = 5 * 32
-    const expectedTempoAdjustment: number = 50
+    const expectedTempoAdjustment: number = 25
 
     beforeEach(() => {
         result = hafuhafu(fiveRhythm, 32)

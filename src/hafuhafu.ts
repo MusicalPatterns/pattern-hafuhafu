@@ -4,7 +4,7 @@ import * as to from '../../../src/utilities/to'
 import { hafuhafuNote } from './notes'
 import { Rhythm } from './types'
 
-const SPEED_ADJUST: number = 50
+const SPEED_ADJUST: number = 25
 const HAFU: number = 2
 const ALMOST_ALL: number = 0.8
 const FULL_GAIN: number = 1
