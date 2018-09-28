@@ -14,6 +14,7 @@ const hafuhafuNote: (cell: Cell, gain: Scalar, duration: Time, sustain: Time) =>
         duration,
         gain,
         pitchIndex: to.Index(hafuhafuFrom.Cell(cell) + PITCH_INDEX_BASE_OFFSET),
+        pitchScalar: to.Scalar(1),
         scaleIndex: BASE_SCALE,
         sustain,
     })

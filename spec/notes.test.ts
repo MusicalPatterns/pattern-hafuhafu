@@ -8,6 +8,7 @@ describe('notes', () => {
             duration: to.Time(2),
             gain: to.Scalar(0.5),
             pitchIndex: to.Index(4),
+            pitchScalar: to.Scalar(1),
             scaleIndex: to.Index(0),
             sustain: to.Time(1),
         })
@@ -15,6 +16,7 @@ describe('notes', () => {
             duration: to.Time(1.5),
             gain: to.Scalar(0.25),
             pitchIndex: to.Index(5),
+            pitchScalar: to.Scalar(1),
             scaleIndex: to.Index(0),
             sustain: to.Time(0.375),
         })
