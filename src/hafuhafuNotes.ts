@@ -9,7 +9,7 @@ const HAFU: number = 2
 const ALMOST_ALL: number = 0.8
 const FULL_GAIN: number = 1
 
-const hafuhafu: (rhythm: Rhythm, barCount: number) => Note[] = (rhythm: Rhythm, barCount: number): Note[] => {
+const hafuhafuNotes: (rhythm: Rhythm, barCount: number) => Note[] = (rhythm: Rhythm, barCount: number): Note[] => {
     const rhythmLength: number = rhythm.length
     const output: Note[] = []
 
@@ -26,5 +26,5 @@ const hafuhafu: (rhythm: Rhythm, barCount: number) => Note[] = (rhythm: Rhythm, 
 }
 
 export {
-    hafuhafu,
+    hafuhafuNotes,
 }

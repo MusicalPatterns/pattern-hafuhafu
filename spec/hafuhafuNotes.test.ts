@@ -1,15 +1,15 @@
-import { hafuhafu } from '../src/hafuhafu'
+import { hafuhafuNotes } from '../src/hafuhafuNotes'
 import { fiveRhythm } from '../src/rhythms'
 import { Note } from '../../../src/types'
 import * as from from '../../../src/utilities/from'
 
-describe('hafuhafu', () => {
+describe('hafuhafu notes', () => {
     let result: Note[] = []
     const expectedLength: number = 5 * 32
     const expectedTempoAdjustment: number = 25
 
     beforeEach(() => {
-        result = hafuhafu(fiveRhythm, 32)
+        result = hafuhafuNotes(fiveRhythm, 32)
     })
 
     it('returns a series of x notes, where x is the length of the rhythm times the count of bars', () => {
