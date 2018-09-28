@@ -24,18 +24,14 @@ describe('hafuhafu notes with pitch circularity', () => {
             }
         })
 
-        // but it should be by power of 2, from 2^-1 to 2^0
         it('gradually increases the pitch scalar from half to normal', () => {
             for (let i: number = 1; i < expectedLength; i++) {
-                // expect(from.Scalar(result[i].pitchScalar)).toBe(0.5 + (i / expectedLength) * 0.5)
                 expect(from.Scalar(result[i].pitchScalar)).toBe(Math.pow(2, (i / expectedLength) - 1))
             }
         })
 
-        // but it should be by power of 2, from 2^1 to 2^0
         it('gradually decreases the duration of the notes from 2 to 1, making the tempo change from 1/2x to 1x', () => {
             for (let i: number = 0; i < expectedLength; i++) {
-                // expect(from.Time(result[i].duration)).toBe((2 - (i / expectedLength)) * expectedTempoAdjustment)
                 expect(from.Time(result[i].duration)).toBe(Math.pow(2, 1 - (i / expectedLength)) * expectedTempoAdjustment)
             }
         })
@@ -62,18 +58,14 @@ describe('hafuhafu notes with pitch circularity', () => {
             }
         })
 
-        // but it should be by power of 2, from 2^0 to 2^1
         it('gradually increases the pitch scalar from normal to twice', () => {
             for (let i: number = 1; i < (expectedLength * 2); i++) {
-                // expect(from.Scalar(result[i].pitchScalar)).toBe(1 + (i / expectedLength))
                 expect(from.Scalar(result[i].pitchScalar)).toBe(Math.pow(2, i / (expectedLength * 2)))
             }
         })
 
-        // but it should be by power of 2, from 2^0 to 2^-1
         it('gradually decreases the duration of the notes from 1 to 0.5, making the tempo change from 1x to 2x', () => {
             for (let i: number = 0; i < (expectedLength * 2); i++) {
-                // expect(from.Time(result[i].duration)).toBe((1 - (i * 0.5 / expectedLength)) * expectedTempoAdjustment)
                 expect(from.Time(result[i].duration)).toBe(Math.pow(2, -(i / (expectedLength * 2))) * expectedTempoAdjustment)
             }
         })

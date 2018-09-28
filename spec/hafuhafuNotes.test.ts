@@ -28,9 +28,9 @@ describe('hafuhafu notes', () => {
         }
     })
 
-    it('gradually decreases the duration of the notes until the tempo is 2x', () => {
+    it('gradually decreases the duration of the notes from 2 to 1, increasing the tempo from 1/2x to 1x', () => {
         for (let i: number = 0; i < expectedLength; i++) {
-            expect(from.Time(result[i].duration)).toBe((2 - (i / expectedLength)) * expectedTempoAdjustment)
+            expect(from.Time(result[i].duration)).toBe(Math.pow(2, 1 - (i / expectedLength)) * expectedTempoAdjustment)
         }
     })
 
