@@ -1,20 +1,20 @@
 import { Notes } from '../../../src/types'
 import sequence from '../../../src/utilities/sequence'
+import { hafuhafuCycle } from './hafuhafuCycle'
 import { hafuhafuNotes } from './hafuhafuNotes'
-import { fiveRhythm, fiveRhythmHafuhafu, sevenRhythm, sevenRhythmHafu, sevenRhythmHafuhafu } from './rhythms'
+import { fiveRhythm, sevenRhythm } from './rhythms'
+import { Rhythm } from './types'
 
 const SUFFICIENT_ROUND_NUMBER_OF_BARS_FOR_EFFECT_TO_BE_GRADUAL_ENOUGH: number = 16
 
-const fiveCycle: Notes = sequence([
-    hafuhafuNotes(fiveRhythm, SUFFICIENT_ROUND_NUMBER_OF_BARS_FOR_EFFECT_TO_BE_GRADUAL_ENOUGH),
-    hafuhafuNotes(fiveRhythmHafuhafu, SUFFICIENT_ROUND_NUMBER_OF_BARS_FOR_EFFECT_TO_BE_GRADUAL_ENOUGH),
-])
+const rhythmToCycleOfNotes: (sourceRhythm: Rhythm) => Notes =
+    (sourceRhythm: Rhythm): Notes =>
+        sequence(hafuhafuCycle(sourceRhythm).map((rhythm: Rhythm): Notes =>
+            hafuhafuNotes(rhythm, SUFFICIENT_ROUND_NUMBER_OF_BARS_FOR_EFFECT_TO_BE_GRADUAL_ENOUGH)))
 
-const sevenCycle: Notes = sequence([
-    hafuhafuNotes(sevenRhythm, SUFFICIENT_ROUND_NUMBER_OF_BARS_FOR_EFFECT_TO_BE_GRADUAL_ENOUGH),
-    hafuhafuNotes(sevenRhythmHafu, SUFFICIENT_ROUND_NUMBER_OF_BARS_FOR_EFFECT_TO_BE_GRADUAL_ENOUGH),
-    hafuhafuNotes(sevenRhythmHafuhafu, SUFFICIENT_ROUND_NUMBER_OF_BARS_FOR_EFFECT_TO_BE_GRADUAL_ENOUGH),
-])
+const fiveCycle: Notes = rhythmToCycleOfNotes(fiveRhythm)
+
+const sevenCycle: Notes = rhythmToCycleOfNotes(sevenRhythm)
 
 export {
     fiveCycle,
