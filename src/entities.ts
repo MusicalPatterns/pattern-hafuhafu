@@ -3,7 +3,7 @@ import { Notes, OscillatorName, VoiceType } from '../../../src/types'
 import { Scalar } from '../../../src/utilities/nominalTypes'
 import sequence from '../../../src/utilities/sequence'
 import { BAR_COUNT } from './constants'
-import { sevenCycle } from './cycles'
+import { fiveCycle } from './cycles'
 import { hafuhafuCycle } from './hafuhafuCycle'
 import { hafuhafuNotesWithPitchCircularity } from './hafuhafuNotesWithPitchCircularity'
 import { sevenRhythm } from './rhythms'
@@ -14,7 +14,7 @@ import { Direction, Rhythm } from './types'
 const TO_AVOID_BLOW_OUT: Scalar = 0.2 as any
 
 const hafuhafuEntity: EntityConfig = {
-    notes: sevenCycle,
+    notes: fiveCycle,
     timeType: TimeType.RAW,
     voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
     voiceGain: TO_AVOID_BLOW_OUT,

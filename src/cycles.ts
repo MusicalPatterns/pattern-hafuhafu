@@ -3,7 +3,7 @@ import sequence from '../../../src/utilities/sequence'
 import { BAR_COUNT } from './constants'
 import { hafuhafuCycle } from './hafuhafuCycle'
 import { hafuhafuNotes } from './hafuhafuNotes'
-import { fiveRhythm, sevenRhythm } from './rhythms'
+import { fiveRhythm, nineRhythm, sevenRhythm } from './rhythms'
 import { Rhythm } from './types'
 
 const rhythmToCycleOfNotes: (sourceRhythm: Rhythm) => Notes =
@@ -15,7 +15,10 @@ const fiveCycle: Notes = rhythmToCycleOfNotes(fiveRhythm)
 
 const sevenCycle: Notes = rhythmToCycleOfNotes(sevenRhythm)
 
+const nineCycle: Notes = rhythmToCycleOfNotes(nineRhythm)
+
 export {
     fiveCycle,
     sevenCycle,
+    nineCycle,
 }
