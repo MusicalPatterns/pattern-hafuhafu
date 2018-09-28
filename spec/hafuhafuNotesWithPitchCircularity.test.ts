@@ -18,7 +18,7 @@ describe('hafuhafu notes with pitch circularity', () => {
             expect(result.length).toBe(expectedLength)
         })
 
-        it('gradually increases the gain from silence to full', () => {
+        it('gradually increases the gain from silence to full (this one is linear because the between silence and 1 is artificially curved)', () => {
             for (let i: number = 1; i < expectedLength; i++) {
                 expect(from.Scalar(result[i].gain)).toBe(i / expectedLength)
             }
@@ -54,7 +54,7 @@ describe('hafuhafu notes with pitch circularity', () => {
 
         it('gradually decreases the gain from full to silence', () => {
             for (let i: number = 1; i < (expectedLength * 2); i++) {
-                expect(from.Scalar(result[i].gain)).toBe(1 - (i / (expectedLength * 2)))
+                expect(from.Scalar(result[i].gain)).toBe(Math.pow(2, 1 - (i / (expectedLength * 2))) - 1)
             }
         })
 

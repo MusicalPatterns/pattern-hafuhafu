@@ -17,7 +17,7 @@ const hafuhafuNotes: (rhythm: Rhythm, barCount: number) => Note[] =
 
         for (let i: number = 0; i < rhythmLength * barCount; i++) {
             const progress: number = i / (rhythmLength * barCount)
-            const gain: Scalar = i % TWO === 0 ? to.Scalar(FULL_GAIN) : to.Scalar(FULL_GAIN - progress)
+            const gain: Scalar = i % TWO === 0 ? to.Scalar(FULL_GAIN) : to.Scalar(Math.pow(TWO, ONE - progress) - ONE)
             const duration: Time = to.Time(Math.pow(TWO, (ONE - progress)) * SPEED_ADJUST)
             const sustain: Time = to.Time(ALMOST_ALL * SPEED_ADJUST)
 

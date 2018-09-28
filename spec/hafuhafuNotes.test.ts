@@ -24,7 +24,7 @@ describe('hafuhafu notes', () => {
 
     it('gradually reduces the gain on the odd notes until they are silent', () => {
         for (let i: number = 1; i < expectedLength; i = i + 2) {
-            expect(from.Scalar(result[i].gain)).toBe(1 - (i / expectedLength))
+            expect(from.Scalar(result[i].gain)).toBe(Math.pow(2, 1 - (i / expectedLength)) - 1)
         }
     })
 
