@@ -1,20 +1,23 @@
-import { Rhythm } from './types'
 import { Note } from '../../../src/types'
-import { hafuhafuNote } from './notes'
-import * as to from '../../../src/utilities/to'
 import { Scalar, Time } from '../../../src/utilities/nominalTypes'
+import * as to from '../../../src/utilities/to'
+import { hafuhafuNote } from './notes'
+import { Rhythm } from './types'
 
 const SPEED_ADJUST: number = 50
+const HAFU: number = 2
+const ALMOST_ALL: number = 0.8
+const FULL_GAIN: number = 1
 
 const hafuhafu: (rhythm: Rhythm, barCount: number) => Note[] = (rhythm: Rhythm, barCount: number): Note[] => {
     const rhythmLength: number = rhythm.length
     const output: Note[] = []
 
     for (let i: number = 0; i < rhythmLength * barCount; i++) {
-        const progress = i / (rhythmLength * barCount)
-        const gain: Scalar = i % 2 === 0 ? to.Scalar(1) : to.Scalar(1 - progress)
-        const duration: Time = to.Time((2 - progress) * SPEED_ADJUST)
-        const sustain: Time = to.Time(0.8 * SPEED_ADJUST)
+        const progress: number = i / (rhythmLength * barCount)
+        const gain: Scalar = i % HAFU === 0 ? to.Scalar(FULL_GAIN) : to.Scalar(FULL_GAIN - progress)
+        const duration: Time = to.Time((HAFU - progress) * SPEED_ADJUST)
+        const sustain: Time = to.Time(ALMOST_ALL * SPEED_ADJUST)
 
         output.push(hafuhafuNote(rhythm[i % rhythmLength], gain, duration, sustain))
     }
