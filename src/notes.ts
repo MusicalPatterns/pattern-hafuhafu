@@ -9,12 +9,12 @@ import { Cell } from './utilities/nominalTypes'
 const BASE_SCALE: Index = 0 as any
 const PITCH_INDEX_BASE_OFFSET: number = 1
 
-const hafuhafuNote: (cell: Cell, gain: Scalar, duration: Time, sustain: Time) => Note =
-    (cell: Cell, gain: Scalar, duration: Time, sustain: Time): Note => ({
+const hafuhafuNote: (cell: Cell, gain: Scalar, duration: Time, sustain: Time, pitchScalar: Scalar) => Note =
+    (cell: Cell, gain: Scalar, duration: Time, sustain: Time, pitchScalar: Scalar): Note => ({
         duration,
         gain,
         pitchIndex: to.Index(hafuhafuFrom.Cell(cell) + PITCH_INDEX_BASE_OFFSET),
-        pitchScalar: to.Scalar(1),
+        pitchScalar,
         scaleIndex: BASE_SCALE,
         sustain,
     })
