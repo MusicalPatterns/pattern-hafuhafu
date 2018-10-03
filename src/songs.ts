@@ -8,6 +8,7 @@ const hafuhafu: Song = {
     entityConfigs: [
         hafuhafuEntity,
     ],
+    name: 'hafuhafu',
     scales: [
         octaveSeries,
     ],
@@ -19,6 +20,7 @@ const hafuhafuWithPitchCircularity: Song = {
         hafuhafuInEntity,
         hafuhafuOutEntity,
     ],
+    name: 'hafuhafu with pitch circularity',
     scales: [
         octaveSeries,
     ],
