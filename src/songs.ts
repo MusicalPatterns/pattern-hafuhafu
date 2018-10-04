@@ -1,4 +1,4 @@
-import { Song } from '../../../src/types'
+import { Song, SongName } from '../../../src/songTypes'
 import { HAFUHAFU_BASE_PITCH } from './basePitch'
 import { hafuhafuEntity, hafuhafuInEntity, hafuhafuOutEntity } from './entities'
 import { octaveSeries } from './pitches'
@@ -8,7 +8,8 @@ const hafuhafu: Song = {
     entityConfigs: [
         hafuhafuEntity,
     ],
-    name: 'hafuhafu',
+    formattedName: 'Hafuhafu',
+    name: SongName.HAFUHAFU,
     scales: [
         octaveSeries,
     ],
@@ -20,7 +21,8 @@ const hafuhafuWithPitchCircularity: Song = {
         hafuhafuInEntity,
         hafuhafuOutEntity,
     ],
-    name: 'hafuhafu with pitch circularity',
+    formattedName: 'Hafuhafu (with pitch circularity)',
+    name: SongName.HAFUHAFU_WITH_PITCH_CIRCULARITY,
     scales: [
         octaveSeries,
     ],
