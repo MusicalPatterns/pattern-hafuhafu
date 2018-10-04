@@ -1,7 +1,7 @@
-import { hafuhafuNotes } from '../src/hafuhafuNotes'
-import { fiveRhythm } from '../src/rhythms'
 import { Note } from '../../../src/types'
 import * as from from '../../../src/utilities/from'
+import { hafuhafuNotes } from '../src/hafuhafuNotes'
+import { fiveRhythm } from '../src/rhythms'
 
 describe('hafuhafu notes', () => {
     let result: Note[] = []
@@ -36,7 +36,7 @@ describe('hafuhafu notes', () => {
 
     it('keeps a constant sustain of the notes, slightly shorter than half the first duration', () => {
         for (let i: number = 0; i < expectedLength; i++) {
-            expect(from.Time(result[i].sustain)).toBe(0.8 * expectedTempoAdjustment)
+            expect(from.Time(result[i].sustain)).toBe(expectedTempoAdjustment * 0.8)
         }
     })
 })

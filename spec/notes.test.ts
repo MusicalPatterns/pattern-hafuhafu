@@ -1,5 +1,5 @@
-import { hafuhafuNote } from '../src/notes'
 import * as to from '../../../src/utilities/to'
+import { hafuhafuNote } from '../src/notes'
 import * as hafuhafuTo from '../src/utilities/to'
 
 describe('notes', () => {

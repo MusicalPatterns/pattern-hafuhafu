@@ -1,7 +1,7 @@
-import { fiveRhythm } from '../src/rhythms'
-import * as from from '../../../src/utilities/from'
 import { Note } from '../../../src/types'
+import * as from from '../../../src/utilities/from'
 import { hafuhafuNotesWithPitchCircularity } from '../src/hafuhafuNotesWithPitchCircularity'
+import { fiveRhythm } from '../src/rhythms'
 import { Direction } from '../src/types'
 
 describe('hafuhafu notes with pitch circularity', () => {

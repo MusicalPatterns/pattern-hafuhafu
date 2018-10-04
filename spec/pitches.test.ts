@@ -1,5 +1,5 @@
-import { octaveSeries } from '../src/pitches'
 import * as to from '../../../src/utilities/to'
+import { octaveSeries } from '../src/pitches'
 
 describe('pitches', () => {
     it('octave series increases by factor of 2 each step', () => {
