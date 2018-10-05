@@ -1,3 +1,4 @@
+import { defaultSongCompile } from '../../../src/compile/defaultSongCompile'
 import { Song, SongName } from '../../../src/songTypes'
 import { HAFUHAFU_BASE_FREQUENCY } from './basePitch'
 import { hafuhafuEntity, hafuhafuInEntity, hafuhafuOutEntity } from './entities'
@@ -5,6 +6,8 @@ import { octaveSeries } from './pitches'
 
 const hafuhafu: Song = {
     baseFrequency: HAFUHAFU_BASE_FREQUENCY,
+    compile: defaultSongCompile,
+    config: {},
     entityConfigs: [
         hafuhafuEntity,
     ],
@@ -17,6 +20,8 @@ const hafuhafu: Song = {
 
 const hafuhafuWithPitchCircularity: Song = {
     baseFrequency: HAFUHAFU_BASE_FREQUENCY,
+    compile: defaultSongCompile,
+    config: {},
     entityConfigs: [
         hafuhafuInEntity,
         hafuhafuOutEntity,
