@@ -5,9 +5,8 @@ import { hafuhafuEntity, hafuhafuInEntity, hafuhafuOutEntity } from './entities'
 import { octaveSeries } from './pitches'
 
 const hafuhafu: Song = {
-    baseFrequency: HAFUHAFU_BASE_FREQUENCY,
     compile: defaultSongCompile,
-    config: {},
+    customConfig: {},
     entityConfigs: [
         hafuhafuEntity,
     ],
@@ -16,12 +15,14 @@ const hafuhafu: Song = {
     scales: [
         octaveSeries,
     ],
+    standardConfig: {
+        baseFrequency: HAFUHAFU_BASE_FREQUENCY,
+    },
 }
 
 const hafuhafuWithPitchCircularity: Song = {
-    baseFrequency: HAFUHAFU_BASE_FREQUENCY,
     compile: defaultSongCompile,
-    config: {},
+    customConfig: {},
     entityConfigs: [
         hafuhafuInEntity,
         hafuhafuOutEntity,
@@ -31,6 +32,9 @@ const hafuhafuWithPitchCircularity: Song = {
     scales: [
         octaveSeries,
     ],
+    standardConfig: {
+        baseFrequency: HAFUHAFU_BASE_FREQUENCY,
+    },
 }
 
 export {
