@@ -12,7 +12,6 @@ describe('hafuhafu notes', () => {
     const TEST_BAR_COUNT: Count = to.Count(32)
     const CELL_COUNT_OF_FIVE_RHYTHM: Count = to.Count(5)
     const expectedNotesCount: Count = to.Count(from.Count(CELL_COUNT_OF_FIVE_RHYTHM) * from.Count(TEST_BAR_COUNT))
-    const expectedTempoAdjustment: Scalar = to.Scalar(25)
     const expectedSustainAmount: Scalar = to.Scalar(0.8)
 
     beforeEach(() => {
@@ -40,16 +39,14 @@ describe('hafuhafu notes', () => {
     it('gradually decreases the duration of the notes from 2 to 1, increasing the tempo from 1/2x to 1x', () => {
         for (let i: Index = to.Index(0); i < to.Index(from.Count(expectedNotesCount)); i = offset(i, to.Offset(1))) {
             expect(from.Time(result[from.Index(i)].duration)).toBe(
-                scale(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount))), expectedTempoAdjustment),
+                Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount))),
             )
         }
     })
 
     it('keeps a constant sustain of the notes, slightly shorter than half the first duration', () => {
         for (let i: Index = to.Index(0); i < to.Index(from.Count(expectedNotesCount)); i = offset(i, to.Offset(1))) {
-            expect(result[from.Index(i)].sustain).toBe(
-                to.Time(from.Scalar(scale(expectedTempoAdjustment, expectedSustainAmount))),
-            )
+            expect(result[from.Index(i)].sustain).toBe(to.Time(from.Scalar(expectedSustainAmount)))
         }
     })
 })

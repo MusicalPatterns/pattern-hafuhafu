@@ -1,6 +1,6 @@
 import { Notes } from '../../../src/types'
 import * as from from '../../../src/utilities/from'
-import { Count, Index, Scalar } from '../../../src/utilities/nominalTypes'
+import { Count, Index } from '../../../src/utilities/nominalTypes'
 import offset from '../../../src/utilities/offset'
 import scale from '../../../src/utilities/scale'
 import * as to from '../../../src/utilities/to'
@@ -13,7 +13,6 @@ describe('hafuhafu notes with pitch circularity', () => {
     const TEST_BAR_COUNT: Count = to.Count(32)
     const CELL_COUNT_OF_FIVE_RHTYHM: Count = to.Count(5)
     const expectedNotesCount: Count = to.Count(from.Count(CELL_COUNT_OF_FIVE_RHTYHM) * from.Count(TEST_BAR_COUNT))
-    const expectedTempoAdjustment: Scalar = to.Scalar(50)
 
     describe('in', () => {
         beforeEach(() => {
@@ -41,7 +40,7 @@ describe('hafuhafu notes with pitch circularity', () => {
         it('gradually decreases the duration of the notes from 2 to 1, making the tempo change from 1/2x to 1x', () => {
             for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = offset(i, to.Offset(1))) {
                 expect(from.Time(result[from.Index(i)].duration)).toBe(
-                    scale(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount))), expectedTempoAdjustment),
+                    Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount))),
                 )
             }
         })
@@ -81,7 +80,7 @@ describe('hafuhafu notes with pitch circularity', () => {
         it('gradually decreases the duration of the notes from 1 to 0.5, making the tempo change from 1x to 2x', () => {
             for (let i: Index = to.Index(0); i < to.Index(from.Count(scale(expectedNotesCount, to.Scalar(2)))); i = offset(i, to.Offset(1))) {
                 expect(from.Time(result[from.Index(i)].duration)).toBe(
-                    scale(Math.pow(2, -(from.Index(i) / from.Count(scale(expectedNotesCount, to.Scalar(2))))), expectedTempoAdjustment),
+                    Math.pow(2, -(from.Index(i) / from.Count(scale(expectedNotesCount, to.Scalar(2))))),
                 )
             }
         })
