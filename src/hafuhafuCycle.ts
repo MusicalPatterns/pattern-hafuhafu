@@ -4,7 +4,7 @@ import { Rhythm, Rhythms } from './types'
 
 const hafuhafuCycle: (rhythm: Rhythm) => Rhythms =
     (rhythm: Rhythm): Rhythms => {
-        const output: Rhythms = [rhythm.slice()]
+        const output: Rhythms = [ rhythm.slice() ]
 
         let nextRhythm: Rhythm = hafuhafuRhythm(rhythm)
         while (!deepEqual(rhythm, nextRhythm)) {

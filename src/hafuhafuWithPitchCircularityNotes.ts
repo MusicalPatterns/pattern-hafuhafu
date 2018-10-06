@@ -30,7 +30,8 @@ const hafuhafuWithPitchCircularityNotes: (rhythm: Rhythm, barCount: Count, direc
                 output.push(hafuhafuNote(cell, gain, duration, sustain, pitchScalar))
 
             }
-        } else if (direction === Direction.OUT) {
+        }
+        else if (direction === Direction.OUT) {
             const totalNotesCount: Count = to.Count(scale(
                 from.Count(cellCount) * from.Count(barCount),
                 HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,

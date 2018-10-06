@@ -17,7 +17,7 @@ const TO_AVOID_BLOW_OUT: Scalar = 0.2 as any
 const hafuhafuEntity: EntityConfig = {
     notes: fiveCycle,
     timeType: TimeType.RAW,
-    voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
+    voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
     voiceGain: TO_AVOID_BLOW_OUT,
 }
 
@@ -27,7 +27,7 @@ const hafuhafuInEntity: EntityConfig = {
             hafuhafuWithPitchCircularityNotes(rhythm, BAR_COUNT, Direction.IN)),
     ),
     timeType: TimeType.RAW,
-    voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
+    voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
     voiceGain: TO_AVOID_BLOW_OUT,
 }
 
@@ -37,7 +37,7 @@ const hafuhafuOutEntity: EntityConfig = {
             hafuhafuWithPitchCircularityNotes(rhythm, BAR_COUNT, Direction.OUT)),
     ),
     timeType: TimeType.RAW,
-    voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
+    voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
     voiceGain: TO_AVOID_BLOW_OUT,
 }
 
