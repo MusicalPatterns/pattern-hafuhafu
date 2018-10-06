@@ -7,6 +7,7 @@ import { octaveSeries } from './pitches'
 const hafuhafu: Song = {
     compile: defaultSongCompile,
     customConfig: {},
+    description: 'rhythmic circularity; rhythms within themselves',
     entityConfigs: [
         hafuhafuEntity,
     ],
@@ -23,6 +24,7 @@ const hafuhafu: Song = {
 const hafuhafuWithPitchCircularity: Song = {
     compile: defaultSongCompile,
     customConfig: {},
+    description: 'rhythmic circularity with extraneous and slipshod pitch circularity',
     entityConfigs: [
         hafuhafuInEntity,
         hafuhafuOutEntity,
