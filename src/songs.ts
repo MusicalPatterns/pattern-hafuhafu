@@ -1,10 +1,11 @@
-import { defaultSongCompile } from '../../../src/compile/defaultSongCompile'
 import { Song, SongName } from '../../../src/songTypes'
 import { Frequency, Scalar } from '../../../src/utilities/nominalTypes'
 import scale from '../../../src/utilities/scale'
+import { hafuhafuCompile, hafuhafuWithPitchCircularityCompile } from './compile'
 import { HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from './constants'
-import { hafuhafuEntity, hafuhafuInEntity, hafuhafuOutEntity } from './entities'
+import { hafuhafuHandleCustomConfigChange } from './handleCustomConfigChange'
 import { octaveSeries } from './pitches'
+import * as to from './utilities/to'
 
 // tslint:disable-next-line:no-any no-magic-numbers
 const HAFUHAFU_BASE_FREQUENCY: Frequency = 440 as any
@@ -12,13 +13,14 @@ const HAFUHAFU_BASE_FREQUENCY: Frequency = 440 as any
 const HAFUHAFU_DURATION_SCALAR: Scalar = 25 as any
 
 const hafuhafu: Song = {
-    compile: defaultSongCompile,
-    customConfig: {},
+    compile: hafuhafuCompile,
+    customConfig: {
+        rhythm: to.Rhythm([ 0, 1, 0, 0, 1 ]),
+    },
     description: 'rhythmic circularity; rhythms within themselves',
-    entityConfigs: [
-        hafuhafuEntity,
-    ],
+    entityConfigs: [],
     formattedName: 'Hafuhafu',
+    handleCustomConfigChange: hafuhafuHandleCustomConfigChange,
     name: SongName.HAFUHAFU,
     scales: [
         octaveSeries,
@@ -30,14 +32,14 @@ const hafuhafu: Song = {
 }
 
 const hafuhafuWithPitchCircularity: Song = {
-    compile: defaultSongCompile,
-    customConfig: {},
+    compile: hafuhafuWithPitchCircularityCompile,
+    customConfig: {
+        rhythm: to.Rhythm([ 0, 1, 0, 0, 1 ]),
+    },
     description: 'rhythmic circularity with extraneous and slipshod pitch circularity',
-    entityConfigs: [
-        hafuhafuInEntity,
-        hafuhafuOutEntity,
-    ],
+    entityConfigs: [],
     formattedName: 'Hafuhafu (with pitch circularity)',
+    handleCustomConfigChange: hafuhafuHandleCustomConfigChange,
     name: SongName.HAFUHAFU_WITH_PITCH_CIRCULARITY,
     scales: [
         octaveSeries,

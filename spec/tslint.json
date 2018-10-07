@@ -4,6 +4,7 @@
   ],
   "rules": {
     "no-magic-numbers": false,
-    "max-line-length": false
+    "max-line-length": false,
+    "max-file-line-count": false
   }
 }
