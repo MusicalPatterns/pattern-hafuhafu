@@ -1,6 +1,6 @@
 import { buildEntity } from '../../../src/compile/buildEntity'
 import { EntityConfig, TimeType } from '../../../src/compile/types'
-import { CustomConfig, Song } from '../../../src/songTypes'
+import { Config, Song } from '../../../src/songTypes'
 import { Entities, Entity, Notes, OscillatorName, VoiceType } from '../../../src/types'
 import { Scalar } from '../../../src/utilities/nominalTypes'
 import rotateCycle from '../../../src/utilities/rotateCycle'
@@ -12,6 +12,10 @@ import { hafuhafuNotes } from './hafuhafuNotes'
 import { hafuhafuWithPitchCircularityNotes } from './hafuhafuWithPitchCircularityNotes'
 import { Direction, Rhythm } from './types'
 
+interface HafuhafuConfig extends Config {
+    rhythm: Rhythm,
+}
+
 // tslint:disable-next-line:no-any no-magic-numbers
 const TO_AVOID_BLOW_OUT: Scalar = 0.2 as any
 
@@ -22,8 +26,8 @@ const rhythmToCycleOfNotes: (sourceRhythm: Rhythm) => Notes =
 
 const hafuhafuCompile: (song: Song) => Promise<Entities> =
     async (song: Song): Promise<Entities> => {
-        const customConfig: CustomConfig = song.customConfig
-        const rhythm: Rhythm = customConfig.rhythm as Rhythm
+        const config: HafuhafuConfig = song.config as HafuhafuConfig
+        const rhythm: Rhythm = config.rhythm
 
         const cycle: Notes = rhythmToCycleOfNotes(rhythm)
 
@@ -44,12 +48,12 @@ const hafuhafuCompile: (song: Song) => Promise<Entities> =
 
 const hafuhafuWithPitchCircularityCompile: (song: Song) => Promise<Entities> =
     async (song: Song): Promise<Entities> => {
-        const customConfig: CustomConfig = song.customConfig
-        const customConfigRhythm: Rhythm = customConfig.rhythm as Rhythm
+        const config: HafuhafuConfig = song.config as HafuhafuConfig
+        const configRhythm: Rhythm = config.rhythm
 
         const hafuhafuInEntity: EntityConfig = {
             notes: sequence(
-                rotateCycle(hafuhafuCycle(customConfigRhythm), to.Offset(1)).map((rhythm: Rhythm): Notes =>
+                rotateCycle(hafuhafuCycle(configRhythm), to.Offset(1)).map((rhythm: Rhythm): Notes =>
                     hafuhafuWithPitchCircularityNotes(rhythm, BAR_COUNT, Direction.IN)),
             ),
             timeType: TimeType.RAW,
@@ -59,7 +63,7 @@ const hafuhafuWithPitchCircularityCompile: (song: Song) => Promise<Entities> =
 
         const hafuhafuOutEntity: EntityConfig = {
             notes: sequence(
-                hafuhafuCycle(customConfigRhythm).map((rhythm: Rhythm): Notes =>
+                hafuhafuCycle(configRhythm).map((rhythm: Rhythm): Notes =>
                     hafuhafuWithPitchCircularityNotes(rhythm, BAR_COUNT, Direction.OUT)),
             ),
             timeType: TimeType.RAW,
