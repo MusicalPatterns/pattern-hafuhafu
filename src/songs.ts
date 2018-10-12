@@ -3,7 +3,6 @@ import { Frequency, Scalar } from '../../../src/utilities/nominalTypes'
 import scale from '../../../src/utilities/scale'
 import { hafuhafuCompile, hafuhafuWithPitchCircularityCompile } from './compile'
 import { HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from './constants'
-import { hafuhafuHandleConfigChange } from './handleConfigChange'
 import { octaveSeries } from './pitches'
 import * as to from './utilities/to'
 
@@ -22,7 +21,6 @@ const hafuhafu: Song = {
     description: 'rhythmic circularity; rhythms within themselves',
     entityConfigs: [],
     formattedName: 'Hafuhafu',
-    handleConfigChange: hafuhafuHandleConfigChange,
     name: SongName.HAFUHAFU,
     scales: [
         octaveSeries,
@@ -39,7 +37,6 @@ const hafuhafuWithPitchCircularity: Song = {
     description: 'rhythmic circularity with extraneous and slipshod pitch circularity',
     entityConfigs: [],
     formattedName: 'Hafuhafu (with pitch circularity)',
-    handleConfigChange: hafuhafuHandleConfigChange,
     name: SongName.HAFUHAFU_WITH_PITCH_CIRCULARITY,
     scales: [
         octaveSeries,
