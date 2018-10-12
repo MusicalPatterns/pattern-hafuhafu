@@ -7,7 +7,7 @@ import { octaveSeries } from './pitches'
 import * as to from './utilities/to'
 
 // tslint:disable-next-line:no-any no-magic-numbers
-const HAFUHAFU_BASE_FREQUENCY: Frequency = 440 as any
+const HAFUHAFU_BASE_FREQUENCY: Frequency = 50 as any
 // tslint:disable-next-line:no-any no-magic-numbers
 const HAFUHAFU_DURATION_SCALAR: Scalar = 25 as any
 
