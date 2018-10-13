@@ -10,9 +10,9 @@ const OCTAVE: Scalar = 2 as any
 // tslint:disable-next-line:no-any no-magic-numbers
 const POWER_OFFSET: Offset = -1 as any
 
-const octaveSeries: Scale = numbers.map(to.Power).map((power: Power): Scalar =>
+const octaveSeriesScale: Scale = numbers.map(to.Power).map((power: Power): Scalar =>
     raise(OCTAVE, offset(power, POWER_OFFSET)))
 
 export {
-    octaveSeries,
+    octaveSeriesScale,
 }

@@ -1,4 +1,4 @@
-import { EntityConfig, EntityConfigs, TimeType } from '../../../src/compile/types'
+import { EntitySpec, EntitySpecs, TimeType } from '../../../src/compile/types'
 import { Notes, OscillatorName, VoiceType } from '../../../src/types'
 import { Scalar } from '../../../src/utilities/nominalTypes'
 import rotateCycle from '../../../src/utilities/rotateCycle'
@@ -13,51 +13,51 @@ import { Direction, Rhythm } from './types'
 // tslint:disable-next-line:no-any no-magic-numbers
 const TO_AVOID_BLOW_OUT: Scalar = 0.2 as any
 
-const buildHafuhafuEntityConfigs: (rhythm: Rhythm) => EntityConfigs =
-    (rhythm: Rhythm): EntityConfigs => {
-        const hafuhafuEntity: EntityConfig = {
+const buildHafuhafuEntitySpecs: (rhythm: Rhythm) => EntitySpecs =
+    (rhythm: Rhythm): EntitySpecs => {
+        const hafuhafuEntitySpec: EntitySpec = {
             notes: sequence(
                 hafuhafuCycle(rhythm).map((cycleRhythm: Rhythm): Notes =>
                     hafuhafuNotes(cycleRhythm, BAR_COUNT))),
             timeType: TimeType.RAW,
-            voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
             voiceGain: TO_AVOID_BLOW_OUT,
+            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
         return [
-            hafuhafuEntity,
+            hafuhafuEntitySpec,
         ]
     }
 
-const buildHafuhafuWithPitchCircularityEntityConfigs: (rhythm: Rhythm) => EntityConfigs =
-    (rhythm: Rhythm): EntityConfigs => {
-        const hafuhafuInEntity: EntityConfig = {
+const buildHafuhafuWithPitchCircularityEntitySpecs: (rhythm: Rhythm) => EntitySpecs =
+    (rhythm: Rhythm): EntitySpecs => {
+        const hafuhafuInEntitySpec: EntitySpec = {
             notes: sequence(
                 rotateCycle(hafuhafuCycle(rhythm), to.Offset(1)).map((cycleRhythm: Rhythm): Notes =>
                     hafuhafuWithPitchCircularityNotes(cycleRhythm, BAR_COUNT, Direction.IN)),
             ),
             timeType: TimeType.RAW,
-            voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
             voiceGain: TO_AVOID_BLOW_OUT,
+            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
-        const hafuhafuOutEntity: EntityConfig = {
+        const hafuhafuOutEntitySpec: EntitySpec = {
             notes: sequence(
                 hafuhafuCycle(rhythm).map((cycleRhythm: Rhythm): Notes =>
                     hafuhafuWithPitchCircularityNotes(cycleRhythm, BAR_COUNT, Direction.OUT)),
             ),
             timeType: TimeType.RAW,
-            voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
             voiceGain: TO_AVOID_BLOW_OUT,
+            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
         return [
-            hafuhafuInEntity,
-            hafuhafuOutEntity,
+            hafuhafuInEntitySpec,
+            hafuhafuOutEntitySpec,
         ]
     }
 
 export {
-    buildHafuhafuEntityConfigs,
-    buildHafuhafuWithPitchCircularityEntityConfigs,
+    buildHafuhafuEntitySpecs,
+    buildHafuhafuWithPitchCircularityEntitySpecs,
 }
