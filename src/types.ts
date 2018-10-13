@@ -1,3 +1,4 @@
+import { Config } from '../../../src/songTypes'
 import { Cell } from './utilities/nominalTypes'
 
 type Rhythm = Cell[]
@@ -9,8 +10,13 @@ enum Direction {
     OUT = 'out',
 }
 
+interface HafuhafuConfig extends Config {
+    rhythm: Rhythm,
+}
+
 export {
     Rhythm,
     Rhythms,
     Direction,
+    HafuhafuConfig,
 }
