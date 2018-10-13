@@ -1,4 +1,4 @@
-import { EntityConfig, TimeType } from '../../../src/compile/types'
+import { EntityConfig, EntityConfigs, TimeType } from '../../../src/compile/types'
 import { Notes, OscillatorName, VoiceType } from '../../../src/types'
 import { Scalar } from '../../../src/utilities/nominalTypes'
 import rotateCycle from '../../../src/utilities/rotateCycle'
@@ -13,8 +13,8 @@ import { Direction, Rhythm } from './types'
 // tslint:disable-next-line:no-any no-magic-numbers
 const TO_AVOID_BLOW_OUT: Scalar = 0.2 as any
 
-const buildHafuhafuEntityConfigs: (rhythm: Rhythm) => EntityConfig[] =
-    (rhythm: Rhythm): EntityConfig[] => {
+const buildHafuhafuEntityConfigs: (rhythm: Rhythm) => EntityConfigs =
+    (rhythm: Rhythm): EntityConfigs => {
         const hafuhafuEntity: EntityConfig = {
             notes: sequence(
                 hafuhafuCycle(rhythm).map((cycleRhythm: Rhythm): Notes =>
@@ -29,8 +29,8 @@ const buildHafuhafuEntityConfigs: (rhythm: Rhythm) => EntityConfig[] =
         ]
     }
 
-const buildHafuhafuWithPitchCircularityEntityConfigs: (rhythm: Rhythm) => EntityConfig[] =
-    (rhythm: Rhythm): EntityConfig[] => {
+const buildHafuhafuWithPitchCircularityEntityConfigs: (rhythm: Rhythm) => EntityConfigs =
+    (rhythm: Rhythm): EntityConfigs => {
         const hafuhafuInEntity: EntityConfig = {
             notes: sequence(
                 rotateCycle(hafuhafuCycle(rhythm), to.Offset(1)).map((cycleRhythm: Rhythm): Notes =>
