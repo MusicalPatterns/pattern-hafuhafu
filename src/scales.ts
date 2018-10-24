@@ -1,18 +1,21 @@
-import { Scale } from '../../../src/types'
-import { Offset, Power, Scalar } from '../../../src/utilities/nominalTypes'
-import numbers from '../../../src/utilities/numbers'
-import offset from '../../../src/utilities/offset'
-import raise from '../../../src/utilities/raise'
-import * as to from '../../../src/utilities/to'
+import { BuildScalesFunction } from '../../../src/compile/types'
+import { flatDurationsScale, octaveSeriesScale } from '../../../src/scales'
+import { SongSpec } from '../../../src/songs'
+import { Scales } from '../../../src/types'
 
-// tslint:disable-next-line:no-any no-magic-numbers
-const OCTAVE: Scalar = 2 as any
-// tslint:disable-next-line:no-any no-magic-numbers
-const POWER_OFFSET: Offset = -1 as any
-
-const octaveSeriesScale: Scale = numbers.map(to.Power).map((power: Power): Scalar =>
-    raise(OCTAVE, offset(power, POWER_OFFSET)))
+const buildHafuhafuScales: BuildScalesFunction = (songSpec: SongSpec): Scales =>
+    [
+        flatDurationsScale,
+        {
+            scalar: songSpec.songDurationScalar,
+            scalars: flatDurationsScale.scalars,
+        },
+        {
+            scalar: songSpec.songPitchScalar,
+            scalars: octaveSeriesScale.scalars,
+        },
+    ]
 
 export {
-    octaveSeriesScale,
+    buildHafuhafuScales,
 }

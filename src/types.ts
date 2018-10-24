@@ -1,4 +1,4 @@
-import { Config } from '../../../src/songTypes'
+import { Scalar } from '../../../src/utilities/nominalTypes'
 import { Cell } from './utilities/nominalTypes'
 
 type Rhythm = Cell[]
@@ -10,13 +10,17 @@ enum Direction {
     OUT = 'out',
 }
 
-interface HafuhafuConfig extends Config {
-    rhythm: Rhythm,
+interface BuildHafuhafuNoteSpecParameters {
+    cell: Cell,
+    duration: Scalar,
+    gain: Scalar,
+    pitch: Scalar,
+    sustain: Scalar,
 }
 
 export {
     Rhythm,
     Rhythms,
     Direction,
-    HafuhafuConfig,
+    BuildHafuhafuNoteSpecParameters,
 }

@@ -1,63 +1,61 @@
-import { EntitySpec, EntitySpecs, TimeType } from '../../../src/compile/types'
-import { Notes, OscillatorName, VoiceType } from '../../../src/types'
-import { Scalar } from '../../../src/utilities/nominalTypes'
+import { Entities, Entity, NoteSpecs, TimeType } from '../../../src/compile/types'
+import { OscillatorName, VoiceType } from '../../../src/types'
 import rotateCycle from '../../../src/utilities/rotateCycle'
 import sequence from '../../../src/utilities/sequence'
 import * as to from '../../../src/utilities/to'
 import { BAR_COUNT } from './constants'
 import { hafuhafuCycle } from './hafuhafuCycle'
-import { hafuhafuNotes } from './hafuhafuNotes'
-import { hafuhafuWithPitchCircularityNotes } from './hafuhafuWithPitchCircularityNotes'
+import { hafuhafuNoteSpecs } from './hafuhafuNoteSpecs'
+import { hafuhafuWithPitchCircularityNoteSpecs } from './hafuhafuWithPitchCircularityNoteSpecs'
+import { HafuhafuSongSpec } from './songSpecs'
 import { Direction, Rhythm } from './types'
 
-// tslint:disable-next-line:no-any no-magic-numbers
-const TO_AVOID_BLOW_OUT: Scalar = 0.2 as any
+const buildHafuhafuEntities: (songSpec: HafuhafuSongSpec) => Entities =
+    (songSpec: HafuhafuSongSpec): Entities => {
+        const rhythm: Rhythm = songSpec.rhythm
 
-const buildHafuhafuEntitySpecs: (rhythm: Rhythm) => EntitySpecs =
-    (rhythm: Rhythm): EntitySpecs => {
-        const hafuhafuEntitySpec: EntitySpec = {
-            notes: sequence(
-                hafuhafuCycle(rhythm).map((cycleRhythm: Rhythm): Notes =>
-                    hafuhafuNotes(cycleRhythm, BAR_COUNT))),
+        const hafuhafuEntity: Entity = {
+            noteSpecs: sequence(
+                hafuhafuCycle(rhythm).map((cycleRhythm: Rhythm): NoteSpecs =>
+                    hafuhafuNoteSpecs(cycleRhythm, BAR_COUNT))),
             timeType: TimeType.RAW,
-            voiceGain: TO_AVOID_BLOW_OUT,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
         return [
-            hafuhafuEntitySpec,
+            hafuhafuEntity,
         ]
     }
 
-const buildHafuhafuWithPitchCircularityEntitySpecs: (rhythm: Rhythm) => EntitySpecs =
-    (rhythm: Rhythm): EntitySpecs => {
-        const hafuhafuInEntitySpec: EntitySpec = {
-            notes: sequence(
-                rotateCycle(hafuhafuCycle(rhythm), to.Offset(1)).map((cycleRhythm: Rhythm): Notes =>
-                    hafuhafuWithPitchCircularityNotes(cycleRhythm, BAR_COUNT, Direction.IN)),
+const buildHafuhafuWithPitchCircularityEntities: (songSpec: HafuhafuSongSpec) => Entities =
+    (songSpec: HafuhafuSongSpec): Entities => {
+        const rhythm: Rhythm = songSpec.rhythm
+
+        const hafuhafuInEntity: Entity = {
+            noteSpecs: sequence(
+                rotateCycle(hafuhafuCycle(rhythm), to.Offset(1)).map((cycleRhythm: Rhythm): NoteSpecs =>
+                    hafuhafuWithPitchCircularityNoteSpecs(cycleRhythm, BAR_COUNT, Direction.IN)),
             ),
             timeType: TimeType.RAW,
-            voiceGain: TO_AVOID_BLOW_OUT,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
-        const hafuhafuOutEntitySpec: EntitySpec = {
-            notes: sequence(
-                hafuhafuCycle(rhythm).map((cycleRhythm: Rhythm): Notes =>
-                    hafuhafuWithPitchCircularityNotes(cycleRhythm, BAR_COUNT, Direction.OUT)),
+        const hafuhafuOutEntity: Entity = {
+            noteSpecs: sequence(
+                hafuhafuCycle(rhythm).map((cycleRhythm: Rhythm): NoteSpecs =>
+                    hafuhafuWithPitchCircularityNoteSpecs(cycleRhythm, BAR_COUNT, Direction.OUT)),
             ),
             timeType: TimeType.RAW,
-            voiceGain: TO_AVOID_BLOW_OUT,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
         return [
-            hafuhafuInEntitySpec,
-            hafuhafuOutEntitySpec,
+            hafuhafuInEntity,
+            hafuhafuOutEntity,
         ]
     }
 
 export {
-    buildHafuhafuEntitySpecs,
-    buildHafuhafuWithPitchCircularityEntitySpecs,
+    buildHafuhafuEntities,
+    buildHafuhafuWithPitchCircularityEntities,
 }

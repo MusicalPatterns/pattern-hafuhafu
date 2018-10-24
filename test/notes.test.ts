@@ -1,24 +1,122 @@
+import { NotePropertySpec, NoteSpec } from '../../../src/compile/types'
 import * as to from '../../../src/utilities/to'
-import { hafuhafuNote } from '../src/notes'
+import { buildHafuhafuNoteSpec } from '../src/notes'
 import * as hafuhafuTo from '../src/utilities/to'
 
-describe('notes', () => {
-    it('hafuhafu note offsets the cell by one to get the pitch index, and the sustain is 90% the duration', () => {
-        expect(hafuhafuNote(hafuhafuTo.Cell(3), to.Scalar(0.5), to.Time(2), to.Time(1), to.Scalar(0.5))).toEqual({
-            duration: to.Time(2),
-            gain: to.Scalar(0.5),
-            pitchIndex: to.Index(4),
-            pitchScalar: to.Scalar(0.5),
-            scaleIndex: to.Index(0),
-            sustain: to.Time(1),
+describe('note specs', () => {
+    describe('example one', () => {
+        let noteSpec: NoteSpec
+        beforeEach(() => {
+            noteSpec = buildHafuhafuNoteSpec({
+                cell: hafuhafuTo.Cell(3),
+                duration: to.Scalar(0.5),
+                gain: to.Scalar(2),
+                pitch: to.Scalar(1),
+                sustain: to.Scalar(0.5),
+            })
         })
-        expect(hafuhafuNote(hafuhafuTo.Cell(4), to.Scalar(0.25), to.Time(1.5), to.Time(0.375), to.Scalar(1))).toEqual({
-            duration: to.Time(1.5),
-            gain: to.Scalar(0.25),
-            pitchIndex: to.Index(5),
-            pitchScalar: to.Scalar(1),
-            scaleIndex: to.Index(0),
-            sustain: to.Time(0.375),
+
+        describe('duration', () => {
+            let durationSpec: NotePropertySpec
+            beforeEach(() => {
+                durationSpec = noteSpec.durationSpec || {}
+            })
+
+            it('uses the duration parameter as the scalar', () => {
+                expect(durationSpec.scalar).toBe(to.Scalar(0.5))
+            })
+
+            it('uses the scale for durations', () => {
+                expect(durationSpec.scaleIndex).toBe(to.Index(1))
+            })
+        })
+
+        describe('gain', () => {
+            let gainSpec: NotePropertySpec
+            beforeEach(() => {
+                gainSpec = noteSpec.gainSpec || {}
+            })
+
+            it('uses the gain parameter as the scalar', () => {
+                expect(gainSpec.scalar).toBe(to.Scalar(2))
+            })
+        })
+
+        describe('pitch', () => {
+            let pitchSpec: NotePropertySpec
+            beforeEach(() => {
+                pitchSpec = noteSpec.pitchSpec || {}
+            })
+
+            it('uses the pitch parameter as the scalar', () => {
+                expect(pitchSpec.scalar).toBe(to.Scalar(1))
+            })
+
+            it('uses the scale for pitches', () => {
+                expect(pitchSpec.scaleIndex).toBe(to.Index(2))
+            })
+
+            it('uses the cell parameter, offset by one, as the index', () => {
+                expect(pitchSpec.index).toBe(to.Index(4))
+            })
+        })
+    })
+
+    describe('example two', () => {
+        let noteSpec: NoteSpec
+        beforeEach(() => {
+            noteSpec = buildHafuhafuNoteSpec({
+                cell: hafuhafuTo.Cell(4),
+                duration: to.Scalar(0.25),
+                gain: to.Scalar(1.5),
+                pitch: to.Scalar(0.375),
+                sustain: to.Scalar(1),
+            })
+        })
+
+        describe('duration', () => {
+            let durationSpec: NotePropertySpec
+            beforeEach(() => {
+                durationSpec = noteSpec.durationSpec || {}
+            })
+
+            it('uses the duration parameter as the scalar', () => {
+                expect(durationSpec.scalar).toBe(to.Scalar(0.25))
+            })
+
+            it('uses the scale for durations', () => {
+                expect(durationSpec.scaleIndex).toBe(to.Index(1))
+            })
+        })
+
+        describe('gain', () => {
+            let gainSpec: NotePropertySpec
+            beforeEach(() => {
+                gainSpec = noteSpec.gainSpec || {}
+            })
+
+            it('uses the gain parameter as the scalar', () => {
+                expect(gainSpec.scalar).toBe(to.Scalar(1.5))
+            })
+        })
+
+        describe('pitch', () => {
+            let pitchSpec: NotePropertySpec
+            beforeEach(() => {
+                pitchSpec = noteSpec.pitchSpec || {}
+            })
+
+            it('uses the pitch parameter as the scalar', () => {
+                expect(pitchSpec.scalar).toBe(to.Scalar(0.375))
+            })
+
+            it('uses the scale for pitches', () => {
+                expect(pitchSpec.scaleIndex).toBe(to.Index(2))
+            })
+
+            it('uses the cell parameter, offset by one, as the index', () => {
+                expect(pitchSpec.index).toBe(to.Index(5))
+            })
         })
     })
 })
