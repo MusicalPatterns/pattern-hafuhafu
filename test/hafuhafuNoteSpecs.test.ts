@@ -3,6 +3,7 @@ import applyOffset from '../../../src/utilities/applyOffset'
 import * as from from '../../../src/utilities/from'
 import { Count, Index, Scalar } from '../../../src/utilities/nominalTypes'
 import * as to from '../../../src/utilities/to'
+import { Maybe } from '../../../src/utilities/types'
 import { hafuhafuNoteSpecs } from '../src/hafuhafuNoteSpecs'
 import { Rhythm } from '../src/types'
 import * as hafuhafuTo from '../src/utilities/to'
@@ -33,7 +34,7 @@ describe('hafuhafu notes', () => {
 
             it('keeps a constant gain on the even notes', () => {
                 for (let i: Index = to.Index(0); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(2))) {
-                    const gainSpec: NotePropertySpec | undefined = result[ from.Index(i) ].gainSpec
+                    const gainSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].gainSpec
                     if (!gainSpec) {
                         fail()
                     }
@@ -45,7 +46,7 @@ describe('hafuhafu notes', () => {
 
             it('gradually reduces the gain on the odd notes until they are silent', () => {
                 for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(2))) {
-                    const gainSpec: NotePropertySpec | undefined = result[ from.Index(i) ].gainSpec
+                    const gainSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].gainSpec
                     if (!gainSpec) {
                         fail()
                     }
@@ -59,7 +60,7 @@ describe('hafuhafu notes', () => {
 
             it('gradually decreases the duration of the notes from 2 to 1, increasing the tempo from 1/2x to 1x', () => {
                 for (let i: Index = to.Index(0); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                    const durationSpec: NotePropertySpec | undefined = result[ from.Index(i) ].durationSpec
+                    const durationSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].durationSpec
                     if (!durationSpec) {
                         fail()
                     }
@@ -73,7 +74,7 @@ describe('hafuhafu notes', () => {
 
             it('keeps a constant sustain of the notes, slightly shorter than half the first duration', () => {
                 for (let i: Index = to.Index(0); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                    const sustainSpec: NotePropertySpec | undefined = result[ from.Index(i) ].sustainSpec
+                    const sustainSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].sustainSpec
                     if (!sustainSpec) {
                         fail()
                     }

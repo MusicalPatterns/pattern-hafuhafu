@@ -4,6 +4,7 @@ import applyScale from '../../../src/utilities/applyScale'
 import * as from from '../../../src/utilities/from'
 import { Count, Index } from '../../../src/utilities/nominalTypes'
 import * as to from '../../../src/utilities/to'
+import { Maybe } from '../../../src/utilities/types'
 import { hafuhafuWithPitchCircularityNoteSpecs } from '../src/hafuhafuWithPitchCircularityNoteSpecs'
 import { Direction, Rhythm } from '../src/types'
 import * as hafuhafuTo from '../src/utilities/to'
@@ -34,7 +35,7 @@ describe('hafuhafu notes with pitch circularity', () => {
 
                 it('gradually increases the gain from silence to full (this one is linear because the between silence and 1 is artificially curved)', () => {
                     for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                        const gainSpec: NotePropertySpec | undefined = result[ from.Index(i) ].gainSpec
+                        const gainSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].gainSpec
                         if (!gainSpec) {
                             fail()
                         }
@@ -46,7 +47,7 @@ describe('hafuhafu notes with pitch circularity', () => {
 
                 it('gradually increases the pitch scalar from half to normal', () => {
                     for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                        const pitchSpec: NotePropertySpec | undefined = result[ from.Index(i) ].pitchSpec
+                        const pitchSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].pitchSpec
                         if (!pitchSpec) {
                             fail()
                         }
@@ -60,7 +61,7 @@ describe('hafuhafu notes with pitch circularity', () => {
 
                 it('gradually decreases the duration of the notes from 2 to 1, making the tempo change from 1/2x to 1x', () => {
                     for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                        const durationSpec: NotePropertySpec | undefined = result[ from.Index(i) ].durationSpec
+                        const durationSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].durationSpec
                         if (!durationSpec) {
                             fail()
                         }
@@ -74,8 +75,8 @@ describe('hafuhafu notes with pitch circularity', () => {
 
                 it('the sustain is always half of the duration', () => {
                     for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                        const sustainSpec: NotePropertySpec | undefined = result[ from.Index(i) ].sustainSpec
-                        const durationSpec: NotePropertySpec | undefined = result[ from.Index(i) ].durationSpec
+                        const sustainSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].sustainSpec
+                        const durationSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].durationSpec
                         if (!sustainSpec || !durationSpec) {
                             fail()
                         }
@@ -101,7 +102,7 @@ describe('hafuhafu notes with pitch circularity', () => {
 
                 it('gradually decreases the gain from full to silence', () => {
                     for (let i: Index = to.Index(1); i < to.Index(from.Count(applyScale(expectedNotesCount, to.Scalar(2)))); i = applyOffset(i, to.Offset(1))) {
-                        const gainSpec: NotePropertySpec | undefined = result[ from.Index(i) ].gainSpec
+                        const gainSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].gainSpec
                         if (!gainSpec) {
                             fail()
                         }
@@ -115,7 +116,7 @@ describe('hafuhafu notes with pitch circularity', () => {
 
                 it('gradually increases the pitch scalar from normal to twice', () => {
                     for (let i: Index = to.Index(1); i < to.Index(from.Count(applyScale(expectedNotesCount, to.Scalar(2)))); i = applyOffset(i, to.Offset(1))) {
-                        const pitchSpec: NotePropertySpec | undefined = result[ from.Index(i) ].pitchSpec
+                        const pitchSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].pitchSpec
                         if (!pitchSpec) {
                             fail()
                         }
@@ -129,7 +130,7 @@ describe('hafuhafu notes with pitch circularity', () => {
 
                 it('gradually decreases the duration of the notes from 1 to 0.5, making the tempo change from 1x to 2x', () => {
                     for (let i: Index = to.Index(0); i < to.Index(from.Count(applyScale(expectedNotesCount, to.Scalar(2)))); i = applyOffset(i, to.Offset(1))) {
-                        const durationSpec: NotePropertySpec | undefined = result[ from.Index(i) ].durationSpec
+                        const durationSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].durationSpec
                         if (!durationSpec) {
                             fail()
                         }
@@ -143,8 +144,8 @@ describe('hafuhafu notes with pitch circularity', () => {
 
                 it('the sustain is always half of the duration', () => {
                     for (let i: Index = to.Index(0); i < to.Index(from.Count(applyScale(expectedNotesCount, to.Scalar(2)))); i = applyOffset(i, to.Offset(1))) {
-                        const sustainSpec: NotePropertySpec | undefined = result[ from.Index(i) ].sustainSpec
-                        const durationSpec: NotePropertySpec | undefined = result[ from.Index(i) ].durationSpec
+                        const sustainSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].sustainSpec
+                        const durationSpec: Maybe<NotePropertySpec> = result[ from.Index(i) ].durationSpec
                         if (!sustainSpec || !durationSpec) {
                             fail()
                         }
