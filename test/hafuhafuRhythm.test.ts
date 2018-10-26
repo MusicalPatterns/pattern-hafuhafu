@@ -1,5 +1,4 @@
-import { hafuhafuRhythm } from '../src/hafuhafuRhythm'
-import * as to from '../src/utilities/to'
+import { hafuhafuRhythm, to } from '../src/indexForTest'
 
 describe('hafuhafu rhythm', () => {
     it('returns the rhythm the same length as the original, taking every note, wrapping around the end', () => {

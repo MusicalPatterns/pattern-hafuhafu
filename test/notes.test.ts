@@ -1,7 +1,5 @@
-import { NotePropertySpec, NoteSpec } from '../../../src/compile/types'
-import * as to from '../../../src/utilities/to'
-import { buildHafuhafuNoteSpec } from '../src/notes'
-import * as hafuhafuTo from '../src/utilities/to'
+import { NotePropertySpec, NoteSpec, to } from '../../../src/indexForTest'
+import { buildHafuhafuNoteSpec, to as hafuhafuTo } from '../src/indexForTest'
 
 describe('note specs', () => {
     describe('example one', () => {

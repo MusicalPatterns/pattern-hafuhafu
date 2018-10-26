@@ -1,15 +1,18 @@
-import { NotePropertySpec, NoteSpecs } from '../../../src/compile/types'
-import applyOffset from '../../../src/utilities/applyOffset'
-import * as from from '../../../src/utilities/from'
-import { Count, Index, Scalar } from '../../../src/utilities/nominalTypes'
-import * as to from '../../../src/utilities/to'
-import { Maybe } from '../../../src/utilities/types'
-import { hafuhafuNoteSpecs } from '../src/hafuhafuNoteSpecs'
-import { Rhythm } from '../src/types'
-import * as hafuhafuTo from '../src/utilities/to'
+import {
+    applyOffset,
+    Count,
+    from,
+    Index,
+    Maybe,
+    NotePropertySpec,
+    NoteSpec,
+    Scalar,
+    to,
+} from '../../../src/indexForTest'
+import { hafuhafuNoteSpecs, Rhythm, to as hafuhafuTo } from '../src/indexForTest'
 
 describe('hafuhafu notes', () => {
-    let result: NoteSpecs = []
+    let result: NoteSpec[] = []
     let expectedNotesCount: Count = to.Count(0)
     const TEST_BAR_COUNT: Count = to.Count(32)
     const expectedSustainAmount: Scalar = to.Scalar(0.8)

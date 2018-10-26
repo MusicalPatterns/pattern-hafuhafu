@@ -1,10 +1,6 @@
-import applyOffset from '../../../src/utilities/applyOffset'
-import applyScale from '../../../src/utilities/applyScale'
-import * as from from '../../../src/utilities/from'
-import { Index, Scalar } from '../../../src/utilities/nominalTypes'
-import * as to from '../../../src/utilities/to'
+import { applyOffset, applyScale, from, Index, Scalar, to } from '../../../src'
+import { to as hafuhafuTo } from './nominal'
 import { Rhythm } from './types'
-import * as hafuhafuTo from './utilities/to'
 
 // tslint:disable-next-line:no-any no-magic-numbers
 const EVERY_OTHER: Scalar = 2 as any

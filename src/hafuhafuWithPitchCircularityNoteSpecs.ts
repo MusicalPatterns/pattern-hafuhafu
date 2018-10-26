@@ -1,20 +1,13 @@
-import { NoteSpecs } from '../../../src/compile/types'
-import { ONE, TWO } from '../../../src/constants'
-import applyOffset from '../../../src/utilities/applyOffset'
-import applyScale from '../../../src/utilities/applyScale'
-import * as from from '../../../src/utilities/from'
-import { Count, Index, Scalar } from '../../../src/utilities/nominalTypes'
-import raise from '../../../src/utilities/raise'
-import * as to from '../../../src/utilities/to'
+import { applyOffset, applyScale, Count, from, Index, NoteSpec, ONE, raise, Scalar, to, TWO } from '../../../src'
 import { HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from './constants'
+import { Cell } from './nominal'
 import { buildHafuhafuNoteSpec } from './notes'
 import { Direction, Rhythm } from './types'
-import { Cell } from './utilities/nominalTypes'
 
-const hafuhafuWithPitchCircularityNoteSpecs: (rhythm: Rhythm, barCount: Count, direction: Direction) => NoteSpecs =
-    (rhythm: Rhythm, barCount: Count, direction: Direction): NoteSpecs => {
+const hafuhafuWithPitchCircularityNoteSpecs: (rhythm: Rhythm, barCount: Count, direction: Direction) => NoteSpec[] =
+    (rhythm: Rhythm, barCount: Count, direction: Direction): NoteSpec[] => {
         const cellCount: Count = to.Count(rhythm.length)
-        const output: NoteSpecs = []
+        const output: NoteSpec[] = []
 
         if (direction === Direction.IN) {
             const totalNotesCount: Count = to.Count(from.Count(cellCount) * from.Count(barCount))
@@ -30,7 +23,7 @@ const hafuhafuWithPitchCircularityNoteSpecs: (rhythm: Rhythm, barCount: Count, d
                 const sustain: Scalar = to.Scalar(from.Scalar(duration) / TWO)
                 const pitch: Scalar = to.Scalar(raise(TWO, to.Power(from.Scalar(progress) - ONE)))
 
-                const cell: Cell = rhythm[from.Index(i) % from.Count(cellCount)]
+                const cell: Cell = rhythm[ from.Index(i) % from.Count(cellCount) ]
                 output.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
 
             }
@@ -47,12 +40,12 @@ const hafuhafuWithPitchCircularityNoteSpecs: (rhythm: Rhythm, barCount: Count, d
             ) {
                 const progress: Scalar = to.Scalar(from.Index(i) / from.Count(totalNotesCount))
 
-                const gain: Scalar =  to.Scalar(raise(TWO, to.Power(ONE - from.Scalar(progress))) - ONE)
+                const gain: Scalar = to.Scalar(raise(TWO, to.Power(ONE - from.Scalar(progress))) - ONE)
                 const duration: Scalar = to.Scalar(raise(TWO, to.Power(-from.Scalar(progress))))
                 const sustain: Scalar = to.Scalar(from.Scalar(duration) / TWO)
                 const pitch: Scalar = to.Scalar(raise(TWO, to.Power(from.Scalar(progress))))
 
-                const cell: Cell = rhythm[from.Index(i) % from.Count(cellCount)]
+                const cell: Cell = rhythm[ from.Index(i) % from.Count(cellCount) ]
                 output.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
             }
         }

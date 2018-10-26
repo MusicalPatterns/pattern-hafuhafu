@@ -1,9 +1,6 @@
-import { NoteSpec } from '../../../src/compile/types'
-import applyOffset from '../../../src/utilities/applyOffset'
-import { Index, Offset } from '../../../src/utilities/nominalTypes'
-import * as to from '../../../src/utilities/to'
+import { applyOffset, Index, NoteSpec, Offset, to } from '../../../src'
+import { from } from './nominal'
 import { BuildHafuhafuNoteSpecParameters } from './types'
-import * as hafuhafuFrom from './utilities/from'
 
 // tslint:disable-next-line:no-any no-magic-numbers
 const PITCH_INDEX_BASE_OFFSET: Offset = 1 as any
@@ -23,7 +20,7 @@ const buildHafuhafuNoteSpec: (buildHafuhafuNoteSpecParameters: BuildHafuhafuNote
             scalar: gain,
         },
         pitchSpec: {
-            index: to.Index(applyOffset(hafuhafuFrom.Cell(cell), PITCH_INDEX_BASE_OFFSET)),
+            index: to.Index(applyOffset(from.Cell(cell), PITCH_INDEX_BASE_OFFSET)),
             scalar: pitch,
             scaleIndex: PITCH_SCALE_INDEX,
         },

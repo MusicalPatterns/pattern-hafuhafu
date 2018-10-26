@@ -1,7 +1,7 @@
 // tslint:disable:variable-name no-any
 
 import { Rhythm, Rhythms } from '../types'
-import { Cell } from './nominalTypes'
+import { Cell } from './types'
 
 const Cell: (cell: number) => Cell =
     (cell: number): Cell => cell as any

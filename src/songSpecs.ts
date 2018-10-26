@@ -1,18 +1,12 @@
-import { BaseSongSpec } from '../../../src/songTypes'
-import applyScale from '../../../src/utilities/applyScale'
-import { Scalar } from '../../../src/utilities/nominalTypes'
+import { applyScale, Scalar } from '../../../src'
 import { HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from './constants'
-import { Rhythm } from './types'
-import * as to from './utilities/to'
+import { to } from './nominal'
+import { HafuhafuSongSpec } from './types'
 
 // tslint:disable-next-line:no-any no-magic-numbers
 const HAFUHAFU_PITCH_SCALAR: Scalar = 50 as any
 // tslint:disable-next-line:no-any no-magic-numbers
 const HAFUHAFU_DURATION_SCALAR: Scalar = 25 as any
-
-interface HafuhafuSongSpec extends BaseSongSpec {
-    rhythm: Rhythm,
-}
 
 const hafuhafuSongSpec: HafuhafuSongSpec = {
     rhythm: to.Rhythm([ 0, 1, 0, 0, 1 ]),
@@ -29,5 +23,4 @@ const hafuhafuWithPitchCircularitySongSpec: HafuhafuSongSpec = {
 export {
     hafuhafuSongSpec,
     hafuhafuWithPitchCircularitySongSpec,
-    HafuhafuSongSpec,
 }

@@ -1,4 +1,4 @@
-import { deepEqual } from '../../../src/utilities/deepEqual'
+import { deepEqual } from '../../../src'
 import { hafuhafuRhythm } from './hafuhafuRhythm'
 import { Rhythm, Rhythms } from './types'
 

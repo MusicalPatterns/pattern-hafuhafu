@@ -1,4 +1,4 @@
-import { Count, Scalar } from '../../../src/utilities/nominalTypes'
+import { Count, Scalar } from '../../../src'
 
 // tslint:disable-next-line:no-any no-magic-numbers
 const BAR_COUNT: Count = 16 as any

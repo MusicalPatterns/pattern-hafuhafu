@@ -1,21 +1,15 @@
-import { NoteSpecs } from '../../../src/compile/types'
-import { FULL_GAIN, ONE, TWO } from '../../../src/constants'
-import applyOffset from '../../../src/utilities/applyOffset'
-import * as from from '../../../src/utilities/from'
-import { Count, Index, Scalar } from '../../../src/utilities/nominalTypes'
-import raise from '../../../src/utilities/raise'
-import * as to from '../../../src/utilities/to'
+import { applyOffset, Count, from, FULL_GAIN, Index, NoteSpec, ONE, raise, Scalar, to, TWO } from '../../../src'
+import { Cell } from './nominal'
 import { buildHafuhafuNoteSpec } from './notes'
 import { Rhythm } from './types'
-import { Cell } from './utilities/nominalTypes'
 
 // tslint:disable-next-line:no-any no-magic-numbers
 const ALMOST_ALL: Scalar = 0.8 as any
 
-const hafuhafuNoteSpecs: (rhythm: Rhythm, barCount: Count) => NoteSpecs =
-    (rhythm: Rhythm, barCount: Count): NoteSpecs => {
+const hafuhafuNoteSpecs: (rhythm: Rhythm, barCount: Count) => NoteSpec[] =
+    (rhythm: Rhythm, barCount: Count): NoteSpec[] => {
         const cellCount: Count = to.Count(rhythm.length)
-        const output: NoteSpecs = []
+        const output: NoteSpec[] = []
 
         for (
             let i: Index = to.Index(0);

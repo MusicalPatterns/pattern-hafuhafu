@@ -1,16 +1,18 @@
-import { NotePropertySpec, NoteSpecs } from '../../../src/compile/types'
-import applyOffset from '../../../src/utilities/applyOffset'
-import applyScale from '../../../src/utilities/applyScale'
-import * as from from '../../../src/utilities/from'
-import { Count, Index } from '../../../src/utilities/nominalTypes'
-import * as to from '../../../src/utilities/to'
-import { Maybe } from '../../../src/utilities/types'
-import { hafuhafuWithPitchCircularityNoteSpecs } from '../src/hafuhafuWithPitchCircularityNoteSpecs'
-import { Direction, Rhythm } from '../src/types'
-import * as hafuhafuTo from '../src/utilities/to'
+import {
+    applyOffset,
+    applyScale,
+    Count,
+    from,
+    Index,
+    Maybe,
+    NotePropertySpec,
+    NoteSpec,
+    to,
+} from '../../../src/indexForTest'
+import { Direction, hafuhafuWithPitchCircularityNoteSpecs, Rhythm, to as hafuhafuTo } from '../src/indexForTest'
 
 describe('hafuhafu notes with pitch circularity', () => {
-    let result: NoteSpecs = []
+    let result: NoteSpec[] = []
     let expectedNotesCount: Count = to.Count(0)
     const TEST_BAR_COUNT: Count = to.Count(32)
 

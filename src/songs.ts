@@ -1,7 +1,7 @@
-import { Song } from '../../src/songTypes'
-import { hafuhafuSongMaterial, hafuhafuWithPitchCircularitySongMaterial } from './src/songMaterials'
-import { hafuhafuSongMetadata, hafuhafuWithPitchCircularitySongMetadata } from './src/songMetadata'
-import { hafuhafuSongSpec, hafuhafuWithPitchCircularitySongSpec } from './src/songSpecs'
+import { Song } from '../../../src'
+import { hafuhafuSongMaterial, hafuhafuWithPitchCircularitySongMaterial } from './songMaterials'
+import { hafuhafuSongMetadata, hafuhafuWithPitchCircularitySongMetadata } from './songMetadata'
+import { hafuhafuSongSpec, hafuhafuWithPitchCircularitySongSpec } from './songSpecs'
 
 const hafuhafuSong: Song = {
     material: hafuhafuSongMaterial,
