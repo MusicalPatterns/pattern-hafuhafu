@@ -21,11 +21,13 @@ describe('note specs', () => {
             })
 
             it('uses the duration parameter as the scalar', () => {
-                expect(durationSpec.scalar).toBe(to.Scalar(0.5))
+                expect(durationSpec.scalar)
+                    .toBe(to.Scalar(0.5))
             })
 
             it('uses the scale for durations', () => {
-                expect(durationSpec.scaleIndex).toBe(to.Index(1))
+                expect(durationSpec.scaleIndex)
+                    .toBe(to.Index(1))
             })
         })
 
@@ -36,7 +38,8 @@ describe('note specs', () => {
             })
 
             it('uses the gain parameter as the scalar', () => {
-                expect(gainSpec.scalar).toBe(to.Scalar(2))
+                expect(gainSpec.scalar)
+                    .toBe(to.Scalar(2))
             })
         })
 
@@ -47,15 +50,18 @@ describe('note specs', () => {
             })
 
             it('uses the pitch parameter as the scalar', () => {
-                expect(pitchSpec.scalar).toBe(to.Scalar(1))
+                expect(pitchSpec.scalar)
+                    .toBe(to.Scalar(1))
             })
 
             it('uses the scale for pitches', () => {
-                expect(pitchSpec.scaleIndex).toBe(to.Index(2))
+                expect(pitchSpec.scaleIndex)
+                    .toBe(to.Index(2))
             })
 
             it('uses the cell parameter, offset by one, as the index', () => {
-                expect(pitchSpec.index).toBe(to.Index(4))
+                expect(pitchSpec.index)
+                    .toBe(to.Index(4))
             })
         })
     })
@@ -79,11 +85,13 @@ describe('note specs', () => {
             })
 
             it('uses the duration parameter as the scalar', () => {
-                expect(durationSpec.scalar).toBe(to.Scalar(0.25))
+                expect(durationSpec.scalar)
+                    .toBe(to.Scalar(0.25))
             })
 
             it('uses the scale for durations', () => {
-                expect(durationSpec.scaleIndex).toBe(to.Index(1))
+                expect(durationSpec.scaleIndex)
+                    .toBe(to.Index(1))
             })
         })
 
@@ -94,7 +102,8 @@ describe('note specs', () => {
             })
 
             it('uses the gain parameter as the scalar', () => {
-                expect(gainSpec.scalar).toBe(to.Scalar(1.5))
+                expect(gainSpec.scalar)
+                    .toBe(to.Scalar(1.5))
             })
         })
 
@@ -105,15 +114,18 @@ describe('note specs', () => {
             })
 
             it('uses the pitch parameter as the scalar', () => {
-                expect(pitchSpec.scalar).toBe(to.Scalar(0.375))
+                expect(pitchSpec.scalar)
+                    .toBe(to.Scalar(0.375))
             })
 
             it('uses the scale for pitches', () => {
-                expect(pitchSpec.scaleIndex).toBe(to.Index(2))
+                expect(pitchSpec.scaleIndex)
+                    .toBe(to.Index(2))
             })
 
             it('uses the cell parameter, offset by one, as the index', () => {
-                expect(pitchSpec.index).toBe(to.Index(5))
+                expect(pitchSpec.index)
+                    .toBe(to.Index(5))
             })
         })
     })

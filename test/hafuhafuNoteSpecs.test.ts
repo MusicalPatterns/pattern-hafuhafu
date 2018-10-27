@@ -32,7 +32,8 @@ describe('hafuhafu notes', () => {
             })
 
             it('returns a series of x notes, where x is the length of the rhythm times the count of bars', () => {
-                expect(to.Count(result.length)).toBe(expectedNotesCount)
+                expect(to.Count(result.length))
+                    .toBe(expectedNotesCount)
             })
 
             it('keeps a constant gain on the even notes', () => {
@@ -42,7 +43,8 @@ describe('hafuhafu notes', () => {
                         fail()
                     }
                     else {
-                        expect(gainSpec.scalar).toBe(to.Scalar(1))
+                        expect(gainSpec.scalar)
+                            .toBe(to.Scalar(1))
                     }
                 }
             })
@@ -54,9 +56,10 @@ describe('hafuhafu notes', () => {
                         fail()
                     }
                     else {
-                        expect(gainSpec.scalar).toBe(
-                            to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount))) - 1),
-                        )
+                        expect(gainSpec.scalar)
+                            .toBe(
+                                to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount))) - 1),
+                            )
                     }
                 }
             })
@@ -68,9 +71,10 @@ describe('hafuhafu notes', () => {
                         fail()
                     }
                     else {
-                        expect(durationSpec.scalar).toBe(
-                            to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount)))),
-                        )
+                        expect(durationSpec.scalar)
+                            .toBe(
+                                to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount)))),
+                            )
                     }
                 }
             })
@@ -82,7 +86,8 @@ describe('hafuhafu notes', () => {
                         fail()
                     }
                     else {
-                        expect(sustainSpec.scalar).toBe(expectedSustainAmount)
+                        expect(sustainSpec.scalar)
+                            .toBe(expectedSustainAmount)
                     }
                 }
             })

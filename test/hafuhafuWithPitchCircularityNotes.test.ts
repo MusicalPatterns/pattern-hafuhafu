@@ -32,7 +32,8 @@ describe('hafuhafu notes with pitch circularity', () => {
                 })
 
                 it('returns a series of x notes, where x is the length of the rhythm times the count of bars', () => {
-                    expect(to.Count(result.length)).toBe(expectedNotesCount)
+                    expect(to.Count(result.length))
+                        .toBe(expectedNotesCount)
                 })
 
                 it('gradually increases the gain from silence to full (this one is linear because the between silence and 1 is artificially curved)', () => {
@@ -42,7 +43,8 @@ describe('hafuhafu notes with pitch circularity', () => {
                             fail()
                         }
                         else {
-                            expect(gainSpec.scalar).toBe(to.Scalar(from.Index(i) / from.Count(expectedNotesCount)))
+                            expect(gainSpec.scalar)
+                                .toBe(to.Scalar(from.Index(i) / from.Count(expectedNotesCount)))
                         }
                     }
                 })
@@ -54,9 +56,10 @@ describe('hafuhafu notes with pitch circularity', () => {
                             fail()
                         }
                         else {
-                            expect(pitchSpec.scalar).toBe(
-                                to.Scalar(Math.pow(2, (from.Index(i) / from.Count(expectedNotesCount)) - 1)),
-                            )
+                            expect(pitchSpec.scalar)
+                                .toBe(
+                                    to.Scalar(Math.pow(2, (from.Index(i) / from.Count(expectedNotesCount)) - 1)),
+                                )
                         }
                     }
                 })
@@ -68,9 +71,10 @@ describe('hafuhafu notes with pitch circularity', () => {
                             fail()
                         }
                         else {
-                            expect(durationSpec.scalar).toBe(
-                                to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount)))),
-                            )
+                            expect(durationSpec.scalar)
+                                .toBe(
+                                    to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount)))),
+                                )
                         }
                     }
                 })
@@ -83,9 +87,10 @@ describe('hafuhafu notes with pitch circularity', () => {
                             fail()
                         }
                         else {
-                            expect(sustainSpec.scalar).toBe(
-                                applyScale(durationSpec.scalar, to.Scalar(1 / 2)),
-                            )
+                            expect(sustainSpec.scalar)
+                                .toBe(
+                                    applyScale(durationSpec.scalar, to.Scalar(1 / 2)),
+                                )
                         }
                     }
                 })
@@ -99,7 +104,8 @@ describe('hafuhafu notes with pitch circularity', () => {
                 })
 
                 it('returns a series of x notes, where x is the length of the rhythm times the count of bars', () => {
-                    expect(to.Count(result.length)).toBe(applyScale(expectedNotesCount, to.Scalar(2)))
+                    expect(to.Count(result.length))
+                        .toBe(applyScale(expectedNotesCount, to.Scalar(2)))
                 })
 
                 it('gradually decreases the gain from full to silence', () => {
@@ -109,9 +115,10 @@ describe('hafuhafu notes with pitch circularity', () => {
                             fail()
                         }
                         else {
-                            expect(gainSpec.scalar).toBe(
-                                to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(applyScale(expectedNotesCount, to.Scalar(2))))) - 1),
-                            )
+                            expect(gainSpec.scalar)
+                                .toBe(
+                                    to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(applyScale(expectedNotesCount, to.Scalar(2))))) - 1),
+                                )
                         }
                     }
                 })
@@ -123,9 +130,10 @@ describe('hafuhafu notes with pitch circularity', () => {
                             fail()
                         }
                         else {
-                            expect(pitchSpec.scalar).toBe(
-                                to.Scalar(Math.pow(2, from.Index(i) / from.Count(applyScale(expectedNotesCount, to.Scalar(2))))),
-                            )
+                            expect(pitchSpec.scalar)
+                                .toBe(
+                                    to.Scalar(Math.pow(2, from.Index(i) / from.Count(applyScale(expectedNotesCount, to.Scalar(2))))),
+                                )
                         }
                     }
                 })
@@ -137,9 +145,10 @@ describe('hafuhafu notes with pitch circularity', () => {
                             fail()
                         }
                         else {
-                            expect(durationSpec.scalar).toBe(
-                                to.Scalar(Math.pow(2, -(from.Index(i) / from.Count(applyScale(expectedNotesCount, to.Scalar(2)))))),
-                            )
+                            expect(durationSpec.scalar)
+                                .toBe(
+                                    to.Scalar(Math.pow(2, -(from.Index(i) / from.Count(applyScale(expectedNotesCount, to.Scalar(2)))))),
+                                )
                         }
                     }
                 })
@@ -152,9 +161,10 @@ describe('hafuhafu notes with pitch circularity', () => {
                             fail()
                         }
                         else {
-                            expect(sustainSpec.scalar).toBe(
-                                applyScale(durationSpec.scalar, to.Scalar(1 / 2)),
-                            )
+                            expect(sustainSpec.scalar)
+                                .toBe(
+                                    applyScale(durationSpec.scalar, to.Scalar(1 / 2)),
+                                )
                         }
                     }
                 })

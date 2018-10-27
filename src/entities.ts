@@ -11,8 +11,9 @@ const buildHafuhafuEntities: (songSpec: HafuhafuSongSpec) => Entity[] =
 
         const hafuhafuEntity: Entity = {
             noteSpecs: sequence(
-                hafuhafuCycle(rhythm).map((cycleRhythm: Rhythm): NoteSpec[] =>
-                    hafuhafuNoteSpecs(cycleRhythm, BAR_COUNT))),
+                hafuhafuCycle(rhythm)
+                    .map((cycleRhythm: Rhythm): NoteSpec[] =>
+                        hafuhafuNoteSpecs(cycleRhythm, BAR_COUNT))),
             timeType: TimeType.RAW,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
@@ -28,8 +29,9 @@ const buildHafuhafuWithPitchCircularityEntities: (songSpec: HafuhafuSongSpec) =>
 
         const hafuhafuInEntity: Entity = {
             noteSpecs: sequence(
-                rotateCycle(hafuhafuCycle(rhythm), to.Offset(1)).map((cycleRhythm: Rhythm): NoteSpec[] =>
-                    hafuhafuWithPitchCircularityNoteSpecs(cycleRhythm, BAR_COUNT, Direction.IN)),
+                rotateCycle(hafuhafuCycle(rhythm), to.Offset(1))
+                    .map((cycleRhythm: Rhythm): NoteSpec[] =>
+                        hafuhafuWithPitchCircularityNoteSpecs(cycleRhythm, BAR_COUNT, Direction.IN)),
             ),
             timeType: TimeType.RAW,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
@@ -37,8 +39,9 @@ const buildHafuhafuWithPitchCircularityEntities: (songSpec: HafuhafuSongSpec) =>
 
         const hafuhafuOutEntity: Entity = {
             noteSpecs: sequence(
-                hafuhafuCycle(rhythm).map((cycleRhythm: Rhythm): NoteSpec[] =>
-                    hafuhafuWithPitchCircularityNoteSpecs(cycleRhythm, BAR_COUNT, Direction.OUT)),
+                hafuhafuCycle(rhythm)
+                    .map((cycleRhythm: Rhythm): NoteSpec[] =>
+                        hafuhafuWithPitchCircularityNoteSpecs(cycleRhythm, BAR_COUNT, Direction.OUT)),
             ),
             timeType: TimeType.RAW,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
