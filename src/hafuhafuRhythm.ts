@@ -1,9 +1,6 @@
-import { applyOffset, applyScale, from, Index, Scalar, to } from '../../../src'
+import { applyOffset, applyScale, EVERY_OTHER, from, Index, to } from '../../../src'
 import { to as hafuhafuTo } from './nominal'
 import { Rhythm } from './types'
-
-// tslint:disable-next-line:no-any no-magic-numbers
-const EVERY_OTHER: Scalar = 2 as any
 
 const hafuhafuRhythm: (rhythm: Rhythm) => Rhythm =
     (rhythm: Rhythm): Rhythm => {

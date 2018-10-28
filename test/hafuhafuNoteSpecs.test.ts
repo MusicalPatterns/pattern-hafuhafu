@@ -15,7 +15,7 @@ describe('hafuhafu notes', () => {
     let result: NoteSpec[] = []
     let expectedNotesCount: Count = to.Count(0)
     const TEST_BAR_COUNT: Count = to.Count(32)
-    const expectedSustainAmount: Scalar = to.Scalar(0.8)
+    const expectedSustainAmount: Scalar = to.Scalar(0.9)
 
     const testRhythms: Rhythm[] = [
         [ 0, 1, 0, 0, 1 ],

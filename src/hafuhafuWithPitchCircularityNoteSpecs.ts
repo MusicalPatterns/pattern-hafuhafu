@@ -1,4 +1,4 @@
-import { applyOffset, applyScale, Count, from, Index, NoteSpec, ONE, raise, Scalar, to, TWO } from '../../../src'
+import { applyOffset, applyScale, Count, from, Index, NoteSpec, OCTAVE, raise, Scalar, to } from '../../../src'
 import { HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from './constants'
 import { Cell } from './nominal'
 import { buildHafuhafuNoteSpec } from './notes'
@@ -19,9 +19,9 @@ const hafuhafuWithPitchCircularityNoteSpecs: (rhythm: Rhythm, barCount: Count, d
                 const progress: Scalar = to.Scalar(from.Index(i) / from.Count(totalNotesCount))
 
                 const gain: Scalar = progress
-                const duration: Scalar = to.Scalar(raise(TWO, to.Power(ONE - from.Scalar(progress))))
-                const sustain: Scalar = to.Scalar(from.Scalar(duration) / TWO)
-                const pitch: Scalar = to.Scalar(raise(TWO, to.Power(from.Scalar(progress) - ONE)))
+                const duration: Scalar = raise(OCTAVE, to.Power(1 - from.Scalar(progress)))
+                const sustain: Scalar = to.Scalar(from.Scalar(duration) / from.Scalar(OCTAVE))
+                const pitch: Scalar = raise(OCTAVE, to.Power(from.Scalar(progress) - 1))
 
                 const cell: Cell = rhythm[ from.Index(i) % from.Count(cellCount) ]
                 output.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
@@ -40,10 +40,10 @@ const hafuhafuWithPitchCircularityNoteSpecs: (rhythm: Rhythm, barCount: Count, d
             ) {
                 const progress: Scalar = to.Scalar(from.Index(i) / from.Count(totalNotesCount))
 
-                const gain: Scalar = to.Scalar(raise(TWO, to.Power(ONE - from.Scalar(progress))) - ONE)
-                const duration: Scalar = to.Scalar(raise(TWO, to.Power(-from.Scalar(progress))))
-                const sustain: Scalar = to.Scalar(from.Scalar(duration) / TWO)
-                const pitch: Scalar = to.Scalar(raise(TWO, to.Power(from.Scalar(progress))))
+                const gain: Scalar = to.Scalar(from.Scalar(raise(OCTAVE, to.Power(1 - from.Scalar(progress)))) - 1)
+                const duration: Scalar = raise(OCTAVE, to.Power(-from.Scalar(progress)))
+                const sustain: Scalar = to.Scalar(from.Scalar(duration) / from.Scalar(OCTAVE))
+                const pitch: Scalar = raise(OCTAVE, to.Power(from.Scalar(progress)))
 
                 const cell: Cell = rhythm[ from.Index(i) % from.Count(cellCount) ]
                 output.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
