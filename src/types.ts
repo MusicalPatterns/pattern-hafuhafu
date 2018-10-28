@@ -1,4 +1,5 @@
-import { BaseSongSpec, Scalar } from '../../../src'
+import { Scalar } from '../../../src'
+import { SongSpec } from '../../types'
 import { Cell } from './nominal'
 
 type Rhythm = Cell[]
@@ -18,7 +19,7 @@ interface BuildHafuhafuNoteSpecParameters {
     sustain: Scalar,
 }
 
-interface HafuhafuSongSpec extends BaseSongSpec {
+interface HafuhafuSongSpec extends SongSpec {
     rhythm: Rhythm,
 }
 

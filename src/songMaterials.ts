@@ -1,4 +1,4 @@
-import { SongMaterial } from '../../../src'
+import { SongMaterial } from '../../types'
 import { buildHafuhafuEntities, buildHafuhafuWithPitchCircularityEntities } from './entities'
 import { buildHafuhafuScales } from './scales'
 

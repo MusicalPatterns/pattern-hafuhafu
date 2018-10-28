@@ -1,4 +1,4 @@
-import { SongMetadata } from '../../../src'
+import { SongMetadata } from '../../types'
 
 const hafuhafuSongMetadata: SongMetadata = {
     description: 'rhythmic circularity; rhythms within themselves',
