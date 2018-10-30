@@ -21,7 +21,7 @@ import { buildHafuhafuNoteSpec } from './notes'
 const buildHafuhafuPart: (block: Block, barCount: Count) => Part =
     (block: Block, barCount: Count): Part => {
         const cellCount: Count = to.Count(block.length)
-        const output: Part = []
+        const part: Part = []
 
         for (
             let i: Index = to.Index(0);
@@ -38,16 +38,16 @@ const buildHafuhafuPart: (block: Block, barCount: Count) => Part =
             const pitch: Scalar = to.Scalar(1)
 
             const cell: Index = block[ from.Index(i) % from.Count(cellCount) ]
-            output.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
+            part.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
         }
 
-        return output
+        return part
     }
 
 const buildHafuhafuWithPitchCircularityPart: (block: Block, barCount: Count, direction: Direction) => Part =
     (block: Block, barCount: Count, direction: Direction): Part => {
         const cellCount: Count = to.Count(block.length)
-        const output: Part = []
+        const part: Part = []
 
         if (direction === Direction.IN) {
             const totalNotesCount: Count = to.Count(from.Count(cellCount) * from.Count(barCount))
@@ -64,7 +64,7 @@ const buildHafuhafuWithPitchCircularityPart: (block: Block, barCount: Count, dir
                 const pitch: Scalar = raise(OCTAVE, to.Power(from.Scalar(progress) - 1))
 
                 const cell: Index = block[ from.Index(i) % from.Count(cellCount) ]
-                output.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
+                part.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
 
             }
         }
@@ -86,11 +86,11 @@ const buildHafuhafuWithPitchCircularityPart: (block: Block, barCount: Count, dir
                 const pitch: Scalar = raise(OCTAVE, to.Power(from.Scalar(progress)))
 
                 const cell: Index = block[ from.Index(i) % from.Count(cellCount) ]
-                output.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
+                part.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
             }
         }
 
-        return output
+        return part
     }
 
 export {

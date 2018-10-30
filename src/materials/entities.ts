@@ -1,4 +1,4 @@
-import { Block, Entity, OscillatorName, Part, rotateCycle, sequence, TimeType, to, VoiceType } from '../../../../src'
+import { applyCycle, Block, Entity, OscillatorName, Part, sequence, TimeType, to, VoiceType } from '../../../../src'
 import { BAR_COUNT } from '../constants'
 import { buildHafuhafuCycle } from '../custom'
 import { Direction, HafuhafuSongSpec } from '../types'
@@ -28,7 +28,7 @@ const buildHafuhafuWithPitchCircularityEntities: (songSpec: HafuhafuSongSpec) =>
 
         const hafuhafuInEntity: Entity = {
             part: sequence(
-                rotateCycle(buildHafuhafuCycle(block), to.Offset(1))
+                applyCycle(buildHafuhafuCycle(block), to.Offset(1))
                     .map((cycleBlock: Block): Part =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, BAR_COUNT, Direction.IN)),
             ),
