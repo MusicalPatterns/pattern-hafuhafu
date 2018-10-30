@@ -1,10 +1,5 @@
-import { Scalar } from '../../../src'
+import { Block, Index, Scalar } from '../../../src'
 import { SongSpec } from '../../types'
-import { Cell } from './nominal'
-
-type Rhythm = Cell[]
-
-type Rhythms = Rhythm[]
 
 enum Direction {
     IN = 'in',
@@ -12,7 +7,7 @@ enum Direction {
 }
 
 interface BuildHafuhafuNoteSpecParameters {
-    cell: Cell,
+    cell: Index,
     duration: Scalar,
     gain: Scalar,
     pitch: Scalar,
@@ -20,12 +15,13 @@ interface BuildHafuhafuNoteSpecParameters {
 }
 
 interface HafuhafuSongSpec extends SongSpec {
-    rhythm: Rhythm,
+    block: Block,
 }
 
+type Cycle = Block[]
+
 export {
-    Rhythm,
-    Rhythms,
+    Cycle,
     Direction,
     BuildHafuhafuNoteSpecParameters,
     HafuhafuSongSpec,
