@@ -1,13 +1,19 @@
 import { BuildScalesFunction, buildStandardScales, Scale, scaleFromScalarsAndScalar } from '../../../../src'
-import { HafuhafuSongSpec } from '../types'
+import { HafuhafuPatternSpec } from '../types'
 
 const buildHafuhafuScales: BuildScalesFunction =
-    (songSpec: HafuhafuSongSpec): Scale[] => {
+    (patternSpec: HafuhafuPatternSpec): Scale[] => {
         const { flatDurationsScale, octaveSeriesScale } = buildStandardScales()
 
         const gainScale: Scale = flatDurationsScale
-        const durationsScale: Scale = scaleFromScalarsAndScalar(flatDurationsScale.scalars, songSpec.songDurationScalar)
-        const pitchesScale: Scale = scaleFromScalarsAndScalar(octaveSeriesScale.scalars, songSpec.songPitchScalar)
+        const durationsScale: Scale = scaleFromScalarsAndScalar(
+            flatDurationsScale.scalars,
+            patternSpec.patternDurationScalar,
+        )
+        const pitchesScale: Scale = scaleFromScalarsAndScalar(
+            octaveSeriesScale.scalars,
+            patternSpec.patternPitchScalar,
+        )
 
         return [
             gainScale,

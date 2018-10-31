@@ -1,2 +1,2 @@
-export { hafuhafuSong, hafuhafuWithPitchCircularitySong } from './songs'
-export { HafuhafuSongSpec } from './types'
+export { hafuhafuPattern, hafuhafuWithPitchCircularityPattern } from './patterns'
+export { HafuhafuPatternSpec } from './types'

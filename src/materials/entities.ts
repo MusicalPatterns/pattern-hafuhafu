@@ -1,12 +1,12 @@
 import { applyCycle, Block, Entity, OscillatorName, Part, sequence, TimeType, to, VoiceType } from '../../../../src'
 import { BAR_COUNT } from '../constants'
 import { buildHafuhafuCycle } from '../custom'
-import { Direction, HafuhafuSongSpec } from '../types'
+import { Direction, HafuhafuPatternSpec } from '../types'
 import { buildHafuhafuPart, buildHafuhafuWithPitchCircularityPart } from './parts'
 
-const buildHafuhafuEntities: (songSpec: HafuhafuSongSpec) => Entity[] =
-    (songSpec: HafuhafuSongSpec): Entity[] => {
-        const block: Block = songSpec.block
+const buildHafuhafuEntities: (patternSpec: HafuhafuPatternSpec) => Entity[] =
+    (patternSpec: HafuhafuPatternSpec): Entity[] => {
+        const block: Block = patternSpec.block
 
         const hafuhafuEntity: Entity = {
             part: sequence(
@@ -22,9 +22,9 @@ const buildHafuhafuEntities: (songSpec: HafuhafuSongSpec) => Entity[] =
         ]
     }
 
-const buildHafuhafuWithPitchCircularityEntities: (songSpec: HafuhafuSongSpec) => Entity[] =
-    (songSpec: HafuhafuSongSpec): Entity[] => {
-        const block: Block = songSpec.block
+const buildHafuhafuWithPitchCircularityEntities: (patternSpec: HafuhafuPatternSpec) => Entity[] =
+    (patternSpec: HafuhafuPatternSpec): Entity[] => {
+        const block: Block = patternSpec.block
 
         const hafuhafuInEntity: Entity = {
             part: sequence(

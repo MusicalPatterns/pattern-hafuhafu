@@ -1,5 +1,5 @@
 import { Block, Index, Scalar } from '../../../src'
-import { SongSpec } from '../../types'
+import { PatternSpec } from '../../types'
 
 enum Direction {
     IN = 'in',
@@ -14,7 +14,7 @@ interface BuildHafuhafuNoteSpecParameters {
     sustain: Scalar,
 }
 
-interface HafuhafuSongSpec extends SongSpec {
+interface HafuhafuPatternSpec extends PatternSpec {
     block: Block,
 }
 
@@ -24,5 +24,5 @@ export {
     Cycle,
     Direction,
     BuildHafuhafuNoteSpecParameters,
-    HafuhafuSongSpec,
+    HafuhafuPatternSpec,
 }
