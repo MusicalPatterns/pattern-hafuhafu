@@ -1,10 +1,21 @@
-import { applyCycle, Block, Entity, OscillatorName, Part, sequence, TimeType, to, VoiceType } from '../../../../src'
+import {
+    applyCycle,
+    Block,
+    BuildEntitiesFunction,
+    Entity,
+    OscillatorName,
+    Part,
+    sequence,
+    TimeType,
+    to,
+    VoiceType,
+} from '../../../../src'
 import { BAR_COUNT } from '../constants'
 import { buildHafuhafuCycle } from '../custom'
 import { Direction, HafuhafuPatternSpec } from '../types'
 import { buildHafuhafuPart, buildHafuhafuWithPitchCircularityPart } from './parts'
 
-const buildHafuhafuEntities: (patternSpec: HafuhafuPatternSpec) => Entity[] =
+const buildHafuhafuEntities: BuildEntitiesFunction =
     (patternSpec: HafuhafuPatternSpec): Entity[] => {
         const block: Block = patternSpec.block
 
@@ -22,7 +33,7 @@ const buildHafuhafuEntities: (patternSpec: HafuhafuPatternSpec) => Entity[] =
         ]
     }
 
-const buildHafuhafuWithPitchCircularityEntities: (patternSpec: HafuhafuPatternSpec) => Entity[] =
+const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
     (patternSpec: HafuhafuPatternSpec): Entity[] => {
         const block: Block = patternSpec.block
 
