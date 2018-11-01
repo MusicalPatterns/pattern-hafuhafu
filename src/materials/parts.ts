@@ -1,5 +1,6 @@
 import {
     applyOffset,
+    applyPower,
     applyScale,
     Block,
     Count,
@@ -10,7 +11,6 @@ import {
     Index,
     OCTAVE,
     Part,
-    raise,
     Scalar,
     to,
 } from '../../../../src'
@@ -30,7 +30,7 @@ const buildHafuhafuPart: (block: Block, barCount: Count) => Part =
         ) {
             const progress: Scalar = to.Scalar(from.Index(i) / (from.Count(cellCount) * from.Count(barCount)))
             const exponentiatedInverseProgress: number = from.Base(
-                raise(BASE_FOR_GAIN_FADE, to.Power(1 - from.Scalar(progress))),
+                applyPower(BASE_FOR_GAIN_FADE, to.Power(1 - from.Scalar(progress))),
             )
             const gain: Scalar = from.Index(i) % EVEN === 0 ? FULL_GAIN : to.Scalar(exponentiatedInverseProgress - 1)
             const duration: Scalar = to.Scalar(exponentiatedInverseProgress)
@@ -59,9 +59,9 @@ const buildHafuhafuWithPitchCircularityPart: (block: Block, barCount: Count, dir
                 const progress: Scalar = to.Scalar(from.Index(i) / from.Count(totalNotesCount))
 
                 const gain: Scalar = progress
-                const duration: Scalar = raise(OCTAVE, to.Power(1 - from.Scalar(progress)))
+                const duration: Scalar = applyPower(OCTAVE, to.Power(1 - from.Scalar(progress)))
                 const sustain: Scalar = to.Scalar(from.Scalar(duration) / from.Scalar(OCTAVE))
-                const pitch: Scalar = raise(OCTAVE, to.Power(from.Scalar(progress) - 1))
+                const pitch: Scalar = applyPower(OCTAVE, to.Power(from.Scalar(progress) - 1))
 
                 const cell: Index = block[ from.Index(i) % from.Count(cellCount) ]
                 part.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
@@ -80,10 +80,10 @@ const buildHafuhafuWithPitchCircularityPart: (block: Block, barCount: Count, dir
             ) {
                 const progress: Scalar = to.Scalar(from.Index(i) / from.Count(totalNotesCount))
 
-                const gain: Scalar = to.Scalar(from.Scalar(raise(OCTAVE, to.Power(1 - from.Scalar(progress)))) - 1)
-                const duration: Scalar = raise(OCTAVE, to.Power(-from.Scalar(progress)))
+                const gain: Scalar = to.Scalar(from.Scalar(applyPower(OCTAVE, to.Power(1 - from.Scalar(progress)))) - 1)
+                const duration: Scalar = applyPower(OCTAVE, to.Power(-from.Scalar(progress)))
                 const sustain: Scalar = to.Scalar(from.Scalar(duration) / from.Scalar(OCTAVE))
-                const pitch: Scalar = raise(OCTAVE, to.Power(from.Scalar(progress)))
+                const pitch: Scalar = applyPower(OCTAVE, to.Power(from.Scalar(progress)))
 
                 const cell: Index = block[ from.Index(i) % from.Count(cellCount) ]
                 part.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
