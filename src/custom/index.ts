@@ -1,1 +1,1 @@
-export { buildHafuhafuCycle } from './cycles'
+export { buildCycle } from './cycles'

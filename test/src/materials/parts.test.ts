@@ -12,8 +12,8 @@ import {
     to,
 } from '../../../../../src/indexForTest'
 import {
-    buildHafuhafuPart,
     buildHafuhafuWithPitchCircularityPart,
+    buildPart,
     Direction,
 } from '../../../src/indexForTest'
 
@@ -33,7 +33,7 @@ describe('hafuhafu parts', () => {
         testBlocks.forEach((testBlock: Block): void => {
             describe(`block ${testBlock}`, () => {
                 beforeEach(() => {
-                    part = buildHafuhafuPart(testBlock, TEST_BAR_COUNT)
+                    part = buildPart(testBlock, TEST_BAR_COUNT)
                     const cellCount: Count = to.Count(testBlock.length)
                     expectedNotesCount = to.Count(from.Count(cellCount) * from.Count(TEST_BAR_COUNT))
                 })

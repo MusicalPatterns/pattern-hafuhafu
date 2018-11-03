@@ -7,7 +7,7 @@ import {
     HAFUHAFU_PITCH_SCALAR,
     HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
 } from './constants'
-import { buildEntities, buildScales, buildHafuhafuWithPitchCircularityEntities } from './materials'
+import { buildEntities, buildHafuhafuWithPitchCircularityEntities, buildScales } from './materials'
 import { HafuhafuPatternSpec } from './types'
 
 const hafuhafuPatternMaterial: PatternMaterial = {

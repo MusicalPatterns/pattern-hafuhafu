@@ -16,9 +16,9 @@ import {
 } from '../../../../src'
 import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
 import { Direction } from '../types'
-import { buildHafuhafuNoteSpec } from './notes'
+import { buildNoteSpec } from './notes'
 
-const buildHafuhafuPart: (block: Block, barCount: Count) => Part =
+const buildPart: (block: Block, barCount: Count) => Part =
     (block: Block, barCount: Count): Part => {
         const cellCount: Count = to.Count(block.length)
         const part: Part = []
@@ -38,7 +38,7 @@ const buildHafuhafuPart: (block: Block, barCount: Count) => Part =
             const pitch: Scalar = to.Scalar(1)
 
             const cell: Index = block[ from.Index(i) % from.Count(cellCount) ]
-            part.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
+            part.push(buildNoteSpec({ cell, gain, duration, sustain, pitch }))
         }
 
         return part
@@ -64,7 +64,7 @@ const buildHafuhafuWithPitchCircularityPart: (block: Block, barCount: Count, dir
                 const pitch: Scalar = applyPower(OCTAVE, to.Power(from.Scalar(progress) - 1))
 
                 const cell: Index = block[ from.Index(i) % from.Count(cellCount) ]
-                part.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
+                part.push(buildNoteSpec({ cell, gain, duration, sustain, pitch }))
 
             }
         }
@@ -86,7 +86,7 @@ const buildHafuhafuWithPitchCircularityPart: (block: Block, barCount: Count, dir
                 const pitch: Scalar = applyPower(OCTAVE, to.Power(from.Scalar(progress)))
 
                 const cell: Index = block[ from.Index(i) % from.Count(cellCount) ]
-                part.push(buildHafuhafuNoteSpec({ cell, gain, duration, sustain, pitch }))
+                part.push(buildNoteSpec({ cell, gain, duration, sustain, pitch }))
             }
         }
 
@@ -94,6 +94,6 @@ const buildHafuhafuWithPitchCircularityPart: (block: Block, barCount: Count, dir
     }
 
 export {
-    buildHafuhafuPart,
+    buildPart,
     buildHafuhafuWithPitchCircularityPart,
 }

@@ -1,11 +1,11 @@
 import { NotePropertySpec, NoteSpec, to } from '../../../../../src/indexForTest'
-import { buildHafuhafuNoteSpec } from '../../../src/indexForTest'
+import { buildNoteSpec } from '../../../src/indexForTest'
 
 describe('hafuhafu note specs', () => {
     describe('example one', () => {
         let noteSpec: NoteSpec
         beforeEach(() => {
-            noteSpec = buildHafuhafuNoteSpec({
+            noteSpec = buildNoteSpec({
                 cell: to.Index(3),
                 duration: to.Scalar(0.5),
                 gain: to.Scalar(2),
@@ -69,7 +69,7 @@ describe('hafuhafu note specs', () => {
     describe('example two', () => {
         let noteSpec: NoteSpec
         beforeEach(() => {
-            noteSpec = buildHafuhafuNoteSpec({
+            noteSpec = buildNoteSpec({
                 cell: to.Index(4),
                 duration: to.Scalar(0.25),
                 gain: to.Scalar(1.5),

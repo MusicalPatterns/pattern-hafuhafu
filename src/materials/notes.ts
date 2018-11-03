@@ -2,7 +2,7 @@ import { applyOffset, DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX, 
 import { PITCH_INDEX_BASE_OFFSET } from '../constants'
 import { BuildHafuhafuNoteSpecParameters } from '../types'
 
-const buildHafuhafuNoteSpec: (buildHafuhafuNoteSpecParameters: BuildHafuhafuNoteSpecParameters) => NoteSpec =
+const buildNoteSpec: (buildHafuhafuNoteSpecParameters: BuildHafuhafuNoteSpecParameters) => NoteSpec =
     ({ cell, gain, duration, sustain, pitch }: BuildHafuhafuNoteSpecParameters): NoteSpec => ({
         durationSpec: {
             scalar: duration,
@@ -23,5 +23,5 @@ const buildHafuhafuNoteSpec: (buildHafuhafuNoteSpecParameters: BuildHafuhafuNote
     })
 
 export {
-    buildHafuhafuNoteSpec,
+    buildNoteSpec,
 }

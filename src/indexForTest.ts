@@ -1,12 +1,12 @@
 // tslint:disable:no-reaching-imports
 
 export {
-    buildHafuhafuCycle,
+    buildCycle,
 } from './custom/indexForTest'
 export {
-    buildHafuhafuBlock,
-    buildHafuhafuNoteSpec,
-    buildHafuhafuPart,
+    buildBlock,
+    buildNoteSpec,
+    buildPart,
     buildHafuhafuWithPitchCircularityPart,
     buildEntities,
     buildScales,

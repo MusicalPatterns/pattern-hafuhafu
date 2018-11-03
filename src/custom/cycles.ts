@@ -1,20 +1,20 @@
 import { Block, deepEqual, to } from '../../../../src'
-import { buildHafuhafuBlock } from '../materials'
+import { buildBlock } from '../materials'
 import { Cycle } from '../types'
 
-const buildHafuhafuCycle: (block: Block) => Cycle =
+const buildCycle: (block: Block) => Cycle =
     (block: Block): Cycle => {
         const cycle: Cycle = [ block.slice() ].map(to.Block)
 
-        let nextBlock: Block = buildHafuhafuBlock(block)
+        let nextBlock: Block = buildBlock(block)
         while (!deepEqual(block, nextBlock)) {
             cycle.push(to.Block(nextBlock.slice()))
-            nextBlock = buildHafuhafuBlock(nextBlock)
+            nextBlock = buildBlock(nextBlock)
         }
 
         return cycle
     }
 
 export {
-    buildHafuhafuCycle,
+    buildCycle,
 }

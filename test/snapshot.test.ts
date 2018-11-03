@@ -6,7 +6,7 @@ declare const require: any
 
 describe('snapshot', () => {
     it('stays locked down', async (done: DoneFn) => {
-        // tslint:disable-next-line:no-require-imports
+        // tslint:disable-next-line:no-require-imports no-unsafe-any
         const snapshot: Snapshot = require('./snapshot')
 
         const actual: Snapshot = {

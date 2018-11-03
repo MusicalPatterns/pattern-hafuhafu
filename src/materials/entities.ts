@@ -11,9 +11,9 @@ import {
     VoiceType,
 } from '../../../../src'
 import { BAR_COUNT } from '../constants'
-import { buildHafuhafuCycle } from '../custom'
+import { buildCycle } from '../custom'
 import { Direction, HafuhafuPatternSpec } from '../types'
-import { buildHafuhafuPart, buildHafuhafuWithPitchCircularityPart } from './parts'
+import { buildHafuhafuWithPitchCircularityPart, buildPart } from './parts'
 
 const buildEntities: BuildEntitiesFunction =
     (patternSpec: HafuhafuPatternSpec): Entity[] => {
@@ -21,9 +21,9 @@ const buildEntities: BuildEntitiesFunction =
 
         const hafuhafuEntity: Entity = {
             part: sequence(
-                buildHafuhafuCycle(block)
+                buildCycle(block)
                     .map((cycleBlock: Block): Part =>
-                        buildHafuhafuPart(cycleBlock, BAR_COUNT))),
+                        buildPart(cycleBlock, BAR_COUNT))),
             timeType: TimeType.RAW,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
@@ -39,7 +39,7 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
 
         const hafuhafuInEntity: Entity = {
             part: sequence(
-                applyCycle(buildHafuhafuCycle(block), to.Offset(1))
+                applyCycle(buildCycle(block), to.Offset(1))
                     .map((cycleBlock: Block): Part =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, BAR_COUNT, Direction.IN)),
             ),
@@ -49,7 +49,7 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
 
         const hafuhafuOutEntity: Entity = {
             part: sequence(
-                buildHafuhafuCycle(block)
+                buildCycle(block)
                     .map((cycleBlock: Block): Part =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, BAR_COUNT, Direction.OUT)),
             ),
