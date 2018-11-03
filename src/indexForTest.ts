@@ -8,7 +8,10 @@ export {
     buildHafuhafuNoteSpec,
     buildHafuhafuPart,
     buildHafuhafuWithPitchCircularityPart,
+    buildEntities,
+    buildScales,
 } from './materials/indexForTest'
+export { patternSpec } from './patterns'
 
 export {
     Direction,

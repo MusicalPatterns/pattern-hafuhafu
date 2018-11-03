@@ -7,17 +7,17 @@ import {
     HAFUHAFU_PITCH_SCALAR,
     HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
 } from './constants'
-import { buildHafuhafuEntities, buildHafuhafuScales, buildHafuhafuWithPitchCircularityEntities } from './materials'
+import { buildEntities, buildScales, buildHafuhafuWithPitchCircularityEntities } from './materials'
 import { HafuhafuPatternSpec } from './types'
 
 const hafuhafuPatternMaterial: PatternMaterial = {
-    buildEntitiesFunction: buildHafuhafuEntities,
-    buildScalesFunction: buildHafuhafuScales,
+    buildEntitiesFunction: buildEntities,
+    buildScalesFunction: buildScales,
 }
 
 const hafuhafuWithPitchCircularityPatternMaterial: PatternMaterial = {
     buildEntitiesFunction: buildHafuhafuWithPitchCircularityEntities,
-    buildScalesFunction: buildHafuhafuScales,
+    buildScalesFunction: buildScales,
 }
 
 const hafuhafuPatternMetadata: PatternMetadata = {
@@ -30,7 +30,7 @@ const hafuhafuWithPitchCircularityPatternMetadata: PatternMetadata = {
     formattedName: 'Hafuhafu (with pitch circularity)',
 }
 
-const hafuhafuPatternSpec: HafuhafuPatternSpec = {
+const patternSpec: HafuhafuPatternSpec = {
     block: HAFUHAFU_INITIAL_BLOCK,
     patternDurationScalar: HAFUHAFU_DURATION_SCALAR,
     patternPitchScalar: HAFUHAFU_PITCH_SCALAR,
@@ -42,11 +42,11 @@ const hafuhafuWithPitchCircularityPatternSpec: HafuhafuPatternSpec = {
     patternPitchScalar: HAFUHAFU_PITCH_SCALAR,
 }
 
-const hafuhafuPattern: Pattern = {
+const pattern: Pattern = {
     material: hafuhafuPatternMaterial,
     metadata: hafuhafuPatternMetadata,
     patternId: PatternId.HAFUHAFU,
-    spec: hafuhafuPatternSpec,
+    spec: patternSpec,
 }
 
 const hafuhafuWithPitchCircularityPattern: Pattern = {
@@ -57,6 +57,7 @@ const hafuhafuWithPitchCircularityPattern: Pattern = {
 }
 
 export {
-    hafuhafuPattern,
+    pattern,
+    patternSpec,
     hafuhafuWithPitchCircularityPattern,
 }

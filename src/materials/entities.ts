@@ -15,7 +15,7 @@ import { buildHafuhafuCycle } from '../custom'
 import { Direction, HafuhafuPatternSpec } from '../types'
 import { buildHafuhafuPart, buildHafuhafuWithPitchCircularityPart } from './parts'
 
-const buildHafuhafuEntities: BuildEntitiesFunction =
+const buildEntities: BuildEntitiesFunction =
     (patternSpec: HafuhafuPatternSpec): Entity[] => {
         const block: Block = patternSpec.block
 
@@ -64,6 +64,6 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
     }
 
 export {
-    buildHafuhafuEntities,
+    buildEntities,
     buildHafuhafuWithPitchCircularityEntities,
 }

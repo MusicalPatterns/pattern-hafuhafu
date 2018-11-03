@@ -1,0 +1,3677 @@
+{
+  "entities": [
+    {
+      "part": [
+        {
+          "durationSpec": {
+            "scalar": 2,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.9827461749253243,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.9827461749253243
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.9656411970905021,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.9486837824034142,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.9486837824034142
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.931872657849691,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.9152065613971474,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.9152065613971474
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8986842419010386,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8823044590101363,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.8823044590101363
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8660659830736148,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8499675950487373,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.8499675950487373
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8340080864093424,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8181862590551185,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.8181862590551185
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8025009252216604,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.7869509073913026,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.7869509073913026
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.771535038204721,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.7562521603732995,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.7562521603732995
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.7411011265922482,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.7260807994544765,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.7260807994544765
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.7111900513652045,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.696427764457314,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.696427764457314
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.681792830507429,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.6672841508527196,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.6672841508527196
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.6529006363084233,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.6386412070860805,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.6386412070860805
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.624504792712471,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.6104903319492543,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.6104903319492543
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.5965967727133,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.582823071997706,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.5828230719977061
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.5691681957935015,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.5556311190120184,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.5556311190120184
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.5422108254079407,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.528906307503011,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.5289063075030109
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.515716566510398,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.5026406122597187,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.5026406122597187
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.4896774631227023,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.4768261459394993,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.47682614593949935
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.4640856959456254,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.451455156699535,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.45145515669953507
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.43893358001082,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.426520025869028,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.42652002586902804
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.4142135623730951,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.4020132656613853,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.4020132656613853
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.389918219842337,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3779275169257048,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.3779275169257048
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3660402567543954,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3542555469368927,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.35425554693689265
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3425725027802635,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3309902472237432,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.33099024722374315
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3195079107728942,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3081246314343309,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.3081246314343309
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2968395546510096,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2856518332380753,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.2856518332380753
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2745606273192622,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2635651042638443,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.2635651042638443
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.252664438624128,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.241857812073484,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.241857812073484
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2311444133449163,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2205234381701575,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.22052343817015752
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2099940892192926,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1995555760409018,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.1995555760409018
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.189207115002721,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1789479292328127,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.17894792923281266
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1687772485612455,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1586943094622772,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.15869430946227725
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1486983549970349,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1387886347566916,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.13878863475669156
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1289644048061314,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.119224927628101,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.119224927628101
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.109569472067845,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0999973132782155,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.09999731327821548
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0905077326652577,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0811000178342638,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.0811000178342638
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0717734625362931,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0625273666151527,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.06252736661515268
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0533610359548358,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0442737824274138,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.044273782427413755
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0352649238413776,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.026333783890424,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.026333783890424067
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0174796921026865,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.008701983790399,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.008701983790398993
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 2,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.9827461749253243,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.9827461749253243
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.9656411970905021,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.9486837824034142,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.9486837824034142
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.931872657849691,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.9152065613971474,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.9152065613971474
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8986842419010386,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8823044590101363,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.8823044590101363
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8660659830736148,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8499675950487373,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.8499675950487373
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8340080864093424,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8181862590551185,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.8181862590551185
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.8025009252216604,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.7869509073913026,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.7869509073913026
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.771535038204721,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.7562521603732995,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.7562521603732995
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.7411011265922482,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.7260807994544765,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.7260807994544765
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.7111900513652045,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.696427764457314,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.696427764457314
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.681792830507429,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.6672841508527196,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.6672841508527196
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.6529006363084233,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.6386412070860805,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.6386412070860805
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.624504792712471,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.6104903319492543,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.6104903319492543
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.5965967727133,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.582823071997706,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.5828230719977061
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.5691681957935015,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.5556311190120184,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.5556311190120184
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.5422108254079407,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.528906307503011,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.5289063075030109
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.515716566510398,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.5026406122597187,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.5026406122597187
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.4896774631227023,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.4768261459394993,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.47682614593949935
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.4640856959456254,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.451455156699535,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.45145515669953507
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.43893358001082,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.426520025869028,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.42652002586902804
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.4142135623730951,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.4020132656613853,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.4020132656613853
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.389918219842337,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3779275169257048,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.3779275169257048
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3660402567543954,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3542555469368927,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.35425554693689265
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3425725027802635,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3309902472237432,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.33099024722374315
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3195079107728942,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.3081246314343309,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.3081246314343309
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2968395546510096,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2856518332380753,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.2856518332380753
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2745606273192622,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2635651042638443,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.2635651042638443
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.252664438624128,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.241857812073484,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.241857812073484
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2311444133449163,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2205234381701575,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.22052343817015752
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.2099940892192926,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1995555760409018,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.1995555760409018
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.189207115002721,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1789479292328127,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.17894792923281266
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1687772485612455,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1586943094622772,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.15869430946227725
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1486983549970349,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1387886347566916,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.13878863475669156
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.1289644048061314,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.119224927628101,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.119224927628101
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.109569472067845,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0999973132782155,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.09999731327821548
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0905077326652577,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0811000178342638,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.0811000178342638
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0717734625362931,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0625273666151527,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.06252736661515268
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0533610359548358,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0442737824274138,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.044273782427413755
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0352649238413776,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.026333783890424,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.026333783890424067
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.0174796921026865,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 1
+          },
+          "pitchSpec": {
+            "index": 2,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        },
+        {
+          "durationSpec": {
+            "scalar": 1.008701983790399,
+            "scaleIndex": 1
+          },
+          "gainSpec": {
+            "scalar": 0.008701983790398993
+          },
+          "pitchSpec": {
+            "index": 1,
+            "scalar": 1,
+            "scaleIndex": 2
+          },
+          "sustainSpec": {
+            "scalar": 0.9,
+            "scaleIndex": 1
+          }
+        }
+      ],
+      "timeType": "raw",
+      "voiceSpec": {
+        "timbre": "square",
+        "voiceType": "oscillator"
+      }
+    }
+  ],
+  "scales": [
+    {
+      "scalars": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256
+      ]
+    },
+    {
+      "scalar": 25,
+      "scalars": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256
+      ]
+    },
+    {
+      "scalar": 50,
+      "scalars": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768,
+        65536,
+        131072,
+        262144,
+        524288,
+        1048576,
+        2097152,
+        4194304,
+        8388608,
+        16777216,
+        33554432,
+        67108864,
+        134217728,
+        268435456,
+        536870912,
+        1073741824,
+        2147483648,
+        4294967296,
+        8589934592,
+        17179869184,
+        34359738368,
+        68719476736,
+        137438953472,
+        274877906944,
+        549755813888,
+        1099511627776,
+        2199023255552,
+        4398046511104,
+        8796093022208,
+        17592186044416,
+        35184372088832,
+        70368744177664,
+        140737488355328,
+        281474976710656,
+        562949953421312,
+        1125899906842624,
+        2251799813685248,
+        4503599627370496,
+        9007199254740992,
+        18014398509481984,
+        36028797018963970,
+        72057594037927940,
+        144115188075855870,
+        288230376151711740,
+        576460752303423500,
+        1152921504606847000,
+        2305843009213694000,
+        4611686018427388000,
+        9223372036854776000,
+        18446744073709552000,
+        36893488147419103000,
+        73786976294838210000,
+        147573952589676410000,
+        295147905179352830000,
+        590295810358705700000,
+        1.1805916207174113e+21,
+        2.3611832414348226e+21,
+        4.722366482869645e+21,
+        9.44473296573929e+21,
+        1.888946593147858e+22,
+        3.777893186295716e+22,
+        7.555786372591432e+22,
+        1.5111572745182865e+23,
+        3.022314549036573e+23,
+        6.044629098073146e+23,
+        1.2089258196146292e+24,
+        2.4178516392292583e+24,
+        4.835703278458517e+24,
+        9.671406556917033e+24,
+        1.9342813113834067e+25,
+        3.8685626227668134e+25,
+        7.737125245533627e+25,
+        1.5474250491067253e+26,
+        3.094850098213451e+26,
+        6.189700196426902e+26,
+        1.2379400392853803e+27,
+        2.4758800785707605e+27,
+        4.951760157141521e+27,
+        9.903520314283042e+27,
+        1.9807040628566084e+28,
+        3.961408125713217e+28,
+        7.922816251426434e+28,
+        1.5845632502852868e+29,
+        3.1691265005705735e+29,
+        6.338253001141147e+29,
+        1.2676506002282294e+30,
+        2.535301200456459e+30,
+        5.070602400912918e+30,
+        1.0141204801825835e+31,
+        2.028240960365167e+31,
+        4.056481920730334e+31,
+        8.112963841460668e+31,
+        1.6225927682921336e+32,
+        3.2451855365842673e+32,
+        6.490371073168535e+32,
+        1.298074214633707e+33,
+        2.596148429267414e+33,
+        5.192296858534828e+33,
+        1.0384593717069655e+34,
+        2.076918743413931e+34,
+        4.153837486827862e+34,
+        8.307674973655724e+34,
+        1.661534994731145e+35,
+        3.32306998946229e+35,
+        6.64613997892458e+35,
+        1.329227995784916e+36,
+        2.658455991569832e+36,
+        5.316911983139664e+36,
+        1.0633823966279327e+37,
+        2.1267647932558654e+37,
+        4.253529586511731e+37,
+        8.507059173023462e+37,
+        1.7014118346046923e+38,
+        3.402823669209385e+38,
+        6.80564733841877e+38,
+        1.361129467683754e+39,
+        2.722258935367508e+39,
+        5.444517870735016e+39,
+        1.0889035741470031e+40,
+        2.1778071482940062e+40,
+        4.3556142965880123e+40,
+        8.711228593176025e+40,
+        1.742245718635205e+41,
+        3.48449143727041e+41,
+        6.96898287454082e+41,
+        1.393796574908164e+42,
+        2.787593149816328e+42,
+        5.575186299632656e+42,
+        1.1150372599265312e+43,
+        2.2300745198530623e+43,
+        4.460149039706125e+43,
+        8.92029807941225e+43,
+        1.78405961588245e+44,
+        3.5681192317649e+44,
+        7.1362384635298e+44,
+        1.42724769270596e+45,
+        2.85449538541192e+45,
+        5.70899077082384e+45,
+        1.141798154164768e+46,
+        2.283596308329536e+46,
+        4.567192616659072e+46,
+        9.134385233318143e+46,
+        1.8268770466636286e+47,
+        3.6537540933272573e+47,
+        7.307508186654515e+47,
+        1.461501637330903e+48,
+        2.923003274661806e+48,
+        5.846006549323612e+48,
+        1.1692013098647223e+49,
+        2.3384026197294447e+49,
+        4.6768052394588893e+49,
+        9.353610478917779e+49,
+        1.8707220957835557e+50,
+        3.7414441915671115e+50,
+        7.482888383134223e+50,
+        1.4965776766268446e+51,
+        2.9931553532536892e+51,
+        5.986310706507379e+51,
+        1.1972621413014757e+52,
+        2.3945242826029513e+52,
+        4.789048565205903e+52,
+        9.578097130411805e+52,
+        1.915619426082361e+53,
+        3.831238852164722e+53,
+        7.662477704329444e+53,
+        1.532495540865889e+54,
+        3.064991081731778e+54,
+        6.129982163463556e+54,
+        1.2259964326927111e+55,
+        2.4519928653854222e+55,
+        4.9039857307708443e+55,
+        9.807971461541689e+55,
+        1.9615942923083377e+56,
+        3.9231885846166755e+56,
+        7.846377169233351e+56,
+        1.5692754338466702e+57,
+        3.1385508676933404e+57,
+        6.277101735386681e+57,
+        1.2554203470773362e+58,
+        2.5108406941546723e+58,
+        5.021681388309345e+58,
+        1.004336277661869e+59,
+        2.008672555323738e+59,
+        4.017345110647476e+59,
+        8.034690221294951e+59,
+        1.6069380442589903e+60,
+        3.2138760885179806e+60,
+        6.427752177035961e+60,
+        1.2855504354071922e+61,
+        2.5711008708143844e+61,
+        5.142201741628769e+61,
+        1.0284403483257538e+62,
+        2.0568806966515076e+62,
+        4.113761393303015e+62,
+        8.22752278660603e+62,
+        1.645504557321206e+63,
+        3.291009114642412e+63,
+        6.582018229284824e+63,
+        1.3164036458569648e+64,
+        2.6328072917139297e+64,
+        5.2656145834278593e+64,
+        1.0531229166855719e+65,
+        2.1062458333711437e+65,
+        4.2124916667422875e+65,
+        8.424983333484575e+65,
+        1.684996666696915e+66,
+        3.36999333339383e+66,
+        6.73998666678766e+66,
+        1.347997333357532e+67,
+        2.695994666715064e+67,
+        5.391989333430128e+67,
+        1.0783978666860256e+68,
+        2.1567957333720512e+68,
+        4.3135914667441024e+68,
+        8.627182933488205e+68,
+        1.725436586697641e+69,
+        3.450873173395282e+69,
+        6.901746346790564e+69,
+        1.3803492693581128e+70,
+        2.7606985387162255e+70,
+        5.521397077432451e+70,
+        1.1042794154864902e+71,
+        2.2085588309729804e+71,
+        4.417117661945961e+71,
+        8.834235323891922e+71,
+        1.7668470647783843e+72,
+        3.533694129556769e+72,
+        7.067388259113537e+72,
+        1.4134776518227075e+73,
+        2.826955303645415e+73,
+        5.65391060729083e+73,
+        1.130782121458166e+74,
+        2.261564242916332e+74,
+        4.523128485832664e+74,
+        9.046256971665328e+74,
+        1.8092513943330656e+75,
+        3.618502788666131e+75,
+        7.237005577332262e+75,
+        1.4474011154664524e+76,
+        2.894802230932905e+76,
+        5.78960446186581e+76
+      ]
+    }
+  ]
+}

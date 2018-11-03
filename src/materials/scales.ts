@@ -1,7 +1,7 @@
 import { BuildScalesFunction, buildStandardScales, Scale, scaleFromScalarsAndScalar } from '../../../../src'
 import { HafuhafuPatternSpec } from '../types'
 
-const buildHafuhafuScales: BuildScalesFunction =
+const buildScales: BuildScalesFunction =
     (patternSpec: HafuhafuPatternSpec): Scale[] => {
         const { flatDurationsScale, octaveSeriesScale } = buildStandardScales()
 
@@ -23,5 +23,5 @@ const buildHafuhafuScales: BuildScalesFunction =
     }
 
 export {
-    buildHafuhafuScales,
+    buildScales,
 }
