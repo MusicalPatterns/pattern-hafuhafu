@@ -21,12 +21,12 @@ const hafuhafuWithPitchCircularityPatternMaterial: PatternMaterial = {
 }
 
 const hafuhafuPatternMetadata: PatternMetadata = {
-    description: 'blockic circularity; blocks within themselves',
+    description: 'rhythmic circularity; blocks within themselves',
     formattedName: 'Hafuhafu',
 }
 
 const hafuhafuWithPitchCircularityPatternMetadata: PatternMetadata = {
-    description: 'blockic circularity with extraneous and slipshod pitch circularity',
+    description: 'rhythmic circularity with extraneous and slipshod pitch circularity',
     formattedName: 'Hafuhafu (with pitch circularity)',
 }
 

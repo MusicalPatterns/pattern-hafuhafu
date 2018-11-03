@@ -1,3 +1,3 @@
-# hafuhafu
+# Hafuhafu
 
-blockic circularity; blocks within themselves
+rhythmic circularity; blocks within themselves
