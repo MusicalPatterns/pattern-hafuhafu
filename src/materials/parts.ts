@@ -18,17 +18,17 @@ import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../c
 import { Direction } from '../types'
 import { buildNoteSpec } from './notes'
 
-const buildPart: (block: Block, barCount: Count) => Part =
-    (block: Block, barCount: Count): Part => {
+const buildPart: (block: Block, iterationLength: Count) => Part =
+    (block: Block, iterationLength: Count): Part => {
         const cellCount: Count = to.Count(block.length)
         const part: Part = []
 
         for (
             let i: Index = to.Index(0);
-            i < to.Index(from.Count(cellCount) * from.Count(barCount));
+            i < to.Index(from.Count(cellCount) * from.Count(iterationLength));
             i = applyOffset(i, to.Offset(1))
         ) {
-            const progress: Scalar = to.Scalar(from.Index(i) / (from.Count(cellCount) * from.Count(barCount)))
+            const progress: Scalar = to.Scalar(from.Index(i) / (from.Count(cellCount) * from.Count(iterationLength)))
             const exponentiatedInverseProgress: number = from.Base(
                 applyPower(BASE_FOR_GAIN_FADE, to.Power(1 - from.Scalar(progress))),
             )
@@ -44,13 +44,13 @@ const buildPart: (block: Block, barCount: Count) => Part =
         return part
     }
 
-const buildHafuhafuWithPitchCircularityPart: (block: Block, barCount: Count, direction: Direction) => Part =
-    (block: Block, barCount: Count, direction: Direction): Part => {
+const buildHafuhafuWithPitchCircularityPart: (block: Block, iterationLength: Count, direction: Direction) => Part =
+    (block: Block, iterationLength: Count, direction: Direction): Part => {
         const cellCount: Count = to.Count(block.length)
         const part: Part = []
 
         if (direction === Direction.IN) {
-            const totalNotesCount: Count = to.Count(from.Count(cellCount) * from.Count(barCount))
+            const totalNotesCount: Count = to.Count(from.Count(cellCount) * from.Count(iterationLength))
             for (
                 let i: Index = to.Index(0);
                 i < to.Index(from.Count(totalNotesCount));
@@ -70,7 +70,7 @@ const buildHafuhafuWithPitchCircularityPart: (block: Block, barCount: Count, dir
         }
         else if (direction === Direction.OUT) {
             const totalNotesCount: Count = to.Count(applyScale(
-                from.Count(cellCount) * from.Count(barCount),
+                from.Count(cellCount) * from.Count(iterationLength),
                 HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
             ))
             for (

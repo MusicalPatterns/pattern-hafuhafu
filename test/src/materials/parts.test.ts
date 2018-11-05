@@ -21,7 +21,7 @@ describe('hafuhafu parts', () => {
     describe('without pitch circularity', () => {
         let part: Part = []
         let expectedNotesCount: Count = to.Count(0)
-        const TEST_BAR_COUNT: Count = to.Count(32)
+        const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(Math.random() * 32))
         const expectedSustainAmount: Scalar = to.Scalar(0.9)
 
         const testBlocks: Block[] = [
@@ -33,9 +33,9 @@ describe('hafuhafu parts', () => {
         testBlocks.forEach((testBlock: Block): void => {
             describe(`block ${testBlock}`, () => {
                 beforeEach(() => {
-                    part = buildPart(testBlock, TEST_BAR_COUNT)
+                    part = buildPart(testBlock, TEST_ITERATION_LENGTH)
                     const cellCount: Count = to.Count(testBlock.length)
-                    expectedNotesCount = to.Count(from.Count(cellCount) * from.Count(TEST_BAR_COUNT))
+                    expectedNotesCount = to.Count(from.Count(cellCount) * from.Count(TEST_ITERATION_LENGTH))
                 })
 
                 it('returns a series of x notes, where x is the length of the block times the count of bars', () => {
@@ -105,7 +105,7 @@ describe('hafuhafu parts', () => {
     describe('with pitch circularity', () => {
         let part: Part = []
         let expectedNotesCount: Count = to.Count(0)
-        const TEST_BAR_COUNT: Count = to.Count(32)
+        const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(Math.random() * 32))
 
         const testBlocks: Block[] = [
             [ 0, 1, 0, 0, 1 ],
@@ -117,9 +117,9 @@ describe('hafuhafu parts', () => {
             describe(`block ${testBlock}`, () => {
                 describe('in', () => {
                     beforeEach(() => {
-                        part = buildHafuhafuWithPitchCircularityPart(testBlock, TEST_BAR_COUNT, Direction.IN)
+                        part = buildHafuhafuWithPitchCircularityPart(testBlock, TEST_ITERATION_LENGTH, Direction.IN)
                         const cellCount: Count = to.Count(testBlock.length)
-                        expectedNotesCount = to.Count(from.Count(cellCount) * from.Count(TEST_BAR_COUNT))
+                        expectedNotesCount = to.Count(from.Count(cellCount) * from.Count(TEST_ITERATION_LENGTH))
                     })
 
                     it('returns a series of x notes, where x is the length of the block times the count of bars', () => {
@@ -189,9 +189,9 @@ describe('hafuhafu parts', () => {
 
                 describe('out', () => {
                     beforeEach(() => {
-                        part = buildHafuhafuWithPitchCircularityPart(testBlock, TEST_BAR_COUNT, Direction.OUT)
+                        part = buildHafuhafuWithPitchCircularityPart(testBlock, TEST_ITERATION_LENGTH, Direction.OUT)
                         const cellCount: Count = to.Count(testBlock.length)
-                        expectedNotesCount = to.Count(from.Count(cellCount) * from.Count(TEST_BAR_COUNT))
+                        expectedNotesCount = to.Count(from.Count(cellCount) * from.Count(TEST_ITERATION_LENGTH))
                     })
 
                     it('returns a series of x notes, where x is the length of the block times the count of bars', () => {

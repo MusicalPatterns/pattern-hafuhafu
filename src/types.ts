@@ -1,4 +1,4 @@
-import { Block, Index, Scalar } from '../../../src'
+import { Block, Count, Index, Scalar } from '../../../src'
 import { PatternSpec } from '../../types'
 
 enum Direction {
@@ -16,6 +16,7 @@ interface BuildHafuhafuNoteSpecParameters {
 
 interface HafuhafuPatternSpec extends PatternSpec {
     block: Block,
+    iterationLength: Count,
 }
 
 type Cycle = Block[]

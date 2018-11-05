@@ -4,6 +4,7 @@ import { Pattern, PatternMaterial, PatternMetadata } from '../../types'
 import {
     HAFUHAFU_DURATION_SCALAR,
     HAFUHAFU_INITIAL_BLOCK,
+    HAFUHAFU_INITIAL_ITERATION_LENGTH,
     HAFUHAFU_PITCH_SCALAR,
     HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
 } from './constants'
@@ -32,12 +33,14 @@ const hafuhafuWithPitchCircularityPatternMetadata: PatternMetadata = {
 
 const patternSpec: HafuhafuPatternSpec = {
     block: HAFUHAFU_INITIAL_BLOCK,
+    iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
     patternDurationScalar: HAFUHAFU_DURATION_SCALAR,
     patternPitchScalar: HAFUHAFU_PITCH_SCALAR,
 }
 
 const hafuhafuWithPitchCircularityPatternSpec: HafuhafuPatternSpec = {
     block: HAFUHAFU_INITIAL_BLOCK,
+    iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
     patternDurationScalar: applyScale(HAFUHAFU_DURATION_SCALAR, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR),
     patternPitchScalar: HAFUHAFU_PITCH_SCALAR,
 }
