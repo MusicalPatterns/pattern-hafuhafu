@@ -3,6 +3,7 @@ import {
     applyScale,
     Block,
     Count,
+    dereference,
     from,
     Index,
     Maybe,
@@ -45,7 +46,7 @@ describe('hafuhafu parts', () => {
 
                 it('keeps a constant gain on the even notes', () => {
                     for (let i: Index = to.Index(0); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(2))) {
-                        const gainSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].gainSpec
+                        const gainSpec: Maybe<NotePropertySpec> = dereference(part, i).gainSpec
                         if (!gainSpec) {
                             fail()
                         }
@@ -58,7 +59,7 @@ describe('hafuhafu parts', () => {
 
                 it('gradually reduces the gain on the odd notes until they are silent', () => {
                     for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(2))) {
-                        const gainSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].gainSpec
+                        const gainSpec: Maybe<NotePropertySpec> = dereference(part, i).gainSpec
                         if (!gainSpec) {
                             fail()
                         }
@@ -73,7 +74,7 @@ describe('hafuhafu parts', () => {
 
                 it('gradually decreases the duration of the notes from 2 to 1, increasing the tempo from 1/2x to 1x', () => {
                     for (let i: Index = to.Index(0); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                        const durationSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].durationSpec
+                        const durationSpec: Maybe<NotePropertySpec> = dereference(part, i).durationSpec
                         if (!durationSpec) {
                             fail()
                         }
@@ -88,7 +89,7 @@ describe('hafuhafu parts', () => {
 
                 it('keeps a constant sustain of the notes, slightly shorter than half the first duration', () => {
                     for (let i: Index = to.Index(0); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                        const sustainSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].sustainSpec
+                        const sustainSpec: Maybe<NotePropertySpec> = dereference(part, i).sustainSpec
                         if (!sustainSpec) {
                             fail()
                         }
@@ -129,7 +130,7 @@ describe('hafuhafu parts', () => {
 
                     it('gradually increases the gain from silence to full (this one is linear because the between silence and 1 is artificially curved)', () => {
                         for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                            const gainSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].gainSpec
+                            const gainSpec: Maybe<NotePropertySpec> = dereference(part, i).gainSpec
                             if (!gainSpec) {
                                 fail()
                             }
@@ -142,7 +143,7 @@ describe('hafuhafu parts', () => {
 
                     it('gradually increases the pitch scalar from half to normal', () => {
                         for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                            const pitchSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].pitchSpec
+                            const pitchSpec: Maybe<NotePropertySpec> = dereference(part, i).pitchSpec
                             if (!pitchSpec) {
                                 fail()
                             }
@@ -157,7 +158,7 @@ describe('hafuhafu parts', () => {
 
                     it('gradually decreases the duration of the notes from 2 to 1, making the tempo change from 1/2x to 1x', () => {
                         for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                            const durationSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].durationSpec
+                            const durationSpec: Maybe<NotePropertySpec> = dereference(part, i).durationSpec
                             if (!durationSpec) {
                                 fail()
                             }
@@ -172,8 +173,8 @@ describe('hafuhafu parts', () => {
 
                     it('the sustain is always half of the duration', () => {
                         for (let i: Index = to.Index(1); i < to.Index(from.Count(expectedNotesCount)); i = applyOffset(i, to.Offset(1))) {
-                            const sustainSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].sustainSpec
-                            const durationSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].durationSpec
+                            const sustainSpec: Maybe<NotePropertySpec> = dereference(part, i).sustainSpec
+                            const durationSpec: Maybe<NotePropertySpec> = dereference(part, i).durationSpec
                             if (!sustainSpec || !durationSpec) {
                                 fail()
                             }
@@ -201,7 +202,7 @@ describe('hafuhafu parts', () => {
 
                     it('gradually decreases the gain from full to silence', () => {
                         for (let i: Index = to.Index(1); i < to.Index(from.Count(applyScale(expectedNotesCount, to.Scalar(2)))); i = applyOffset(i, to.Offset(1))) {
-                            const gainSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].gainSpec
+                            const gainSpec: Maybe<NotePropertySpec> = dereference(part, i).gainSpec
                             if (!gainSpec) {
                                 fail()
                             }
@@ -216,7 +217,7 @@ describe('hafuhafu parts', () => {
 
                     it('gradually increases the pitch scalar from normal to twice', () => {
                         for (let i: Index = to.Index(1); i < to.Index(from.Count(applyScale(expectedNotesCount, to.Scalar(2)))); i = applyOffset(i, to.Offset(1))) {
-                            const pitchSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].pitchSpec
+                            const pitchSpec: Maybe<NotePropertySpec> = dereference(part, i).pitchSpec
                             if (!pitchSpec) {
                                 fail()
                             }
@@ -231,7 +232,7 @@ describe('hafuhafu parts', () => {
 
                     it('gradually decreases the duration of the notes from 1 to 0.5, making the tempo change from 1x to 2x', () => {
                         for (let i: Index = to.Index(0); i < to.Index(from.Count(applyScale(expectedNotesCount, to.Scalar(2)))); i = applyOffset(i, to.Offset(1))) {
-                            const durationSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].durationSpec
+                            const durationSpec: Maybe<NotePropertySpec> = dereference(part, i).durationSpec
                             if (!durationSpec) {
                                 fail()
                             }
@@ -246,8 +247,8 @@ describe('hafuhafu parts', () => {
 
                     it('the sustain is always half of the duration', () => {
                         for (let i: Index = to.Index(0); i < to.Index(from.Count(applyScale(expectedNotesCount, to.Scalar(2)))); i = applyOffset(i, to.Offset(1))) {
-                            const sustainSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].sustainSpec
-                            const durationSpec: Maybe<NotePropertySpec> = part[ from.Index(i) ].durationSpec
+                            const sustainSpec: Maybe<NotePropertySpec> = dereference(part, i).sustainSpec
+                            const durationSpec: Maybe<NotePropertySpec> = dereference(part, i).durationSpec
                             if (!sustainSpec || !durationSpec) {
                                 fail()
                             }
