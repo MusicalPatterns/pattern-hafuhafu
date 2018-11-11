@@ -14,8 +14,8 @@ describe('snapshot', () => {
             scales: buildScales(patternSpec),
         }
 
-        expect(actual)
-            .toEqual(snapshot)
+        expect(JSON.stringify(actual, undefined, 2))
+            .toEqual(JSON.stringify(snapshot, undefined, 2))
 
         done()
     })
