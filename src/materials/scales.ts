@@ -3,11 +3,11 @@ import { HafuhafuPatternSpec } from '../types'
 
 const buildScales: BuildScalesFunction =
     (patternSpec: HafuhafuPatternSpec): Scale[] => {
-        const { flatDurationsScale, octaveSeriesScale } = buildStandardScales()
+        const { nonScale, octaveSeriesScale } = buildStandardScales()
 
-        const gainScale: Scale = flatDurationsScale
+        const gainScale: Scale = nonScale
         const durationsScale: Scale = scaleFromScalarsAndScalar(
-            flatDurationsScale.scalars,
+            nonScale.scalars,
             patternSpec.patternDurationScalar,
         )
         const pitchesScale: Scale = scaleFromScalarsAndScalar(
