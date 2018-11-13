@@ -1,7 +1,6 @@
 import {
     applyCycle,
     Block,
-    BuildEntitiesFunction,
     Count,
     Entity,
     OscillatorName,
@@ -11,6 +10,7 @@ import {
     to,
     VoiceType,
 } from '../../../../src'
+import { BuildEntitiesFunction } from '../../../types'
 import { buildCycle } from '../custom'
 import { Direction, HafuhafuPatternSpec } from '../types'
 import { buildHafuhafuWithPitchCircularityPart, buildPart } from './parts'

@@ -1,4 +1,5 @@
-import { BuildScalesFunction, buildStandardScales, Scale, scaleFromScalarsAndScalar } from '../../../../src'
+import { buildStandardScales, Scale, scaleFromScalarsAndScalar } from '../../../../src'
+import { BuildScalesFunction } from '../../../types'
 import { HafuhafuPatternSpec } from '../types'
 
 const buildScales: BuildScalesFunction =
