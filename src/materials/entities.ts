@@ -1,14 +1,12 @@
+import { OscillatorName, TimeType, VoiceType } from '@musical-patterns/performer'
 import {
     applyCycle,
     Block,
     Count,
     Entity,
-    OscillatorName,
     Part,
     sequence,
-    TimeType,
     to,
-    VoiceType,
 } from '../../../../src'
 import { BuildEntitiesFunction } from '../../../types'
 import { buildCycle } from '../custom'
