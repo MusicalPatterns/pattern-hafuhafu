@@ -1,4 +1,4 @@
-import { OscillatorName, TimeType, VoiceType } from '@musical-patterns/performer'
+import { OscillatorName, VoiceType } from '@musical-patterns/performer'
 import {
     applyCycle,
     Block,
@@ -23,7 +23,6 @@ const buildEntities: BuildEntitiesFunction =
                 buildCycle(block)
                     .map((cycleBlock: Block): Part =>
                         buildPart(cycleBlock, iterationLength))),
-            timeType: TimeType.RAW,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
@@ -43,7 +42,6 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
                     .map((cycleBlock: Block): Part =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.IN)),
             ),
-            timeType: TimeType.RAW,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
@@ -53,7 +51,6 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
                     .map((cycleBlock: Block): Part =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.OUT)),
             ),
-            timeType: TimeType.RAW,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 

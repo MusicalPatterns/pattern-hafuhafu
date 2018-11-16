@@ -2883,7 +2883,6 @@
           }
         }
       ],
-      "timeType": "raw",
       "voiceSpec": {
         "timbre": "square",
         "voiceType": "oscillator"
