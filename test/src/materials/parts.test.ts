@@ -8,7 +8,7 @@ import {
     Index,
     Maybe,
     NotePropertySpec,
-    Part,
+    PartSpec,
     Scalar,
     to,
 } from '../../../../../src/indexForTest'
@@ -20,7 +20,7 @@ import {
 
 describe('hafuhafu parts', () => {
     describe('without pitch circularity', () => {
-        let part: Part = []
+        let part: PartSpec = []
         let expectedNotesCount: Count = to.Count(0)
         const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(Math.random() * 32))
         const expectedSustainAmount: Scalar = to.Scalar(0.9)
@@ -104,7 +104,7 @@ describe('hafuhafu parts', () => {
     })
 
     describe('with pitch circularity', () => {
-        let part: Part = []
+        let part: PartSpec = []
         let expectedNotesCount: Count = to.Count(0)
         const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(Math.random() * 32))
 

@@ -63,6 +63,5 @@ const hafuhafuWithPitchCircularityPattern: Pattern = {
 
 export {
     pattern,
-    patternSpec,
     hafuhafuWithPitchCircularityPattern,
 }

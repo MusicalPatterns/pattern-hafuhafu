@@ -11,7 +11,7 @@ import {
     FULL_GAIN,
     Index,
     OCTAVE,
-    Part,
+    PartSpec,
     Scalar,
     to,
 } from '../../../../src'
@@ -19,10 +19,10 @@ import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../c
 import { Direction } from '../types'
 import { buildNoteSpec } from './notes'
 
-const buildPart: (block: Block, iterationLength: Count) => Part =
-    (block: Block, iterationLength: Count): Part => {
+const buildPart: (block: Block, iterationLength: Count) => PartSpec =
+    (block: Block, iterationLength: Count): PartSpec => {
         const cellCount: Count = to.Count(block.length)
-        const part: Part = []
+        const part: PartSpec = []
 
         for (
             let i: Index = to.Index(0);
@@ -47,10 +47,10 @@ const buildPart: (block: Block, iterationLength: Count) => Part =
         return part
     }
 
-const buildHafuhafuWithPitchCircularityPart: (block: Block, iterationLength: Count, direction: Direction) => Part =
-    (block: Block, iterationLength: Count, direction: Direction): Part => {
+const buildHafuhafuWithPitchCircularityPart: (block: Block, iterationLength: Count, direction: Direction) => PartSpec =
+    (block: Block, iterationLength: Count, direction: Direction): PartSpec => {
         const cellCount: Count = to.Count(block.length)
-        const part: Part = []
+        const part: PartSpec = []
 
         if (direction === Direction.IN) {
             const totalNotesCount: Count = to.Count(from.Count(cellCount) * from.Count(iterationLength))
