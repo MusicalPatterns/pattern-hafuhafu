@@ -1,16 +1,13 @@
+import { Count, from, Index, Scalar, to } from '@musical-patterns/utilities'
 import {
     applyOffset,
     applyScale,
     Block,
-    Count,
     dereference,
-    from,
-    Index,
     Maybe,
     NotePropertySpec,
     PartSpec,
-    Scalar,
-    to,
+    to as labTo,
 } from '../../../../../src/indexForTest'
 import {
     buildHafuhafuWithPitchCircularityPart,
@@ -29,7 +26,7 @@ describe('hafuhafu parts', () => {
             [ 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 0, 0, 0, 1, 1, 1 ],
-        ].map(to.Block)
+        ].map(labTo.Block)
 
         testBlocks.forEach((testBlock: Block): void => {
             describe(`block ${testBlock}`, () => {
@@ -112,7 +109,7 @@ describe('hafuhafu parts', () => {
             [ 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 0, 0, 0, 1, 1, 1 ],
-        ].map(to.Block)
+        ].map(labTo.Block)
 
         testBlocks.forEach((testBlock: Block): void => {
             describe(`block ${testBlock}`, () => {

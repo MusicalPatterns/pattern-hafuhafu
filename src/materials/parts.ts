@@ -1,19 +1,15 @@
+import { Count, from, Index, Scalar, to } from '@musical-patterns/utilities'
 import {
     applyOffset,
     applyPower,
     applyScale,
     Block,
-    Count,
     DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN,
     dereference,
     EVEN,
-    from,
     FULL_GAIN,
-    Index,
     OCTAVE,
     PartSpec,
-    Scalar,
-    to,
 } from '../../../../src'
 import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
 import { Direction } from '../types'

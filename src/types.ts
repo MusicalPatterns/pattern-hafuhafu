@@ -1,4 +1,5 @@
-import { Block, Count, Index, Scalar } from '../../../src'
+import { Count, Index, Scalar } from '@musical-patterns/utilities'
+import { Block } from '../../../src'
 import { PatternSpec } from '../../types'
 
 enum Direction {
