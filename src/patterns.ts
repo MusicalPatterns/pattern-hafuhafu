@@ -1,4 +1,4 @@
-import { applyScale } from '../../../src'
+import { apply } from '@musical-patterns/utilities'
 import { PatternId } from '../../patternId'
 import { Pattern, PatternMaterial, PatternMetadata } from '../../types'
 import {
@@ -43,7 +43,7 @@ const patternSpec: HafuhafuPatternSpec = {
 const hafuhafuWithPitchCircularityPatternSpec: HafuhafuPatternSpec = {
     block: HAFUHAFU_INITIAL_BLOCK,
     iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
-    patternDurationScalar: applyScale(HAFUHAFU_DURATION_SCALAR, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR),
+    patternDurationScalar: apply.Scalar(HAFUHAFU_DURATION_SCALAR, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR),
     patternPitchScalar: HAFUHAFU_PITCH_SCALAR,
 }
 

@@ -1,12 +1,6 @@
 import { OscillatorName, VoiceType } from '@musical-patterns/performer'
 import { Count, to } from '@musical-patterns/utilities'
-import {
-    applyCycle,
-    Block,
-    Entity,
-    PartSpec,
-    sequence,
-} from '../../../../src'
+import { Block, cycle, Entity, PartSpec, sequence } from '../../../../src'
 import { BuildEntitiesFunction } from '../../../types'
 import { buildCycle } from '../custom'
 import { Direction, HafuhafuPatternSpec } from '../types'
@@ -37,7 +31,7 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
 
         const hafuhafuInEntity: Entity = {
             partSpec: sequence(
-                applyCycle(buildCycle(block), to.Offset(1))
+                cycle(buildCycle(block), to.Offset(1))
                     .map((cycleBlock: Block): PartSpec =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.IN)),
             ),

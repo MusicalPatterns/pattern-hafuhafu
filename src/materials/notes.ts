@@ -1,4 +1,5 @@
-import { applyOffset, DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX, NoteSpec } from '../../../../src'
+import { apply } from '@musical-patterns/utilities'
+import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX, NoteSpec } from '../../../../src'
 import { PITCH_INDEX_BASE_OFFSET } from '../constants'
 import { BuildHafuhafuNoteSpecParameters } from '../types'
 
@@ -12,7 +13,7 @@ const buildNoteSpec: (buildHafuhafuNoteSpecParameters: BuildHafuhafuNoteSpecPara
             scalar: gain,
         },
         pitchSpec: {
-            index: applyOffset(cell, PITCH_INDEX_BASE_OFFSET),
+            index: apply.Offset(cell, PITCH_INDEX_BASE_OFFSET),
             scalar: pitch,
             scaleIndex: DEFAULT_PITCH_SCALE_INDEX,
         },
