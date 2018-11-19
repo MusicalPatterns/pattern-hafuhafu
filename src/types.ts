@@ -3,8 +3,8 @@ import { Block } from '../../../src'
 import { PatternSpec } from '../../types'
 
 enum Direction {
-    IN = 'in',
-    OUT = 'out',
+    IN = 'IN',
+    OUT = 'OUT',
 }
 
 interface BuildHafuhafuNoteSpecParameters {
