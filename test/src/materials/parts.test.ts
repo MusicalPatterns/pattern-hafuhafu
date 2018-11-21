@@ -1,10 +1,6 @@
 import { apply, Count, from, Index, Scalar, to } from '@musical-patterns/utilities'
 import { Block, Maybe, NotePropertySpec, PartSpec, to as labTo } from '../../../../../src/indexForTest'
-import {
-    buildHafuhafuWithPitchCircularityPart,
-    buildPart,
-    Direction,
-} from '../../../src/indexForTest'
+import { buildHafuhafuWithPitchCircularityPart, buildPart, Direction } from '../../../src/indexForTest'
 
 describe('hafuhafu parts', () => {
     describe('without pitch circularity', () => {
