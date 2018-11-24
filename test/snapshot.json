@@ -1443,8 +1443,8 @@
       }
     ],
     "voiceSpec": {
-      "timbre": "square",
-      "voiceType": "oscillator"
+      "timbre": "SQUARE",
+      "voiceType": "OSCILLATOR"
     }
   }
 ]
