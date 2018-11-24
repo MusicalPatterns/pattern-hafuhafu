@@ -6,8 +6,8 @@
   ],
   "main": "test/snapshot.json",
   "patternModule": "index.ts",
-  "dependencies": {},
-  "devDependencies": {
-    "@musical-patterns/utilities": "^1.0.21"
+  "peerDependencies": {
+    "@musical-patterns/performer": "^1.0.12",
+    "@musical-patterns/utilities": "^1.0.29"
   }
 }

@@ -1,4 +1,5 @@
-import { Block, deepEqual, to } from '../../../../src'
+import { deepEqual } from '@musical-patterns/utilities'
+import { Block, to } from '../../../../src'
 import { buildBlock } from '../materials'
 import { Cycle } from '../types'
 
