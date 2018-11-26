@@ -1,5 +1,5 @@
 import { OscillatorName, VoiceType } from '@musical-patterns/performer'
-import { Count, cycle, sequence, to } from '@musical-patterns/utilities'
+import { Count, cycle, sequence, to } from '@musical-patterns/shared'
 import { Entity, PartSpec } from '../../../../compile'
 import { Block } from '../../../../nominal'
 import { BuildEntitiesFunction } from '../../../types'

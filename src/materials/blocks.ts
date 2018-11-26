@@ -1,4 +1,4 @@
-import { apply, from, Index, to } from '@musical-patterns/utilities'
+import { apply, from, Index, to } from '@musical-patterns/shared'
 import { EVERY_OTHER } from '../../../../constants'
 import { Block, to as labTo } from '../../../../nominal'
 

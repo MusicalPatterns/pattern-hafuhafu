@@ -1,4 +1,4 @@
-import { Count, Index, Scalar } from '@musical-patterns/utilities'
+import { Count, Index, Scalar } from '@musical-patterns/shared'
 import { Block } from '../../../nominal'
 import { PatternSpec } from '../../types'
 

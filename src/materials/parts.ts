@@ -1,4 +1,4 @@
-import { apply, Count, from, Index, Scalar, to } from '@musical-patterns/utilities'
+import { apply, Count, from, Index, Scalar, to } from '@musical-patterns/shared'
 import { PartSpec } from '../../../../compile'
 import { DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN, EVEN, FULL_GAIN, OCTAVE } from '../../../../constants'
 import { Block } from '../../../../nominal'

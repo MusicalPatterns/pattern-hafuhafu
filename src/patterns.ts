@@ -1,4 +1,4 @@
-import { apply } from '@musical-patterns/utilities'
+import { apply } from '@musical-patterns/shared'
 import { PatternId } from '../../patternId'
 import { Pattern, PatternMaterial, PatternMetadata } from '../../types'
 import {
