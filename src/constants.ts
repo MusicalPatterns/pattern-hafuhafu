@@ -1,7 +1,7 @@
 // tslint:disable:no-magic-numbers
 
 import { Base, Count, Offset, Scalar, to } from '@musical-patterns/utilities'
-import { Block, to as labTo } from '../../../src'
+import { Block, to as labTo } from '../../../nominal'
 
 const HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR: Scalar = to.Scalar(2)
 const BASE_FOR_GAIN_FADE: Base = to.Base(2)

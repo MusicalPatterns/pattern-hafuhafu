@@ -2,7 +2,10 @@
 .PHONY: test
 
 test:
-	pushd ../..; make test; popd
+	musical-patterns test
 
 lint:
-	pushd ../..; make lint; popd
+	musical-patterns lint
+
+publish:
+	musical-patterns publish

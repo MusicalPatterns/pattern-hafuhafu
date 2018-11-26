@@ -1,5 +1,7 @@
 import { apply, Count, from, Index, Scalar, to } from '@musical-patterns/utilities'
-import { Block, DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN, EVEN, FULL_GAIN, OCTAVE, PartSpec } from '../../../../src'
+import { PartSpec } from '../../../../compile'
+import { DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN, EVEN, FULL_GAIN, OCTAVE } from '../../../../constants'
+import { Block } from '../../../../nominal'
 import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
 import { Direction } from '../types'
 import { buildNoteSpec } from './notes'

@@ -1,4 +1,4 @@
-import { to } from '../../../../../src/indexForTest'
+import { to } from '../../../../../indexForTest'
 import { buildBlock } from '../../../src/indexForTest'
 
 describe('hafuhafu blocks', () => {

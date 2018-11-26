@@ -1,5 +1,6 @@
 import { apply } from '@musical-patterns/utilities'
-import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX, NoteSpec } from '../../../../src'
+import { NoteSpec } from '../../../../compile'
+import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '../../../../constants'
 import { PITCH_INDEX_BASE_OFFSET } from '../constants'
 import { BuildHafuhafuNoteSpecParameters } from '../types'
 

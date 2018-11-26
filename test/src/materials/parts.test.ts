@@ -1,5 +1,5 @@
 import { apply, Count, from, Index, Maybe, Scalar, to } from '@musical-patterns/utilities'
-import { Block, NotePropertySpec, PartSpec, to as labTo } from '../../../../../src/indexForTest'
+import { Block, NotePropertySpec, PartSpec, to as labTo } from '../../../../../indexForTest'
 import { buildHafuhafuWithPitchCircularityPart, buildPart, Direction } from '../../../src/indexForTest'
 
 describe('hafuhafu parts', () => {
