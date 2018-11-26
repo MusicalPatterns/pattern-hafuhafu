@@ -1,6 +1,6 @@
 import { OscillatorName, VoiceType } from '@musical-patterns/performer'
-import { Count, to } from '@musical-patterns/utilities'
-import { Block, cycle, Entity, PartSpec, sequence } from '../../../../src'
+import { Count, cycle, sequence, to } from '@musical-patterns/utilities'
+import { Block, Entity, PartSpec } from '../../../../src'
 import { BuildEntitiesFunction } from '../../../types'
 import { buildCycle } from '../custom'
 import { Direction, HafuhafuPatternSpec } from '../types'
