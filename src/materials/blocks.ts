@@ -1,5 +1,4 @@
-import { apply, from, Index, to } from '@musical-patterns/shared'
-import { EVERY_OTHER } from '../../../../constants'
+import { apply, EVERY_OTHER, from, Index, to } from '@musical-patterns/shared'
 import { Block, to as labTo } from '../../../../nominal'
 
 const buildBlock: (block: Block) => Block =

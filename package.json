@@ -10,6 +10,6 @@
     "@musical-patterns/performer": "^1.0.12"
   },
   "devDependencies": {
-    "@musical-patterns/shared": "^1.0.0"
+    "@musical-patterns/shared": "^1.0.3"
   }
 }
