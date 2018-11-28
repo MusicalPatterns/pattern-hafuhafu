@@ -1,5 +1,4 @@
-import { to } from '@musical-patterns/shared'
-import { NotePropertySpec, NoteSpec } from '../../../../../indexForTest'
+import { NotePropertySpec, NoteSpec, to } from '@musical-patterns/shared'
 import { buildNoteSpec } from '../../../src/indexForTest'
 
 describe('hafuhafu note specs', () => {

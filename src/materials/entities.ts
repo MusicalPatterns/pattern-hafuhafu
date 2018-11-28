@@ -1,11 +1,31 @@
-import { OscillatorName, VoiceType } from '@musical-patterns/performer'
-import { Count, cycle, sequence, to } from '@musical-patterns/shared'
-import { Entity, PartSpec } from '../../../../compile'
-import { Block } from '../../../../nominal'
-import { BuildEntitiesFunction } from '../../../types'
-import { buildCycle } from '../custom'
-import { Direction, HafuhafuPatternSpec } from '../types'
+import {
+    BuildEntitiesFunction,
+    Count,
+    cycle, deepEqual,
+    Entity,
+    OscillatorName,
+    PartSpec,
+    sequence,
+    to,
+    VoiceType,
+} from '@musical-patterns/shared'
+import { Block, to as labTo } from '../../../../nominal'
+import { Cycle, Direction, HafuhafuPatternSpec } from '../types'
+import { buildBlock } from './blocks'
 import { buildHafuhafuWithPitchCircularityPart, buildPart } from './parts'
+
+const buildHafuhafuCycle: (block: Block) => Cycle =
+    (block: Block): Cycle => {
+        const hafuhafuCycle: Cycle = [ block.slice() ].map(labTo.Block)
+
+        let nextBlock: Block = buildBlock(block)
+        while (!deepEqual(block, nextBlock)) {
+            hafuhafuCycle.push(labTo.Block(nextBlock.slice()))
+            nextBlock = buildBlock(nextBlock)
+        }
+
+        return hafuhafuCycle
+    }
 
 const buildEntities: BuildEntitiesFunction =
     (patternSpec: HafuhafuPatternSpec): Entity[] => {
@@ -14,7 +34,7 @@ const buildEntities: BuildEntitiesFunction =
 
         const hafuhafuEntity: Entity = {
             partSpec: sequence(
-                buildCycle(block)
+                buildHafuhafuCycle(block)
                     .map((cycleBlock: Block): PartSpec =>
                         buildPart(cycleBlock, iterationLength))),
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
@@ -32,7 +52,7 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
 
         const hafuhafuInEntity: Entity = {
             partSpec: sequence(
-                cycle(buildCycle(block), to.Offset(1))
+                cycle(buildHafuhafuCycle(block), to.Offset(1))
                     .map((cycleBlock: Block): PartSpec =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.IN)),
             ),
@@ -41,7 +61,7 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
 
         const hafuhafuOutEntity: Entity = {
             partSpec: sequence(
-                buildCycle(block)
+                buildHafuhafuCycle(block)
                     .map((cycleBlock: Block): PartSpec =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.OUT)),
             ),
@@ -56,5 +76,6 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
 
 export {
     buildEntities,
+    buildHafuhafuCycle,
     buildHafuhafuWithPitchCircularityEntities,
 }

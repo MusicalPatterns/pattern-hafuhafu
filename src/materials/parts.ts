@@ -1,5 +1,4 @@
-import { apply, Count, EVEN, from, Index, OCTAVE, Scalar, to } from '@musical-patterns/shared'
-import { PartSpec } from '../../../../compile'
+import { apply, Count, EVEN, from, Index, OCTAVE, PartSpec, Scalar, to } from '@musical-patterns/shared'
 import { Block } from '../../../../nominal'
 import { DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN, FULL_GAIN } from '../../../../patternMaterial'
 import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'

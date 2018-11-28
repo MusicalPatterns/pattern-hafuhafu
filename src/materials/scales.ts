@@ -1,6 +1,5 @@
-import { Scale } from '../../../../compile'
+import { BuildScalesFunction, Scale } from '@musical-patterns/shared'
 import { buildStandardScales, scaleFromScalarsAndScalar } from '../../../../patternMaterial'
-import { BuildScalesFunction } from '../../../types'
 import { HafuhafuPatternSpec } from '../types'
 
 const buildScales: BuildScalesFunction =

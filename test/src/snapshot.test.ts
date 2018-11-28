@@ -1,5 +1,5 @@
-import { ThreadSpec } from '@musical-patterns/performer'
-import { compilePattern } from '../../../../compile/indexForTest'
+import { compilePattern } from '@musical-patterns/compiler'
+import { ThreadSpec } from '@musical-patterns/shared'
 import { pattern } from '../../src/indexForTest'
 
 // tslint:disable-next-line:no-any

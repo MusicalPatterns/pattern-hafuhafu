@@ -1,6 +1,4 @@
-import { apply } from '@musical-patterns/shared'
-import { PatternId } from '../../patternId'
-import { Pattern, PatternMaterial, PatternMetadata } from '../../types'
+import { apply, Pattern, PatternId, PatternMaterial, PatternMetadata } from '@musical-patterns/shared'
 import {
     HAFUHAFU_DURATION_SCALAR,
     HAFUHAFU_INITIAL_BLOCK,

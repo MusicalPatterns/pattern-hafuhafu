@@ -3,5 +3,5 @@
 export { buildPart, buildHafuhafuWithPitchCircularityPart } from './parts'
 export { buildNoteSpec } from './notes'
 export { buildBlock } from './blocks'
-export { buildEntities } from './entities'
+export { buildEntities, buildHafuhafuCycle } from './entities'
 export { buildScales } from './scales'

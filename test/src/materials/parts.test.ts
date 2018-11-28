@@ -1,5 +1,15 @@
-import { apply, Count, from, Index, Maybe, Scalar, to } from '@musical-patterns/shared'
-import { Block, NotePropertySpec, PartSpec, to as labTo } from '../../../../../indexForTest'
+import {
+    apply,
+    Count,
+    from,
+    Index,
+    Maybe,
+    NotePropertySpec,
+    PartSpec,
+    Scalar,
+    to,
+} from '@musical-patterns/shared'
+import { Block, to as labTo } from '../../../../../indexForTest'
 import { buildHafuhafuWithPitchCircularityPart, buildPart, Direction } from '../../../src/indexForTest'
 
 describe('hafuhafu parts', () => {
