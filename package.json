@@ -7,9 +7,11 @@
   "main": "test/snapshot.json",
   "patternModule": "index.ts",
   "peerDependencies": {
-    "@musical-patterns/compiler": "^1.0.5"
+    "@musical-patterns/compiler": "^1.0.6"
   },
   "devDependencies": {
-    "@musical-patterns/shared": "^1.0.12"
+    "@musical-patterns/cli": "^1.0.0",
+    "@musical-patterns/registry": "^1.0.0",
+    "@musical-patterns/shared": "^1.0.13"
   }
 }
