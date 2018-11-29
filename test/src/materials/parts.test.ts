@@ -8,7 +8,7 @@ import {
     PartSpec,
     Scalar,
     to,
-} from '@musical-patterns/shared'
+} from '@musical-patterns/utilities'
 import { Block, to as labTo } from '../../../../../indexForTest'
 import { buildHafuhafuWithPitchCircularityPart, buildPart, Direction } from '../../../src/indexForTest'
 

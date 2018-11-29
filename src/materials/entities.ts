@@ -8,7 +8,7 @@ import {
     sequence,
     to,
     VoiceType,
-} from '@musical-patterns/shared'
+} from '@musical-patterns/utilities'
 import { Block, to as labTo } from '../../../../nominal'
 import { Cycle, Direction, HafuhafuPatternSpec } from '../types'
 import { buildBlock } from './blocks'

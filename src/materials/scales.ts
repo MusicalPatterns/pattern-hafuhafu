@@ -1,4 +1,4 @@
-import { BuildScalesFunction, Scale } from '@musical-patterns/shared'
+import { BuildScalesFunction, Scale } from '@musical-patterns/utilities'
 import { buildStandardScales, scaleFromScalarsAndScalar } from '../../../../patternMaterial'
 import { HafuhafuPatternSpec } from '../types'
 

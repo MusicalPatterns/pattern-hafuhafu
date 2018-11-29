@@ -1,4 +1,4 @@
-import { apply, EVERY_OTHER, from, Index, to } from '@musical-patterns/shared'
+import { apply, EVERY_OTHER, from, Index, to } from '@musical-patterns/utilities'
 import { Block, to as labTo } from '../../../../nominal'
 
 const buildBlock: (block: Block) => Block =

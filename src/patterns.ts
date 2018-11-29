@@ -1,5 +1,5 @@
 import { PatternId } from '@musical-patterns/registry'
-import { apply, Pattern, PatternMaterial, PatternMetadata } from '@musical-patterns/shared'
+import { apply, Pattern, PatternMaterial, PatternMetadata } from '@musical-patterns/utilities'
 import {
     HAFUHAFU_DURATION_SCALAR,
     HAFUHAFU_INITIAL_BLOCK,
