@@ -8,7 +8,7 @@ declare const require: any
 describe('snapshot', () => {
     it('stays locked down', async (done: DoneFn) => {
         // tslint:disable-next-line:no-require-imports no-unsafe-any
-        const expectedSnapshot: ThreadSpec[] = require('../snapshot')
+        const expectedSnapshot: ThreadSpec[] = require('../../dist/snapshot')
 
         const actualSnapshot: ThreadSpec[] = await compilePattern(pattern)
 

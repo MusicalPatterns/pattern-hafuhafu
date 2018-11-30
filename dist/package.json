@@ -1,0 +1,9 @@
+{
+  "name": "@musical-patterns/pattern-hafuhafu",
+  "version": "1.0.0",
+  "main": "snapshot.json",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MusicalPatterns/pattern-hafuhafu.git"
+  }
+}
