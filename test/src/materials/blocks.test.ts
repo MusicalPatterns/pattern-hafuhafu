@@ -1,4 +1,4 @@
-import { to } from '../../../../../indexForTest'
+import { to } from '@musical-patterns/pattern'
 import { buildBlock } from '../../../src/indexForTest'
 
 describe('hafuhafu blocks', () => {

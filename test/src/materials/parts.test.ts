@@ -1,15 +1,14 @@
+import { NotePropertySpec, PartSpec } from '@musical-patterns/compiler'
+import { Block, to as patternTo } from '@musical-patterns/pattern'
 import {
     apply,
     Count,
     from,
     Index,
     Maybe,
-    NotePropertySpec,
-    PartSpec,
     Scalar,
     to,
 } from '@musical-patterns/utilities'
-import { Block, to as labTo } from '../../../../../indexForTest'
 import { buildHafuhafuWithPitchCircularityPart, buildPart, Direction } from '../../../src/indexForTest'
 
 describe('hafuhafu parts', () => {
@@ -23,7 +22,7 @@ describe('hafuhafu parts', () => {
             [ 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 0, 0, 0, 1, 1, 1 ],
-        ].map(labTo.Block)
+        ].map(patternTo.Block)
 
         testBlocks.forEach((testBlock: Block): void => {
             describe(`block ${testBlock}`, () => {
@@ -106,7 +105,7 @@ describe('hafuhafu parts', () => {
             [ 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 0, 0, 0, 1, 1, 1 ],
-        ].map(labTo.Block)
+        ].map(patternTo.Block)
 
         testBlocks.forEach((testBlock: Block): void => {
             describe(`block ${testBlock}`, () => {

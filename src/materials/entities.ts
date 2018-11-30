@@ -1,26 +1,18 @@
-import {
-    BuildEntitiesFunction,
-    Count,
-    cycle, deepEqual,
-    Entity,
-    OscillatorName,
-    PartSpec,
-    sequence,
-    to,
-    VoiceType,
-} from '@musical-patterns/utilities'
-import { Block, to as labTo } from '../../../../nominal'
+import { BuildEntitiesFunction, Entity, PartSpec } from '@musical-patterns/compiler'
+import { Block, to as patternTo } from '@musical-patterns/pattern'
+import { OscillatorName, VoiceType } from '@musical-patterns/performer'
+import { Count, cycle, deepEqual, sequence, to } from '@musical-patterns/utilities'
 import { Cycle, Direction, HafuhafuPatternSpec } from '../types'
 import { buildBlock } from './blocks'
 import { buildHafuhafuWithPitchCircularityPart, buildPart } from './parts'
 
 const buildHafuhafuCycle: (block: Block) => Cycle =
     (block: Block): Cycle => {
-        const hafuhafuCycle: Cycle = [ block.slice() ].map(labTo.Block)
+        const hafuhafuCycle: Cycle = [ block.slice() ].map(patternTo.Block)
 
         let nextBlock: Block = buildBlock(block)
         while (!deepEqual(block, nextBlock)) {
-            hafuhafuCycle.push(labTo.Block(nextBlock.slice()))
+            hafuhafuCycle.push(patternTo.Block(nextBlock.slice()))
             nextBlock = buildBlock(nextBlock)
         }
 

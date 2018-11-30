@@ -1,5 +1,5 @@
-import { Count, Index, PatternSpec, Scalar } from '@musical-patterns/utilities'
-import { Block } from '../../../nominal'
+import { Block, PatternSpec } from '@musical-patterns/pattern'
+import { Count, Index, Scalar } from '@musical-patterns/utilities'
 
 enum Direction {
     IN = 'IN',
