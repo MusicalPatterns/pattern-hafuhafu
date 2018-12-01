@@ -1,4 +1,4 @@
-export { pattern as hafuhafuPattern } from './dist'
+export { pattern as hafuhafuPattern, hafuhafuWithPitchCircularityPattern } from './dist'
 
 import snapshot from './snapshot'
 export default snapshot
