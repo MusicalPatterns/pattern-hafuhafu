@@ -1,6 +1,5 @@
-import { BuildEntitiesFunction, Entity, PartSpec } from '@musical-patterns/compiler'
+import { BuildEntitiesFunction, Entity, PartSpec, TimbreName } from '@musical-patterns/compiler'
 import { Block, to as patternTo } from '@musical-patterns/pattern'
-import { OscillatorName, VoiceType } from '@musical-patterns/performer'
 import { Count, cycle, deepEqual, sequence, to } from '@musical-patterns/utilities'
 import { Cycle, Direction, HafuhafuPatternSpec } from '../types'
 import { buildBlock } from './blocks'
@@ -29,7 +28,7 @@ const buildEntities: BuildEntitiesFunction =
                 buildHafuhafuCycle(block)
                     .map((cycleBlock: Block): PartSpec =>
                         buildPart(cycleBlock, iterationLength))),
-            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+            timbreName: TimbreName.SQUARE,
         }
 
         return [
@@ -48,7 +47,7 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
                     .map((cycleBlock: Block): PartSpec =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.IN)),
             ),
-            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+            timbreName: TimbreName.SQUARE,
         }
 
         const hafuhafuOutEntity: Entity = {
@@ -57,7 +56,7 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
                     .map((cycleBlock: Block): PartSpec =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.OUT)),
             ),
-            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+            timbreName: TimbreName.SQUARE,
         }
 
         return [
