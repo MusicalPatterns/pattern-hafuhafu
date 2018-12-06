@@ -1,2 +1,2 @@
-export { pattern } from './patterns'
+export { pattern, hafuhafuWithPitchCircularityPattern } from './patterns'
 export { HafuhafuPatternSpec } from './types'

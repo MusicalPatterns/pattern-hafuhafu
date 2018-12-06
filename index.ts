@@ -1,1 +1,1 @@
-export { pattern, HafuhafuPatternSpec } from './src'
+export { pattern, hafuhafuWithPitchCircularityPattern, HafuhafuPatternSpec } from './src'
