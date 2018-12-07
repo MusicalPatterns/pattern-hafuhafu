@@ -1,4 +1,4 @@
-import { NotePropertySpec, PartSpec } from '@musical-patterns/compiler'
+import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
 import { Block, to as patternTo } from '@musical-patterns/pattern'
 import {
     apply,
@@ -13,7 +13,7 @@ import { buildHafuhafuWithPitchCircularityPart, buildPart, Direction } from '../
 
 describe('hafuhafu parts', () => {
     describe('without pitch circularity', () => {
-        let part: PartSpec = []
+        let part: NoteSpec[] = []
         let expectedNotesCount: Count = to.Count(0)
         const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(Math.random() * 32))
         const expectedSustainAmount: Scalar = to.Scalar(0.9)
@@ -97,7 +97,7 @@ describe('hafuhafu parts', () => {
     })
 
     describe('with pitch circularity', () => {
-        let part: PartSpec = []
+        let part: NoteSpec[] = []
         let expectedNotesCount: Count = to.Count(0)
         const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(Math.random() * 32))
 

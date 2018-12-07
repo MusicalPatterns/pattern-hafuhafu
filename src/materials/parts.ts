@@ -1,14 +1,14 @@
-import { PartSpec } from '@musical-patterns/compiler'
+import { NoteSpec } from '@musical-patterns/compiler'
 import { Block, DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN, FULL_GAIN } from '@musical-patterns/pattern'
 import { apply, Count, EVEN, from, Index, OCTAVE, Scalar, to } from '@musical-patterns/utilities'
 import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
 import { Direction } from '../types'
 import { buildNoteSpec } from './notes'
 
-const buildPart: (block: Block, iterationLength: Count) => PartSpec =
-    (block: Block, iterationLength: Count): PartSpec => {
+const buildPart: (block: Block, iterationLength: Count) => NoteSpec[] =
+    (block: Block, iterationLength: Count): NoteSpec[] => {
         const cellCount: Count = to.Count(block.length)
-        const part: PartSpec = []
+        const part: NoteSpec[] = []
 
         for (
             let i: Index = to.Index(0);
@@ -33,10 +33,11 @@ const buildPart: (block: Block, iterationLength: Count) => PartSpec =
         return part
     }
 
-const buildHafuhafuWithPitchCircularityPart: (block: Block, iterationLength: Count, direction: Direction) => PartSpec =
-    (block: Block, iterationLength: Count, direction: Direction): PartSpec => {
+const buildHafuhafuWithPitchCircularityPart:
+    (block: Block, iterationLength: Count, direction: Direction) => NoteSpec[] =
+    (block: Block, iterationLength: Count, direction: Direction): NoteSpec[] => {
         const cellCount: Count = to.Count(block.length)
-        const part: PartSpec = []
+        const part: NoteSpec[] = []
 
         if (direction === Direction.IN) {
             const totalNotesCount: Count = to.Count(from.Count(cellCount) * from.Count(iterationLength))
