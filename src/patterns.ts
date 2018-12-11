@@ -1,6 +1,6 @@
 import { PatternMaterial } from '@musical-patterns/compiler'
 import { Pattern, PatternId, PatternMetadata } from '@musical-patterns/pattern'
-import { apply } from '@musical-patterns/utilities'
+import { apply, to } from '@musical-patterns/utilities'
 import {
     HAFUHAFU_DURATION_SCALAR,
     HAFUHAFU_INITIAL_BLOCK,
@@ -36,14 +36,18 @@ const hafuhafuWithPitchCircularityPatternMetadata: PatternMetadata = {
 const patternSpec: HafuhafuPatternSpec = {
     block: HAFUHAFU_INITIAL_BLOCK,
     iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
+    patternDurationOffset: to.Offset(0),
     patternDurationScalar: HAFUHAFU_DURATION_SCALAR,
+    patternPitchOffset: to.Offset(0),
     patternPitchScalar: HAFUHAFU_PITCH_SCALAR,
 }
 
 const hafuhafuWithPitchCircularityPatternSpec: HafuhafuPatternSpec = {
     block: HAFUHAFU_INITIAL_BLOCK,
     iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
+    patternDurationOffset: to.Offset(0),
     patternDurationScalar: apply.Scalar(HAFUHAFU_DURATION_SCALAR, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR),
+    patternPitchOffset: to.Offset(0),
     patternPitchScalar: HAFUHAFU_PITCH_SCALAR,
 }
 

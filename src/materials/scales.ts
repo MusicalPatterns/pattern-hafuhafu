@@ -1,5 +1,6 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
-import { buildStandardScales, scaleFromScalarsAndScalar } from '@musical-patterns/pattern'
+import { buildStandardScales } from '@musical-patterns/pattern'
+import { to } from '@musical-patterns/utilities'
 import { HafuhafuPatternSpec } from '../types'
 
 const buildScales: BuildScalesFunction =
@@ -7,14 +8,16 @@ const buildScales: BuildScalesFunction =
         const { nonScale, octaveSeriesScale } = buildStandardScales()
 
         const gainScale: Scale = nonScale
-        const durationsScale: Scale = scaleFromScalarsAndScalar(
-            nonScale.scalars,
-            patternSpec.patternDurationScalar,
-        )
-        const pitchesScale: Scale = scaleFromScalarsAndScalar(
-            octaveSeriesScale.scalars,
-            patternSpec.patternPitchScalar,
-        )
+        const durationsScale: Scale = {
+            offset: patternSpec.patternDurationOffset || to.Offset(0),
+            scalar: patternSpec.patternDurationScalar || to.Scalar(1),
+            scalars: nonScale.scalars,
+        }
+        const pitchesScale: Scale = {
+            offset: patternSpec.patternPitchOffset || to.Offset(0),
+            scalar: patternSpec.patternPitchScalar || to.Scalar(1),
+            scalars: octaveSeriesScale.scalars,
+        }
 
         return [
             gainScale,
