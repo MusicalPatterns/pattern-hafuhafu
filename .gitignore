@@ -4,5 +4,6 @@
 .DS_STORE
 .module-cache
 *.log*
-package/dist
+package/dist/*
+!package/dist/.gitkeep
 package/node_modules

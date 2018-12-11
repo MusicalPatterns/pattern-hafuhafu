@@ -9,8 +9,8 @@
     "url": "https://github.com/MusicalPatterns/pattern-hafuhafu.git"
   },
   "dependencies": {
-    "@musical-patterns/pattern": "^1.0.15",
-    "@musical-patterns/utilities": "^1.0.93"
+    "@musical-patterns/pattern": "^1.0.16",
+    "@musical-patterns/utilities": "^1.0.96"
   },
   "peerDependencies": {
     "@musical-patterns/performer": "^1.0.45"
