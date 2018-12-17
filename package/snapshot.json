@@ -1763,7 +1763,7 @@
       }
     ],
     "voiceSpec": {
-      "timbre": "SQUARE",
+      "timbreName": "SQUARE",
       "voiceType": "OSCILLATOR"
     }
   }
