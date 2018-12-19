@@ -11,7 +11,7 @@ import {
 } from '@musical-patterns/utilities'
 import { buildHafuhafuWithPitchCircularityPart, buildPart, Direction } from '../../../src/indexForTest'
 
-describe('hafuhafu parts', () => {
+describe('parts', () => {
     describe('without pitch circularity', () => {
         let part: NoteSpec[] = []
         let expectedNotesCount: Count = to.Count(0)

@@ -2,7 +2,7 @@ import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
 import { to } from '@musical-patterns/utilities'
 import { buildNoteSpec } from '../../../src/indexForTest'
 
-describe('hafuhafu note specs', () => {
+describe('note specs', () => {
     describe('example one', () => {
         let noteSpec: NoteSpec
         beforeEach(() => {

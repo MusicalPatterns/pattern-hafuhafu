@@ -6,7 +6,7 @@ enum Direction {
     OUT = 'OUT',
 }
 
-interface BuildHafuhafuNoteSpecParameters {
+interface BuildNoteSpecParameters {
     cell: Index,
     duration: Scalar,
     gain: Scalar,
@@ -24,6 +24,6 @@ type Cycle = Block[]
 export {
     Cycle,
     Direction,
-    BuildHafuhafuNoteSpecParameters,
+    BuildNoteSpecParameters,
     HafuhafuPatternSpec,
 }

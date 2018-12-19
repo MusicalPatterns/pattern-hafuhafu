@@ -5,7 +5,7 @@ import { Cycle, Direction, HafuhafuPatternSpec } from '../types'
 import { buildBlock } from './blocks'
 import { buildHafuhafuWithPitchCircularityPart, buildPart } from './parts'
 
-const buildHafuhafuCycle: (block: Block) => Cycle =
+const buildCycle: (block: Block) => Cycle =
     (block: Block): Cycle => {
         const hafuhafuCycle: Cycle = [ block.slice() ].map(patternTo.Block)
 
@@ -23,16 +23,16 @@ const buildEntities: BuildEntitiesFunction =
         const block: Block = patternSpec.block
         const iterationLength: Count = patternSpec.iterationLength
 
-        const hafuhafuEntity: Entity = {
+        const entity: Entity = {
             noteSpecs: sequence(
-                buildHafuhafuCycle(block)
+                buildCycle(block)
                     .map((cycleBlock: Block): NoteSpec[] =>
                         buildPart(cycleBlock, iterationLength))),
             timbreName: TimbreNameEnum.SQUARE,
         }
 
         return [
-            hafuhafuEntity,
+            entity,
         ]
     }
 
@@ -41,18 +41,18 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
         const block: Block = patternSpec.block
         const iterationLength: Count = patternSpec.iterationLength
 
-        const hafuhafuInEntity: Entity = {
+        const inEntity: Entity = {
             noteSpecs: sequence(
-                cycle(buildHafuhafuCycle(block), to.Offset(1))
+                cycle(buildCycle(block), to.Offset(1))
                     .map((cycleBlock: Block): NoteSpec[] =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.IN)),
             ),
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const hafuhafuOutEntity: Entity = {
+        const outEntity: Entity = {
             noteSpecs: sequence(
-                buildHafuhafuCycle(block)
+                buildCycle(block)
                     .map((cycleBlock: Block): NoteSpec[] =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.OUT)),
             ),
@@ -60,13 +60,13 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
         }
 
         return [
-            hafuhafuInEntity,
-            hafuhafuOutEntity,
+            inEntity,
+            outEntity,
         ]
     }
 
 export {
     buildEntities,
-    buildHafuhafuCycle,
+    buildCycle,
     buildHafuhafuWithPitchCircularityEntities,
 }

@@ -2,10 +2,10 @@ import { NoteSpec } from '@musical-patterns/compiler'
 import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
 import { apply } from '@musical-patterns/utilities'
 import { PITCH_INDEX_BASE_OFFSET } from '../constants'
-import { BuildHafuhafuNoteSpecParameters } from '../types'
+import { BuildNoteSpecParameters } from '../types'
 
-const buildNoteSpec: (buildHafuhafuNoteSpecParameters: BuildHafuhafuNoteSpecParameters) => NoteSpec =
-    ({ cell, gain, duration, sustain, pitch }: BuildHafuhafuNoteSpecParameters): NoteSpec => ({
+const buildNoteSpec: (buildNoteSpecParameters: BuildNoteSpecParameters) => NoteSpec =
+    ({ cell, gain, duration, sustain, pitch }: BuildNoteSpecParameters): NoteSpec => ({
         durationSpec: {
             scalar: duration,
             scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,

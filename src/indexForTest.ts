@@ -7,7 +7,7 @@ export {
     buildHafuhafuWithPitchCircularityPart,
     buildEntities,
     buildScales,
-    buildHafuhafuCycle,
+    buildCycle,
 } from './materials/indexForTest'
 export { pattern } from './patterns'
 

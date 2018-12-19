@@ -11,7 +11,7 @@ import {
 import { buildEntities, buildHafuhafuWithPitchCircularityEntities, buildScales } from './materials'
 import { HafuhafuPatternSpec } from './types'
 
-const hafuhafuPatternMaterial: PatternMaterial = {
+const material: PatternMaterial = {
     buildEntitiesFunction: buildEntities,
     buildScalesFunction: buildScales,
 }
@@ -21,7 +21,7 @@ const hafuhafuWithPitchCircularityPatternMaterial: PatternMaterial = {
     buildScalesFunction: buildScales,
 }
 
-const hafuhafuPatternMetadata: PatternMetadata = {
+const metadata: PatternMetadata = {
     description: 'fading out subsets of notes corresponding to increasing tempo to evolve the result through itself',
     formattedName: 'Hafuhafu',
     musicalIdeaIllustrated: 'rhythmic circularity',
@@ -33,7 +33,7 @@ const hafuhafuWithPitchCircularityPatternMetadata: PatternMetadata = {
     musicalIdeaIllustrated: 'rhythmic circularity',
 }
 
-const patternSpec: HafuhafuPatternSpec = {
+const spec: HafuhafuPatternSpec = {
     block: HAFUHAFU_INITIAL_BLOCK,
     iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
     patternDurationOffset: to.Offset(0),
@@ -52,10 +52,10 @@ const hafuhafuWithPitchCircularityPatternSpec: HafuhafuPatternSpec = {
 }
 
 const pattern: Pattern = {
-    material: hafuhafuPatternMaterial,
-    metadata: hafuhafuPatternMetadata,
+    material,
+    metadata,
     patternId: PatternId.HAFUHAFU,
-    spec: patternSpec,
+    spec,
 }
 
 const hafuhafuWithPitchCircularityPattern: Pattern = {
