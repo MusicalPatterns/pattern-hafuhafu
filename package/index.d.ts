@@ -2,7 +2,9 @@
 
 import { Pattern } from '@musical-patterns/pattern';
 import { ThreadSpec } from '@musical-patterns/performer';
-declare const snapshot: ThreadSpec[];
+declare const hafuhafuSnapshot: ThreadSpec[];
+declare const hafuhafuWithPitchCircularityPattern: Pattern;
 declare const hafuhafuPattern: Pattern;
 export { hafuhafuPattern };
-export default snapshot;
+export { hafuhafuWithPitchCircularityPattern };
+export { hafuhafuSnapshot };

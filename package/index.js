@@ -1,4 +1,7 @@
-export { pattern as hafuhafuPattern, hafuhafuWithPitchCircularityPattern } from './dist'
+const { pattern: hafuhafuPattern, hafuhafuWithPitchCircularityPattern } = require('./dist')
+const hafuhafuSnapshot = require('./snapshot')
 
-import snapshot from './snapshot'
-export default snapshot
+module.exports = {
+    hafuhafuPattern,
+    hafuhafuSnapshot,
+}
