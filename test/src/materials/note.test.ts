@@ -7,7 +7,7 @@ describe('note specs', () => {
         let noteSpec: NoteSpec
         beforeEach(() => {
             noteSpec = buildNoteSpec({
-                cell: to.Index(3),
+                cell: 3,
                 duration: to.Scalar(0.5),
                 gain: to.Scalar(2),
                 pitch: to.Scalar(1),
@@ -71,7 +71,7 @@ describe('note specs', () => {
         let noteSpec: NoteSpec
         beforeEach(() => {
             noteSpec = buildNoteSpec({
-                cell: to.Index(4),
+                cell: 4,
                 duration: to.Scalar(0.25),
                 gain: to.Scalar(1.5),
                 pitch: to.Scalar(0.375),

@@ -1,5 +1,5 @@
-import { Block, PatternSpec } from '@musical-patterns/pattern'
-import { Count, Index, Scalar } from '@musical-patterns/utilities'
+import { PatternSpec } from '@musical-patterns/pattern'
+import { Block, Count, Scalar } from '@musical-patterns/utilities'
 
 enum Direction {
     IN = 'IN',
@@ -7,7 +7,7 @@ enum Direction {
 }
 
 interface BuildNoteSpecParameters {
-    cell: Index,
+    cell: number,
     duration: Scalar,
     gain: Scalar,
     pitch: Scalar,

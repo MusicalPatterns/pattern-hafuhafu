@@ -1,17 +1,16 @@
 import { BuildEntitiesFunction, Entity, NoteSpec, TimbreNameEnum } from '@musical-patterns/compiler'
-import { Block, to as patternTo } from '@musical-patterns/pattern'
-import { Count, cycle, deepEqual, sequence, to } from '@musical-patterns/utilities'
+import { Block, Count, cycle, deepEqual, sequence, to } from '@musical-patterns/utilities'
 import { Cycle, Direction, HafuhafuPatternSpec } from '../types'
 import { buildBlock } from './blocks'
 import { buildHafuhafuWithPitchCircularityPart, buildPart } from './parts'
 
 const buildCycle: (block: Block) => Cycle =
     (block: Block): Cycle => {
-        const hafuhafuCycle: Cycle = [ block.slice() ].map(patternTo.Block)
+        const hafuhafuCycle: Cycle = [ block.slice() ].map(to.Block)
 
         let nextBlock: Block = buildBlock(block)
         while (!deepEqual(block, nextBlock)) {
-            hafuhafuCycle.push(patternTo.Block(nextBlock.slice()))
+            hafuhafuCycle.push(to.Block(nextBlock.slice()))
             nextBlock = buildBlock(nextBlock)
         }
 

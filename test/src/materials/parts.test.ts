@@ -1,7 +1,7 @@
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
-import { Block, to as patternTo } from '@musical-patterns/pattern'
 import {
     apply,
+    Block,
     Count,
     from,
     Index,
@@ -22,7 +22,7 @@ describe('parts', () => {
             [ 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 0, 0, 0, 1, 1, 1 ],
-        ].map(patternTo.Block)
+        ].map(to.Block)
 
         testBlocks.forEach((testBlock: Block): void => {
             describe(`block ${testBlock}`, () => {
@@ -105,7 +105,7 @@ describe('parts', () => {
             [ 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 1, 0, 0, 1 ],
             [ 0, 0, 0, 0, 0, 0, 1, 1, 1 ],
-        ].map(patternTo.Block)
+        ].map(to.Block)
 
         testBlocks.forEach((testBlock: Block): void => {
             describe(`block ${testBlock}`, () => {

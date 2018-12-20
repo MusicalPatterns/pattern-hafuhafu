@@ -1,4 +1,4 @@
-import { to } from '@musical-patterns/pattern'
+import { to } from '@musical-patterns/utilities'
 import { buildCycle } from '../../../src/indexForTest'
 
 describe('cycles', () => {

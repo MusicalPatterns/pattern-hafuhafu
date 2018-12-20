@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { Block, DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN, FULL_GAIN } from '@musical-patterns/pattern'
-import { apply, Count, EVEN, from, Index, OCTAVE, Scalar, to } from '@musical-patterns/utilities'
+import { DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN, FULL_GAIN } from '@musical-patterns/pattern'
+import { apply, Block, Count, EVEN, from, Index, OCTAVE, Scalar, to } from '@musical-patterns/utilities'
 import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
 import { Direction } from '../types'
 import { buildNoteSpec } from './notes'
@@ -26,7 +26,7 @@ const buildPart: (block: Block, iterationLength: Count) => NoteSpec[] =
             const sustain: Scalar = to.Scalar(from.Scalar(DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN))
             const pitch: Scalar = to.Scalar(1)
             const cellIndex: Index = to.Index(from.Index(i) % from.Count(cellCount))
-            const cell: Index = apply.Index(block, cellIndex)
+            const cell: number = apply.Index(block, cellIndex)
             part.push(buildNoteSpec({ cell, gain, duration, sustain, pitch }))
         }
 
@@ -52,7 +52,7 @@ const buildHafuhafuWithPitchCircularityPart:
                 const sustain: Scalar = to.Scalar(from.Scalar(duration) / from.Scalar(OCTAVE))
                 const pitch: Scalar = apply.Power(OCTAVE, to.Power(from.Scalar(progress) - 1))
                 const cellIndex: Index = to.Index(from.Index(i) % from.Count(cellCount))
-                const cell: Index = apply.Index(block, cellIndex)
+                const cell: number = apply.Index(block, cellIndex)
                 part.push(buildNoteSpec({ cell, gain, duration, sustain, pitch }))
             }
         }
@@ -73,7 +73,7 @@ const buildHafuhafuWithPitchCircularityPart:
                 const sustain: Scalar = to.Scalar(from.Scalar(duration) / from.Scalar(OCTAVE))
                 const pitch: Scalar = apply.Power(OCTAVE, to.Power(from.Scalar(progress)))
                 const cellIndex: Index = to.Index(from.Index(i) % from.Count(cellCount))
-                const cell: Index = apply.Index(block, cellIndex)
+                const cell: number = apply.Index(block, cellIndex)
                 part.push(buildNoteSpec({ cell, gain, duration, sustain, pitch }))
             }
         }
