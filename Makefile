@@ -20,6 +20,9 @@ pull:
 push:
 	@set -e; ../../node_modules/@musical-patterns/cli/bin/push.sh
 
+share:
+	@set -e; pushd ../..; make share PATTERN=${PATTERN}; popd
+
 ship:
 	@set -e; pushd ../..; make ship PATTERN=${PATTERN}; popd
 
