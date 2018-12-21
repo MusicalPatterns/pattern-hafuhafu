@@ -1,7 +1,8 @@
-const { pattern: hafuhafuPattern, hafuhafuWithPitchCircularityPattern } = require('./dist')
-const hafuhafuSnapshot = require('./snapshot')
+const { pattern, hafuhafuWithPitchCircularityPattern } = require('./dist')
+const snapshot = require('./snapshot')
 
 module.exports = {
-    hafuhafuPattern,
-    hafuhafuSnapshot,
+    pattern,
+    hafuhafuWithPitchCircularityPattern,
+    snapshot,
 }
