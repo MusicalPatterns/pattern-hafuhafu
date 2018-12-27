@@ -5,6 +5,9 @@ LOCAL_PATTERN=$(notdir $(shell pwd))
 build:
 	@set -e; ../../node_modules/@musical-patterns/cli/bin/build.sh tsc package
 
+clean_updates:
+	@set -e; ../../node_modules/@musical-patterns/cli/bin/clean_updates.sh
+
 commit:
 	@set -e; ../../node_modules/@musical-patterns/cli/bin/commit.sh
 

@@ -16,7 +16,7 @@ describe('parts', () => {
         let part: NoteSpec[] = []
         let expectedNotesCount: Count = to.Count(0)
         const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(Math.random() * 32))
-        const expectedSustainAmount: Scalar = to.Scalar(0.9)
+        const expectedSustainAmount: Scalar = to.Scalar(1)
 
         const testBlocks: Block[] = [
             [ 0, 1, 0, 0, 1 ],

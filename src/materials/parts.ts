@@ -1,5 +1,5 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN, FULL_GAIN } from '@musical-patterns/pattern'
+import { FULL_GAIN } from '@musical-patterns/pattern'
 import { apply, Block, Count, EVEN, from, Index, OCTAVE, Scalar, to } from '@musical-patterns/utilities'
 import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
 import { Direction } from '../types'
@@ -23,7 +23,7 @@ const buildPart: (block: Block, iterationLength: Count) => NoteSpec[] =
 
             const gain: Scalar = from.Index(i) % EVEN === 0 ? FULL_GAIN : to.Scalar(exponentiatedInverseProgress - 1)
             const duration: Scalar = to.Scalar(exponentiatedInverseProgress)
-            const sustain: Scalar = to.Scalar(from.Scalar(DEFAULT_SCALAR_FOR_ALMOST_FULL_SUSTAIN))
+            const sustain: Scalar = to.Scalar(1)
             const pitch: Scalar = to.Scalar(1)
             const cellIndex: Index = to.Index(from.Index(i) % from.Count(cellCount))
             const cell: number = apply.Index(block, cellIndex)
