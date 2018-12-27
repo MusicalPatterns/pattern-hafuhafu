@@ -27,7 +27,7 @@ const buildEntities: BuildEntitiesFunction =
                 buildCycle(block)
                     .map((cycleBlock: Block): NoteSpec[] =>
                         buildPart(cycleBlock, iterationLength))),
-            timbreName: TimbreNameEnum.SQUARE,
+            timbreName: TimbreNameEnum.WURLITZER,
         }
 
         return [
@@ -46,7 +46,7 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
                     .map((cycleBlock: Block): NoteSpec[] =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.IN)),
             ),
-            timbreName: TimbreNameEnum.SQUARE,
+            timbreName: TimbreNameEnum.WURLITZER,
         }
 
         const outEntity: Entity = {
@@ -55,7 +55,7 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
                     .map((cycleBlock: Block): NoteSpec[] =>
                         buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.OUT)),
             ),
-            timbreName: TimbreNameEnum.SQUARE,
+            timbreName: TimbreNameEnum.WURLITZER,
         }
 
         return [
