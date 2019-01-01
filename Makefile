@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 MAKEFLAGS += --no-print-directory --always-make
 
 LOCAL_PATTERN=$(notdir $(shell pwd))
