@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { FULL_GAIN } from '@musical-patterns/pattern'
 import { apply, Block, Count, EVEN, from, Index, OCTAVE, Scalar, to } from '@musical-patterns/utilities'
+import { FULL_GAIN } from '@musical-patterns/utilities-pattern'
 import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
 import { Direction } from '../types'
 import { buildNoteSpec } from './notes'
