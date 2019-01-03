@@ -25,9 +25,6 @@ pull:
 push:
 	@set -e; ../../node_modules/@musical-patterns/cli/bin/push.sh
 
-share_config:
-	@set -e; pushd ../..; make share_config PATTERN=${LOCAL_PATTERN}; popd
-
 ship:
 	@set -e; pushd ../..; make ship PATTERN=${LOCAL_PATTERN}; popd
 
