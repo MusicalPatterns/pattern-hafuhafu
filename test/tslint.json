@@ -1,3 +1,16 @@
 {
-  "extends": "../../../test/tslint.json"
+  "extends": [
+    "../tslint.json"
+  ],
+  "rules": {
+    "no-magic-numbers": false,
+    "max-line-length": [
+      false
+    ],
+    "max-file-line-count": [
+      false
+    ],
+    "no-reaching-imports": false,
+    "only-import-index-for-test-from-src": true
+  }
 }

@@ -2,8 +2,9 @@
   "extends": "./tsconfig-common.json",
   "compilerOptions": {
     "declaration": true,
-    "module": "esnext",
+    "module": "commonjs",
     "outDir": "dist",
+    "resolveJsonModule": true,
     "rootDir": "src"
   },
   "include": [
