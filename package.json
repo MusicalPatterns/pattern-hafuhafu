@@ -1,6 +1,6 @@
 {
   "name": "@musical-patterns/pattern-hafuhafu",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "MIT",
@@ -9,12 +9,12 @@
     "url": "https://github.com/MusicalPatterns/pattern-hafuhafu.git"
   },
   "dependencies": {
-    "@musical-patterns/compiler": "^1.0.56",
+    "@musical-patterns/compiler": "^1.0.57",
     "@musical-patterns/pattern": "^1.0.69",
     "@musical-patterns/registry": "^1.0.12",
-    "@musical-patterns/utilities": "^1.0.133"
+    "@musical-patterns/utilities": "^1.0.134"
   },
   "devDependencies": {
-    "@musical-patterns/cli": "^1.0.225"
+    "@musical-patterns/cli": "^1.0.240"
   }
 }
