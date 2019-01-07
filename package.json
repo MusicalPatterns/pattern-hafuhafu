@@ -9,14 +9,14 @@
     "url": "https://github.com/MusicalPatterns/pattern-hafuhafu.git"
   },
   "dependencies": {
-    "@musical-patterns/compiler": "^1.0.60",
-    "@musical-patterns/pattern": "^1.0.72",
-    "@musical-patterns/registry": "^1.0.14",
-    "@musical-patterns/utilities": "^1.0.136"
+    "@musical-patterns/compiler": "^1.0.61",
+    "@musical-patterns/pattern": "^1.0.73",
+    "@musical-patterns/registry": "^1.0.15",
+    "@musical-patterns/utilities": "^1.0.137"
   },
   "devDependencies": {
-    "@musical-patterns/cli": "^1.0.242",
-    "@musical-patterns/playroom": "^1.0.79",
-    "@musical-patterns/snapshot": "^1.0.7"
+    "@musical-patterns/cli": "^1.0.249",
+    "@musical-patterns/playroom": "^1.0.80",
+    "@musical-patterns/snapshot": "^1.0.8"
   }
 }
