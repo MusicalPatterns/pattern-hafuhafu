@@ -10,6 +10,7 @@ import {
     HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
 } from './constants'
 import { buildEntities, buildHafuhafuWithPitchCircularityEntities, buildScales } from './materials'
+import { post } from './metadata'
 import { HafuhafuPatternSpec } from './types'
 
 const material: PatternMaterial = {
@@ -23,7 +24,7 @@ const hafuhafuWithPitchCircularityPatternMaterial: PatternMaterial = {
 }
 
 const metadata: PatternMetadata = {
-    description: 'fading out subsets of notes corresponding to increasing tempo to evolve the result through itself',
+    description: post,
     formattedName: 'Hafuhafu',
     musicalIdeaIllustrated: 'rhythmic circularity',
 }

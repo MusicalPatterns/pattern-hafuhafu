@@ -1,0 +1,5 @@
+Makefile.pattern:
+	@:
+
+build:
+	@musical-patterns-cli build "webpack --config webpack.prod.js"
