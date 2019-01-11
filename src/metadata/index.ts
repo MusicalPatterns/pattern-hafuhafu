@@ -1,11 +1,5 @@
-let post: string
-try {
-    // tslint:disable-next-line
-    post = require('./post.html') || ''
-}
-catch (e) {
-    post = ''
-}
+// tslint:disable-next-line
+const post: string = process.env.NODE_ENV === 'test' ? '' : require('./post.html')
 
 export {
     post,
