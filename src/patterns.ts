@@ -26,13 +26,17 @@ const hafuhafuWithPitchCircularityPatternMaterial: PatternMaterial = {
 const metadata: PatternMetadata = {
     description: post,
     formattedName: 'Hafuhafu',
+    mostRecentPublish: process.env.PUBLISH_DATE,
     musicalIdeaIllustrated: 'rhythmic circularity',
+    originalPublish: '2018-09-27T07:00:00.000Z',
 }
 
 const hafuhafuWithPitchCircularityPatternMetadata: PatternMetadata = {
     description: 'same as above, just with extraneous and slipshod pitch circularity',
     formattedName: 'Hafuhafu (with pitch circularity)',
+    mostRecentPublish: process.env.PUBLISH_DATE,
     musicalIdeaIllustrated: 'rhythmic circularity',
+    originalPublish: '2018-09-28T07:00:00.000Z',
 }
 
 const spec: HafuhafuPatternSpec = {
