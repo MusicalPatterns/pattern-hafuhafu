@@ -1,4 +1,4 @@
-import { PatternSpec } from '@musical-patterns/pattern'
+import { PatternSpec, PatternSpecAttributes, RangedPatternSpecPropertyAttributes } from '@musical-patterns/pattern'
 import { Block, Count, Scalar } from '@musical-patterns/utilities'
 
 enum Direction {
@@ -19,6 +19,11 @@ interface HafuhafuPatternSpec extends PatternSpec {
     iterationLength: Count,
 }
 
+interface HafuhafuPatternSpecAttributes extends PatternSpecAttributes {
+    block: RangedPatternSpecPropertyAttributes,
+    iterationLength: RangedPatternSpecPropertyAttributes,
+}
+
 type Cycle = Block[]
 
 export {
@@ -26,4 +31,5 @@ export {
     Direction,
     BuildNoteSpecParameters,
     HafuhafuPatternSpec,
+    HafuhafuPatternSpecAttributes,
 }

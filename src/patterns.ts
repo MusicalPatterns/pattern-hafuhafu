@@ -1,17 +1,9 @@
 import { PatternMaterial } from '@musical-patterns/compiler'
 import { PatternMetadata } from '@musical-patterns/pattern'
 import { buildPatterns, Pattern, PatternId, Patterns } from '@musical-patterns/registry'
-import { apply, to } from '@musical-patterns/utilities'
-import {
-    HAFUHAFU_DURATION_SCALAR,
-    HAFUHAFU_INITIAL_BLOCK,
-    HAFUHAFU_INITIAL_ITERATION_LENGTH,
-    HAFUHAFU_PITCH_SCALAR,
-    HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
-} from './constants'
 import { buildEntities, buildHafuhafuWithPitchCircularityEntities, buildScales } from './materials'
 import { post } from './metadata'
-import { HafuhafuPatternSpec } from './types'
+import { hafuhafuWithPitchCircularityPatternSpec, initialSpec, specAttributes } from './specs'
 
 const material: PatternMaterial = {
     buildEntitiesFunction: buildEntities,
@@ -39,36 +31,20 @@ const hafuhafuWithPitchCircularityPatternMetadata: PatternMetadata = {
     originalPublish: '2018-09-28T07:00:00.000Z',
 }
 
-const spec: HafuhafuPatternSpec = {
-    block: HAFUHAFU_INITIAL_BLOCK,
-    iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
-    patternDurationOffset: to.Offset(0),
-    patternDurationScalar: HAFUHAFU_DURATION_SCALAR,
-    patternPitchOffset: to.Offset(0),
-    patternPitchScalar: HAFUHAFU_PITCH_SCALAR,
-}
-
-const hafuhafuWithPitchCircularityPatternSpec: HafuhafuPatternSpec = {
-    block: HAFUHAFU_INITIAL_BLOCK,
-    iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
-    patternDurationOffset: to.Offset(0),
-    patternDurationScalar: apply.Scalar(HAFUHAFU_DURATION_SCALAR, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR),
-    patternPitchOffset: to.Offset(0),
-    patternPitchScalar: HAFUHAFU_PITCH_SCALAR,
-}
-
 const pattern: Pattern = {
+    initialSpec,
     material,
     metadata,
     patternId: PatternId.HAFUHAFU,
-    spec,
+    specAttributes,
 }
 
 const hafuhafuWithPitchCircularityPattern: Pattern = {
+    initialSpec: hafuhafuWithPitchCircularityPatternSpec,
     material: hafuhafuWithPitchCircularityPatternMaterial,
     metadata: hafuhafuWithPitchCircularityPatternMetadata,
     patternId: PatternId.HAFUHAFU_WITH_PITCH_CIRCULARITY,
-    spec: hafuhafuWithPitchCircularityPatternSpec,
+    specAttributes,
 }
 
 const patterns: Patterns = buildPatterns({
@@ -80,5 +56,4 @@ export {
     pattern,
     hafuhafuWithPitchCircularityPattern,
     patterns,
-    spec,
 }

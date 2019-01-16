@@ -1,3 +1,5 @@
+// tslint:disable:no-unsafe-any
+
 // tslint:disable-next-line:no-implicit-dependencies
 import { compilePattern } from '@musical-patterns/compiler'
 import * as path from 'path'
@@ -20,7 +22,11 @@ describe('snapshot', () => {
     else {
         it('stays locked down', async (done: DoneFn) => {
             // tslint:disable-next-line:no-unsafe-any
-            expect(JSON.stringify(await compilePattern(pattern), undefined, 2))
+            expect(JSON.stringify(
+                await compilePattern({ material: pattern.material, spec: pattern.initialSpec }),
+                undefined,
+                2,
+            ))
                 .toEqual(JSON.stringify(snapshot, undefined, 2))
 
             done()

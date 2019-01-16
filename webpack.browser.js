@@ -10,6 +10,7 @@ module.exports = merge(common, {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Musical Patterns',
+            meta: { viewport: 'width=device-width' },
         }),
         new CopyWebpackPlugin([
             {
