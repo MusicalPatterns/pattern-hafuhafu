@@ -23,7 +23,7 @@ describe('snapshot', () => {
         it('stays locked down', async (done: DoneFn) => {
             // tslint:disable-next-line:no-unsafe-any
             expect(JSON.stringify(
-                await compilePattern({ material: pattern.material, spec: pattern.initialSpec }),
+                await compilePattern({ material: pattern.material, spec: pattern.specData.initial }),
                 undefined,
                 2,
             ))

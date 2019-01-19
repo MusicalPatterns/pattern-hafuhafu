@@ -1,4 +1,5 @@
 import {
+    PatternSpecData,
     PatternSpecPropertyType,
     standardInitialPatternSpec,
     standardPatternSpecAttributes,
@@ -14,7 +15,7 @@ import {
 } from './constants'
 import { HafuhafuPatternSpec, HafuhafuPatternSpecAttributes } from './types'
 
-const initialSpec: HafuhafuPatternSpec = {
+const initial: HafuhafuPatternSpec = {
     ...standardInitialPatternSpec,
     [ StandardPatternSpecProperties.PATTERN_DURATION_SCALAR ]: HAFUHAFU_DURATION_SCALAR,
     [ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ]: HAFUHAFU_PITCH_SCALAR,
@@ -22,7 +23,7 @@ const initialSpec: HafuhafuPatternSpec = {
     iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
 }
 
-const hafuhafuWithPitchCircularityPatternSpec: HafuhafuPatternSpec = {
+const hafuhafuWithPitchCircularityInitial: HafuhafuPatternSpec = {
     ...standardInitialPatternSpec,
     [ StandardPatternSpecProperties.PATTERN_DURATION_SCALAR ]:
         apply.Scalar(HAFUHAFU_DURATION_SCALAR, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR),
@@ -31,7 +32,7 @@ const hafuhafuWithPitchCircularityPatternSpec: HafuhafuPatternSpec = {
     iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
 }
 
-const specAttributes: HafuhafuPatternSpecAttributes = {
+const attributes: HafuhafuPatternSpecAttributes = {
     ...standardPatternSpecAttributes,
     block: {
         patternSpecPropertyType: PatternSpecPropertyType.RANGED,
@@ -45,8 +46,17 @@ const specAttributes: HafuhafuPatternSpecAttributes = {
     },
 }
 
+const specData: PatternSpecData<HafuhafuPatternSpec> = {
+    attributes,
+    initial,
+}
+
+const hafuhafuWithPitchCircularitySpecData: PatternSpecData<HafuhafuPatternSpec> = {
+    attributes,
+    initial: hafuhafuWithPitchCircularityInitial,
+}
+
 export {
-    initialSpec,
-    hafuhafuWithPitchCircularityPatternSpec,
-    specAttributes,
+    specData,
+    hafuhafuWithPitchCircularitySpecData,
 }

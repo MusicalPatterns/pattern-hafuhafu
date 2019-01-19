@@ -1,5 +1,4 @@
-export { pattern, hafuhafuWithPitchCircularityPattern } from './patterns'
-export { HafuhafuPatternSpec } from './types'
+export { pattern, patterns } from './patterns'
 
 // tslint:disable-next-line:no-default-import
 import snapshot from './snapshot.json'
