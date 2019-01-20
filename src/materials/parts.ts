@@ -48,9 +48,9 @@ const buildHafuhafuWithPitchCircularityPart:
             ) {
                 const progress: Scalar = to.Scalar(from.Index(i) / from.Count(totalNotesCount))
                 const gain: Scalar = progress
-                const duration: Scalar = apply.Power(OCTAVE, to.Power(1 - from.Scalar(progress)))
-                const sustain: Scalar = to.Scalar(from.Scalar(duration) / from.Scalar(OCTAVE))
-                const pitch: Scalar = apply.Power(OCTAVE, to.Power(from.Scalar(progress) - 1))
+                const duration: Scalar = to.Scalar(from.Base(apply.Power(OCTAVE, to.Power(1 - from.Scalar(progress)))))
+                const sustain: Scalar = to.Scalar(from.Scalar(duration) / from.Base(OCTAVE))
+                const pitch: Scalar = to.Scalar(from.Base(apply.Power(OCTAVE, to.Power(from.Scalar(progress) - 1))))
                 const cellIndex: Index = to.Index(from.Index(i) % from.Count(cellCount))
                 const cell: number = apply.Index(block, cellIndex)
                 part.push(buildNoteSpec({ cell, gain, duration, sustain, pitch }))
@@ -67,11 +67,10 @@ const buildHafuhafuWithPitchCircularityPart:
                 i = apply.Offset(i, to.Offset(1))
             ) {
                 const progress: Scalar = to.Scalar(from.Index(i) / from.Count(totalNotesCount))
-                const gain: Scalar =
-                    to.Scalar(from.Scalar(apply.Power(OCTAVE, to.Power(1 - from.Scalar(progress)))) - 1)
-                const duration: Scalar = apply.Power(OCTAVE, to.Power(-from.Scalar(progress)))
-                const sustain: Scalar = to.Scalar(from.Scalar(duration) / from.Scalar(OCTAVE))
-                const pitch: Scalar = apply.Power(OCTAVE, to.Power(from.Scalar(progress)))
+                const gain: Scalar = to.Scalar(from.Base(apply.Power(OCTAVE, to.Power(1 - from.Scalar(progress)))) - 1)
+                const duration: Scalar = to.Scalar(from.Base(apply.Power(OCTAVE, to.Power(-from.Scalar(progress)))))
+                const sustain: Scalar = to.Scalar(from.Scalar(duration) / from.Base(OCTAVE))
+                const pitch: Scalar = to.Scalar(from.Base(apply.Power(OCTAVE, to.Power(from.Scalar(progress)))))
                 const cellIndex: Index = to.Index(from.Index(i) % from.Count(cellCount))
                 const cell: number = apply.Index(block, cellIndex)
                 part.push(buildNoteSpec({ cell, gain, duration, sustain, pitch }))
