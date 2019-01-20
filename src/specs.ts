@@ -1,9 +1,9 @@
 import {
-    PatternSpecDataFor,
-    PatternSpecPropertyType,
-    standardInitialPatternSpec,
-    standardPatternSpecAttributes,
-    StandardPatternSpecProperties,
+    SpecDataFor,
+    SpecPropertyType,
+    standardInitialSpec,
+    standardSpecAttributes,
+    StandardSpecProperties,
 } from '@musical-patterns/pattern'
 import { apply } from '@musical-patterns/utilities'
 import {
@@ -13,45 +13,45 @@ import {
     HAFUHAFU_PITCH_SCALAR,
     HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
 } from './constants'
-import { HafuhafuPatternSpec, HafuhafuPatternSpecAttributes } from './types'
+import { HafuhafuSpec, HafuhafuSpecAttributes } from './types'
 
-const initial: HafuhafuPatternSpec = {
-    ...standardInitialPatternSpec,
-    [ StandardPatternSpecProperties.PATTERN_DURATION_SCALAR ]: HAFUHAFU_DURATION_SCALAR,
-    [ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ]: HAFUHAFU_PITCH_SCALAR,
+const initial: HafuhafuSpec = {
+    ...standardInitialSpec,
+    [ StandardSpecProperties.PATTERN_DURATION_SCALAR ]: HAFUHAFU_DURATION_SCALAR,
+    [ StandardSpecProperties.PATTERN_PITCH_SCALAR ]: HAFUHAFU_PITCH_SCALAR,
     block: HAFUHAFU_INITIAL_BLOCK,
     iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
 }
 
-const hafuhafuWithPitchCircularityInitial: HafuhafuPatternSpec = {
-    ...standardInitialPatternSpec,
-    [ StandardPatternSpecProperties.PATTERN_DURATION_SCALAR ]:
+const hafuhafuWithPitchCircularityInitial: HafuhafuSpec = {
+    ...standardInitialSpec,
+    [ StandardSpecProperties.PATTERN_DURATION_SCALAR ]:
         apply.Scalar(HAFUHAFU_DURATION_SCALAR, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR),
-    [ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ]: HAFUHAFU_PITCH_SCALAR,
+    [ StandardSpecProperties.PATTERN_PITCH_SCALAR ]: HAFUHAFU_PITCH_SCALAR,
     block: HAFUHAFU_INITIAL_BLOCK,
     iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
 }
 
-const attributes: HafuhafuPatternSpecAttributes = {
-    ...standardPatternSpecAttributes,
+const attributes: HafuhafuSpecAttributes = {
+    ...standardSpecAttributes,
     block: {
-        patternSpecPropertyType: PatternSpecPropertyType.RANGED,
+        specPropertyType: SpecPropertyType.RANGED,
     },
     iterationLength: {
         constraint: {
             integer: true,
             min: 2,
         },
-        patternSpecPropertyType: PatternSpecPropertyType.RANGED,
+        specPropertyType: SpecPropertyType.RANGED,
     },
 }
 
-const specData: PatternSpecDataFor<HafuhafuPatternSpec> = {
+const specData: SpecDataFor<HafuhafuSpec> = {
     attributes,
     initial,
 }
 
-const hafuhafuWithPitchCircularitySpecData: PatternSpecDataFor<HafuhafuPatternSpec> = {
+const hafuhafuWithPitchCircularitySpecData: SpecDataFor<HafuhafuSpec> = {
     attributes,
     initial: hafuhafuWithPitchCircularityInitial,
 }
