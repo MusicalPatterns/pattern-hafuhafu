@@ -1,22 +1,22 @@
-import { PatternMaterial } from '@musical-patterns/compiler'
-import { PatternMetadata } from '@musical-patterns/pattern'
+import { Material } from '@musical-patterns/compiler'
+import { Metadata } from '@musical-patterns/pattern'
 import { buildPatterns, PatternFor, PatternId, Patterns } from '@musical-patterns/registry'
 import { buildEntities, buildHafuhafuWithPitchCircularityEntities, buildScales } from './materials'
 import { post } from './metadata'
 import { hafuhafuWithPitchCircularitySpecData, specData } from './specs'
 import { HafuhafuSpec } from './types'
 
-const material: PatternMaterial = {
+const material: Material = {
     buildEntitiesFunction: buildEntities,
     buildScalesFunction: buildScales,
 }
 
-const hafuhafuWithPitchCircularityPatternMaterial: PatternMaterial = {
+const hafuhafuWithPitchCircularityPatternMaterial: Material = {
     buildEntitiesFunction: buildHafuhafuWithPitchCircularityEntities,
     buildScalesFunction: buildScales,
 }
 
-const metadata: PatternMetadata = {
+const metadata: Metadata = {
     description: post,
     formattedName: 'Hafuhafu',
     mostRecentPublish: process.env.PUBLISH_DATE || '2018-09-27T07:00:00.000Z',
@@ -24,7 +24,7 @@ const metadata: PatternMetadata = {
     originalPublish: '2018-09-27T07:00:00.000Z',
 }
 
-const hafuhafuWithPitchCircularityPatternMetadata: PatternMetadata = {
+const hafuhafuWithPitchCircularityPatternMetadata: Metadata = {
     description: 'same as above, just with extraneous and slipshod pitch circularity',
     formattedName: 'Hafuhafu (with pitch circularity)',
     mostRecentPublish: process.env.PUBLISH_DATE || '2018-09-28T07:00:00.000Z',
