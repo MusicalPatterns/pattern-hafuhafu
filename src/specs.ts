@@ -1,5 +1,5 @@
 import {
-    PatternSpecData,
+    PatternSpecDataFor,
     PatternSpecPropertyType,
     standardInitialPatternSpec,
     standardPatternSpecAttributes,
@@ -46,12 +46,12 @@ const attributes: HafuhafuPatternSpecAttributes = {
     },
 }
 
-const specData: PatternSpecData<HafuhafuPatternSpec> = {
+const specData: PatternSpecDataFor<HafuhafuPatternSpec> = {
     attributes,
     initial,
 }
 
-const hafuhafuWithPitchCircularitySpecData: PatternSpecData<HafuhafuPatternSpec> = {
+const hafuhafuWithPitchCircularitySpecData: PatternSpecDataFor<HafuhafuPatternSpec> = {
     attributes,
     initial: hafuhafuWithPitchCircularityInitial,
 }
