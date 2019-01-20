@@ -1,6 +1,6 @@
 import { Material } from '@musical-patterns/compiler'
 import { Metadata } from '@musical-patterns/pattern'
-import { buildPatterns, PatternFor, PatternId, Patterns } from '@musical-patterns/registry'
+import { buildPatterns, Id, PatternFor, Patterns } from '@musical-patterns/registry'
 import { buildEntities, buildHafuhafuWithPitchCircularityEntities, buildScales } from './materials'
 import { post } from './metadata'
 import { hafuhafuWithPitchCircularitySpecData, specData } from './specs'
@@ -33,22 +33,22 @@ const hafuhafuWithPitchCircularityPatternMetadata: Metadata = {
 }
 
 const pattern: PatternFor<HafuhafuSpec> = {
+    id: Id.HAFUHAFU,
     material,
     metadata,
-    patternId: PatternId.HAFUHAFU,
     specData,
 }
 
 const hafuhafuWithPitchCircularityPattern: PatternFor<HafuhafuSpec> = {
+    id: Id.HAFUHAFU_WITH_PITCH_CIRCULARITY,
     material: hafuhafuWithPitchCircularityPatternMaterial,
     metadata: hafuhafuWithPitchCircularityPatternMetadata,
-    patternId: PatternId.HAFUHAFU_WITH_PITCH_CIRCULARITY,
     specData: hafuhafuWithPitchCircularitySpecData,
 }
 
 const patterns: Patterns = buildPatterns({
-    [ pattern.patternId ]: pattern,
-    [ hafuhafuWithPitchCircularityPattern.patternId ]: hafuhafuWithPitchCircularityPattern,
+    [ pattern.id ]: pattern,
+    [ hafuhafuWithPitchCircularityPattern.id ]: hafuhafuWithPitchCircularityPattern,
 })
 
 export {
