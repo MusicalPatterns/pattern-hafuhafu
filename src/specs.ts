@@ -7,27 +7,27 @@ import {
 } from '@musical-patterns/pattern'
 import { apply } from '@musical-patterns/utilities'
 import {
-    HAFUHAFU_DURATION_SCALAR,
+    HAFUHAFU_BASE_DURATION,
+    HAFUHAFU_BASE_FREQUENCY,
     HAFUHAFU_INITIAL_BLOCK,
     HAFUHAFU_INITIAL_ITERATION_LENGTH,
-    HAFUHAFU_PITCH_SCALAR,
     HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
 } from './constants'
 import { HafuhafuSpec, HafuhafuSpecAttributes } from './types'
 
 const initial: HafuhafuSpec = {
     ...standardInitialSpec,
-    [ StandardSpecProperties.PATTERN_DURATION_SCALAR ]: HAFUHAFU_DURATION_SCALAR,
-    [ StandardSpecProperties.PATTERN_PITCH_SCALAR ]: HAFUHAFU_PITCH_SCALAR,
+    [ StandardSpecProperties.BASE_DURATION ]: HAFUHAFU_BASE_DURATION,
+    [ StandardSpecProperties.BASE_FREQUENCY ]: HAFUHAFU_BASE_FREQUENCY,
     block: HAFUHAFU_INITIAL_BLOCK,
     iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
 }
 
 const hafuhafuWithPitchCircularityInitial: HafuhafuSpec = {
     ...standardInitialSpec,
-    [ StandardSpecProperties.PATTERN_DURATION_SCALAR ]:
-        apply.Scalar(HAFUHAFU_DURATION_SCALAR, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR),
-    [ StandardSpecProperties.PATTERN_PITCH_SCALAR ]: HAFUHAFU_PITCH_SCALAR,
+    [ StandardSpecProperties.BASE_DURATION ]:
+        apply.Scalar(HAFUHAFU_BASE_DURATION, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR),
+    [ StandardSpecProperties.BASE_FREQUENCY ]: HAFUHAFU_BASE_FREQUENCY,
     block: HAFUHAFU_INITIAL_BLOCK,
     iterationLength: HAFUHAFU_INITIAL_ITERATION_LENGTH,
 }
