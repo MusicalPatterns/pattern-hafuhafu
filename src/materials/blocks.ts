@@ -1,6 +1,6 @@
 import { apply, Block, EVERY_OTHER, from, Index, to } from '@musical-patterns/utilities'
 
-const buildBlock: (block: Block) => Block =
+const buildNextBlock: (block: Block) => Block =
     (block: Block): Block => {
         const nextBlock: Block = to.Block([])
         for (let i: Index = to.Index(0); i < to.Index(block.length); i = apply.Offset(i, to.Offset(1))) {
@@ -11,5 +11,5 @@ const buildBlock: (block: Block) => Block =
     }
 
 export {
-    buildBlock,
+    buildNextBlock,
 }

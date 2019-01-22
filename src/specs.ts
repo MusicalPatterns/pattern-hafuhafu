@@ -1,11 +1,13 @@
 import {
     SpecDataFor,
     SpecPropertyType,
+    SpecValidationFunctionFor,
+    SpecValidationResultsFor,
     standardInitialSpec,
     standardSpecAttributes,
     StandardSpecProperties,
 } from '@musical-patterns/pattern'
-import { apply } from '@musical-patterns/utilities'
+import { apply, isEven } from '@musical-patterns/utilities'
 import {
     HAFUHAFU_BASE_DURATION,
     HAFUHAFU_BASE_FREQUENCY,
@@ -14,6 +16,17 @@ import {
     HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
 } from './constants'
 import { HafuhafuSpec, HafuhafuSpecAttributes } from './types'
+
+const validationFunction: SpecValidationFunctionFor<HafuhafuSpec> =
+    ({ block }: HafuhafuSpec): SpecValidationResultsFor<HafuhafuSpec> => {
+        if (isEven(block.length)) {
+            return {
+                block: 'The block must have an odd length for this pattern to work.',
+            }
+        }
+
+        return undefined
+    }
 
 const initial: HafuhafuSpec = {
     ...standardInitialSpec,
@@ -53,6 +66,7 @@ const attributes: HafuhafuSpecAttributes = {
 const specData: SpecDataFor<HafuhafuSpec> = {
     attributes,
     initial,
+    validationFunction,
 }
 
 const hafuhafuWithPitchCircularitySpecData: SpecDataFor<HafuhafuSpec> = {

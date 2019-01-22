@@ -1,7 +1,7 @@
 // tslint:disable:no-reaching-imports
 
 export {
-    buildBlock,
+    buildNextBlock,
     buildNoteSpec,
     buildPart,
     buildHafuhafuWithPitchCircularityPart,
