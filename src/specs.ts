@@ -35,6 +35,10 @@ const hafuhafuWithPitchCircularityInitial: HafuhafuSpec = {
 const attributes: HafuhafuSpecAttributes = {
     ...standardSpecAttributes,
     block: {
+        constraint: {
+            min: 0,
+        },
+        isArray: true,
         specPropertyType: SpecPropertyType.RANGED,
     },
     iterationLength: {
