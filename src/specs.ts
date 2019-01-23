@@ -1,4 +1,5 @@
 import {
+    RangedInputType,
     SpecDataFor,
     SpecPropertyType,
     SpecValidationFunctionFor,
@@ -51,6 +52,7 @@ const attributes: HafuhafuSpecAttributes = {
         constraint: {
             min: 0,
         },
+        hideInput: RangedInputType.RANGE,
         isArray: true,
         specPropertyType: SpecPropertyType.RANGED,
     },
@@ -59,6 +61,7 @@ const attributes: HafuhafuSpecAttributes = {
             integer: true,
             min: 2,
         },
+        hideInput: RangedInputType.RANGE,
         specPropertyType: SpecPropertyType.RANGED,
     },
 }
