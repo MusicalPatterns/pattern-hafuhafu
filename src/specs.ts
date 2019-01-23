@@ -54,6 +54,7 @@ const attributes: HafuhafuSpecAttributes = {
         },
         hideInput: RangedInputType.RANGE,
         isArray: true,
+        order: 1,
         specPropertyType: SpecPropertyType.RANGED,
     },
     iterationLength: {
@@ -61,7 +62,9 @@ const attributes: HafuhafuSpecAttributes = {
             integer: true,
             min: 2,
         },
+        description: 'count of bars it takes for half the notes to have faded out and the tempo to have doubled',
         hideInput: RangedInputType.RANGE,
+        order: 2,
         specPropertyType: SpecPropertyType.RANGED,
         units: Units.BARS,
     },
