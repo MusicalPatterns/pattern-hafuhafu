@@ -8,7 +8,7 @@ import {
     standardSpecAttributes,
     StandardSpecProperties,
 } from '@musical-patterns/pattern'
-import { apply, isEven } from '@musical-patterns/utilities'
+import { apply, isEven, Units } from '@musical-patterns/utilities'
 import {
     HAFUHAFU_BASE_DURATION,
     HAFUHAFU_BASE_FREQUENCY,
@@ -63,6 +63,7 @@ const attributes: HafuhafuSpecAttributes = {
         },
         hideInput: RangedInputType.RANGE,
         specPropertyType: SpecPropertyType.RANGED,
+        units: Units.BARS,
     },
 }
 
