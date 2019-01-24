@@ -1,6 +1,6 @@
 {
   "name": "@musical-patterns/pattern-hafuhafu",
-  "version": "1.0.72",
+  "version": "1.0.73",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "MIT",
@@ -14,8 +14,8 @@
     "@musical-patterns/utilities": "^1.0.171"
   },
   "devDependencies": {
-    "@musical-patterns/cli": "^1.0.296",
-    "@musical-patterns/playroom": "^1.0.166",
+    "@musical-patterns/cli": "^1.0.298",
+    "@musical-patterns/playroom": "^1.0.168",
     "@musical-patterns/snapshot": "^1.0.24"
   }
 }

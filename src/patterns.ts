@@ -1,6 +1,6 @@
 import { Material } from '@musical-patterns/compiler'
 import { buildPatterns, Id, Metadata, PatternFor, Patterns } from '@musical-patterns/pattern'
-import { buildEntities, buildHafuhafuWithPitchCircularityEntities, buildScales } from './materials'
+import { buildEntities, buildHafuhafuWithPitchCircularityEntities, buildScales } from './material'
 import { post } from './metadata'
 import { hafuhafuWithPitchCircularitySpecData, specData } from './specs'
 import { HafuhafuSpec } from './types'
