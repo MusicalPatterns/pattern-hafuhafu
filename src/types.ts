@@ -1,7 +1,7 @@
 import {
     RangedSpecPropertyAttributes,
-    StandardSpec,
-    StandardSpecAttributes,
+    Spec,
+    SpecAttributes,
 } from '@musical-patterns/pattern'
 import { Block, Count, Scalar } from '@musical-patterns/utilities'
 
@@ -18,12 +18,12 @@ interface BuildNoteSpecParameters {
     sustain: Scalar,
 }
 
-interface HafuhafuSpec extends StandardSpec {
+interface HafuhafuSpec extends Spec {
     block: Block,
     iterationLength: Count,
 }
 
-interface HafuhafuSpecAttributes extends StandardSpecAttributes {
+interface HafuhafuSpecAttributes extends SpecAttributes {
     block: RangedSpecPropertyAttributes,
     iterationLength: RangedSpecPropertyAttributes,
 }
