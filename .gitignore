@@ -28,6 +28,8 @@ tsconfig.json
 tsconfig.library.json
 tsconfig.node.json
 tslint.json
+Makefile.snapshot
+test/snapshot.test.ts
 Makefile.playroom
 src/playroom.ts
 webpack.browser.js
@@ -36,5 +38,3 @@ webpack.lab.js
 webpack.library.js
 webpack.local.js
 webpack.pattern.js
-Makefile.snapshot
-test/snapshot.test.ts
