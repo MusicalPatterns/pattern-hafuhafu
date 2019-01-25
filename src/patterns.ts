@@ -1,5 +1,5 @@
 import { Material } from '@musical-patterns/compiler'
-import { buildPatterns, Id, Metadata, PatternFor, Patterns } from '@musical-patterns/pattern'
+import { Id, Metadata, PatternFor, Patterns } from '@musical-patterns/pattern'
 import { buildEntities, buildHafuhafuWithPitchCircularityEntities, buildScales } from './material'
 import { post } from './metadata'
 import { hafuhafuWithPitchCircularitySpecData, specData } from './specs'
@@ -45,10 +45,10 @@ const hafuhafuWithPitchCircularityPattern: PatternFor<HafuhafuSpec> = {
     specData: hafuhafuWithPitchCircularitySpecData,
 }
 
-const patterns: Patterns = buildPatterns({
+const patterns: Patterns = {
     [ pattern.id ]: pattern,
     [ hafuhafuWithPitchCircularityPattern.id ]: hafuhafuWithPitchCircularityPattern,
-})
+}
 
 export {
     pattern,
