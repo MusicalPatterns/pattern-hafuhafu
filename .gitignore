@@ -36,6 +36,6 @@ webpack.common.js
 webpack.lab.js
 webpack.library.js
 webpack.local.js
-webpack.pattern.js
+webpack.qa.js
 Makefile.snapshot
 test/snapshot.test.ts
