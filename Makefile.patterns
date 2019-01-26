@@ -5,4 +5,4 @@ build:
 	@musical-patterns-cli build "webpack --config webpack.library.js"
 
 build-dev:
-	@musical-patterns-cli build "webpack --config webpack.local.js"
+	@musical-patterns-cli build "webpack --config webpack.dev.js"

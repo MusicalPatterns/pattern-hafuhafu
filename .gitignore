@@ -33,9 +33,7 @@ Makefile.playroom
 src/playroom.ts
 webpack.browser.js
 webpack.common.js
-webpack.lab.js
+webpack.dev.js
 webpack.library.js
-webpack.local.js
-webpack.qa.js
 Makefile.snapshot
 test/snapshot.test.ts
