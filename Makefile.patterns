@@ -1,8 +1,0 @@
-Makefile.patterns:
-	@:
-
-build:
-	@musical-patterns-cli build "webpack --config webpack.publish.js"
-
-build-local:
-	@musical-patterns-cli build "webpack --config webpack.local.js"

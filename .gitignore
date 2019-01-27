@@ -39,3 +39,5 @@ Makefile.playroom
 src/start.ts
 webpack.common.js
 webpack.port.js
+Makefile.snapshot
+test/snapshot.test.ts
