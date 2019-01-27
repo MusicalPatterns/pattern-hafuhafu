@@ -2,7 +2,7 @@ Makefile.patterns:
 	@:
 
 build:
-	@musical-patterns-cli build "webpack --config webpack.library.js"
+	@musical-patterns-cli build "webpack --config webpack.publish.js"
 
 build-dev:
-	@musical-patterns-cli build "webpack --config webpack.dev.js"
+	@musical-patterns-cli build "webpack --config webpack.local.js"
