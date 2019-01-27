@@ -37,3 +37,7 @@ webpack.dev.js
 webpack.library.js
 Makefile.snapshot
 test/snapshot.test.ts
+webpack.local.js
+webpack.prod.js
+webpack.publish.js
+webpack.qa.js

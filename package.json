@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@musical-patterns/cli": "^1.0.345",
-    "@musical-patterns/playroom": "^1.0.191",
+    "@musical-patterns/playroom": "^1.0.192",
     "@musical-patterns/snapshot": "^1.0.38"
   }
 }
