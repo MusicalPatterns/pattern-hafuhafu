@@ -1,3 +1,5 @@
+// tslint:disable:no-duplicate-string
+
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
 import { apply, Block, Count, from, Index, Maybe, Scalar, to } from '@musical-patterns/utilities'
 import { buildHafuhafuWithPitchCircularityPart, buildPart, Direction } from '../../../src/indexForTest'

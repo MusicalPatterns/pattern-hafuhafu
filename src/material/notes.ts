@@ -1,5 +1,5 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
+import { STANDARD_DURATIONS_SCALE_INDEX, STANDARD_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
 import { apply, to } from '@musical-patterns/utilities'
 import { PITCH_INDEX_BASE_OFFSET } from '../constants'
 import { BuildNoteSpecParameters } from '../types'
@@ -8,7 +8,7 @@ const buildNoteSpec: (buildNoteSpecParameters: BuildNoteSpecParameters) => NoteS
     ({ cell, gain, duration, sustain, pitch }: BuildNoteSpecParameters): NoteSpec => ({
         durationSpec: {
             scalar: duration,
-            scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
+            scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
         },
         gainSpec: {
             scalar: gain,
@@ -16,11 +16,11 @@ const buildNoteSpec: (buildNoteSpecParameters: BuildNoteSpecParameters) => NoteS
         pitchSpec: {
             index: apply.Offset(to.Index(cell), PITCH_INDEX_BASE_OFFSET),
             scalar: pitch,
-            scaleIndex: DEFAULT_PITCH_SCALE_INDEX,
+            scaleIndex: STANDARD_PITCH_SCALE_INDEX,
         },
         sustainSpec: {
             scalar: sustain,
-            scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
+            scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
         },
     })
 
