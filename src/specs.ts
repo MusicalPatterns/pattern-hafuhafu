@@ -53,7 +53,7 @@ const attributes: HafuhafuSpecAttributes = {
             min: 0,
         },
         hideInput: RangedInputType.RANGE,
-        isArray: true,
+        isArrayed: true,
         order: 1,
         specPropertyType: SpecPropertyType.RANGED,
     },
