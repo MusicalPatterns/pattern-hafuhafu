@@ -8,6 +8,7 @@ const attributes: HafuhafuSpecAttributes = {
         constraint: {
             min: 0,
         },
+        description: 'a pattern of pitches to cycle (use 0 for a rest)',
         hideInput: RangedInputType.RANGE,
         isArrayed: true,
         order: 1,

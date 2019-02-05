@@ -12,9 +12,9 @@ describe('parts', () => {
         const expectedSustainAmount: Scalar = to.Scalar(1)
 
         const testBlocks: Block[] = [
-            [ 0, 1, 0, 0, 1 ],
-            [ 0, 0, 0, 1, 0, 0, 1 ],
-            [ 0, 0, 0, 0, 0, 0, 1, 1, 1 ],
+            [ 1, 2, 1, 1, 2 ],
+            [ 1, 1, 1, 2, 1, 1, 2 ],
+            [ 1, 1, 1, 1, 1, 1, 2, 2, 2 ],
         ].map(to.Block)
 
         testBlocks.forEach((testBlock: Block): void => {
@@ -95,9 +95,9 @@ describe('parts', () => {
         const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(Math.random() * 32))
 
         const testBlocks: Block[] = [
-            [ 0, 1, 0, 0, 1 ],
-            [ 0, 0, 0, 1, 0, 0, 1 ],
-            [ 0, 0, 0, 0, 0, 0, 1, 1, 1 ],
+            [ 1, 2, 1, 1, 2 ],
+            [ 1, 1, 1, 2, 1, 1, 2 ],
+            [ 1, 1, 1, 1, 1, 1, 2, 2, 2 ],
         ].map(to.Block)
 
         testBlocks.forEach((testBlock: Block): void => {
