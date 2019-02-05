@@ -1,14 +1,14 @@
 // tslint:disable no-duplicate-string
 
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
-import { apply, Block, Count, from, Index, Maybe, Scalar, to } from '@musical-patterns/utilities'
+import { apply, Block, Count, from, Index, Maybe, random, Scalar, to } from '@musical-patterns/utilities'
 import { buildHafuhafuWithPitchCircularityPart, buildPart, DeletionStyle, Direction } from '../../../src/indexForTest'
 
 describe('parts', () => {
     describe('without pitch circularity', () => {
         let part: NoteSpec[] = []
         let expectedNotesCount: Count = to.Count(0)
-        const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(Math.random() * 32))
+        const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(random(32)))
         const expectedSustainAmount: Scalar = to.Scalar(1)
 
         const testBlocks: Block[] = [
@@ -92,7 +92,7 @@ describe('parts', () => {
     describe('with pitch circularity', () => {
         let part: NoteSpec[] = []
         let expectedNotesCount: Count = to.Count(0)
-        const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(Math.random() * 32))
+        const TEST_ITERATION_LENGTH: Count = to.Count(Math.floor(random(32)))
 
         const testBlocks: Block[] = [
             [ 1, 2, 1, 1, 2 ],
