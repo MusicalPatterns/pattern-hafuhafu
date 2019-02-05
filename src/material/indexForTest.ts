@@ -1,4 +1,4 @@
-// tslint:disable:no-reaching-imports
+// tslint:disable no-reaching-imports
 
 export { buildPart, buildHafuhafuWithPitchCircularityPart } from './parts'
 export { buildNoteSpec } from './notes'

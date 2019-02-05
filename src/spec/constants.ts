@@ -1,4 +1,4 @@
-// tslint:disable:no-magic-numbers
+// tslint:disable no-magic-numbers
 
 import { Base, Block, Count, Frequency, Milliseconds, SEMITONE, to } from '@musical-patterns/utilities'
 import { DeletionStyle } from '../types'

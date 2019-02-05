@@ -1,4 +1,4 @@
-// tslint:disable:no-reaching-imports
+// tslint:disable no-reaching-imports
 
 export {
     buildNextBlock,
@@ -21,7 +21,7 @@ export {
     HafuhafuSpec,
 } from './types'
 
-// tslint:disable-next-line:no-default-import
+// tslint:disable-next-line no-default-import
 import * as snapshot from './snapshot.json'
 
 export { snapshot }
