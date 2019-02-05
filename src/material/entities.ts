@@ -26,7 +26,7 @@ const buildEntities: BuildEntitiesFunction =
             noteSpecs: sequence(
                 buildCycle(block)
                     .map((cycleBlock: Block): NoteSpec[] =>
-                        buildPart(cycleBlock, iterationLength))),
+                        buildPart(cycleBlock, iterationLength, spec.deletionStyle))),
             timbreName: TimbreNameEnum.WURLITZER,
         }
 

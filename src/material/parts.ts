@@ -1,12 +1,12 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { FULL_GAIN } from '@musical-patterns/pattern'
-import { apply, Block, Count, EVEN, from, Index, OCTAVE, Scalar, to } from '@musical-patterns/utilities'
-import { BASE_FOR_GAIN_FADE, HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
-import { Direction } from '../types'
+import { apply, Block, Count, EVEN, from, Index, OCTAVE, random, Scalar, to } from '@musical-patterns/utilities'
+import { HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
+import { DeletionStyle, Direction } from '../types'
+import { BASE_FOR_GAIN_FADE } from './constants'
 import { buildNoteSpec } from './notes'
 
-const buildPart: (block: Block, iterationLength: Count) => NoteSpec[] =
-    (block: Block, iterationLength: Count): NoteSpec[] => {
+const buildPart: (block: Block, iterationLength: Count, deletionStyle: DeletionStyle) => NoteSpec[] =
+    (block: Block, iterationLength: Count, deletionStyle: DeletionStyle): NoteSpec[] => {
         const cellCount: Count = to.Count(block.length)
         const part: NoteSpec[] = []
 
@@ -21,7 +21,9 @@ const buildPart: (block: Block, iterationLength: Count) => NoteSpec[] =
                 apply.Power(BASE_FOR_GAIN_FADE, to.Power(1 - from.Scalar(progress))),
             )
 
-            const gain: Scalar = from.Index(i) % EVEN === 0 ? FULL_GAIN : to.Scalar(exponentiatedInverseProgress - 1)
+            const gainForce: number = from.Index(i) % EVEN === 0 ? 1 : exponentiatedInverseProgress - 1
+            const gain: Scalar =
+                to.Scalar(deletionStyle === DeletionStyle.FADE ? gainForce : random() < gainForce ? 1 : 0)
             const duration: Scalar = to.Scalar(exponentiatedInverseProgress)
             const sustain: Scalar = to.Scalar(1)
             const pitch: Scalar = to.Scalar(1)

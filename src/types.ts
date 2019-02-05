@@ -1,4 +1,5 @@
 import {
+    OptionedSpecPropertyAttributes,
     RangedSpecPropertyAttributes,
     Spec,
     SpecAttributes,
@@ -8,6 +9,11 @@ import { Block, Count, Scalar } from '@musical-patterns/utilities'
 enum Direction {
     IN = 'IN',
     OUT = 'OUT',
+}
+
+enum DeletionStyle {
+    FADE = 'FADE',
+    RANDOM_DROP = 'RANDOM_DROP',
 }
 
 interface BuildNoteSpecParameters {
@@ -20,11 +26,13 @@ interface BuildNoteSpecParameters {
 
 interface HafuhafuSpec extends Spec {
     block: Block,
+    deletionStyle: DeletionStyle,
     iterationLength: Count,
 }
 
 interface HafuhafuSpecAttributes extends SpecAttributes {
     block: RangedSpecPropertyAttributes,
+    deletionStyle: OptionedSpecPropertyAttributes,
     iterationLength: RangedSpecPropertyAttributes,
 }
 
@@ -32,6 +40,7 @@ type Cycle = Block[]
 
 export {
     Cycle,
+    DeletionStyle,
     Direction,
     BuildNoteSpecParameters,
     HafuhafuSpec,

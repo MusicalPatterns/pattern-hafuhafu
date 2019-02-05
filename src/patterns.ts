@@ -2,7 +2,7 @@ import { Material } from '@musical-patterns/compiler'
 import { Id, Metadata, PatternFor, Patterns } from '@musical-patterns/pattern'
 import { buildEntities, buildHafuhafuWithPitchCircularityEntities, buildScales } from './material'
 import { post } from './metadata'
-import { hafuhafuWithPitchCircularitySpecData, specData } from './specs'
+import { hafuhafuWithPitchCircularitySpecData, specData } from './spec'
 import { HafuhafuSpec } from './types'
 
 const material: Material = {

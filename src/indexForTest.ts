@@ -12,6 +12,7 @@ export {
 export { pattern } from './patterns'
 
 export {
+    DeletionStyle,
     Direction,
 } from './types'
 

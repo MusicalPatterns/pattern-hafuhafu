@@ -2,7 +2,7 @@
 
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
 import { apply, Block, Count, from, Index, Maybe, Scalar, to } from '@musical-patterns/utilities'
-import { buildHafuhafuWithPitchCircularityPart, buildPart, Direction } from '../../../src/indexForTest'
+import { buildHafuhafuWithPitchCircularityPart, buildPart, DeletionStyle, Direction } from '../../../src/indexForTest'
 
 describe('parts', () => {
     describe('without pitch circularity', () => {
@@ -20,7 +20,7 @@ describe('parts', () => {
         testBlocks.forEach((testBlock: Block): void => {
             describe(`block ${testBlock}`, () => {
                 beforeEach(() => {
-                    part = buildPart(testBlock, TEST_ITERATION_LENGTH)
+                    part = buildPart(testBlock, TEST_ITERATION_LENGTH, DeletionStyle.FADE)
                     const cellCount: Count = to.Count(testBlock.length)
                     expectedNotesCount = to.Count(from.Count(cellCount) * from.Count(TEST_ITERATION_LENGTH))
                 })
