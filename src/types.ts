@@ -4,7 +4,7 @@ import {
     Spec,
     SpecAttributes,
 } from '@musical-patterns/pattern'
-import { Block, Count, Scalar } from '@musical-patterns/utilities'
+import { Base, Block, Count, Scalar } from '@musical-patterns/utilities'
 
 enum Direction {
     IN = 'IN',
@@ -28,12 +28,14 @@ interface HafuhafuSpec extends Spec {
     block: Block,
     deletionStyle: DeletionStyle,
     iterationLength: Count,
+    pitchStep: Base,
 }
 
 interface HafuhafuSpecAttributes extends SpecAttributes {
     block: RangedSpecPropertyAttributes,
     deletionStyle: OptionedSpecPropertyAttributes,
     iterationLength: RangedSpecPropertyAttributes,
+    pitchStep: RangedSpecPropertyAttributes,
 }
 
 type Cycle = Block[]

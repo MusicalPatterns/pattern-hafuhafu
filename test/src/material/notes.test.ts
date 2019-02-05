@@ -60,9 +60,9 @@ describe('note specs', () => {
                     .toBe(to.Index(2))
             })
 
-            it('uses the cell parameter, offset by one, as the index', () => {
+            it('uses the cell parameter as the index', () => {
                 expect(pitchSpec.index)
-                    .toBe(to.Index(4))
+                    .toBe(to.Index(3))
             })
         })
     })
@@ -124,9 +124,9 @@ describe('note specs', () => {
                     .toBe(to.Index(2))
             })
 
-            it('uses the cell parameter, offset by one, as the index', () => {
+            it('uses the cell parameter as the index', () => {
                 expect(pitchSpec.index)
-                    .toBe(to.Index(5))
+                    .toBe(to.Index(4))
             })
         })
     })

@@ -40,6 +40,11 @@ const attributes: HafuhafuSpecAttributes = {
         specPropertyType: SpecPropertyType.RANGED,
         units: Units.BARS,
     },
+    pitchStep: {
+        description: 'the resolution you write your melody in',
+        order: 4,
+        specPropertyType: SpecPropertyType.RANGED,
+    },
 }
 
 export {
