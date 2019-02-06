@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import { STANDARD_DURATIONS_SCALE_INDEX, STANDARD_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
-import { offsetFromOneIndexedToZeroIndexed, to } from '@musical-patterns/utilities'
+import { to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
 import { BuildNoteSpecParameters } from '../types'
 
 const buildNoteSpec: (buildNoteSpecParameters: BuildNoteSpecParameters) => NoteSpec =
@@ -30,7 +30,7 @@ const buildNoteSpec: (buildNoteSpecParameters: BuildNoteSpecParameters) => NoteS
                 scalar: gain,
             },
             pitchSpec: {
-                index: offsetFromOneIndexedToZeroIndexed(to.Index(cell)),
+                index: translateFromOneIndexedToZeroIndexed(to.Ordinal(cell)),
                 scalar: pitch,
                 scaleIndex: STANDARD_PITCH_SCALE_INDEX,
             },

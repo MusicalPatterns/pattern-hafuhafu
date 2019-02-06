@@ -1,5 +1,5 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { apply, Block, Count, from, Index, to } from '@musical-patterns/utilities'
+import { apply, Block, Cardinal, from, Ordinal, to } from '@musical-patterns/utilities'
 import { HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
 import {
     hafuhafuContourElement,
@@ -10,15 +10,15 @@ import {
 import { DeletionStyle, Direction } from '../types'
 import { buildNoteSpec } from './notes'
 
-const buildPart: (block: Block, iterationLength: Count, deletionStyle: DeletionStyle) => NoteSpec[] =
-    (block: Block, iterationLength: Count, deletionStyle: DeletionStyle): NoteSpec[] => {
-        const cellCount: Count = to.Count(block.length)
+const buildPart: (block: Block, iterationLength: Cardinal, deletionStyle: DeletionStyle) => NoteSpec[] =
+    (block: Block, iterationLength: Cardinal, deletionStyle: DeletionStyle): NoteSpec[] => {
+        const cellCount: Cardinal = to.Cardinal(block.length)
         const part: NoteSpec[] = []
 
         for (
-            let partIndex: Index = to.Index(0);
-            partIndex < to.Index(from.Count(cellCount) * from.Count(iterationLength));
-            partIndex = apply.Offset(partIndex, to.Offset(1))
+            let partIndex: Ordinal = to.Ordinal(0);
+            partIndex < to.Ordinal(from.Cardinal(cellCount) * from.Cardinal(iterationLength));
+            partIndex = apply.Translation(partIndex, to.Translation(1))
         ) {
             const contourElement: HafuhafuContourElement = hafuhafuContourElement({
                 block,
@@ -34,17 +34,17 @@ const buildPart: (block: Block, iterationLength: Count, deletionStyle: DeletionS
     }
 
 const buildHafuhafuWithPitchCircularityPart:
-    (block: Block, iterationLength: Count, direction: Direction, deletionStyle: DeletionStyle) => NoteSpec[] =
-    (block: Block, iterationLength: Count, direction: Direction, deletionStyle: DeletionStyle): NoteSpec[] => {
-        const cellCount: Count = to.Count(block.length)
+    (block: Block, iterationLength: Cardinal, direction: Direction, deletionStyle: DeletionStyle) => NoteSpec[] =
+    (block: Block, iterationLength: Cardinal, direction: Direction, deletionStyle: DeletionStyle): NoteSpec[] => {
+        const cellCount: Cardinal = to.Cardinal(block.length)
         const part: NoteSpec[] = []
 
         if (direction === Direction.IN) {
-            const totalNotesCount: Count = to.Count(from.Count(cellCount) * from.Count(iterationLength))
+            const totalNotesCount: Cardinal = to.Cardinal(from.Cardinal(cellCount) * from.Cardinal(iterationLength))
             for (
-                let partIndex: Index = to.Index(0);
-                partIndex < to.Index(from.Count(totalNotesCount));
-                partIndex = apply.Offset(partIndex, to.Offset(1))
+                let partIndex: Ordinal = to.Ordinal(0);
+                partIndex < to.Ordinal(from.Cardinal(totalNotesCount));
+                partIndex = apply.Translation(partIndex, to.Translation(1))
             ) {
                 const contourElement: HafuhafuContourElement = pitchCircularityInObjectStyleContourElement({
                     block,
@@ -57,14 +57,14 @@ const buildHafuhafuWithPitchCircularityPart:
             }
         }
         else if (direction === Direction.OUT) {
-            const totalNotesCount: Count = to.Count(apply.Scalar(
-                from.Count(cellCount) * from.Count(iterationLength),
+            const totalNotesCount: Cardinal = to.Cardinal(apply.Scalar(
+                from.Cardinal(cellCount) * from.Cardinal(iterationLength),
                 HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
             ))
             for (
-                let partIndex: Index = to.Index(0);
-                partIndex < to.Index(from.Count(totalNotesCount));
-                partIndex = apply.Offset(partIndex, to.Offset(1))
+                let partIndex: Ordinal = to.Ordinal(0);
+                partIndex < to.Ordinal(from.Cardinal(totalNotesCount));
+                partIndex = apply.Translation(partIndex, to.Translation(1))
             ) {
                 const contourElement: HafuhafuContourElement = pitchCircularityOutObjectStyleContourElement({
                     block,

@@ -30,7 +30,7 @@ describe('note specs', () => {
 
             it('uses the scale for durations', () => {
                 expect(durationSpec.scaleIndex)
-                    .toBe(to.Index(1))
+                    .toBe(to.Ordinal(1))
             })
         })
 
@@ -59,12 +59,12 @@ describe('note specs', () => {
 
             it('uses the scale for pitches', () => {
                 expect(pitchSpec.scaleIndex)
-                    .toBe(to.Index(2))
+                    .toBe(to.Ordinal(2))
             })
 
-            it('uses the cell parameter, offset by one, as the index', () => {
+            it('uses the cell parameter, translated by one, as the index', () => {
                 expect(pitchSpec.index)
-                    .toBe(to.Index(2))
+                    .toBe(to.Ordinal(2))
             })
         })
     })
@@ -94,7 +94,7 @@ describe('note specs', () => {
 
             it('uses the scale for durations', () => {
                 expect(durationSpec.scaleIndex)
-                    .toBe(to.Index(1))
+                    .toBe(to.Ordinal(1))
             })
         })
 
@@ -123,12 +123,12 @@ describe('note specs', () => {
 
             it('uses the scale for pitches', () => {
                 expect(pitchSpec.scaleIndex)
-                    .toBe(to.Index(2))
+                    .toBe(to.Ordinal(2))
             })
 
-            it('uses the cell parameter, offset by one, as the index', () => {
+            it('uses the cell parameter, translated by one, as the index', () => {
                 expect(pitchSpec.index)
-                    .toBe(to.Index(3))
+                    .toBe(to.Ordinal(3))
             })
         })
     })
@@ -158,7 +158,7 @@ describe('note specs', () => {
 
             it('uses the scale for durations', () => {
                 expect(durationSpec.scaleIndex)
-                    .toBe(to.Index(1))
+                    .toBe(to.Ordinal(1))
             })
         })
 

@@ -1,4 +1,4 @@
-import { apply, EVEN, from, Index, random, reciprocal, Scalar, to } from '@musical-patterns/utilities'
+import { apply, from, isEven, Ordinal, random, reciprocal, Scalar, to } from '@musical-patterns/utilities'
 import { DeletionStyle } from '../types'
 import { BASE_FOR_GAIN_FADE } from './constants'
 import { HafuhafuContourElement, HafuhafuContourParameters } from './types'
@@ -8,9 +8,9 @@ const hafuhafuContourElement: (parameters: HafuhafuContourParameters) => Hafuhaf
         const { deletionStyle, partIndex, cellCount, iterationLength, block } = parameters
 
         const progress: Scalar = to.Scalar(apply.Scalar(
-            from.Index(partIndex),
+            from.Ordinal(partIndex),
             to.Scalar(reciprocal(
-                apply.Scalar(from.Count(cellCount), to.Scalar(from.Count(iterationLength))),
+                apply.Scalar(from.Cardinal(cellCount), to.Scalar(from.Cardinal(iterationLength))),
             )),
         ))
 
@@ -18,14 +18,14 @@ const hafuhafuContourElement: (parameters: HafuhafuContourParameters) => Hafuhaf
             apply.Power(BASE_FOR_GAIN_FADE, to.Power(1 - from.Scalar(progress))),
         )
 
-        const gainForce: number = from.Index(partIndex) % EVEN === 0 ? 1 : exponentiatedInverseProgress - 1
+        const gainForce: number = isEven(from.Ordinal(partIndex)) ? 1 : exponentiatedInverseProgress - 1
         const gain: Scalar =
             to.Scalar(deletionStyle === DeletionStyle.FADE ? gainForce : random() < gainForce ? 1 : 0)
         const duration: Scalar = to.Scalar(exponentiatedInverseProgress)
         const sustain: Scalar = to.Scalar(1)
         const pitch: Scalar = to.Scalar(1)
-        const cellIndex: Index = to.Index(from.Index(partIndex) % from.Count(cellCount))
-        const cell: number = apply.Index(block, cellIndex)
+        const cellIndex: Ordinal = to.Ordinal(from.Ordinal(partIndex) % from.Cardinal(cellCount))
+        const cell: number = apply.Ordinal(block, cellIndex)
 
         return { cell, duration, gain, pitch, sustain }
     }

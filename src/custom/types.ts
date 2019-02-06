@@ -1,4 +1,4 @@
-import { Block, Count, Index, Scalar } from '@musical-patterns/utilities'
+import { Block, Cardinal, Ordinal, Scalar } from '@musical-patterns/utilities'
 import { DeletionStyle } from '../types'
 
 interface HafuhafuContourElement {
@@ -11,10 +11,10 @@ interface HafuhafuContourElement {
 
 interface HafuhafuContourParameters {
     block: Block,
-    cellCount: Count,
+    cellCount: Cardinal,
     deletionStyle: DeletionStyle,
-    iterationLength: Count,
-    partIndex: Index,
+    iterationLength: Cardinal,
+    partIndex: Ordinal,
 }
 
 export {
