@@ -7,12 +7,10 @@ const hafuhafuContourElement: (parameters: HafuhafuContourParameters) => Hafuhaf
     (parameters: HafuhafuContourParameters): HafuhafuContourElement => {
         const { deletionStyle, partIndex, cellCount, iterationLength, block } = parameters
 
-        const progress: Scalar = to.Scalar(apply.Scalar(
-            from.Ordinal(partIndex),
-            to.Scalar(reciprocal(
-                apply.Scalar(from.Cardinal(cellCount), to.Scalar(from.Cardinal(iterationLength))),
-            )),
-        ))
+        const progress: Scalar = to.Scalar(from.Ordinal(apply.Cardinal(
+            partIndex,
+            reciprocal(apply.Cardinal(cellCount, iterationLength)),
+        )))
 
         const exponentiatedInverseProgress: number = from.Base(
             apply.Power(BASE_FOR_GAIN_FADE, to.Power(1 - from.Scalar(progress))),

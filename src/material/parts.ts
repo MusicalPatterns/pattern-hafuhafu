@@ -1,5 +1,5 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { apply, Block, Cardinal, from, Ordinal, to } from '@musical-patterns/utilities'
+import { apply, Block, Cardinal, from, Ordinal, product, to } from '@musical-patterns/utilities'
 import { HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
 import {
     hafuhafuContourElement,
@@ -17,7 +17,7 @@ const buildPart: (block: Block, iterationLength: Cardinal, deletionStyle: Deleti
 
         for (
             let partIndex: Ordinal = to.Ordinal(0);
-            partIndex < to.Ordinal(from.Cardinal(cellCount) * from.Cardinal(iterationLength));
+            partIndex < to.Ordinal(from.Cardinal(product(cellCount, iterationLength)));
             partIndex = apply.Translation(partIndex, to.Translation(1))
         ) {
             const contourElement: HafuhafuContourElement = hafuhafuContourElement({
@@ -40,7 +40,7 @@ const buildHafuhafuWithPitchCircularityPart:
         const part: NoteSpec[] = []
 
         if (direction === Direction.IN) {
-            const totalNotesCount: Cardinal = to.Cardinal(from.Cardinal(cellCount) * from.Cardinal(iterationLength))
+            const totalNotesCount: Cardinal = product(cellCount, iterationLength)
             for (
                 let partIndex: Ordinal = to.Ordinal(0);
                 partIndex < to.Ordinal(from.Cardinal(totalNotesCount));
@@ -57,10 +57,10 @@ const buildHafuhafuWithPitchCircularityPart:
             }
         }
         else if (direction === Direction.OUT) {
-            const totalNotesCount: Cardinal = to.Cardinal(apply.Scalar(
-                from.Cardinal(cellCount) * from.Cardinal(iterationLength),
+            const totalNotesCount: Cardinal = apply.Scalar(
+                product(cellCount, iterationLength),
                 HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
-            ))
+            )
             for (
                 let partIndex: Ordinal = to.Ordinal(0);
                 partIndex < to.Ordinal(from.Cardinal(totalNotesCount));

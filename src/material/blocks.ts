@@ -8,7 +8,7 @@ const buildNextBlock: (block: Block) => Block =
             index < to.Ordinal(block.length);
             index = apply.Translation(index, to.Translation(1))
         ) {
-            nextBlock.push(block[ apply.Scalar(from.Ordinal(index), EVERY_OTHER) % block.length ])
+            nextBlock.push(block[ apply.Cardinal(from.Ordinal(index), EVERY_OTHER) % block.length ])
         }
 
         return nextBlock

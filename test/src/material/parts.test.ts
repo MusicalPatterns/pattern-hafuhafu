@@ -1,7 +1,7 @@
 // tslint:disable no-duplicate-string
 
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
-import { apply, Block, Cardinal, from, Maybe, Ordinal, random, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
+import { apply, Block, Cardinal, from, Maybe, Ordinal, product, random, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
 import { buildHafuhafuWithPitchCircularityPart, buildPart, DeletionStyle, Direction } from '../../../src/indexForTest'
 
 describe('parts', () => {
@@ -22,7 +22,7 @@ describe('parts', () => {
                 beforeEach(() => {
                     part = buildPart(testBlock, TEST_ITERATION_LENGTH, DeletionStyle.FADE)
                     const cellCount: Cardinal = to.Cardinal(testBlock.length)
-                    expectedNotesCount = to.Cardinal(from.Cardinal(cellCount) * from.Cardinal(TEST_ITERATION_LENGTH))
+                    expectedNotesCount = product(cellCount, TEST_ITERATION_LENGTH)
                 })
 
                 it('returns a series of x notes, where x is the length of the block times the count of bars', () => {
@@ -105,7 +105,7 @@ describe('parts', () => {
                     beforeEach(() => {
                         part = buildHafuhafuWithPitchCircularityPart(testBlock, TEST_ITERATION_LENGTH, Direction.IN, DeletionStyle.FADE)
                         const cellCount: Cardinal = to.Cardinal(testBlock.length)
-                        expectedNotesCount = to.Cardinal(from.Cardinal(cellCount) * from.Cardinal(TEST_ITERATION_LENGTH))
+                        expectedNotesCount = product(cellCount, TEST_ITERATION_LENGTH)
                     })
 
                     it('returns a series of x notes, where x is the length of the block times the count of bars', () => {
@@ -179,7 +179,7 @@ describe('parts', () => {
                     beforeEach(() => {
                         part = buildHafuhafuWithPitchCircularityPart(testBlock, TEST_ITERATION_LENGTH, Direction.OUT, DeletionStyle.FADE)
                         const cellCount: Cardinal = to.Cardinal(testBlock.length)
-                        expectedNotesCount = to.Cardinal(from.Cardinal(cellCount) * from.Cardinal(TEST_ITERATION_LENGTH))
+                        expectedNotesCount = product(cellCount, TEST_ITERATION_LENGTH)
                     })
 
                     it('returns a series of x notes, where x is the length of the block times the count of bars', () => {
