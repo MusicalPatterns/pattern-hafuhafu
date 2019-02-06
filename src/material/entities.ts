@@ -44,7 +44,12 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
             noteSpecs: sequence(
                 cycle(buildCycle(block), to.Offset(1))
                     .map((cycleBlock: Block): NoteSpec[] =>
-                        buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.IN)),
+                        buildHafuhafuWithPitchCircularityPart(
+                            cycleBlock,
+                            iterationLength,
+                            Direction.IN,
+                            spec.deletionStyle,
+                        )),
             ),
             timbreName: TimbreNameEnum.WURLITZER,
         }
@@ -53,7 +58,12 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
             noteSpecs: sequence(
                 buildCycle(block)
                     .map((cycleBlock: Block): NoteSpec[] =>
-                        buildHafuhafuWithPitchCircularityPart(cycleBlock, iterationLength, Direction.OUT)),
+                        buildHafuhafuWithPitchCircularityPart(
+                            cycleBlock,
+                            iterationLength,
+                            Direction.OUT,
+                            spec.deletionStyle,
+                        )),
             ),
             timbreName: TimbreNameEnum.WURLITZER,
         }

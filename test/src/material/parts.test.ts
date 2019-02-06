@@ -1,7 +1,7 @@
 // tslint:disable no-duplicate-string
 
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
-import { apply, Block, Count, from, Index, Maybe, random, Scalar, to } from '@musical-patterns/utilities'
+import { apply, Block, Count, from, Index, Maybe, random, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
 import { buildHafuhafuWithPitchCircularityPart, buildPart, DeletionStyle, Direction } from '../../../src/indexForTest'
 
 describe('parts', () => {
@@ -50,10 +50,10 @@ describe('parts', () => {
                             fail()
                         }
                         else {
-                            expect(gainSpec.scalar)
-                                .toBe(
-                                    to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount))) - 1),
-                                )
+                            testIsCloseTo(
+                                gainSpec.scalar,
+                                to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount))) - 1),
+                            )
                         }
                     }
                 })
@@ -65,10 +65,10 @@ describe('parts', () => {
                             fail()
                         }
                         else {
-                            expect(durationSpec.scalar)
-                                .toBe(
-                                    to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount)))),
-                                )
+                            testIsCloseTo(
+                                durationSpec.scalar,
+                                to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount)))),
+                            )
                         }
                     }
                 })
@@ -80,8 +80,7 @@ describe('parts', () => {
                             fail()
                         }
                         else {
-                            expect(sustainSpec.scalar)
-                                .toBe(expectedSustainAmount)
+                            testIsCloseTo(sustainSpec.scalar, expectedSustainAmount)
                         }
                     }
                 })
@@ -104,7 +103,7 @@ describe('parts', () => {
             describe(`block ${testBlock}`, () => {
                 describe('in', () => {
                     beforeEach(() => {
-                        part = buildHafuhafuWithPitchCircularityPart(testBlock, TEST_ITERATION_LENGTH, Direction.IN)
+                        part = buildHafuhafuWithPitchCircularityPart(testBlock, TEST_ITERATION_LENGTH, Direction.IN, DeletionStyle.FADE)
                         const cellCount: Count = to.Count(testBlock.length)
                         expectedNotesCount = to.Count(from.Count(cellCount) * from.Count(TEST_ITERATION_LENGTH))
                     })
@@ -121,8 +120,10 @@ describe('parts', () => {
                                 fail()
                             }
                             else {
-                                expect(gainSpec.scalar)
-                                    .toBe(to.Scalar(from.Index(i) / from.Count(expectedNotesCount)))
+                                testIsCloseTo(
+                                    gainSpec.scalar,
+                                    to.Scalar(from.Index(i) / from.Count(expectedNotesCount)),
+                                )
                             }
                         }
                     })
@@ -134,10 +135,10 @@ describe('parts', () => {
                                 fail()
                             }
                             else {
-                                expect(pitchSpec.scalar)
-                                    .toBe(
-                                        to.Scalar(Math.pow(2, (from.Index(i) / from.Count(expectedNotesCount)) - 1)),
-                                    )
+                                testIsCloseTo(
+                                    pitchSpec.scalar,
+                                    to.Scalar(Math.pow(2, (from.Index(i) / from.Count(expectedNotesCount)) - 1)),
+                                )
                             }
                         }
                     })
@@ -149,10 +150,10 @@ describe('parts', () => {
                                 fail()
                             }
                             else {
-                                expect(durationSpec.scalar)
-                                    .toBe(
-                                        to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount)))),
-                                    )
+                                testIsCloseTo(
+                                    durationSpec.scalar,
+                                    to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(expectedNotesCount)))),
+                                )
                             }
                         }
                     })
@@ -165,10 +166,10 @@ describe('parts', () => {
                                 fail()
                             }
                             else {
-                                expect(sustainSpec.scalar)
-                                    .toBe(
-                                        apply.Scalar(durationSpec.scalar, to.Scalar(1 / 2)),
-                                    )
+                                testIsCloseTo(
+                                    sustainSpec.scalar,
+                                    apply.Scalar(durationSpec.scalar, to.Scalar(1 / 2)),
+                                )
                             }
                         }
                     })
@@ -176,14 +177,13 @@ describe('parts', () => {
 
                 describe('out', () => {
                     beforeEach(() => {
-                        part = buildHafuhafuWithPitchCircularityPart(testBlock, TEST_ITERATION_LENGTH, Direction.OUT)
+                        part = buildHafuhafuWithPitchCircularityPart(testBlock, TEST_ITERATION_LENGTH, Direction.OUT, DeletionStyle.FADE)
                         const cellCount: Count = to.Count(testBlock.length)
                         expectedNotesCount = to.Count(from.Count(cellCount) * from.Count(TEST_ITERATION_LENGTH))
                     })
 
                     it('returns a series of x notes, where x is the length of the block times the count of bars', () => {
-                        expect(to.Count(part.length))
-                            .toBe(apply.Scalar(expectedNotesCount, to.Scalar(2)))
+                        testIsCloseTo(to.Count(part.length), apply.Scalar(expectedNotesCount, to.Scalar(2)))
                     })
 
                     it('gradually decreases the gain from full to silence', () => {
@@ -193,10 +193,10 @@ describe('parts', () => {
                                 fail()
                             }
                             else {
-                                expect(gainSpec.scalar)
-                                    .toBe(
-                                        to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(apply.Scalar(expectedNotesCount, to.Scalar(2))))) - 1),
-                                    )
+                                testIsCloseTo(
+                                    gainSpec.scalar,
+                                    to.Scalar(Math.pow(2, 1 - (from.Index(i) / from.Count(apply.Scalar(expectedNotesCount, to.Scalar(2))))) - 1),
+                                )
                             }
                         }
                     })
@@ -208,10 +208,10 @@ describe('parts', () => {
                                 fail()
                             }
                             else {
-                                expect(pitchSpec.scalar)
-                                    .toBe(
-                                        to.Scalar(Math.pow(2, from.Index(i) / from.Count(apply.Scalar(expectedNotesCount, to.Scalar(2))))),
-                                    )
+                                testIsCloseTo(
+                                    pitchSpec.scalar,
+                                    to.Scalar(Math.pow(2, from.Index(i) / from.Count(apply.Scalar(expectedNotesCount, to.Scalar(2))))),
+                                )
                             }
                         }
                     })
@@ -223,10 +223,10 @@ describe('parts', () => {
                                 fail()
                             }
                             else {
-                                expect(durationSpec.scalar)
-                                    .toBe(
-                                        to.Scalar(Math.pow(2, -(from.Index(i) / from.Count(apply.Scalar(expectedNotesCount, to.Scalar(2)))))),
-                                    )
+                                testIsCloseTo(
+                                    durationSpec.scalar,
+                                    to.Scalar(Math.pow(2, -(from.Index(i) / from.Count(apply.Scalar(expectedNotesCount, to.Scalar(2)))))),
+                                )
                             }
                         }
                     })
@@ -239,10 +239,10 @@ describe('parts', () => {
                                 fail()
                             }
                             else {
-                                expect(sustainSpec.scalar)
-                                    .toBe(
-                                        apply.Scalar(durationSpec.scalar, to.Scalar(1 / 2)),
-                                    )
+                                testIsCloseTo(
+                                    sustainSpec.scalar,
+                                    apply.Scalar(durationSpec.scalar, to.Scalar(1 / 2)),
+                                )
                             }
                         }
                     })
