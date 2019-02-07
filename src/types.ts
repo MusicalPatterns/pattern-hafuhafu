@@ -38,10 +38,7 @@ interface HafuhafuSpecAttributes extends SpecAttributes {
     pitchStep: RangedSpecPropertyAttributes,
 }
 
-type Cycle = Block[]
-
 export {
-    Cycle,
     DeletionStyle,
     Direction,
     BuildNoteSpecParameters,
