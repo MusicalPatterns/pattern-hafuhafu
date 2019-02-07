@@ -1,12 +1,12 @@
-import { apply, Block, EVERY_OTHER, Ordinal, to } from '@musical-patterns/utilities'
+import { apply, Block, EVERY_OTHER, INITIAL, NEXT, Ordinal, to } from '@musical-patterns/utilities'
 
 const buildNextBlock: (block: Block) => Block =
     (block: Block): Block => {
         const nextBlock: Block = to.Block([])
         for (
-            let index: Ordinal = to.Ordinal(0);
+            let index: Ordinal = INITIAL;
             index < to.Ordinal(block.length);
-            index = apply.Translation(index, to.Translation(1))
+            index = apply.Translation(index, NEXT)
         ) {
             const blockIndex: Ordinal = apply.Modulus(
                 apply.Cardinal(index, EVERY_OTHER),

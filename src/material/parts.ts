@@ -1,5 +1,5 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { apply, Block, Cardinal, from, Ordinal, product, to } from '@musical-patterns/utilities'
+import { apply, Block, Cardinal, from, INITIAL, NEXT, Ordinal, product, to } from '@musical-patterns/utilities'
 import { HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR } from '../constants'
 import {
     hafuhafuContourElement,
@@ -16,9 +16,9 @@ const buildPart: (block: Block, iterationLength: Cardinal, deletionStyle: Deleti
         const part: NoteSpec[] = []
 
         for (
-            let partIndex: Ordinal = to.Ordinal(0);
+            let partIndex: Ordinal = INITIAL;
             partIndex < to.Ordinal(from.Cardinal(product(cellCount, iterationLength)));
-            partIndex = apply.Translation(partIndex, to.Translation(1))
+            partIndex = apply.Translation(partIndex, NEXT)
         ) {
             const contourElement: HafuhafuContourElement = hafuhafuContourElement({
                 block,
@@ -42,9 +42,9 @@ const buildHafuhafuWithPitchCircularityPart:
         if (direction === Direction.IN) {
             const totalNotesCount: Cardinal = product(cellCount, iterationLength)
             for (
-                let partIndex: Ordinal = to.Ordinal(0);
+                let partIndex: Ordinal = INITIAL;
                 partIndex < to.Ordinal(from.Cardinal(totalNotesCount));
-                partIndex = apply.Translation(partIndex, to.Translation(1))
+                partIndex = apply.Translation(partIndex, NEXT)
             ) {
                 const contourElement: HafuhafuContourElement = pitchCircularityInObjectStyleContourElement({
                     block,
@@ -62,9 +62,9 @@ const buildHafuhafuWithPitchCircularityPart:
                 HAFUHAFU_WITH_PITCH_CIRCULARITY_SCALAR,
             )
             for (
-                let partIndex: Ordinal = to.Ordinal(0);
+                let partIndex: Ordinal = INITIAL;
                 partIndex < to.Ordinal(from.Cardinal(totalNotesCount));
-                partIndex = apply.Translation(partIndex, to.Translation(1))
+                partIndex = apply.Translation(partIndex, NEXT)
             ) {
                 const contourElement: HafuhafuContourElement = pitchCircularityOutObjectStyleContourElement({
                     block,

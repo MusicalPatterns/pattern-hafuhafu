@@ -13,8 +13,8 @@
         "sustain": 175
       },
       {
-        "duration": 346.98058061193177,
-        "gain": 0.9827461749253243,
+        "duration": 346.98058,
+        "gain": 0.98275,
         "frequency": 200,
         "position": [
           0,
@@ -24,7 +24,7 @@
         "sustain": 175
       },
       {
-        "duration": 343.98720949083787,
+        "duration": 343.98721,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -35,8 +35,8 @@
         "sustain": 175
       },
       {
-        "duration": 341.0196619205975,
-        "gain": 0.9486837824034142,
+        "duration": 341.01966,
+        "gain": 0.94868,
         "frequency": 100,
         "position": [
           0,
@@ -46,29 +46,7 @@
         "sustain": 175
       },
       {
-        "duration": 338.0777151236959,
-        "gain": 1,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 335.1611482445008,
-        "gain": 0.9152065613971474,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 332.26974233268174,
+        "duration": 338.07772,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -79,8 +57,8 @@
         "sustain": 175
       },
       {
-        "duration": 329.4032803267739,
-        "gain": 0.8823044590101363,
+        "duration": 335.16115,
+        "gain": 0.91521,
         "frequency": 100,
         "position": [
           0,
@@ -90,73 +68,7 @@
         "sustain": 175
       },
       {
-        "duration": 326.5615470378826,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 323.74432913352905,
-        "gain": 0.8499675950487373,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 320.9514151216349,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 318.1825953346457,
-        "gain": 0.8181862590551185,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 315.4376619137906,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 312.71640879347797,
-        "gain": 0.7869509073913026,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 310.01863168582616,
+        "duration": 332.26974,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -167,8 +79,8 @@
         "sustain": 175
       },
       {
-        "duration": 307.3441280653274,
-        "gain": 0.7562521603732995,
+        "duration": 329.40328,
+        "gain": 0.8823,
         "frequency": 100,
         "position": [
           0,
@@ -178,7 +90,73 @@
         "sustain": 175
       },
       {
-        "duration": 304.69269715364345,
+        "duration": 326.56155,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 323.74433,
+        "gain": 0.84997,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 320.95142,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 318.1826,
+        "gain": 0.81819,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 315.43766,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 312.71641,
+        "gain": 0.78695,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 310.01863,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -189,8 +167,8 @@
         "sustain": 175
       },
       {
-        "duration": 302.06413990453336,
-        "gain": 0.7260807994544765,
+        "duration": 307.34413,
+        "gain": 0.75625,
         "frequency": 100,
         "position": [
           0,
@@ -200,73 +178,7 @@
         "sustain": 175
       },
       {
-        "duration": 299.4582589889108,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 296.87485878002997,
-        "gain": 0.696427764457314,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 294.31374533880006,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 291.7747263992259,
-        "gain": 0.6672841508527196,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 289.2576113539741,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 286.76221124006406,
-        "gain": 0.6386412070860803,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 284.28833872468243,
+        "duration": 304.6927,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -277,8 +189,8 @@
         "sustain": 175
       },
       {
-        "duration": 281.8358080911195,
-        "gain": 0.6104903319492543,
+        "duration": 302.06414,
+        "gain": 0.72608,
         "frequency": 100,
         "position": [
           0,
@@ -288,7 +200,73 @@
         "sustain": 175
       },
       {
-        "duration": 279.40443522482747,
+        "duration": 299.45826,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 296.87486,
+        "gain": 0.69643,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 294.31375,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 291.77473,
+        "gain": 0.66728,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 289.25761,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 286.76221,
+        "gain": 0.63864,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 284.28834,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -299,8 +277,8 @@
         "sustain": 175
       },
       {
-        "duration": 276.9940375995986,
-        "gain": 0.5828230719977061,
+        "duration": 281.83581,
+        "gain": 0.61049,
         "frequency": 100,
         "position": [
           0,
@@ -310,73 +288,7 @@
         "sustain": 175
       },
       {
-        "duration": 274.60443426386274,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 272.2354458271032,
-        "gain": 0.5556311190120184,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 269.88689444638965,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 267.55860381302693,
-        "gain": 0.5289063075030109,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 265.25039913931965,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 262.9621071454508,
-        "gain": 0.5026406122597187,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 260.6935560464729,
+        "duration": 279.40444,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -387,8 +299,8 @@
         "sustain": 175
       },
       {
-        "duration": 258.44457553941237,
-        "gain": 0.47682614593949935,
+        "duration": 276.99404,
+        "gain": 0.58282,
         "frequency": 100,
         "position": [
           0,
@@ -398,7 +310,73 @@
         "sustain": 175
       },
       {
-        "duration": 256.21499679048446,
+        "duration": 274.60443,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 272.23545,
+        "gain": 0.55563,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 269.88689,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 267.5586,
+        "gain": 0.52891,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 265.2504,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 262.96211,
+        "gain": 0.50264,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 260.69356,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -409,8 +387,8 @@
         "sustain": 175
       },
       {
-        "duration": 254.00465242241864,
-        "gain": 0.45145515669953507,
+        "duration": 258.44458,
+        "gain": 0.47683,
         "frequency": 100,
         "position": [
           0,
@@ -420,73 +398,7 @@
         "sustain": 175
       },
       {
-        "duration": 251.81337650189346,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 249.6410045270799,
-        "gain": 0.42652002586902804,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 247.48737341529164,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 245.3523214907424,
-        "gain": 0.4020132656613853,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 243.23568847240898,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 241.13731546199836,
-        "gain": 0.3779275169257048,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 239.0570449320192,
+        "duration": 256.215,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -497,8 +409,8 @@
         "sustain": 175
       },
       {
-        "duration": 236.9947207139562,
-        "gain": 0.35425554693689265,
+        "duration": 254.00465,
+        "gain": 0.45146,
         "frequency": 100,
         "position": [
           0,
@@ -508,7 +420,73 @@
         "sustain": 175
       },
       {
-        "duration": 234.95018798654607,
+        "duration": 251.81338,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 249.641,
+        "gain": 0.42652,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 247.48737,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 245.35232,
+        "gain": 0.40201,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 243.23569,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 241.13732,
+        "gain": 0.37793,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 239.05704,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -519,8 +497,8 @@
         "sustain": 175
       },
       {
-        "duration": 232.92329326415506,
-        "gain": 0.33099024722374315,
+        "duration": 236.99472,
+        "gain": 0.35426,
         "frequency": 100,
         "position": [
           0,
@@ -530,73 +508,7 @@
         "sustain": 175
       },
       {
-        "duration": 230.9138843852565,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 228.9218105010079,
-        "gain": 0.3081246314343309,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 226.94692206392668,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 224.98907081666314,
-        "gain": 0.2856518332380751,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 223.0481097808709,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 221.12389324617274,
-        "gain": 0.2635651042638443,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 219.21627675922238,
+        "duration": 234.95019,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -607,8 +519,8 @@
         "sustain": 175
       },
       {
-        "duration": 217.3251171128597,
-        "gain": 0.241857812073484,
+        "duration": 232.92329,
+        "gain": 0.33099,
         "frequency": 100,
         "position": [
           0,
@@ -618,7 +530,73 @@
         "sustain": 175
       },
       {
-        "duration": 215.45027233536035,
+        "duration": 230.91388,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 228.92181,
+        "gain": 0.30812,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 226.94692,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 224.98907,
+        "gain": 0.28565,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 223.04811,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 221.12389,
+        "gain": 0.26357,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 219.21628,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -629,8 +607,8 @@
         "sustain": 175
       },
       {
-        "duration": 213.59160167977757,
-        "gain": 0.22052343817015752,
+        "duration": 217.32512,
+        "gain": 0.24186,
         "frequency": 100,
         "position": [
           0,
@@ -640,73 +618,7 @@
         "sustain": 175
       },
       {
-        "duration": 211.7489656133762,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 209.92222580715782,
-        "gain": 0.1995555760409018,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 208.1112451254762,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 206.3158876157422,
-        "gain": 0.17894792923281266,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 204.53601849821797,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 202.77150415589853,
-        "gain": 0.15869430946227725,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 201.02221212448111,
+        "duration": 215.45027,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -717,8 +629,8 @@
         "sustain": 175
       },
       {
-        "duration": 199.28801108242104,
-        "gain": 0.13878863475669156,
+        "duration": 213.5916,
+        "gain": 0.22052,
         "frequency": 100,
         "position": [
           0,
@@ -728,7 +640,73 @@
         "sustain": 175
       },
       {
-        "duration": 197.56877084107296,
+        "duration": 211.74897,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 209.92223,
+        "gain": 0.19956,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 208.11125,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 206.31589,
+        "gain": 0.17895,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 204.53602,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 202.7715,
+        "gain": 0.15869,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 201.02221,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -739,8 +717,8 @@
         "sustain": 175
       },
       {
-        "duration": 195.86436233491767,
-        "gain": 0.119224927628101,
+        "duration": 199.28801,
+        "gain": 0.13879,
         "frequency": 100,
         "position": [
           0,
@@ -750,73 +728,7 @@
         "sustain": 175
       },
       {
-        "duration": 194.17465761187285,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 192.4995298236877,
-        "gain": 0.09999731327821548,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 190.8388532164201,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 189.19250312099615,
-        "gain": 0.0811000178342638,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 187.5603559438513,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 185.94228915765171,
-        "gain": 0.06252736661515268,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 184.33818129209627,
+        "duration": 197.56877,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -827,8 +739,8 @@
         "sustain": 175
       },
       {
-        "duration": 182.74791192479742,
-        "gain": 0.044273782427413755,
+        "duration": 195.86436,
+        "gain": 0.11922,
         "frequency": 100,
         "position": [
           0,
@@ -838,7 +750,73 @@
         "sustain": 175
       },
       {
-        "duration": 181.17136167224103,
+        "duration": 194.17466,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 192.49953,
+        "gain": 0.1,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 190.83885,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 189.1925,
+        "gain": 0.0811,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 187.56036,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 185.94229,
+        "gain": 0.06253,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 184.33818,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -849,8 +827,8 @@
         "sustain": 175
       },
       {
-        "duration": 179.60841218082422,
-        "gain": 0.026333783890424067,
+        "duration": 182.74791,
+        "gain": 0.04427,
         "frequency": 100,
         "position": [
           0,
@@ -860,7 +838,29 @@
         "sustain": 175
       },
       {
-        "duration": 178.0589461179701,
+        "duration": 181.17136,
+        "gain": 1,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 179.60841,
+        "gain": 0.02633,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 178.05895,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -871,8 +871,8 @@
         "sustain": 175
       },
       {
-        "duration": 176.52284716331982,
-        "gain": 0.008701983790398993,
+        "duration": 176.52285,
+        "gain": 0.0087,
         "frequency": 200,
         "position": [
           0,
@@ -893,8 +893,8 @@
         "sustain": 175
       },
       {
-        "duration": 346.98058061193177,
-        "gain": 0.9827461749253243,
+        "duration": 346.98058,
+        "gain": 0.98275,
         "frequency": 100,
         "position": [
           0,
@@ -904,7 +904,7 @@
         "sustain": 175
       },
       {
-        "duration": 343.98720949083787,
+        "duration": 343.98721,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -915,8 +915,8 @@
         "sustain": 175
       },
       {
-        "duration": 341.0196619205975,
-        "gain": 0.9486837824034142,
+        "duration": 341.01966,
+        "gain": 0.94868,
         "frequency": 200,
         "position": [
           0,
@@ -926,7 +926,7 @@
         "sustain": 175
       },
       {
-        "duration": 338.0777151236959,
+        "duration": 338.07772,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -937,8 +937,8 @@
         "sustain": 175
       },
       {
-        "duration": 335.1611482445008,
-        "gain": 0.9152065613971474,
+        "duration": 335.16115,
+        "gain": 0.91521,
         "frequency": 100,
         "position": [
           0,
@@ -948,7 +948,7 @@
         "sustain": 175
       },
       {
-        "duration": 332.26974233268174,
+        "duration": 332.26974,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -959,8 +959,8 @@
         "sustain": 175
       },
       {
-        "duration": 329.4032803267739,
-        "gain": 0.8823044590101363,
+        "duration": 329.40328,
+        "gain": 0.8823,
         "frequency": 200,
         "position": [
           0,
@@ -970,51 +970,7 @@
         "sustain": 175
       },
       {
-        "duration": 326.5615470378826,
-        "gain": 1,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 323.74432913352905,
-        "gain": 0.8499675950487373,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 320.9514151216349,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 318.1825953346457,
-        "gain": 0.8181862590551185,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 315.4376619137906,
+        "duration": 326.56155,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1025,9 +981,9 @@
         "sustain": 175
       },
       {
-        "duration": 312.71640879347797,
-        "gain": 0.7869509073913026,
-        "frequency": 200,
+        "duration": 323.74433,
+        "gain": 0.84997,
+        "frequency": 100,
         "position": [
           0,
           0,
@@ -1036,7 +992,7 @@
         "sustain": 175
       },
       {
-        "duration": 310.01863168582616,
+        "duration": 320.95142,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1047,8 +1003,8 @@
         "sustain": 175
       },
       {
-        "duration": 307.3441280653274,
-        "gain": 0.7562521603732995,
+        "duration": 318.1826,
+        "gain": 0.81819,
         "frequency": 100,
         "position": [
           0,
@@ -1058,29 +1014,7 @@
         "sustain": 175
       },
       {
-        "duration": 304.69269715364345,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 302.06413990453336,
-        "gain": 0.7260807994544765,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 299.4582589889108,
+        "duration": 315.43766,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1091,9 +1025,9 @@
         "sustain": 175
       },
       {
-        "duration": 296.87485878002997,
-        "gain": 0.696427764457314,
-        "frequency": 100,
+        "duration": 312.71641,
+        "gain": 0.78695,
+        "frequency": 200,
         "position": [
           0,
           0,
@@ -1102,7 +1036,7 @@
         "sustain": 175
       },
       {
-        "duration": 294.31374533880006,
+        "duration": 310.01863,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1113,8 +1047,8 @@
         "sustain": 175
       },
       {
-        "duration": 291.7747263992259,
-        "gain": 0.6672841508527196,
+        "duration": 307.34413,
+        "gain": 0.75625,
         "frequency": 100,
         "position": [
           0,
@@ -1124,7 +1058,29 @@
         "sustain": 175
       },
       {
-        "duration": 289.2576113539741,
+        "duration": 304.6927,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 302.06414,
+        "gain": 0.72608,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 299.45826,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1135,9 +1091,9 @@
         "sustain": 175
       },
       {
-        "duration": 286.76221124006406,
-        "gain": 0.6386412070860803,
-        "frequency": 200,
+        "duration": 296.87486,
+        "gain": 0.69643,
+        "frequency": 100,
         "position": [
           0,
           0,
@@ -1146,7 +1102,7 @@
         "sustain": 175
       },
       {
-        "duration": 284.28833872468243,
+        "duration": 294.31375,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1157,8 +1113,8 @@
         "sustain": 175
       },
       {
-        "duration": 281.8358080911195,
-        "gain": 0.6104903319492543,
+        "duration": 291.77473,
+        "gain": 0.66728,
         "frequency": 100,
         "position": [
           0,
@@ -1168,29 +1124,7 @@
         "sustain": 175
       },
       {
-        "duration": 279.40443522482747,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 276.9940375995986,
-        "gain": 0.5828230719977061,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 274.60443426386274,
+        "duration": 289.25761,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1201,9 +1135,9 @@
         "sustain": 175
       },
       {
-        "duration": 272.2354458271032,
-        "gain": 0.5556311190120184,
-        "frequency": 100,
+        "duration": 286.76221,
+        "gain": 0.63864,
+        "frequency": 200,
         "position": [
           0,
           0,
@@ -1212,7 +1146,7 @@
         "sustain": 175
       },
       {
-        "duration": 269.88689444638965,
+        "duration": 284.28834,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1223,8 +1157,8 @@
         "sustain": 175
       },
       {
-        "duration": 267.55860381302693,
-        "gain": 0.5289063075030109,
+        "duration": 281.83581,
+        "gain": 0.61049,
         "frequency": 100,
         "position": [
           0,
@@ -1234,7 +1168,29 @@
         "sustain": 175
       },
       {
-        "duration": 265.25039913931965,
+        "duration": 279.40444,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 276.99404,
+        "gain": 0.58282,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 274.60443,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1245,9 +1201,9 @@
         "sustain": 175
       },
       {
-        "duration": 262.9621071454508,
-        "gain": 0.5026406122597187,
-        "frequency": 200,
+        "duration": 272.23545,
+        "gain": 0.55563,
+        "frequency": 100,
         "position": [
           0,
           0,
@@ -1256,7 +1212,7 @@
         "sustain": 175
       },
       {
-        "duration": 260.6935560464729,
+        "duration": 269.88689,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1267,8 +1223,8 @@
         "sustain": 175
       },
       {
-        "duration": 258.44457553941237,
-        "gain": 0.47682614593949935,
+        "duration": 267.5586,
+        "gain": 0.52891,
         "frequency": 100,
         "position": [
           0,
@@ -1278,29 +1234,7 @@
         "sustain": 175
       },
       {
-        "duration": 256.21499679048446,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 254.00465242241864,
-        "gain": 0.45145515669953507,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 251.81337650189346,
+        "duration": 265.2504,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1311,9 +1245,9 @@
         "sustain": 175
       },
       {
-        "duration": 249.6410045270799,
-        "gain": 0.42652002586902804,
-        "frequency": 100,
+        "duration": 262.96211,
+        "gain": 0.50264,
+        "frequency": 200,
         "position": [
           0,
           0,
@@ -1322,7 +1256,7 @@
         "sustain": 175
       },
       {
-        "duration": 247.48737341529164,
+        "duration": 260.69356,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1333,8 +1267,8 @@
         "sustain": 175
       },
       {
-        "duration": 245.3523214907424,
-        "gain": 0.4020132656613853,
+        "duration": 258.44458,
+        "gain": 0.47683,
         "frequency": 100,
         "position": [
           0,
@@ -1344,7 +1278,29 @@
         "sustain": 175
       },
       {
-        "duration": 243.23568847240898,
+        "duration": 256.215,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 254.00465,
+        "gain": 0.45146,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 251.81338,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1355,9 +1311,9 @@
         "sustain": 175
       },
       {
-        "duration": 241.13731546199836,
-        "gain": 0.3779275169257048,
-        "frequency": 200,
+        "duration": 249.641,
+        "gain": 0.42652,
+        "frequency": 100,
         "position": [
           0,
           0,
@@ -1366,7 +1322,7 @@
         "sustain": 175
       },
       {
-        "duration": 239.0570449320192,
+        "duration": 247.48737,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1377,8 +1333,8 @@
         "sustain": 175
       },
       {
-        "duration": 236.9947207139562,
-        "gain": 0.35425554693689265,
+        "duration": 245.35232,
+        "gain": 0.40201,
         "frequency": 100,
         "position": [
           0,
@@ -1388,29 +1344,7 @@
         "sustain": 175
       },
       {
-        "duration": 234.95018798654607,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 232.92329326415506,
-        "gain": 0.33099024722374315,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 230.9138843852565,
+        "duration": 243.23569,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1421,9 +1355,9 @@
         "sustain": 175
       },
       {
-        "duration": 228.9218105010079,
-        "gain": 0.3081246314343309,
-        "frequency": 100,
+        "duration": 241.13732,
+        "gain": 0.37793,
+        "frequency": 200,
         "position": [
           0,
           0,
@@ -1432,7 +1366,7 @@
         "sustain": 175
       },
       {
-        "duration": 226.94692206392668,
+        "duration": 239.05704,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1443,8 +1377,8 @@
         "sustain": 175
       },
       {
-        "duration": 224.98907081666314,
-        "gain": 0.2856518332380751,
+        "duration": 236.99472,
+        "gain": 0.35426,
         "frequency": 100,
         "position": [
           0,
@@ -1454,7 +1388,29 @@
         "sustain": 175
       },
       {
-        "duration": 223.0481097808709,
+        "duration": 234.95019,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 232.92329,
+        "gain": 0.33099,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 230.91388,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1465,9 +1421,9 @@
         "sustain": 175
       },
       {
-        "duration": 221.12389324617274,
-        "gain": 0.2635651042638443,
-        "frequency": 200,
+        "duration": 228.92181,
+        "gain": 0.30812,
+        "frequency": 100,
         "position": [
           0,
           0,
@@ -1476,7 +1432,7 @@
         "sustain": 175
       },
       {
-        "duration": 219.21627675922238,
+        "duration": 226.94692,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1487,8 +1443,8 @@
         "sustain": 175
       },
       {
-        "duration": 217.3251171128597,
-        "gain": 0.241857812073484,
+        "duration": 224.98907,
+        "gain": 0.28565,
         "frequency": 100,
         "position": [
           0,
@@ -1498,29 +1454,7 @@
         "sustain": 175
       },
       {
-        "duration": 215.45027233536035,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 213.59160167977757,
-        "gain": 0.22052343817015752,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 211.7489656133762,
+        "duration": 223.04811,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1531,9 +1465,9 @@
         "sustain": 175
       },
       {
-        "duration": 209.92222580715782,
-        "gain": 0.1995555760409018,
-        "frequency": 100,
+        "duration": 221.12389,
+        "gain": 0.26357,
+        "frequency": 200,
         "position": [
           0,
           0,
@@ -1542,7 +1476,7 @@
         "sustain": 175
       },
       {
-        "duration": 208.1112451254762,
+        "duration": 219.21628,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1553,8 +1487,8 @@
         "sustain": 175
       },
       {
-        "duration": 206.3158876157422,
-        "gain": 0.17894792923281266,
+        "duration": 217.32512,
+        "gain": 0.24186,
         "frequency": 100,
         "position": [
           0,
@@ -1564,7 +1498,29 @@
         "sustain": 175
       },
       {
-        "duration": 204.53601849821797,
+        "duration": 215.45027,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 213.5916,
+        "gain": 0.22052,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 211.74897,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1575,9 +1531,9 @@
         "sustain": 175
       },
       {
-        "duration": 202.77150415589853,
-        "gain": 0.15869430946227725,
-        "frequency": 200,
+        "duration": 209.92223,
+        "gain": 0.19956,
+        "frequency": 100,
         "position": [
           0,
           0,
@@ -1586,7 +1542,7 @@
         "sustain": 175
       },
       {
-        "duration": 201.02221212448111,
+        "duration": 208.11125,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1597,8 +1553,8 @@
         "sustain": 175
       },
       {
-        "duration": 199.28801108242104,
-        "gain": 0.13878863475669156,
+        "duration": 206.31589,
+        "gain": 0.17895,
         "frequency": 100,
         "position": [
           0,
@@ -1608,29 +1564,7 @@
         "sustain": 175
       },
       {
-        "duration": 197.56877084107296,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 195.86436233491767,
-        "gain": 0.119224927628101,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 194.17465761187285,
+        "duration": 204.53602,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1641,9 +1575,9 @@
         "sustain": 175
       },
       {
-        "duration": 192.4995298236877,
-        "gain": 0.09999731327821548,
-        "frequency": 100,
+        "duration": 202.7715,
+        "gain": 0.15869,
+        "frequency": 200,
         "position": [
           0,
           0,
@@ -1652,7 +1586,7 @@
         "sustain": 175
       },
       {
-        "duration": 190.8388532164201,
+        "duration": 201.02221,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1663,8 +1597,8 @@
         "sustain": 175
       },
       {
-        "duration": 189.19250312099615,
-        "gain": 0.0811000178342638,
+        "duration": 199.28801,
+        "gain": 0.13879,
         "frequency": 100,
         "position": [
           0,
@@ -1674,7 +1608,29 @@
         "sustain": 175
       },
       {
-        "duration": 187.5603559438513,
+        "duration": 197.56877,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 195.86436,
+        "gain": 0.11922,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 194.17466,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1685,9 +1641,9 @@
         "sustain": 175
       },
       {
-        "duration": 185.94228915765171,
-        "gain": 0.06252736661515268,
-        "frequency": 200,
+        "duration": 192.49953,
+        "gain": 0.1,
+        "frequency": 100,
         "position": [
           0,
           0,
@@ -1696,7 +1652,7 @@
         "sustain": 175
       },
       {
-        "duration": 184.33818129209627,
+        "duration": 190.83885,
         "gain": 1,
         "frequency": 100,
         "position": [
@@ -1707,8 +1663,8 @@
         "sustain": 175
       },
       {
-        "duration": 182.74791192479742,
-        "gain": 0.044273782427413755,
+        "duration": 189.1925,
+        "gain": 0.0811,
         "frequency": 100,
         "position": [
           0,
@@ -1718,29 +1674,7 @@
         "sustain": 175
       },
       {
-        "duration": 181.17136167224103,
-        "gain": 1,
-        "frequency": 100,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 179.60841218082422,
-        "gain": 0.026333783890424067,
-        "frequency": 200,
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "sustain": 175
-      },
-      {
-        "duration": 178.0589461179701,
+        "duration": 187.56036,
         "gain": 1,
         "frequency": 200,
         "position": [
@@ -1751,8 +1685,74 @@
         "sustain": 175
       },
       {
-        "duration": 176.52284716331982,
-        "gain": 0.008701983790398993,
+        "duration": 185.94229,
+        "gain": 0.06253,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 184.33818,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 182.74791,
+        "gain": 0.04427,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 181.17136,
+        "gain": 1,
+        "frequency": 100,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 179.60841,
+        "gain": 0.02633,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 178.05895,
+        "gain": 1,
+        "frequency": 200,
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "sustain": 175
+      },
+      {
+        "duration": 176.52285,
+        "gain": 0.0087,
         "frequency": 100,
         "position": [
           0,

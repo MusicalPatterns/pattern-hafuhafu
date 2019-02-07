@@ -7,8 +7,10 @@ import {
     Cardinal,
     floor,
     from,
+    INITIAL,
     Maybe,
     negative,
+    NEXT,
     Ordinal,
     product,
     random,
@@ -45,7 +47,7 @@ describe('parts', () => {
                 })
 
                 it('keeps a constant gain on the even notes', () => {
-                    for (let index: Ordinal = to.Ordinal(0); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, to.Translation(2))) {
+                    for (let index: Ordinal = INITIAL; index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, to.Translation(2))) {
                         const gainSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).gainSpec
                         if (!gainSpec) {
                             fail()
@@ -73,7 +75,7 @@ describe('parts', () => {
                 })
 
                 it('gradually decreases the duration of the notes from 2 to 1, increasing the tempo from 1/2x to 1x', () => {
-                    for (let index: Ordinal = to.Ordinal(0); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, to.Translation(1))) {
+                    for (let index: Ordinal = INITIAL; index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, NEXT)) {
                         const durationSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).durationSpec
                         if (!durationSpec) {
                             fail()
@@ -88,7 +90,7 @@ describe('parts', () => {
                 })
 
                 it('keeps a constant sustain of the notes, slightly shorter than half the first duration', () => {
-                    for (let index: Ordinal = to.Ordinal(0); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, to.Translation(1))) {
+                    for (let index: Ordinal = INITIAL; index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, NEXT)) {
                         const sustainSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).sustainSpec
                         if (!sustainSpec) {
                             fail()
@@ -128,7 +130,7 @@ describe('parts', () => {
                     })
 
                     it('gradually increases the gain from silence to full (this one is linear because the between silence and 1 is artificially curved)', () => {
-                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, to.Translation(1))) {
+                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, NEXT)) {
                             const gainSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).gainSpec
                             if (!gainSpec) {
                                 fail()
@@ -143,7 +145,7 @@ describe('parts', () => {
                     })
 
                     it('gradually increases the pitch scalar from half to normal', () => {
-                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, to.Translation(1))) {
+                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, NEXT)) {
                             const pitchSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).pitchSpec
                             if (!pitchSpec) {
                                 fail()
@@ -158,7 +160,7 @@ describe('parts', () => {
                     })
 
                     it('gradually decreases the duration of the notes from 2 to 1, making the tempo change from 1/2x to 1x', () => {
-                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, to.Translation(1))) {
+                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, NEXT)) {
                             const durationSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).durationSpec
                             if (!durationSpec) {
                                 fail()
@@ -173,7 +175,7 @@ describe('parts', () => {
                     })
 
                     it('the sustain is always half of the duration', () => {
-                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, to.Translation(1))) {
+                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(expectedNotesCount)); index = apply.Translation(index, NEXT)) {
                             const sustainSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).sustainSpec
                             const durationSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).durationSpec
                             if (!sustainSpec || !durationSpec) {
@@ -201,7 +203,7 @@ describe('parts', () => {
                     })
 
                     it('gradually decreases the gain from full to silence', () => {
-                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))); index = apply.Translation(index, to.Translation(1))) {
+                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))); index = apply.Translation(index, NEXT)) {
                             const gainSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).gainSpec
                             if (!gainSpec) {
                                 fail()
@@ -216,7 +218,7 @@ describe('parts', () => {
                     })
 
                     it('gradually increases the pitch scalar from normal to twice', () => {
-                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))); index = apply.Translation(index, to.Translation(1))) {
+                        for (let index: Ordinal = to.Ordinal(1); index < to.Ordinal(from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))); index = apply.Translation(index, NEXT)) {
                             const pitchSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).pitchSpec
                             if (!pitchSpec) {
                                 fail()
@@ -231,7 +233,7 @@ describe('parts', () => {
                     })
 
                     it('gradually decreases the duration of the notes from 1 to 0.5, making the tempo change from 1x to 2x', () => {
-                        for (let index: Ordinal = to.Ordinal(0); index < to.Ordinal(from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))); index = apply.Translation(index, to.Translation(1))) {
+                        for (let index: Ordinal = INITIAL; index < to.Ordinal(from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))); index = apply.Translation(index, NEXT)) {
                             const durationSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).durationSpec
                             if (!durationSpec) {
                                 fail()
@@ -246,7 +248,7 @@ describe('parts', () => {
                     })
 
                     it('the sustain is always half of the duration', () => {
-                        for (let index: Ordinal = to.Ordinal(0); index < to.Ordinal(from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))); index = apply.Translation(index, to.Translation(1))) {
+                        for (let index: Ordinal = INITIAL; index < to.Ordinal(from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))); index = apply.Translation(index, NEXT)) {
                             const sustainSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).sustainSpec
                             const durationSpec: Maybe<NotePropertySpec> = apply.Ordinal(part, index).durationSpec
                             if (!sustainSpec || !durationSpec) {

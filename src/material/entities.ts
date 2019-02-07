@@ -1,5 +1,5 @@
 import { BuildEntitiesFunction, Entity, NoteSpec, TimbreNameEnum } from '@musical-patterns/compiler'
-import { apply, Block, Cardinal, Cycle, deepClone, deepEqual, sequence, to } from '@musical-patterns/utilities'
+import { apply, Block, Cardinal, Cycle, deepClone, deepEqual, NEXT, sequence, to } from '@musical-patterns/utilities'
 import { Direction, HafuhafuSpec } from '../types'
 import { buildNextBlock } from './blocks'
 import { buildHafuhafuWithPitchCircularityPart, buildPart } from './parts'
@@ -42,7 +42,7 @@ const buildHafuhafuWithPitchCircularityEntities: BuildEntitiesFunction =
 
         const inEntity: Entity = {
             noteSpecs: sequence(
-                apply.Translation(buildCycle(block), to.Translation(1))
+                apply.Translation(buildCycle(block), NEXT)
                     .map((cycleBlock: Block): NoteSpec[] =>
                         buildHafuhafuWithPitchCircularityPart(
                             cycleBlock,
