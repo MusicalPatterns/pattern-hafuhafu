@@ -1,14 +1,28 @@
 // tslint:disable no-duplicate-string
 
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
-import { apply, Block, Cardinal, from, Maybe, Ordinal, product, random, Scalar, testIsCloseTo, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    Block,
+    Cardinal,
+    floor,
+    from,
+    Maybe,
+    negative,
+    Ordinal,
+    product,
+    random,
+    Scalar,
+    testIsCloseTo,
+    to,
+} from '@musical-patterns/utilities'
 import { buildHafuhafuWithPitchCircularityPart, buildPart, DeletionStyle, Direction } from '../../../src/indexForTest'
 
 describe('parts', () => {
     describe('without pitch circularity', () => {
         let part: NoteSpec[] = []
         let expectedNotesCount: Cardinal = to.Cardinal(0)
-        const TEST_ITERATION_LENGTH: Cardinal = to.Cardinal(Math.floor(random(32)))
+        const TEST_ITERATION_LENGTH: Cardinal = to.Cardinal(floor(random(32)))
         const expectedSustainAmount: Scalar = to.Scalar(1)
 
         const testBlocks: Block[] = [
@@ -52,7 +66,7 @@ describe('parts', () => {
                         else {
                             testIsCloseTo(
                                 gainSpec.scalar,
-                                to.Scalar(Math.pow(2, 1 - (from.Ordinal(index) / from.Cardinal(expectedNotesCount))) - 1),
+                                to.Scalar(apply.Power(2, to.Power(1 - (from.Ordinal(index) / from.Cardinal(expectedNotesCount)))) - 1),
                             )
                         }
                     }
@@ -67,7 +81,7 @@ describe('parts', () => {
                         else {
                             testIsCloseTo(
                                 durationSpec.scalar,
-                                to.Scalar(Math.pow(2, 1 - (from.Ordinal(index) / from.Cardinal(expectedNotesCount)))),
+                                to.Scalar(apply.Power(2, to.Power(1 - (from.Ordinal(index) / from.Cardinal(expectedNotesCount))))),
                             )
                         }
                     }
@@ -91,7 +105,7 @@ describe('parts', () => {
     describe('with pitch circularity', () => {
         let part: NoteSpec[] = []
         let expectedNotesCount: Cardinal = to.Cardinal(0)
-        const TEST_ITERATION_LENGTH: Cardinal = to.Cardinal(Math.floor(random(32)))
+        const TEST_ITERATION_LENGTH: Cardinal = to.Cardinal(floor(random(32)))
 
         const testBlocks: Block[] = [
             [ 1, 2, 1, 1, 2 ],
@@ -137,7 +151,7 @@ describe('parts', () => {
                             else {
                                 testIsCloseTo(
                                     pitchSpec.scalar,
-                                    to.Scalar(Math.pow(2, (from.Ordinal(index) / from.Cardinal(expectedNotesCount)) - 1)),
+                                    to.Scalar(apply.Power(2, to.Power((from.Ordinal(index) / from.Cardinal(expectedNotesCount)) - 1))),
                                 )
                             }
                         }
@@ -152,7 +166,7 @@ describe('parts', () => {
                             else {
                                 testIsCloseTo(
                                     durationSpec.scalar,
-                                    to.Scalar(Math.pow(2, 1 - (from.Ordinal(index) / from.Cardinal(expectedNotesCount)))),
+                                    to.Scalar(apply.Power(2, to.Power(1 - (from.Ordinal(index) / from.Cardinal(expectedNotesCount))))),
                                 )
                             }
                         }
@@ -195,7 +209,7 @@ describe('parts', () => {
                             else {
                                 testIsCloseTo(
                                     gainSpec.scalar,
-                                    to.Scalar(Math.pow(2, 1 - (from.Ordinal(index) / from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2))))) - 1),
+                                    to.Scalar(apply.Power(2, to.Power(1 - (from.Ordinal(index) / from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))))) - 1),
                                 )
                             }
                         }
@@ -210,7 +224,7 @@ describe('parts', () => {
                             else {
                                 testIsCloseTo(
                                     pitchSpec.scalar,
-                                    to.Scalar(Math.pow(2, from.Ordinal(index) / from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2))))),
+                                    to.Scalar(apply.Power(2, to.Power(from.Ordinal(index) / from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))))),
                                 )
                             }
                         }
@@ -225,7 +239,7 @@ describe('parts', () => {
                             else {
                                 testIsCloseTo(
                                     durationSpec.scalar,
-                                    to.Scalar(Math.pow(2, -(from.Ordinal(index) / from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2)))))),
+                                    to.Scalar(apply.Power(2, to.Power(negative(from.Ordinal(index) / from.Cardinal(apply.Scalar(expectedNotesCount, to.Scalar(2))))))),
                                 )
                             }
                         }

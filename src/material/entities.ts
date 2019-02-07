@@ -10,7 +10,7 @@ const buildCycle: (block: Block) => Cycle =
 
         let nextBlock: Block = buildNextBlock(block)
         while (!deepEqual(block, nextBlock)) {
-            hafuhafuCycle.push(to.Block(nextBlock.slice()))
+            hafuhafuCycle.push(to.Block(deepClone(nextBlock)))
             nextBlock = buildNextBlock(nextBlock)
         }
 
