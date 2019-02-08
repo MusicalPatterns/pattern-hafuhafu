@@ -1,5 +1,5 @@
-export { buildPart, buildHafuhafuWithPitchCircularityPart } from './parts'
+export { buildPiece } from './pieces'
 export { buildNoteSpec } from './notes'
-export { buildEntities, buildHafuhafuWithPitchCircularityEntities } from './entities'
+export { buildEntities } from './entities'
 export { buildScales } from './scales'
 export { buildNextBlock } from './blocks'

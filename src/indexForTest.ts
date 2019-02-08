@@ -3,12 +3,11 @@
 export {
     buildNextBlock,
     buildNoteSpec,
-    buildPart,
-    buildHafuhafuWithPitchCircularityPart,
     buildEntities,
     buildScales,
     buildCycle,
     buildScalars,
+    buildPiece,
 } from './material/indexForTest'
 export {
     initial,
@@ -17,7 +16,6 @@ export { pattern } from './patterns'
 
 export {
     DeletionStyle,
-    Direction,
     HafuhafuSpec,
 } from './types'
 

@@ -3,25 +3,13 @@ import {
     RangedSpecPropertyAttributes,
     Spec,
     SpecAttributes,
+    ToggledSpecPropertyAttributes,
 } from '@musical-patterns/pattern'
-import { Base, Block, Cardinal, Scalar } from '@musical-patterns/utilities'
-
-enum Direction {
-    IN = 'IN',
-    OUT = 'OUT',
-}
+import { Base, Block, Cardinal } from '@musical-patterns/utilities'
 
 enum DeletionStyle {
     FADE = 'FADE',
     RANDOM_DROP = 'RANDOM_DROP',
-}
-
-interface BuildNoteSpecParameters {
-    cell: number,
-    duration: Scalar,
-    gain: Scalar,
-    pitch: Scalar,
-    sustain: Scalar,
 }
 
 interface HafuhafuSpec extends Spec {
@@ -29,6 +17,7 @@ interface HafuhafuSpec extends Spec {
     deletionStyle: DeletionStyle,
     iterationLength: Cardinal,
     pitchStep: Base,
+    reversed: boolean,
 }
 
 interface HafuhafuSpecAttributes extends SpecAttributes {
@@ -36,12 +25,11 @@ interface HafuhafuSpecAttributes extends SpecAttributes {
     deletionStyle: OptionedSpecPropertyAttributes,
     iterationLength: RangedSpecPropertyAttributes,
     pitchStep: RangedSpecPropertyAttributes,
+    reversed: ToggledSpecPropertyAttributes,
 }
 
 export {
     DeletionStyle,
-    Direction,
-    BuildNoteSpecParameters,
     HafuhafuSpec,
     HafuhafuSpecAttributes,
 }

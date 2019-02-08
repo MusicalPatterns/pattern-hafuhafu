@@ -46,6 +46,11 @@ const attributes: HafuhafuSpecAttributes = {
         order: 4,
         specPropertyType: SpecPropertyType.RANGED,
     },
+    reversed: {
+        description: 'instead fade in notes as they slow down to half the original speed',
+        order: 5,
+        specPropertyType: SpecPropertyType.TOGGLED,
+    },
 }
 
 export {

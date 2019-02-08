@@ -1,21 +1,26 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { STANDARD_DURATIONS_SCALE_INDEX, STANDARD_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
-import { to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
-import { BuildNoteSpecParameters } from '../types'
+import {
+    PitchDurationGain,
+    STANDARD_DURATIONS_SCALE_INDEX,
+    STANDARD_PITCH_SCALE_INDEX,
+} from '@musical-patterns/pattern'
+import { ContourElement, to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
+import { PITCH_INDEX_INDICATING_REST } from './constants'
 
-const buildNoteSpec: (buildNoteSpecParameters: BuildNoteSpecParameters) => NoteSpec =
-    ({ cell, gain, duration, sustain, pitch }: BuildNoteSpecParameters): NoteSpec => {
-        if (cell === 0) {
+const buildNoteSpec: (buildNoteSpecParameters: ContourElement<PitchDurationGain>) => NoteSpec =
+    (contourElement: ContourElement<PitchDurationGain>): NoteSpec => {
+        const [ pitch, duration, gain ] = contourElement as number[]
+
+        if (pitch === PITCH_INDEX_INDICATING_REST) {
             return {
                 durationSpec: {
-                    scalar: duration,
+                    scalar: to.Scalar(duration),
                     scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
                 },
                 gainSpec: {
                     scalar: to.Scalar(0),
                 },
                 sustainSpec: {
-                    scalar: sustain,
                     scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
                 },
             }
@@ -23,19 +28,17 @@ const buildNoteSpec: (buildNoteSpecParameters: BuildNoteSpecParameters) => NoteS
 
         return {
             durationSpec: {
-                scalar: duration,
+                scalar: to.Scalar(duration),
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
             gainSpec: {
-                scalar: gain,
+                scalar: to.Scalar(gain),
             },
             pitchSpec: {
-                index: translateFromOneIndexedToZeroIndexed(to.Ordinal(cell)),
-                scalar: pitch,
+                index: translateFromOneIndexedToZeroIndexed(to.Ordinal(pitch)),
                 scaleIndex: STANDARD_PITCH_SCALE_INDEX,
             },
             sustainSpec: {
-                scalar: sustain,
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
         }

@@ -1,6 +1,7 @@
 // tslint:disable no-duplicate-string
 
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
+import { PitchDurationGain } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
 import { buildNoteSpec } from '../../../src/indexForTest'
 
@@ -8,13 +9,7 @@ describe('note specs', () => {
     describe('example one', () => {
         let noteSpec: NoteSpec
         beforeEach(() => {
-            noteSpec = buildNoteSpec({
-                cell: 3,
-                duration: to.Scalar(0.5),
-                gain: to.Scalar(2),
-                pitch: to.Scalar(1),
-                sustain: to.Scalar(0.5),
-            })
+            noteSpec = buildNoteSpec(to.ContourElement<PitchDurationGain>([ 3, 0.5, 2 ]))
         })
 
         describe('duration', () => {
@@ -52,17 +47,12 @@ describe('note specs', () => {
                 pitchSpec = noteSpec.pitchSpec || {}
             })
 
-            it('uses the pitch parameter as the scalar', () => {
-                expect(pitchSpec.scalar)
-                    .toBe(to.Scalar(1))
-            })
-
             it('uses the scale for pitches', () => {
                 expect(pitchSpec.scaleIndex)
                     .toBe(to.Ordinal(2))
             })
 
-            it('uses the cell parameter, translated by one, as the index', () => {
+            it('uses the pitch parameter, translated by one, as the index', () => {
                 expect(pitchSpec.index)
                     .toBe(to.Ordinal(2))
             })
@@ -72,13 +62,7 @@ describe('note specs', () => {
     describe('example two', () => {
         let noteSpec: NoteSpec
         beforeEach(() => {
-            noteSpec = buildNoteSpec({
-                cell: 4,
-                duration: to.Scalar(0.25),
-                gain: to.Scalar(1.5),
-                pitch: to.Scalar(0.375),
-                sustain: to.Scalar(1),
-            })
+            noteSpec = buildNoteSpec(to.ContourElement<PitchDurationGain>([ 4, 0.25, 1.5 ]))
         })
 
         describe('duration', () => {
@@ -116,17 +100,12 @@ describe('note specs', () => {
                 pitchSpec = noteSpec.pitchSpec || {}
             })
 
-            it('uses the pitch parameter as the scalar', () => {
-                expect(pitchSpec.scalar)
-                    .toBe(to.Scalar(0.375))
-            })
-
             it('uses the scale for pitches', () => {
                 expect(pitchSpec.scaleIndex)
                     .toBe(to.Ordinal(2))
             })
 
-            it('uses the cell parameter, translated by one, as the index', () => {
+            it('uses the pitch parameter, translated by one, as the index', () => {
                 expect(pitchSpec.index)
                     .toBe(to.Ordinal(3))
             })
@@ -136,13 +115,7 @@ describe('note specs', () => {
     describe('example - rest', () => {
         let noteSpec: NoteSpec
         beforeEach(() => {
-            noteSpec = buildNoteSpec({
-                cell: 0,
-                duration: to.Scalar(0.5),
-                gain: to.Scalar(2),
-                pitch: to.Scalar(1),
-                sustain: to.Scalar(0.5),
-            })
+            noteSpec = buildNoteSpec(to.ContourElement<PitchDurationGain>([ 0, 0.5, 2 ]))
         })
 
         describe('duration', () => {
