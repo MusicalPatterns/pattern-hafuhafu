@@ -1,0 +1,366 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "location": "OnFatalError",
+    "filename": "report.20190207.170728.6404.001.json",
+    "dumpEventTime": "2019/02/07 17:07:28",
+    "processId": "6404",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:/Users/DouglasBlumeyer/workspace/MusicalPatterns/main/patterns/hafuhafu/node_modules/.bin/../ts-node/dist/bin.js",
+      "-P",
+      "tsconfig.node.json",
+      "node_modules/jasmine/bin/jasmine.js"
+    ],
+    "nodejsVersion": "v11.8.0",
+    "wordSize": "64 bit",
+    "componentVersions": {
+      "node": "11.8.0",
+      "v8": "7.0.276.38-node.16",
+      "uv": "1.25.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "67",
+      "nghttp2": "1.34.0",
+      "napi": "4",
+      "llhttp": "1.0.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.0j",
+      "cldr": "34.0",
+      "icu": "63.1",
+      "tz": "2018e",
+      "unicode": "11.0",
+      "arch": "x64",
+      "platform": "win32",
+      "release": "node"
+    },
+    "osVersion": "Windows 10",
+    "machine": "DESKTOP-27L1P17 "
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    " [pc=00007FF64B486B5C] std::basic_ostream<char,std::char_traits<char> >::operator<<+8924",
+    " [pc=00007FF64B485C8D] std::basic_ostream<char,std::char_traits<char> >::operator<<+5133",
+    " [pc=00007FF64B485662] std::basic_ostream<char,std::char_traits<char> >::operator<<+3554",
+    " [pc=00007FF64B57FD9D] uv_loop_fork+82637",
+    " [pc=00007FF64BA3CF4E] v8::internal::FatalProcessOutOfMemory+798",
+    " [pc=00007FF64BA3CE87] v8::internal::FatalProcessOutOfMemory+599",
+    " [pc=00007FF64BD15C94] v8::internal::Heap::RootIsImmortalImmovable+14788",
+    " [pc=00007FF64BD0B8D4] v8::internal::Heap::CollectGarbage+7556",
+    " [pc=00007FF64BD09FA8] v8::internal::Heap::CollectGarbage+1112",
+    " [pc=00007FF64BD13917] v8::internal::Heap::RootIsImmortalImmovable+5703",
+    " [pc=00007FF64BD13996] v8::internal::Heap::RootIsImmortalImmovable+5830",
+    " [pc=00007FF64B8D4871] v8::internal::Factory::NewFillerObject+49",
+    " [pc=00007FF64C02F76A] v8::internal::StoreBuffer::StoreBufferOverflow+26826",
+    " [pc=0000005004F50461] "
+  ],
+  "javascriptHeap": {
+    "totalMemory": "1466273792",
+    "totalCommittedMemory": "1466273792",
+    "usedMemory": "1425723816",
+    "availableMemory": "63984696",
+    "memoryLimit": "1526909922",
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": "524288",
+        "committedMemory": "524288",
+        "capacity": "515584",
+        "used": "33520",
+        "available": "482064"
+      },
+      "new_space": {
+        "memorySize": "6291456",
+        "committedMemory": "6291456",
+        "capacity": "3093504",
+        "used": "193448",
+        "available": "2900056"
+      },
+      "old_space": {
+        "memorySize": "1243811840",
+        "committedMemory": "1243811840",
+        "capacity": "1213028376",
+        "used": "1212693832",
+        "available": "334544"
+      },
+      "code_space": {
+        "memorySize": "2097152",
+        "committedMemory": "2097152",
+        "capacity": "1827360",
+        "used": "1827360",
+        "available": "0"
+      },
+      "map_space": {
+        "memorySize": "2633728",
+        "committedMemory": "2633728",
+        "capacity": "1439920",
+        "used": "1439920",
+        "available": "0"
+      },
+      "large_object_space": {
+        "memorySize": "210915328",
+        "committedMemory": "210915328",
+        "capacity": "269803768",
+        "used": "209535736",
+        "available": "60268032"
+      },
+      "new_large_object_space": {
+        "memorySize": "0",
+        "committedMemory": "0",
+        "capacity": "0",
+        "used": "0",
+        "available": "0"
+      }
+    }
+  },
+  "libuv": [
+    {
+      "type": "async",
+      "is_active": "1",
+      "is_referenced": "0",
+      "address": "2258962850720",
+      "details": ""
+    },
+    {
+      "type": "timer",
+      "is_active": "1",
+      "is_referenced": "1",
+      "address": "997312164288",
+      "details": "repeat: 0, timeout in: 10000 ms"
+    },
+    {
+      "type": "check",
+      "is_active": "1",
+      "is_referenced": "0",
+      "address": "997312164448",
+      "details": ""
+    },
+    {
+      "type": "idle",
+      "is_active": "1",
+      "is_referenced": "1",
+      "address": "997312164568",
+      "details": ""
+    },
+    {
+      "type": "prepare",
+      "is_active": "0",
+      "is_referenced": "0",
+      "address": "997312164688",
+      "details": ""
+    },
+    {
+      "type": "check",
+      "is_active": "0",
+      "is_referenced": "0",
+      "address": "997312164808",
+      "details": ""
+    },
+    {
+      "type": "async",
+      "is_active": "1",
+      "is_referenced": "0",
+      "address": "140695826490944",
+      "details": ""
+    },
+    {
+      "type": "async",
+      "is_active": "1",
+      "is_referenced": "0",
+      "address": "140695826490720",
+      "details": ""
+    },
+    {
+      "type": "tty",
+      "is_active": "0",
+      "is_referenced": "1",
+      "address": "2258965166544",
+      "details": "width: 222, height: 13, write queue size: 0, writable"
+    },
+    {
+      "type": "signal",
+      "is_active": "1",
+      "is_referenced": "0",
+      "address": "2258993649072",
+      "details": "signum: 28"
+    },
+    {
+      "type": "tty",
+      "is_active": "0",
+      "is_referenced": "1",
+      "address": "2258965169104",
+      "details": "width: 222, height: 13, write queue size: 0, writable"
+    },
+    {
+      "type": "timer",
+      "is_active": "1",
+      "is_referenced": "0",
+      "address": "2258993644680",
+      "details": "repeat: 0, timeout in: 7946 ms"
+    }
+  ],
+  "environmentVariables": {
+    "=C:": "C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\hafuhafu",
+    "ACLOCAL_PATH": "C:\\Program Files\\Git\\mingw64\\share\\aclocal;C:\\Program Files\\Git\\usr\\share\\aclocal",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\DouglasBlumeyer\\AppData\\Roaming",
+    "BASH_FUNC_check_stashes_recursively%%=() {  if [[ -n $(git stash list) ]]; then
+ echo "Please check your stash in ${PWD}.";
+ return 1;
+ fi;
+ if [[ $(git rev-list --count origin/master...@ | cut -f1) !": " 0 ]]; then\n echo \"Please check your commits in ${PWD}.\";\n return 1;\n fi;\n git submodule foreach check_stashes_recursively\n}",
+    "BASH_FUNC_fedir%%=() {  CMD": "\"$1\";\n for d in ./*/;\n do\n ( cd ${d} && eval \"${CMD}\" ) || break;\n done\n}",
+    "BASH_FUNC_line_end%%": "() {  git read-tree --empty;\n git add .;\n git status;\n git commit -m \"standardize line endings\";\n git rm --cached -r .;\n git reset --hard\n}",
+    "BASH_FUNC_rmrf%%=() {  DIR="${1}";
+ pushd "${DIR}";
+ check_stashes_recursively;
+ if [[ $? !": " 0 ]]; then\n return 1;\n fi;\n popd;\n rm -rf \"${DIR}\"\n}",
+    "BASH_FUNC_whop%%=() {  PORT=$1;
+ if [[ $OSTYPE =": " darwin* ]]; then\n lsof -ti:$PORT -sTCP:LISTEN;\n else\n netstat -aon | grep -m1 $PORT | grep LISTEN;\n fi\n}",
+    "BASH_FUNC_xwhop%%=() {  PORT=$1;
+ if [[ $OSTYPE == darwin* ]]; then
+ lsof -ti:$PORT -sTCP:LISTEN | xargs kill;
+ else
+ netstat -an | grep $PORT | grep -m1 LISTEN > /dev/null 2>&1;
+ if [[ $? -ne 1 ]]; then
+ PID_TO_KILL": "$(netstat -aon | grep -m1 $PORT | grep LISTEN | awk '{print $5}');\n taskkill //pid $PID_TO_KILL //f;\n fi;\n fi\n}",
+    "CLI_DIR": "./node_modules/@musical-patterns/cli/",
+    "CLOUDSDK_PYTHON": "C:/Python27/python.exe",
+    "CLOUDSQL_CONNECTION_NAME=": "uncannly:us-west2:uncannly-mysql-instance",
+    "CLOUDSQL_PASSWORD": "duperuser",
+    "CLOUDSQL_USER": "root",
+    "COMMONPROGRAMFILES": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "DESKTOP-27L1P17",
+    "COMSPEC": "C:\\WINDOWS\\system32\\cmd.exe",
+    "CONFIG_SITE": "C:/Program Files/Git/mingw64/etc/config.site",
+    "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
+    "ChocolateyLastPathUpdate": "Fri Nov  9 08:05:17 2018",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "DISPLAY": "needs-to-be-defined",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "EXEPATH": "C:\\Program Files\\Git\\bin",
+    "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+    "FPS_BROWSER_USER_PROFILE_STRING": "Default",
+    "GEOMETRHYTHM_PRODUCTION_DATABASE_URL": "postgres://zhjcxclw:nkL-CGhB6koki7rQQR3Du0HekdROqtlq@baasu-01.db.elephantsql.com:5432/zhjcxclw",
+    "GEOMETRHYTHM_SECRET_KEY_BASE": "4457d405f571dd3f0e44ac10541cb3d9a505b06098a3c745df8c4fbbefa8328354d89376676db97f4f28a8aabe8dfe4e6600e35d8cd48e0c6e3c8e193bc90326",
+    "GITHUB_ACCESS_TOKEN": "cbfdfc240de58eefff974e46bb38bfdb9da55e1e",
+    "GTK_BASEPATH": "C:\\Program Files (x86)\\GtkSharp\\2.12\\",
+    "HOME": "C:\\Users\\DouglasBlumeyer",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\DouglasBlumeyer",
+    "HOSTNAME": "DESKTOP-27L1P17",
+    "INFOPATH": "C:\\Program Files\\Git\\usr\\local\\info;C:\\Program Files\\Git\\usr\\share\\info;C:\\Program Files\\Git\\usr\\info;C:\\Program Files\\Git\\share\\info",
+    "JASMINE_CONFIG_PATH": "test/jasmine.js",
+    "JAVA_HOME": "C:\\Program Files\\Java\\jdk1.8.0_131",
+    "LANG": "en_US.UTF-8",
+    "LOCALAPPDATA": "C:\\Users\\DouglasBlumeyer\\AppData\\Local",
+    "LOGONSERVER": "\\\\DESKTOP-27L1P17",
+    "MAKEFLAGS": "B --no-print-directory",
+    "MAKELEVEL": "1",
+    "MAKE_TERMERR": "CONOUT$",
+    "MAKE_TERMOUT": "CONOUT$",
+    "MANPATH": "C:\\Program Files\\Git\\mingw64\\local\\man;C:\\Program Files\\Git\\mingw64\\share\\man;C:\\Program Files\\Git\\usr\\local\\man;C:\\Program Files\\Git\\usr\\share\\man;C:\\Program Files\\Git\\usr\\man;C:\\Program Files\\Git\\share\\man",
+    "MFLAGS": "-B --no-print-directory",
+    "MINGW_CHOST": "x86_64-w64-mingw32",
+    "MINGW_PACKAGE_PREFIX": "mingw-w64-x86_64",
+    "MINGW_PREFIX": "C:/Program Files/Git/mingw64",
+    "MSYSTEM": "MINGW64",
+    "MSYSTEM_CARCH": "x86_64",
+    "MSYSTEM_CHOST": "x86_64-w64-mingw32",
+    "MSYSTEM_PREFIX": "C:/Program Files/Git/mingw64",
+    "NODE_ENV": "test",
+    "NUMBER_OF_PROCESSORS": "4",
+    "ORIGINAL_PATH": "C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\DouglasBlumeyer\\bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\hafuhafu\\node_modules\\.bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Users\\DouglasBlumeyer\\.windows-build-tools\\python27;C:\\Users\\DouglasBlumeyer\\.windows-build-tools\\python27\\Scripts;C:\\ProgramData\\Boxstarter;C:\\Program Files\\Oculus\\Support\\oculus-runtime;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files (x86)\\GTK2-Runtime\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\Cloud Foundry;C:\\MinGW\\bin;C:\\Program Files\\spring-1.5.4.RELEASE\\bin;C:\\Program Files\\apache-maven-3.5.0\\bin;C:\\Program Files\\Java\\jdk1.8.0_131\\bin;C:\\Users\\Douglas Blumeyer\\AppData\\Local\\Programs\\Python\\Python36;C:\\Users\\Douglas Blumeyer\\AppData\\Local\\Programs\\Python\\Python36\\Scripts;C:\\Users\\Douglas Blumeyer\\AppData\\Roaming\\npm;C:\\Users\\Douglas Blumeyer\\workspace\\scalar-set-theory\\tests\\elm-stuff\\packages\\rtfeldman\\node-test-runner\\3.0.0\\bin;C:\\WINDOWS\\System32\\OpenSSH;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\ProgramData\\chocolatey\\bin;C:\\Python27;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\nodejs;C:\\Users\\DouglasBlumeyer\\.windows-build-tools\\python27;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\npm-lifecycle\\node-gyp-bin;C:\\Users\\DouglasBlumeyer\\AppData\\Roaming\\npm\\node_modules\\windows-build-tools\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\AppData\\Roaming\\npm\\node_modules\\.bin;C:\\Program Files\\Oculus\\Support\\oculus-runtime;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files (x86)\\GTK2-Runtime\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\Cloud Foundry;C:\\MinGW\\bin;C:\\Program Files\\spring-1.5.4.RELEASE\\bin;C:\\Program Files\\apache-maven-3.5.0\\bin;C:\\Program Files\\Java\\jdk1.8.0_131\\bin;C:\\Users\\Douglas Blumeyer\\AppData\\Local\\Programs\\Python\\Python36;C:\\Users\\Douglas Blumeyer\\AppData\\Local\\Programs\\Python\\Python36\\Scripts;C:\\Users\\Douglas Blumeyer\\AppData\\Roaming\\npm;C:\\Users\\Douglas Blumeyer\\workspace\\scalar-set-theory\\tests\\elm-stuff\\packages\\rtfeldman\\node-test-runner\\3.0.0\\bin;C:\\Program Files\\nodejs;C:\\WINDOWS\\System32\\OpenSSH;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Elm Platform\\0.18\\bin;C:\\Users\\DouglasBlumeyer\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\DouglasBlumeyer\\AppData\\Local\\Google\\Cloud SDK\\google-cloud-sdk\\bin;C:\\Program Files (x86)\\sox-14-4-2;C:\\Users\\DouglasBlumeyer\\AppData\\Roaming\\npm",
+    "ORIGINAL_TEMP": "C:/Users/DOUGLA~2/AppData/Local/Temp",
+    "ORIGINAL_TMP": "C:/Users/DOUGLA~2/AppData/Local/Temp",
+    "OS": "Windows_NT",
+    "OculusBase": "C:\\Program Files\\Oculus\\",
+    "OneDrive": "C:\\Users\\DouglasBlumeyer\\OneDrive",
+    "PATH": "C:\\Users\\DouglasBlumeyer\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\local\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\DouglasBlumeyer\\bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\hafuhafu\\node_modules\\.bin;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Users\\DouglasBlumeyer\\.windows-build-tools\\python27;C:\\Users\\DouglasBlumeyer\\.windows-build-tools\\python27\\Scripts;C:\\ProgramData\\Boxstarter;C:\\Program Files\\Oculus\\Support\\oculus-runtime;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files (x86)\\GTK2-Runtime\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\Cloud Foundry;C:\\MinGW\\bin;C:\\Program Files\\spring-1.5.4.RELEASE\\bin;C:\\Program Files\\apache-maven-3.5.0\\bin;C:\\Program Files\\Java\\jdk1.8.0_131\\bin;C:\\Users\\Douglas Blumeyer\\AppData\\Local\\Programs\\Python\\Python36;C:\\Users\\Douglas Blumeyer\\AppData\\Local\\Programs\\Python\\Python36\\Scripts;C:\\Users\\Douglas Blumeyer\\AppData\\Roaming\\npm;C:\\Users\\Douglas Blumeyer\\workspace\\scalar-set-theory\\tests\\elm-stuff\\packages\\rtfeldman\\node-test-runner\\3.0.0\\bin;C:\\WINDOWS\\System32\\OpenSSH;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\ProgramData\\chocolatey\\bin;C:\\Python27;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\nodejs;C:\\Users\\DouglasBlumeyer\\.windows-build-tools\\python27;C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\npm-lifecycle\\node-gyp-bin;C:\\Users\\DouglasBlumeyer\\AppData\\Roaming\\npm\\node_modules\\windows-build-tools\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\AppData\\Roaming\\npm\\node_modules\\.bin;C:\\Program Files\\Oculus\\Support\\oculus-runtime;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files (x86)\\GTK2-Runtime\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\Cloud Foundry;C:\\MinGW\\bin;C:\\Program Files\\spring-1.5.4.RELEASE\\bin;C:\\Program Files\\apache-maven-3.5.0\\bin;C:\\Program Files\\Java\\jdk1.8.0_131\\bin;C:\\Users\\Douglas Blumeyer\\AppData\\Local\\Programs\\Python\\Python36;C:\\Users\\Douglas Blumeyer\\AppData\\Local\\Programs\\Python\\Python36\\Scripts;C:\\Users\\Douglas Blumeyer\\AppData\\Roaming\\npm;C:\\Users\\Douglas Blumeyer\\workspace\\scalar-set-theory\\tests\\elm-stuff\\packages\\rtfeldman\\node-test-runner\\3.0.0\\bin;C:\\Program Files\\nodejs;C:\\WINDOWS\\System32\\OpenSSH;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Elm Platform\\0.18\\bin;C:\\Users\\DouglasBlumeyer\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\DouglasBlumeyer\\AppData\\Local\\Google\\Cloud SDK\\google-cloud-sdk\\bin;C:\\Program Files (x86)\\sox-14-4-2;C:\\Users\\DouglasBlumeyer\\AppData\\Roaming\\npm;C:\\Program Files\\Git\\usr\\bin\\vendor_perl;C:\\Program Files\\Git\\usr\\bin\\core_perl;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\cli\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\compiler\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\lab\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\pattern\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\performer\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\playroom\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\utilities\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\beatenPath\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\hafuhafu\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\houndstoothtopiaTheme\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\omnizonk\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\performerQa\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\playroomTest\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\stepwise\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\template\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\xelt\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\xenharmonicSeries\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\zdaubyaos\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\cli\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\compiler\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\lab\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\pattern\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\performer\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\playroom\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\services\\utilities\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\beatenPath\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\hafuhafu\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\houndstoothtopiaTheme\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\omnizonk\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\performerQa\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\playroomTest\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\stepwise\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\template\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\tsraxcfaubdj\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\xelt\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\xenharmonicSeries\\node_modules\\.bin;C:\\Users\\DouglasBlumeyer\\workspace\\MusicalPatterns\\main\\patterns\\zdaubyaos\\node_modules\\.bin;node_modules\\.bin\\;node_modules\\@musical-patterns\\cli\\node_modules\\.bin\\",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
+    "PKG_CONFIG_PATH": "C:\\Program Files\\Git\\mingw64\\lib\\pkgconfig;C:\\Program Files\\Git\\mingw64\\share\\pkgconfig",
+    "PLINK_PROTOCOL": "ssh",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 60 Stepping 3, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "3c03",
+    "PROGRAMFILES": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": ";C:\\Users\\DouglasBlumeyer\\AppData\\Local\\Google\\Cloud SDK\\google-cloud-sdk\\platform\\PowerShell",
+    "PUBLIC": "C:\\Users\\Public",
+    "PWD": "C:/Users/DouglasBlumeyer/workspace/MusicalPatterns/main/patterns/hafuhafu",
+    "PYTHONPATH": ":/c/Users/DouglasBlumeyer/workspace/uncannly",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "SESSIONNAME": "Console",
+    "SHELL": "C:\\Program Files\\Git\\usr\\bin\\bash.exe",
+    "SHLVL": "4",
+    "SPRING_HOME": "C:\\Program Files\\spring-1.5.4.RELEASE",
+    "SSH_ASKPASS": "C:/Program Files/Git/mingw64/libexec/git-core/git-gui--askpass",
+    "SYSTEMDRIVE": "C:",
+    "SYSTEMROOT": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\DOUGLA~2\\AppData\\Local\\Temp",
+    "TERM": "cygwin",
+    "TERMINAL_EMULATOR": "JetBrains-JediTerm",
+    "TMP": "C:\\Users\\DOUGLA~2\\AppData\\Local\\Temp",
+    "TMPDIR": "C:\\Users\\DOUGLA~2\\AppData\\Local\\Temp",
+    "TSCONFIG": "tsconfig.node.json",
+    "USERDOMAIN": "DESKTOP-27L1P17",
+    "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-27L1P17",
+    "USERNAME": "DouglasBlumeyer",
+    "USERPROFILE": "C:\\Users\\DouglasBlumeyer",
+    "USER_EMAIL": "douglas.blumeyer@gmail.com",
+    "USER_NAME": "Douglas Blumeyer",
+    "VS140COMNTOOLS": "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\",
+    "WINDIR": "C:\\WINDOWS",
+    "_": "C:/Program Files/nodejs/node",
+    "__INTELLIJ_COMMAND_HISTFILE__": "C:\\Users\\DouglasBlumeyer\\.WebStorm2018.3\\config\\terminal\\history\\history-364"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+    "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+    "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+    "C:\\WINDOWS\\System32\\PSAPI.DLL",
+    "C:\\WINDOWS\\System32\\WS2_32.dll",
+    "C:\\WINDOWS\\SYSTEM32\\NETAPI32.dll",
+    "C:\\WINDOWS\\System32\\RPCRT4.dll",
+    "C:\\WINDOWS\\System32\\msvcrt.dll",
+    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+    "C:\\WINDOWS\\System32\\sechost.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+    "C:\\WINDOWS\\System32\\USER32.dll",
+    "C:\\WINDOWS\\System32\\ucrtbase.dll",
+    "C:\\WINDOWS\\System32\\win32u.dll",
+    "C:\\WINDOWS\\System32\\GDI32.dll",
+    "C:\\WINDOWS\\System32\\gdi32full.dll",
+    "C:\\WINDOWS\\System32\\msvcp_win.dll",
+    "C:\\WINDOWS\\System32\\CRYPT32.dll",
+    "C:\\WINDOWS\\System32\\MSASN1.dll",
+    "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+    "C:\\WINDOWS\\System32\\profapi.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+    "C:\\WINDOWS\\SYSTEM32\\NETUTILS.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\WINMMBASE.dll",
+    "C:\\WINDOWS\\System32\\cfgmgr32.dll",
+    "C:\\WINDOWS\\SYSTEM32\\SRVCLI.DLL",
+    "C:\\WINDOWS\\System32\\IMM32.DLL",
+    "C:\\WINDOWS\\System32\\powrprof.dll",
+    "C:\\WINDOWS\\system32\\mswsock.dll",
+    "C:\\WINDOWS\\System32\\kernel.appcore.dll",
+    "C:\\WINDOWS\\SYSTEM32\\CRYPTSP.dll",
+    "C:\\WINDOWS\\system32\\rsaenh.dll",
+    "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+    "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.dll",
+    "C:\\WINDOWS\\System32\\bcryptPrimitives.dll"
+  ]
+}
