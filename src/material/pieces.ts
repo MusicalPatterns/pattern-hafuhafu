@@ -11,6 +11,7 @@ import {
     isEven,
     NEXT,
     Ordinal,
+    Power,
     product,
     random,
     reciprocal,
@@ -26,14 +27,14 @@ const buildContourElement: (parameters: HafuhafuContourParameters) => ContourEle
         const { partIndex, cellCount, spec, cycleBlock } = parameters
         const { deletionStyle, iterationLength, reversed } = spec
 
-        const totalCellsInIteration: Cardinal = apply.Cardinal(cellCount, iterationLength)
-        const progress: Scalar = to.Scalar(from.Ordinal(apply.Cardinal(partIndex, reciprocal(totalCellsInIteration))))
+        const totalCellsInIteration: Cardinal = apply.Scalar(cellCount, to.Scalar(from.Cardinal(iterationLength)))
+        const progress: Scalar = to.Scalar(from.Ordinal(apply.Scalar(
+            partIndex,
+            to.Scalar(from.Cardinal(reciprocal(totalCellsInIteration))),
+        )))
 
-        const progressPower: Scalar = reversed ? progress : difference(to.Scalar(1), progress)
-        const duration: number = from.Base(apply.Power(
-            GUESS_AT_A_GOOD_BASE_FOR_THE_HAFUHAFU_PROCESS,
-            to.Power(from.Scalar(progressPower)),
-        ))
+        const progressPower: Power = to.Power(from.Scalar(reversed ? progress : difference(to.Scalar(1), progress)))
+        const duration: number = from.Base(apply.Power(GUESS_AT_A_GOOD_BASE_FOR_THE_HAFUHAFU_PROCESS, progressPower))
 
         const gainForce: number = isEven(partIndex) ? 1 : difference(duration, 1)
         const gain: number = deletionStyle === DeletionStyle.FADE ? gainForce : random() < gainForce ? 1 : 0

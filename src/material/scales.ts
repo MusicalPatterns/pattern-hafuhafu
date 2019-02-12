@@ -1,6 +1,6 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
 import { buildStandardScales, StandardSpecProperties } from '@musical-patterns/pattern'
-import { from, NO_TRANSLATION, to } from '@musical-patterns/utilities'
+import { from, NO_TRANSLATION, Scalar, to, Translation } from '@musical-patterns/utilities'
 import { HafuhafuSpec } from '../types'
 import { buildScalars } from './scalars'
 
@@ -9,15 +9,23 @@ const buildScales: BuildScalesFunction =
         const { nonScale } = buildStandardScales()
 
         const gainScale: Scale = nonScale
+        const durationScalar: Scalar =
+            from.Ms(spec[ StandardSpecProperties.BASE_DURATION ] || to.Scalar(to.Ms(1)))
+        const durationTranslation: Translation =
+            from.Ms(spec[ StandardSpecProperties.DURATION_TRANSLATION ] || to.Ms(NO_TRANSLATION))
         const durationsScale: Scale = {
-            scalar: to.Scalar(from.Ms(spec[ StandardSpecProperties.BASE_DURATION ] || to.Ms(1))),
+            scalar: durationScalar,
             scalars: nonScale.scalars,
-            translation: spec[ StandardSpecProperties.DURATION_TRANSLATION ] || NO_TRANSLATION,
+            translation: durationTranslation,
         }
+        const pitchesScalar: Scalar =
+            from.Hz(spec[ StandardSpecProperties.BASE_FREQUENCY ] || to.Scalar(to.Hz(1)))
+        const pitchesTranslation: Translation =
+            from.Hz(spec[ StandardSpecProperties.FREQUENCY_TRANSLATION ] || to.Hz(NO_TRANSLATION))
         const pitchesScale: Scale = {
-            scalar: to.Scalar(from.Hz(spec[ StandardSpecProperties.BASE_FREQUENCY ] || to.Hz(1))),
+            scalar: pitchesScalar,
             scalars: buildScalars(spec),
-            translation: spec[ StandardSpecProperties.FREQUENCY_TRANSLATION ] || NO_TRANSLATION,
+            translation: pitchesTranslation,
         }
 
         return [
