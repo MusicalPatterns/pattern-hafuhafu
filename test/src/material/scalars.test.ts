@@ -1,4 +1,4 @@
-import { INITIAL, Scalar, slice, testArraysAreClose, to } from '@musical-patterns/utilities'
+import { Scalar, testArraysAreCloseSoFar, to } from '@musical-patterns/utilities'
 import { buildScalars, HafuhafuSpec, initial } from '../../../src/indexForTest'
 
 describe('scalars', () => {
@@ -10,7 +10,7 @@ describe('scalars', () => {
 
         const actualScalars: Scalar[] = buildScalars(spec)
 
-        testArraysAreClose(slice(actualScalars, INITIAL, to.Ordinal(6)), [
+        testArraysAreCloseSoFar(actualScalars, [
             1,
             3,
             9,
