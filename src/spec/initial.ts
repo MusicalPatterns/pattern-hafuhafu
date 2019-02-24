@@ -1,5 +1,4 @@
 import { standardInitialSpec, StandardSpecProperties } from '@musical-patterns/pattern'
-import { HafuhafuSpec } from '../types'
 import {
     HAFUHAFU_INITIAL_BASE_DURATION,
     HAFUHAFU_INITIAL_BASE_FREQUENCY,
@@ -9,6 +8,7 @@ import {
     HAFUHAFU_INITIAL_PITCH_STEP,
     HAFUHAFU_INITIAL_REVERSED,
 } from './constants'
+import { HafuhafuSpec } from './types'
 
 const initial: HafuhafuSpec = {
     ...standardInitialSpec,

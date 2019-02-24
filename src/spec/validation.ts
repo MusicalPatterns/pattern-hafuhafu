@@ -1,6 +1,6 @@
 import { SpecValidationFunctionFor, SpecValidationResultsFor } from '@musical-patterns/pattern'
 import { isEven } from '@musical-patterns/utilities'
-import { HafuhafuSpec } from '../types'
+import { HafuhafuSpec } from './types'
 
 const validationFunction: SpecValidationFunctionFor<HafuhafuSpec> =
     ({ block }: HafuhafuSpec): SpecValidationResultsFor<HafuhafuSpec> => {

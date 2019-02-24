@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import { Block, Cycle } from '@musical-patterns/utilities'
-import { HafuhafuSpec } from '../types'
+import { HafuhafuSpec } from '../spec'
 import { buildNoteSpec } from './notes'
 import { buildWhole } from './wholes'
 

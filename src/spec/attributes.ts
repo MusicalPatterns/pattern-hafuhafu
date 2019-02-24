@@ -1,6 +1,6 @@
 import { RangedInputType, SpecPropertyType, standardSpecAttributes } from '@musical-patterns/pattern'
 import { Units } from '@musical-patterns/utilities'
-import { DeletionStyle, HafuhafuSpecAttributes } from '../types'
+import { DeletionStyle, HafuhafuSpecAttributes } from './types'
 
 const attributes: HafuhafuSpecAttributes = {
     ...standardSpecAttributes,

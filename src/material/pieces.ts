@@ -18,7 +18,7 @@ import {
     Scalar,
     to,
 } from '@musical-patterns/utilities'
-import { DeletionStyle, HafuhafuSpec } from '../types'
+import { DeletionStyle, HafuhafuSpec } from '../spec'
 import { GUESS_AT_A_GOOD_BASE_FOR_THE_HAFUHAFU_PROCESS } from './constants'
 import { HafuhafuContourParameters } from './types'
 

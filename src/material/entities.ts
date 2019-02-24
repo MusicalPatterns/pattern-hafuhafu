@@ -1,9 +1,8 @@
 import { BuildEntitiesFunction, Entity, NoteSpec, TimbreNameEnum } from '@musical-patterns/compiler'
-import { Block, Cycle, deepClone, deepEqual, sequence, to } from '@musical-patterns/utilities'
-import { HafuhafuSpec } from '../types'
+import { Block, Cycle, deepClone, deepEqual, to } from '@musical-patterns/utilities'
+import { HafuhafuSpec } from '../spec'
 import { buildNextBlock } from './blocks'
 import { buildPart } from './parts'
-import { buildPiece } from './pieces'
 
 const buildCycle: (sourceBlock: Block) => Cycle<Block> =
     (sourceBlock: Block): Cycle<Block> => {

@@ -1,5 +1,5 @@
 import { Block, Cardinal, Ordinal } from '@musical-patterns/utilities'
-import { HafuhafuSpec } from '../types'
+import { HafuhafuSpec } from '../spec'
 
 interface HafuhafuContourParameters {
     cellCount: Cardinal,

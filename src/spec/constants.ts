@@ -1,7 +1,7 @@
 // tslint:disable no-magic-numbers
 
 import { Base, Block, Cardinal, Hz, Ms, Scalar, SEMITONE, to } from '@musical-patterns/utilities'
-import { DeletionStyle } from '../types'
+import { DeletionStyle } from './types'
 
 const HAFUHAFU_INITIAL_BASE_FREQUENCY: Scalar<Hz> = to.Scalar(to.Hz(100))
 const HAFUHAFU_INITIAL_BASE_DURATION: Scalar<Ms> = to.Scalar(to.Ms(175))

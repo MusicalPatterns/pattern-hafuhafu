@@ -1,5 +1,5 @@
 import { apply, from, Integer, Scalar, to, zeroAndPositiveIntegers } from '@musical-patterns/utilities'
-import { HafuhafuSpec } from '../types'
+import { HafuhafuSpec } from '../spec'
 
 const buildScalars: (spec: HafuhafuSpec) => Scalar[] =
     ({ pitchStep }: HafuhafuSpec): Scalar[] =>

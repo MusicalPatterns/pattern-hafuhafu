@@ -11,13 +11,10 @@ export {
 } from './material/indexForTest'
 export {
     initial,
-} from './spec/indexForTest'
-export { pattern } from './patterns'
-
-export {
     DeletionStyle,
     HafuhafuSpec,
-} from './types'
+} from './spec/indexForTest'
+export { pattern } from './patterns'
 
 // tslint:disable-next-line no-default-import
 import * as snapshot from './snapshot.json'

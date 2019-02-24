@@ -1,7 +1,7 @@
 import { SpecDataFor } from '@musical-patterns/pattern'
-import { HafuhafuSpec } from '../types'
 import { attributes } from './attributes'
 import { initial } from './initial'
+import { HafuhafuSpec } from './types'
 import { validationFunction } from './validation'
 
 const specData: SpecDataFor<HafuhafuSpec> = {
