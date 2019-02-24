@@ -5,13 +5,12 @@ import {
     STANDARD_PITCH_SCALE_INDEX,
 } from '@musical-patterns/pattern'
 import { ContourElement, to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
-import { PITCH_INDEX_INDICATING_REST } from './constants'
 
 const buildNoteSpec: (buildNoteSpecParameters: ContourElement<PitchDurationGain>) => NoteSpec =
     (contourElement: ContourElement<PitchDurationGain>): NoteSpec => {
         const [ pitch, duration, gain ] = contourElement as number[]
 
-        if (pitch === PITCH_INDEX_INDICATING_REST) {
+        if (pitch <= 0) {
             return {
                 durationSpec: {
                     scalar: to.Scalar(duration),
