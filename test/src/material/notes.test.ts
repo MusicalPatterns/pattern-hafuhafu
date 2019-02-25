@@ -1,7 +1,7 @@
 // tslint:disable no-duplicate-string
 
 import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
-import { PitchDurationGain } from '@musical-patterns/pattern'
+import { PitchDurationGain, SILENT } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
 import { buildNoteSpec } from '../../../src/indexForTest'
 
@@ -143,7 +143,7 @@ describe('note specs', () => {
 
             it('has no gain', () => {
                 expect(gainSpec.scalar)
-                    .toBe(to.Scalar(0))
+                    .toBe(SILENT)
             })
         })
     })
