@@ -1,8 +1,8 @@
 import {
     OptionedSpecPropertyAttributes,
     RangedSpecPropertyAttributes,
-    Spec,
-    SpecAttributes,
+    SpecAttributesFor,
+    StandardSpec,
     ToggledSpecPropertyAttributes,
 } from '@musical-patterns/pattern'
 import { Base, Block, Cardinal } from '@musical-patterns/utilities'
@@ -12,7 +12,7 @@ enum DeletionStyle {
     RANDOM_DROP = 'RANDOM_DROP',
 }
 
-interface HafuhafuSpec extends Spec {
+interface HafuhafuSpec extends StandardSpec {
     block: Block,
     deletionStyle: DeletionStyle,
     iterationLength: Cardinal,
@@ -20,7 +20,7 @@ interface HafuhafuSpec extends Spec {
     reversed: boolean,
 }
 
-interface HafuhafuSpecAttributes extends SpecAttributes {
+interface HafuhafuSpecAttributes extends SpecAttributesFor<HafuhafuSpec> {
     block: RangedSpecPropertyAttributes,
     deletionStyle: OptionedSpecPropertyAttributes,
     iterationLength: RangedSpecPropertyAttributes,
