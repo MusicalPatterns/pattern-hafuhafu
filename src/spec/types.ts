@@ -1,7 +1,7 @@
 import {
     OptionedSpecPropertyAttributes,
     RangedSpecPropertyAttributes,
-    SpecAttributesFor,
+    SpecAttributes,
     StandardSpec,
     ToggledSpecPropertyAttributes,
 } from '@musical-patterns/pattern'
@@ -20,7 +20,7 @@ interface HafuhafuSpec extends StandardSpec {
     reversed: boolean,
 }
 
-interface HafuhafuSpecAttributes extends SpecAttributesFor<HafuhafuSpec> {
+interface HafuhafuSpecAttributes extends SpecAttributes<HafuhafuSpec> {
     block: RangedSpecPropertyAttributes,
     deletionStyle: OptionedSpecPropertyAttributes,
     iterationLength: RangedSpecPropertyAttributes,

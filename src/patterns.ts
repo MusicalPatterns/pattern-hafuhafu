@@ -1,5 +1,5 @@
 import { Material } from '@musical-patterns/compiler'
-import { Id, Metadata, PatternFor, Patterns } from '@musical-patterns/pattern'
+import { Id, Metadata, Pattern, Patterns } from '@musical-patterns/pattern'
 import { buildEntities, buildScales } from './material'
 import { post } from './metadata'
 import { HafuhafuSpec, specData } from './spec'
@@ -17,7 +17,7 @@ const metadata: Metadata = {
     originalPublish: '2018-09-27T07:00:00.000Z',
 }
 
-const pattern: PatternFor<HafuhafuSpec> = {
+const pattern: Pattern<HafuhafuSpec> = {
     id: Id.HAFUHAFU,
     material,
     metadata,
