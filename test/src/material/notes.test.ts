@@ -143,7 +143,7 @@ describe('note specs', () => {
 
             it('has no gain', () => {
                 expect(gainSpec.scalar)
-                    .toBe(SILENT)
+                    .toBe(to.Scalar(0))
             })
         })
     })

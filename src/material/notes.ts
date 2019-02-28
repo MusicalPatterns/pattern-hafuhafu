@@ -5,7 +5,7 @@ import {
     STANDARD_DURATIONS_SCALE_INDEX,
     STANDARD_PITCH_SCALE_INDEX,
 } from '@musical-patterns/pattern'
-import { ContourElement, to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
+import { ContourElement, from, Scalar, to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
 
 const buildNoteSpec: (buildNoteSpecParameters: ContourElement<PitchDurationGain>) => NoteSpec =
     (contourElement: ContourElement<PitchDurationGain>): NoteSpec => {
@@ -18,7 +18,7 @@ const buildNoteSpec: (buildNoteSpecParameters: ContourElement<PitchDurationGain>
                     scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
                 },
                 gainSpec: {
-                    scalar: SILENT,
+                    scalar: from.Amplitude(SILENT) as Scalar,
                 },
                 sustainSpec: {
                     scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
