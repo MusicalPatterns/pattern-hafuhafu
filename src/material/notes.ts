@@ -8,9 +8,7 @@ import {
 import { ContourElement, from, Scalar, to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
 
 const buildNoteSpec: (buildNoteSpecParameters: ContourElement<PitchDurationGain>) => NoteSpec =
-    (contourElement: ContourElement<PitchDurationGain>): NoteSpec => {
-        const [ pitch, duration, gain ] = contourElement as number[]
-
+    ([ pitch, duration, gain ]: ContourElement<PitchDurationGain>): NoteSpec => {
         if (pitch <= 0) {
             return {
                 durationSpec: {
