@@ -1,9 +1,9 @@
-import { SpecValidationFunction, SpecValidationResults } from '@musical-patterns/pattern'
+import { ValidationFunction, ValidationResults } from '@musical-patterns/pattern'
 import { isEven } from '@musical-patterns/utilities'
 import { HafuhafuSpec } from './types'
 
-const validationFunction: SpecValidationFunction<HafuhafuSpec> =
-    ({ block }: HafuhafuSpec): SpecValidationResults<HafuhafuSpec> => {
+const validationFunction: ValidationFunction<HafuhafuSpec> =
+    ({ block }: HafuhafuSpec): ValidationResults<HafuhafuSpec> => {
         if (isEven(block.length)) {
             return {
                 block: 'The block must have an odd length for this pattern to work.',
