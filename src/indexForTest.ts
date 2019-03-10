@@ -2,9 +2,9 @@
 
 export {
     buildNextBlock,
-    buildNoteSpec,
-    buildEntities,
-    buildScales,
+    buildNote,
+    materializeEntities,
+    materializeScales,
     buildCycle,
     buildScalars,
     buildPiece,

@@ -4,7 +4,7 @@ import { HafuhafuSpec } from '../spec'
 interface HafuhafuContourParameters {
     cellCount: Cardinal,
     cycleBlock: Block,
-    partIndex: Ordinal,
+    pieceIndex: Ordinal,
     spec: HafuhafuSpec,
 }
 

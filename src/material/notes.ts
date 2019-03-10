@@ -1,54 +1,14 @@
-import { NoteSpec } from '@musical-patterns/compiler'
-import {
-    PitchDurationGain,
-    SILENT,
-    STANDARD_DURATIONS_SCALE_INDEX,
-    STANDARD_PITCH_SCALE_INDEX,
-} from '@musical-patterns/pattern'
-import {
-    Amplitude,
-    ContourElement,
-    from,
-    Scalar,
-    to,
-    translateFromOneIndexedToZeroIndexed,
-} from '@musical-patterns/utilities'
+import { Note } from '@musical-patterns/compiler'
+import { Block, Cycle } from '@musical-patterns/utilities'
+import { HafuhafuSpec } from '../spec'
+import { buildNote } from './features'
+import { buildWhole } from './wholes'
 
-const buildNoteSpec: (buildNoteSpecParameters: ContourElement<PitchDurationGain>) => NoteSpec =
-    ([ pitch, duration, gain ]: ContourElement<PitchDurationGain>): NoteSpec => {
-        if (pitch <= 0) {
-            return {
-                durationSpec: {
-                    scalar: to.Scalar(duration),
-                    scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-                },
-                gainSpec: {
-                    scalar: from.Amplitude<Scalar, Scalar<Amplitude>>(SILENT),
-                },
-                sustainSpec: {
-                    scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-                },
-            }
-        }
-
-        return {
-            durationSpec: {
-                scalar: to.Scalar(duration),
-                scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-            },
-            gainSpec: {
-                scalar: to.Scalar(gain),
-            },
-            pitchSpec: {
-                index: translateFromOneIndexedToZeroIndexed(to.Ordinal(pitch)),
-                scaleIndex: STANDARD_PITCH_SCALE_INDEX,
-            },
-            sustainSpec: {
-                scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-            },
-        }
-    }
+const buildNotes: (cycle: Cycle<Block>, spec: HafuhafuSpec) => Note[] =
+    (cycle: Cycle<Block>, spec: HafuhafuSpec): Note[] =>
+        buildWhole(cycle, spec)
+            .map(buildNote)
 
 export {
-    buildNoteSpec,
+    buildNotes,
 }

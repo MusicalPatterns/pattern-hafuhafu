@@ -1,5 +1,5 @@
 export { buildPiece } from './pieces'
-export { buildNoteSpec } from './notes'
-export { buildEntities } from './entities'
-export { buildScales } from './scales'
+export { buildNote } from './features'
+export { materializeEntities } from './entities'
+export { materializeScales } from './scales'
 export { buildNextBlock } from './blocks'

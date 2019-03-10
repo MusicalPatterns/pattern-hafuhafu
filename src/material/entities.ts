@@ -1,8 +1,8 @@
-import { BuildEntitiesFunction, Entity, NoteSpec, TimbreNameEnum } from '@musical-patterns/compiler'
+import { Entity, MaterializeEntities, Note, TimbreNameEnum } from '@musical-patterns/compiler'
 import { Block, Cycle, deepClone, deepEqual, to } from '@musical-patterns/utilities'
 import { HafuhafuSpec } from '../spec'
 import { buildNextBlock } from './blocks'
-import { buildPart } from './parts'
+import { buildNotes } from './notes'
 
 const buildCycle: (sourceBlock: Block) => Cycle<Block> =
     (sourceBlock: Block): Cycle<Block> => {
@@ -17,15 +17,15 @@ const buildCycle: (sourceBlock: Block) => Cycle<Block> =
         return hafuhafuCycle
     }
 
-const buildEntities: BuildEntitiesFunction =
+const materializeEntities: MaterializeEntities =
     (spec: HafuhafuSpec): Entity[] => {
         const sourceBlock: Block = spec.block
 
         const cycle: Cycle<Block> = buildCycle(sourceBlock)
-        const part: NoteSpec[] = buildPart(cycle, spec)
+        const notes: Note[] = buildNotes(cycle, spec)
 
         const entity: Entity = {
-            noteSpecs: part,
+            notes,
             timbreName: TimbreNameEnum.WURLITZER,
         }
 
@@ -35,6 +35,6 @@ const buildEntities: BuildEntitiesFunction =
     }
 
 export {
-    buildEntities,
+    materializeEntities,
     buildCycle,
 }

@@ -18,7 +18,7 @@ import {
 } from '@musical-patterns/utilities'
 import { buildPiece, DeletionStyle, HafuhafuSpec, initial } from '../../../src/indexForTest'
 
-describe('parts', () => {
+describe('pieces', () => {
     let piece: ContourPiece<PitchDurationGain> = to.ContourPiece<PitchDurationGain>([])
     let expectedNotesCount: Cardinal = to.Cardinal(0)
     const TEST_ITERATION_LENGTH: Cardinal = to.Cardinal(floor(random(32)))

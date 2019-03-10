@@ -1,6 +1,6 @@
 [
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 350,
         "gain": 1,
@@ -1762,9 +1762,9 @@
         "sustain": 175
       }
     ],
-    "voiceSpec": {
-      "timbreName": "WURLITZER",
-      "voiceType": "OSCILLATOR"
+    "sourceRequest": {
+      "sourceType": "OSCILLATOR",
+      "timbreName": "WURLITZER"
     }
   }
 ]
