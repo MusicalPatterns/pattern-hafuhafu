@@ -1,9 +1,9 @@
-import { RangedInputType, SpecPropertyType, standardSpecAttributes } from '@musical-patterns/pattern'
+import { PropertyType, RangedInputType, standardAttributes } from '@musical-patterns/pattern'
 import { Units } from '@musical-patterns/utilities'
-import { DeletionStyle, HafuhafuSpecAttributes } from './types'
+import { DeletionStyle, HafuhafuAttributes } from './types'
 
-const attributes: HafuhafuSpecAttributes = {
-    ...standardSpecAttributes,
+const attributes: HafuhafuAttributes = {
+    ...standardAttributes,
     block: {
         constraint: {
             min: 0,
@@ -12,23 +12,23 @@ const attributes: HafuhafuSpecAttributes = {
         hideInput: RangedInputType.RANGE,
         isArrayed: true,
         order: 1,
-        specPropertyType: SpecPropertyType.RANGED,
+        propertyType: PropertyType.RANGED,
     },
     deletionStyle: {
         constraint: [
             {
                 formattedName: 'fade',
-                key: DeletionStyle.FADE,
                 order: 1,
+                value: DeletionStyle.FADE,
             },
             {
                 formattedName: 'random drop',
-                key: DeletionStyle.RANDOM_DROP,
                 order: 2,
+                value: DeletionStyle.RANDOM_DROP,
             },
         ],
         order: 3,
-        specPropertyType: SpecPropertyType.OPTIONED,
+        propertyType: PropertyType.OPTIONED,
     },
     iterationLength: {
         constraint: {
@@ -38,18 +38,18 @@ const attributes: HafuhafuSpecAttributes = {
         description: 'count of bars it takes for half the notes to have faded out and the tempo to have doubled',
         hideInput: RangedInputType.RANGE,
         order: 2,
-        specPropertyType: SpecPropertyType.RANGED,
+        propertyType: PropertyType.RANGED,
         units: Units.BARS,
     },
     pitchStep: {
         description: 'the resolution you write your melody in',
         order: 4,
-        specPropertyType: SpecPropertyType.RANGED,
+        propertyType: PropertyType.RANGED,
     },
     reversed: {
         description: 'instead fade in notes as they slow down to half the original speed',
         order: 5,
-        specPropertyType: SpecPropertyType.TOGGLED,
+        propertyType: PropertyType.TOGGLED,
     },
 }
 

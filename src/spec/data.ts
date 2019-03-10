@@ -1,15 +1,15 @@
-import { SpecData } from '@musical-patterns/pattern'
+import { Data } from '@musical-patterns/pattern'
 import { attributes } from './attributes'
 import { initial } from './initial'
 import { HafuhafuSpec } from './types'
 import { validationFunction } from './validation'
 
-const specData: SpecData<HafuhafuSpec> = {
+const data: Data<HafuhafuSpec> = {
     attributes,
     initial,
     validationFunction,
 }
 
 export {
-    specData,
+    data,
 }

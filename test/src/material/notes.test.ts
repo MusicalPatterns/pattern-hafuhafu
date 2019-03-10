@@ -1,6 +1,6 @@
 // tslint:disable no-duplicate-string
 
-import { NotePropertySpec, NoteSpec } from '@musical-patterns/compiler'
+import { NoteAspectSpec, NoteSpec } from '@musical-patterns/compiler'
 import { PitchDurationGain, SILENT } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
 import { buildNoteSpec } from '../../../src/indexForTest'
@@ -13,7 +13,7 @@ describe('note specs', () => {
         })
 
         describe('duration', () => {
-            let durationSpec: NotePropertySpec
+            let durationSpec: NoteAspectSpec
             beforeEach(() => {
                 durationSpec = noteSpec.durationSpec || {}
             })
@@ -30,7 +30,7 @@ describe('note specs', () => {
         })
 
         describe('gain', () => {
-            let gainSpec: NotePropertySpec
+            let gainSpec: NoteAspectSpec
             beforeEach(() => {
                 gainSpec = noteSpec.gainSpec || {}
             })
@@ -42,7 +42,7 @@ describe('note specs', () => {
         })
 
         describe('pitch', () => {
-            let pitchSpec: NotePropertySpec
+            let pitchSpec: NoteAspectSpec
             beforeEach(() => {
                 pitchSpec = noteSpec.pitchSpec || {}
             })
@@ -66,7 +66,7 @@ describe('note specs', () => {
         })
 
         describe('duration', () => {
-            let durationSpec: NotePropertySpec
+            let durationSpec: NoteAspectSpec
             beforeEach(() => {
                 durationSpec = noteSpec.durationSpec || {}
             })
@@ -83,7 +83,7 @@ describe('note specs', () => {
         })
 
         describe('gain', () => {
-            let gainSpec: NotePropertySpec
+            let gainSpec: NoteAspectSpec
             beforeEach(() => {
                 gainSpec = noteSpec.gainSpec || {}
             })
@@ -95,7 +95,7 @@ describe('note specs', () => {
         })
 
         describe('pitch', () => {
-            let pitchSpec: NotePropertySpec
+            let pitchSpec: NoteAspectSpec
             beforeEach(() => {
                 pitchSpec = noteSpec.pitchSpec || {}
             })
@@ -119,7 +119,7 @@ describe('note specs', () => {
         })
 
         describe('duration', () => {
-            let durationSpec: NotePropertySpec
+            let durationSpec: NoteAspectSpec
             beforeEach(() => {
                 durationSpec = noteSpec.durationSpec || {}
             })
@@ -136,7 +136,7 @@ describe('note specs', () => {
         })
 
         describe('gain', () => {
-            let gainSpec: NotePropertySpec
+            let gainSpec: NoteAspectSpec
             beforeEach(() => {
                 gainSpec = noteSpec.gainSpec || {}
             })

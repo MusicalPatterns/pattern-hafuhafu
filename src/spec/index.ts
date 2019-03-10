@@ -1,5 +1,5 @@
 export {
-    specData,
+    data,
 } from './data'
 export {
     HafuhafuSpec,

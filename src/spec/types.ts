@@ -1,9 +1,9 @@
 import {
-    OptionedSpecPropertyAttributes,
-    RangedSpecPropertyAttributes,
+    Attributes,
+    OptionedPropertyAttributes,
+    RangedPropertyAttributes,
     Spec,
-    SpecAttributes,
-    ToggledSpecPropertyAttributes,
+    ToggledPropertyAttributes,
 } from '@musical-patterns/pattern'
 import { Base, Block, Cardinal } from '@musical-patterns/utilities'
 
@@ -20,16 +20,16 @@ interface HafuhafuSpec extends Spec {
     reversed: boolean,
 }
 
-interface HafuhafuSpecAttributes extends SpecAttributes<HafuhafuSpec> {
-    block: RangedSpecPropertyAttributes,
-    deletionStyle: OptionedSpecPropertyAttributes,
-    iterationLength: RangedSpecPropertyAttributes,
-    pitchStep: RangedSpecPropertyAttributes,
-    reversed: ToggledSpecPropertyAttributes,
+interface HafuhafuAttributes extends Attributes<HafuhafuSpec> {
+    block: RangedPropertyAttributes,
+    deletionStyle: OptionedPropertyAttributes,
+    iterationLength: RangedPropertyAttributes,
+    pitchStep: RangedPropertyAttributes,
+    reversed: ToggledPropertyAttributes,
 }
 
 export {
     DeletionStyle,
     HafuhafuSpec,
-    HafuhafuSpecAttributes,
+    HafuhafuAttributes,
 }
