@@ -14,7 +14,7 @@ import {
     translateFromOneIndexedToZeroIndexed,
 } from '@musical-patterns/utilities'
 
-const buildNote: (buildNoteParameters: ContourElement<PitchDurationGain>) => Note =
+const computeNote: (computeNoteParameters: ContourElement<PitchDurationGain>) => Note =
     ([ pitch, duration, gain ]: ContourElement<PitchDurationGain>): Note => {
         if (pitch <= 0) {
             return {
@@ -50,5 +50,5 @@ const buildNote: (buildNoteParameters: ContourElement<PitchDurationGain>) => Not
     }
 
 export {
-    buildNote,
+    computeNote,
 }

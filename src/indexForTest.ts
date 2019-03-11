@@ -1,13 +1,13 @@
 // tslint:disable no-reaching-imports
 
 export {
-    buildNextBlock,
-    buildNote,
+    computeNextBlock,
+    computeNote,
     materializeEntities,
     materializeScales,
-    buildCycle,
-    buildScalars,
-    buildPiece,
+    computeCycle,
+    computeScalars,
+    computePiece,
 } from './material/indexForTest'
 export {
     initial,

@@ -16,7 +16,7 @@ import {
     testIsCloseTo,
     to,
 } from '@musical-patterns/utilities'
-import { buildPiece, DeletionStyle, HafuhafuSpec, initial } from '../../../src/indexForTest'
+import { computePiece, DeletionStyle, HafuhafuSpec, initial } from '../../../src/indexForTest'
 
 describe('pieces', () => {
     let piece: ContourPiece<PitchDurationGain> = to.ContourPiece<PitchDurationGain>([])
@@ -39,7 +39,7 @@ describe('pieces', () => {
     testBlocks.forEach((testBlock: Block): void => {
         describe(`block ${testBlock}`, () => {
             beforeEach(() => {
-                piece = buildPiece(testBlock, spec)
+                piece = computePiece(testBlock, spec)
                 const cellCount: Cardinal = to.Cardinal(testBlock.length)
                 expectedNotesCount = product(cellCount, TEST_ITERATION_LENGTH)
             })

@@ -1,6 +1,6 @@
 import { apply, Block, Cycle, EVERY_OTHER, from, INITIAL, NEXT, Ordinal, to } from '@musical-patterns/utilities'
 
-const buildNextBlock: (block: Block) => Block =
+const computeNextBlock: (block: Block) => Block =
     (block: Block): Block => {
         const nextBlock: Block = to.Block([])
         const blockAsCycle: Cycle = to.Cycle(block)
@@ -14,5 +14,5 @@ const buildNextBlock: (block: Block) => Block =
     }
 
 export {
-    buildNextBlock,
+    computeNextBlock,
 }

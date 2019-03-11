@@ -22,7 +22,7 @@ import { DeletionStyle, HafuhafuSpec } from '../spec'
 import { GUESS_AT_A_GOOD_BASE_FOR_THE_HAFUHAFU_PROCESS } from './constants'
 import { HafuhafuContourParameters } from './types'
 
-const buildContourElement: (parameters: HafuhafuContourParameters) => ContourElement<PitchDurationGain> =
+const computeContourElement: (parameters: HafuhafuContourParameters) => ContourElement<PitchDurationGain> =
     (parameters: HafuhafuContourParameters): ContourElement<PitchDurationGain> => {
         const { pieceIndex, cellCount, spec, cycleBlock } = parameters
         const { deletionStyle, iterationLength, reversed } = spec
@@ -45,7 +45,7 @@ const buildContourElement: (parameters: HafuhafuContourParameters) => ContourEle
         return to.ContourElement<PitchDurationGain>([ pitch, duration, gain ])
     }
 
-const buildPiece: (cycleBlock: Block, spec: HafuhafuSpec) => ContourPiece<PitchDurationGain> =
+const computePiece: (cycleBlock: Block, spec: HafuhafuSpec) => ContourPiece<PitchDurationGain> =
     (cycleBlock: Block, spec: HafuhafuSpec): ContourPiece<PitchDurationGain> => {
         const cellCount: Cardinal = to.Cardinal(cycleBlock.length)
         const piece: ContourPiece<PitchDurationGain> = to.ContourPiece<PitchDurationGain>([])
@@ -55,7 +55,7 @@ const buildPiece: (cycleBlock: Block, spec: HafuhafuSpec) => ContourPiece<PitchD
             pieceIndex < to.Ordinal(from.Cardinal(product(cellCount, spec.iterationLength)));
             pieceIndex = apply.Translation(pieceIndex, NEXT)
         ) {
-            const contourElement: ContourElement<PitchDurationGain> = buildContourElement({
+            const contourElement: ContourElement<PitchDurationGain> = computeContourElement({
                 cellCount,
                 cycleBlock,
                 pieceIndex,
@@ -68,5 +68,5 @@ const buildPiece: (cycleBlock: Block, spec: HafuhafuSpec) => ContourPiece<PitchD
     }
 
 export {
-    buildPiece,
+    computePiece,
 }

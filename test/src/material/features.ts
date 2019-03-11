@@ -3,13 +3,13 @@
 import { Note, NoteFeature } from '@musical-patterns/compiler'
 import { PitchDurationGain } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
-import { buildNote } from '../../../src/indexForTest'
+import { computeNote } from '../../../src/indexForTest'
 
 describe('features', () => {
     describe('example one', () => {
         let note: Note
         beforeEach(() => {
-            note = buildNote(to.ContourElement<PitchDurationGain>([ 3, 0.5, 2 ]))
+            note = computeNote(to.ContourElement<PitchDurationGain>([ 3, 0.5, 2 ]))
         })
 
         describe('duration', () => {
@@ -62,7 +62,7 @@ describe('features', () => {
     describe('example two', () => {
         let note: Note
         beforeEach(() => {
-            note = buildNote(to.ContourElement<PitchDurationGain>([ 4, 0.25, 1.5 ]))
+            note = computeNote(to.ContourElement<PitchDurationGain>([ 4, 0.25, 1.5 ]))
         })
 
         describe('duration', () => {
@@ -115,7 +115,7 @@ describe('features', () => {
     describe('example - rest', () => {
         let note: Note
         beforeEach(() => {
-            note = buildNote(to.ContourElement<PitchDurationGain>([ 0, 0.5, 2 ]))
+            note = computeNote(to.ContourElement<PitchDurationGain>([ 0, 0.5, 2 ]))
         })
 
         describe('duration', () => {

@@ -1,17 +1,17 @@
 import { PitchDurationGain } from '@musical-patterns/pattern'
 import { Block, ContourPiece, ContourWhole, Cycle, sequence, to } from '@musical-patterns/utilities'
 import { HafuhafuSpec } from '../spec'
-import { buildPiece } from './pieces'
+import { computePiece } from './pieces'
 
-const buildWhole: (cycle: Cycle<Block>, spec: HafuhafuSpec) => ContourWhole<PitchDurationGain> =
+const computeWhole: (cycle: Cycle<Block>, spec: HafuhafuSpec) => ContourWhole<PitchDurationGain> =
     (cycle: Cycle<Block>, spec: HafuhafuSpec): ContourWhole<PitchDurationGain> => {
         const iterations: Array<ContourPiece<PitchDurationGain>> = cycle.map(
             (cycleBlock: Block): ContourPiece<PitchDurationGain> =>
-                buildPiece(cycleBlock, spec))
+                computePiece(cycleBlock, spec))
 
         return to.ContourWhole<PitchDurationGain>(sequence(iterations))
     }
 
 export {
-    buildWhole,
+    computeWhole,
 }

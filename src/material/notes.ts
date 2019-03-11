@@ -1,14 +1,14 @@
 import { Note } from '@musical-patterns/compiler'
 import { Block, Cycle } from '@musical-patterns/utilities'
 import { HafuhafuSpec } from '../spec'
-import { buildNote } from './features'
-import { buildWhole } from './wholes'
+import { computeNote } from './features'
+import { computeWhole } from './wholes'
 
-const buildNotes: (cycle: Cycle<Block>, spec: HafuhafuSpec) => Note[] =
+const computeNotes: (cycle: Cycle<Block>, spec: HafuhafuSpec) => Note[] =
     (cycle: Cycle<Block>, spec: HafuhafuSpec): Note[] =>
-        buildWhole(cycle, spec)
-            .map(buildNote)
+        computeWhole(cycle, spec)
+            .map(computeNote)
 
 export {
-    buildNotes,
+    computeNotes,
 }
