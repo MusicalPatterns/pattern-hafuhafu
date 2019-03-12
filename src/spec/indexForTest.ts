@@ -1,6 +1,6 @@
 // tslint:disable no-reaching-imports
 
-export { initial } from './initial'
+export { initial } from './initials'
 export {
     DeletionStyle,
     HafuhafuSpecs,
