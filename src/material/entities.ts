@@ -1,6 +1,6 @@
 import { Entity, MaterializeEntities, Note, TimbreNameEnum } from '@musical-patterns/compiler'
 import { Block, Cycle, deepClone, deepEqual, to } from '@musical-patterns/utilities'
-import { HafuhafuSpec } from '../spec'
+import { HafuhafuSpecs } from '../spec'
 import { computeNextBlock } from './blocks'
 import { computeNotes } from './notes'
 
@@ -18,11 +18,11 @@ const computeCycle: (sourceBlock: Block) => Cycle<Block> =
     }
 
 const materializeEntities: MaterializeEntities =
-    (spec: HafuhafuSpec): Entity[] => {
-        const sourceBlock: Block = spec.block
+    (specs: HafuhafuSpecs): Entity[] => {
+        const sourceBlock: Block = specs.block
 
         const cycle: Cycle<Block> = computeCycle(sourceBlock)
-        const notes: Note[] = computeNotes(cycle, spec)
+        const notes: Note[] = computeNotes(cycle, specs)
 
         const entity: Entity = {
             notes,

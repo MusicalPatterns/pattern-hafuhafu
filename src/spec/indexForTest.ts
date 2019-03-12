@@ -3,5 +3,5 @@
 export { initial } from './initial'
 export {
     DeletionStyle,
-    HafuhafuSpec,
+    HafuhafuSpecs,
 } from './types'

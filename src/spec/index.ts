@@ -1,7 +1,7 @@
 export {
-    data,
-} from './data'
+    spec,
+} from './spec'
 export {
-    HafuhafuSpec,
+    HafuhafuSpecs,
     DeletionStyle,
 } from './types'

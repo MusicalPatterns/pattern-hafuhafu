@@ -1,11 +1,11 @@
 import { Block, Cardinal, Ordinal } from '@musical-patterns/utilities'
-import { HafuhafuSpec } from '../spec'
+import { HafuhafuSpecs } from '../spec'
 
 interface HafuhafuContourParameters {
     cellCount: Cardinal,
     cycleBlock: Block,
     pieceIndex: Ordinal,
-    spec: HafuhafuSpec,
+    specs: HafuhafuSpecs,
 }
 
 export {

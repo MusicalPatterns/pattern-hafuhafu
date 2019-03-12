@@ -1,14 +1,14 @@
 import { MaterializeScales, Scale } from '@musical-patterns/compiler'
 import { materializeStandardScales } from '@musical-patterns/pattern'
 import { Scalar } from '@musical-patterns/utilities'
-import { HafuhafuSpec } from '../spec'
+import { HafuhafuSpecs } from '../spec'
 import { computeScalars } from './scalars'
 
 const materializeScales: MaterializeScales =
-    (spec: HafuhafuSpec): Scale[] => {
-        const pitchScalars: Scalar[] = computeScalars(spec)
+    (specs: HafuhafuSpecs): Scale[] => {
+        const pitchScalars: Scalar[] = computeScalars(specs)
 
-        return materializeStandardScales(spec, { pitchScalars })
+        return materializeStandardScales(specs, { pitchScalars })
     }
 
 export {

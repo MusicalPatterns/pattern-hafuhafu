@@ -12,7 +12,7 @@ export {
 export {
     initial,
     DeletionStyle,
-    HafuhafuSpec,
+    HafuhafuSpecs,
 } from './spec/indexForTest'
 export { pattern } from './patterns'
 

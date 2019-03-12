@@ -18,14 +18,14 @@ import {
     Scalar,
     to,
 } from '@musical-patterns/utilities'
-import { DeletionStyle, HafuhafuSpec } from '../spec'
+import { DeletionStyle, HafuhafuSpecs } from '../spec'
 import { GUESS_AT_A_GOOD_BASE_FOR_THE_HAFUHAFU_PROCESS } from './constants'
 import { HafuhafuContourParameters } from './types'
 
 const computeContourElement: (parameters: HafuhafuContourParameters) => ContourElement<PitchDurationGain> =
     (parameters: HafuhafuContourParameters): ContourElement<PitchDurationGain> => {
-        const { pieceIndex, cellCount, spec, cycleBlock } = parameters
-        const { deletionStyle, iterationLength, reversed } = spec
+        const { pieceIndex, cellCount, specs, cycleBlock } = parameters
+        const { deletionStyle, iterationLength, reversed } = specs
 
         const totalCellsInIteration: Cardinal = apply.Scalar(cellCount, to.Scalar(from.Cardinal(iterationLength)))
         const progress: Scalar = to.Scalar(from.Ordinal(apply.Scalar(
@@ -45,21 +45,21 @@ const computeContourElement: (parameters: HafuhafuContourParameters) => ContourE
         return to.ContourElement<PitchDurationGain>([ pitch, duration, gain ])
     }
 
-const computePiece: (cycleBlock: Block, spec: HafuhafuSpec) => ContourPiece<PitchDurationGain> =
-    (cycleBlock: Block, spec: HafuhafuSpec): ContourPiece<PitchDurationGain> => {
+const computePiece: (cycleBlock: Block, specs: HafuhafuSpecs) => ContourPiece<PitchDurationGain> =
+    (cycleBlock: Block, specs: HafuhafuSpecs): ContourPiece<PitchDurationGain> => {
         const cellCount: Cardinal = to.Cardinal(cycleBlock.length)
         const piece: ContourPiece<PitchDurationGain> = to.ContourPiece<PitchDurationGain>([])
 
         for (
             let pieceIndex: Ordinal = INITIAL;
-            pieceIndex < to.Ordinal(from.Cardinal(product(cellCount, spec.iterationLength)));
+            pieceIndex < to.Ordinal(from.Cardinal(product(cellCount, specs.iterationLength)));
             pieceIndex = apply.Translation(pieceIndex, NEXT)
         ) {
             const contourElement: ContourElement<PitchDurationGain> = computeContourElement({
                 cellCount,
                 cycleBlock,
                 pieceIndex,
-                spec,
+                specs,
             })
             piece.push(contourElement)
         }
