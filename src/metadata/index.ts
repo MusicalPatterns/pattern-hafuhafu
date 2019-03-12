@@ -1,1 +1,1 @@
-export { post } from './posts'
+export { metadata } from './metadatas'

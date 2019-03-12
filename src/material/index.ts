@@ -1,5 +1,1 @@
-export { computePiece } from './pieces'
-export { computeNote } from './features'
-export { materializeEntities } from './entities'
-export { materializeScales } from './scales'
-export { computeNextBlock } from './blocks'
+export { material } from './materials'

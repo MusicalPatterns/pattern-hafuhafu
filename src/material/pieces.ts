@@ -33,7 +33,9 @@ const computeContourElement: (parameters: HafuhafuContourParameters) => ContourE
             to.Scalar(from.Cardinal(reciprocal(totalCellsInIteration))),
         )))
 
-        const progressPower: Power = to.Power(from.Scalar(reversed ? progress : difference(to.Scalar(1), progress)))
+        const progressPower: Power = to.Power(from.Scalar<number, Scalar>(
+            reversed ? progress : difference(to.Scalar(1), progress),
+        ))
         const duration: number = from.Base(apply.Power(GUESS_AT_A_GOOD_BASE_FOR_THE_HAFUHAFU_PROCESS, progressPower))
 
         const gainForce: number = isEven(pieceIndex) ? 1 : difference(duration, 1)
