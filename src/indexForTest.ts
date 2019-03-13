@@ -10,7 +10,7 @@ export {
     computePiece,
 } from './material/indexForTest'
 export {
-    initial,
+    initialSpecs,
     DeletionStyle,
     HafuhafuSpecs,
 } from './spec/indexForTest'

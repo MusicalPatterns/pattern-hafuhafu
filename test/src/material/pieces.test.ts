@@ -16,7 +16,7 @@ import {
     testIsCloseTo,
     to,
 } from '@musical-patterns/utilities'
-import { computePiece, DeletionStyle, HafuhafuSpecs, initial } from '../../../src/indexForTest'
+import { computePiece, DeletionStyle, HafuhafuSpecs, initialSpecs } from '../../../src/indexForTest'
 
 describe('pieces', () => {
     let piece: ContourPiece<PitchDurationGain> = to.ContourPiece<PitchDurationGain>([])
@@ -30,7 +30,7 @@ describe('pieces', () => {
     ].map(to.Block)
 
     const specs: HafuhafuSpecs = {
-        ...initial,
+        ...initialSpecs,
         deletionStyle: DeletionStyle.FADE,
         iterationLength: TEST_ITERATION_LENGTH,
         reversed: false,

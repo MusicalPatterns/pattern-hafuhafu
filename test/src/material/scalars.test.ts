@@ -1,10 +1,10 @@
 import { Scalar, testArraysAreCloseSoFar, to } from '@musical-patterns/utilities'
-import { computeScalars, HafuhafuSpecs, initial } from '../../../src/indexForTest'
+import { computeScalars, HafuhafuSpecs, initialSpecs } from '../../../src/indexForTest'
 
 describe('scalars', () => {
     it('creates a scale where each next scalar is x the previous by whatever the pitch step is set to', () => {
         const specs: HafuhafuSpecs = {
-            ...initial,
+            ...initialSpecs,
             pitchStep: to.Base(3),
         }
 
