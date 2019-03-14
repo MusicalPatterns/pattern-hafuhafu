@@ -15,6 +15,7 @@ import {
     random,
     testIsCloseTo,
     to,
+    totalElements,
 } from '@musical-patterns/utilities'
 import { computePiece, DeletionStyle, HafuhafuSpecs, initialSpecs } from '../../../src/indexForTest'
 
@@ -40,7 +41,7 @@ describe('pieces', () => {
         describe(`block ${testBlock}`, () => {
             beforeEach(() => {
                 piece = computePiece(testBlock, specs)
-                const cellCount: Cardinal = to.Cardinal(testBlock.length)
+                const cellCount: Cardinal = totalElements(testBlock)
                 expectedNotesCount = product(cellCount, TEST_ITERATION_LENGTH)
             })
 

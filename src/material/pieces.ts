@@ -17,6 +17,7 @@ import {
     reciprocal,
     Scalar,
     to,
+    totalElements,
 } from '@musical-patterns/utilities'
 import { DeletionStyle, HafuhafuSpecs } from '../spec'
 import { GUESS_AT_A_GOOD_BASE_FOR_THE_HAFUHAFU_PROCESS } from './constants'
@@ -49,7 +50,7 @@ const computeContourElement: (parameters: HafuhafuContourParameters) => ContourE
 
 const computePiece: (cycleBlock: Block, specs: HafuhafuSpecs) => ContourPiece<PitchDurationGain> =
     (cycleBlock: Block, specs: HafuhafuSpecs): ContourPiece<PitchDurationGain> => {
-        const cellCount: Cardinal = to.Cardinal(cycleBlock.length)
+        const cellCount: Cardinal = totalElements(cycleBlock)
         const piece: ContourPiece<PitchDurationGain> = to.ContourPiece<PitchDurationGain>([])
 
         for (
