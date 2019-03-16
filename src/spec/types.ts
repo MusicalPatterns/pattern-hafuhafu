@@ -5,7 +5,8 @@ import {
     Specs,
     ToggledConfiguration,
 } from '@musical-patterns/pattern'
-import { Base, Block, Cardinal } from '@musical-patterns/utilities'
+import { Base, Cardinal } from '@musical-patterns/utilities'
+import { Kernel } from '../nominals'
 
 enum DeletionStyle {
     FADE = 'FADE',
@@ -13,17 +14,17 @@ enum DeletionStyle {
 }
 
 interface HafuhafuSpecs extends Specs {
-    block: Block,
     deletionStyle: DeletionStyle,
     iterationLength: Cardinal,
+    kernel: Kernel,
     pitchStep: Base,
     reversed: boolean,
 }
 
 interface HafuhafuConfigurations extends Configurations<HafuhafuSpecs> {
-    block: RangedConfiguration,
     deletionStyle: OptionedConfiguration,
     iterationLength: RangedConfiguration,
+    kernel: RangedConfiguration,
     pitchStep: RangedConfiguration,
     reversed: ToggledConfiguration,
 }

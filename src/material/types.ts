@@ -1,13 +1,14 @@
-import { Block, Cardinal, Ordinal } from '@musical-patterns/utilities'
+import { Cardinal, Ordinal } from '@musical-patterns/utilities'
+import { Kernel } from '../nominals'
 import { HafuhafuSpecs } from '../spec'
 
-interface HafuhafuContourParameters {
+interface ComputeContourElementParameters {
     cellCount: Cardinal,
-    cycleBlock: Block,
+    cycleKernel: Kernel,
     pieceIndex: Ordinal,
     specs: HafuhafuSpecs,
 }
 
 export {
-    HafuhafuContourParameters,
+    ComputeContourElementParameters,
 }

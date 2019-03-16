@@ -1,7 +1,6 @@
 import { PitchDurationGain } from '@musical-patterns/pattern'
 import {
     apply,
-    Block,
     Cardinal,
     ContourElement,
     ContourPiece,
@@ -19,13 +18,14 @@ import {
     to,
     totalElements,
 } from '@musical-patterns/utilities'
+import { Kernel } from '../nominals'
 import { DeletionStyle, HafuhafuSpecs } from '../spec'
 import { GUESS_AT_A_GOOD_BASE_FOR_THE_HAFUHAFU_PROCESS } from './constants'
-import { HafuhafuContourParameters } from './types'
+import { ComputeContourElementParameters } from './types'
 
-const computeContourElement: (parameters: HafuhafuContourParameters) => ContourElement<PitchDurationGain> =
-    (parameters: HafuhafuContourParameters): ContourElement<PitchDurationGain> => {
-        const { pieceIndex, cellCount, specs, cycleBlock } = parameters
+const computeContourElement: (parameters: ComputeContourElementParameters) => ContourElement<PitchDurationGain> =
+    (parameters: ComputeContourElementParameters): ContourElement<PitchDurationGain> => {
+        const { pieceIndex, cellCount, specs, cycleKernel } = parameters
         const { deletionStyle, iterationLength, reversed } = specs
 
         const totalCellsInIteration: Cardinal = apply.Scalar(cellCount, to.Scalar(from.Cardinal(iterationLength)))
@@ -43,14 +43,14 @@ const computeContourElement: (parameters: HafuhafuContourParameters) => ContourE
         const gain: number = deletionStyle === DeletionStyle.FADE ? gainForce : random() < gainForce ? 1 : 0
 
         const cellIndex: Ordinal = apply.Modulus(pieceIndex, to.Modulus(from.Cardinal(cellCount)))
-        const pitch: number = apply.Ordinal(cycleBlock, cellIndex)
+        const pitch: number = apply.Ordinal(cycleKernel, cellIndex)
 
         return to.ContourElement<PitchDurationGain>([ pitch, duration, gain ])
     }
 
-const computePiece: (cycleBlock: Block, specs: HafuhafuSpecs) => ContourPiece<PitchDurationGain> =
-    (cycleBlock: Block, specs: HafuhafuSpecs): ContourPiece<PitchDurationGain> => {
-        const cellCount: Cardinal = totalElements(cycleBlock)
+const computePiece: (cycleKernel: Kernel, specs: HafuhafuSpecs) => ContourPiece<PitchDurationGain> =
+    (cycleKernel: Kernel, specs: HafuhafuSpecs): ContourPiece<PitchDurationGain> => {
+        const cellCount: Cardinal = totalElements(cycleKernel)
         const piece: ContourPiece<PitchDurationGain> = to.ContourPiece<PitchDurationGain>([])
 
         for (
@@ -60,7 +60,7 @@ const computePiece: (cycleBlock: Block, specs: HafuhafuSpecs) => ContourPiece<Pi
         ) {
             const contourElement: ContourElement<PitchDurationGain> = computeContourElement({
                 cellCount,
-                cycleBlock,
+                cycleKernel,
                 pieceIndex,
                 specs,
             })

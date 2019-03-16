@@ -3,10 +3,10 @@ import { isEven } from '@musical-patterns/utilities'
 import { HafuhafuSpecs } from './types'
 
 const computeValidations: ComputeValidations<HafuhafuSpecs> =
-    ({ block }: HafuhafuSpecs): Validations<HafuhafuSpecs> => {
-        if (isEven(block.length)) {
+    ({ kernel }: HafuhafuSpecs): Validations<HafuhafuSpecs> => {
+        if (isEven(kernel.length)) {
             return {
-                block: 'The block must have an odd length for this pattern to work.',
+                kernel: 'The kernel must have an odd length for this pattern to work.',
             }
         }
 

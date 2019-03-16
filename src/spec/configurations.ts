@@ -4,16 +4,6 @@ import { DeletionStyle, HafuhafuConfigurations } from './types'
 
 const configurations: HafuhafuConfigurations = {
     ...standardConfigurations,
-    block: {
-        constraint: {
-            min: 0,
-        },
-        description: 'a pattern of pitches to cycle (use 0 for a rest)',
-        hideInput: RangedInputType.RANGE,
-        inputType: InputType.RANGED,
-        isArrayed: true,
-        order: 1,
-    },
     deletionStyle: {
         constraint: [
             {
@@ -40,6 +30,16 @@ const configurations: HafuhafuConfigurations = {
         inputType: InputType.RANGED,
         order: 2,
         units: Units.BARS,
+    },
+    kernel: {
+        constraint: {
+            min: 0,
+        },
+        description: 'a pattern of pitches to cycle (use 0 for a rest)',
+        hideInput: RangedInputType.RANGE,
+        inputType: InputType.RANGED,
+        isArrayed: true,
+        order: 1,
     },
     pitchStep: {
         description: 'the resolution you write your melody in',

@@ -3,7 +3,6 @@
 import { PitchDurationGain } from '@musical-patterns/pattern'
 import {
     apply,
-    Block,
     Cardinal,
     ContourPiece,
     floor,
@@ -17,35 +16,42 @@ import {
     to,
     totalElements,
 } from '@musical-patterns/utilities'
-import { computePiece, DeletionStyle, HafuhafuSpecs, initialSpecs } from '../../../src/indexForTest'
+import {
+    computePiece,
+    DeletionStyle,
+    HafuhafuSpecs,
+    initialSpecs,
+    Kernel,
+    to as hafuhafuTo,
+} from '../../../src/indexForTest'
 
 describe('pieces', () => {
     let piece: ContourPiece<PitchDurationGain> = to.ContourPiece<PitchDurationGain>([])
     let expectedNotesCount: Cardinal = to.Cardinal(0)
-    const TEST_ITERATION_LENGTH: Cardinal = to.Cardinal(floor(random(32)))
+    const ITERATION_LENGTH_FOR_TEST: Cardinal = to.Cardinal(floor(random(32)))
 
-    const testBlocks: Block[] = [
+    const exampleKernels: Kernel[] = [
         [ 1, 2, 1, 1, 2 ],
         [ 1, 1, 1, 2, 1, 1, 2 ],
         [ 1, 1, 1, 1, 1, 1, 2, 2, 2 ],
-    ].map(to.Block)
+    ].map(hafuhafuTo.Kernel)
 
     const specs: HafuhafuSpecs = {
         ...initialSpecs,
         deletionStyle: DeletionStyle.FADE,
-        iterationLength: TEST_ITERATION_LENGTH,
+        iterationLength: ITERATION_LENGTH_FOR_TEST,
         reversed: false,
     }
 
-    testBlocks.forEach((testBlock: Block): void => {
-        describe(`block ${testBlock}`, () => {
+    exampleKernels.forEach((exampleKernel: Kernel): void => {
+        describe(`example kernel ${exampleKernel}`, () => {
             beforeEach(() => {
-                piece = computePiece(testBlock, specs)
-                const cellCount: Cardinal = totalElements(testBlock)
-                expectedNotesCount = product(cellCount, TEST_ITERATION_LENGTH)
+                piece = computePiece(exampleKernel, specs)
+                const cellCount: Cardinal = totalElements(exampleKernel)
+                expectedNotesCount = product(cellCount, ITERATION_LENGTH_FOR_TEST)
             })
 
-            it('returns a series of x notes, where x is the length of the block times the count of bars', () => {
+            it('returns a series of x notes, where x is the length of the kernel times the count of bars', () => {
                 expect(to.Cardinal(piece.length))
                     .toBe(expectedNotesCount)
             })
