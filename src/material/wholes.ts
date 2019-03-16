@@ -9,7 +9,7 @@ const computeWhole: (cycle: Cycle<Block>, specs: HafuhafuSpecs) => ContourWhole<
             (cycleBlock: Block): ContourPiece<PitchDurationGain> =>
                 computePiece(cycleBlock, specs))
 
-        return to.ContourWhole<PitchDurationGain>(sequence(iterations))
+        return to.ContourWhole<PitchDurationGain>(sequence(...iterations))
     }
 
 export {
