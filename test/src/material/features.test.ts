@@ -1,7 +1,7 @@
 // tslint:disable no-duplicate-string
 
 import { Note, NoteFeature } from '@musical-patterns/compiler'
-import { PitchDurationGain } from '@musical-patterns/pattern'
+import { PitchDurationGainSustain } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
 import { computeNote } from '../../../src/indexForTest'
 
@@ -9,7 +9,7 @@ describe('features', () => {
     describe('example one', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(to.ContourElement<PitchDurationGain>([ 3, 0.5, 2 ]))
+            note = computeNote(to.ContourElement<PitchDurationGainSustain>([ 3, 0.5, 2, 0.5 ]))
         })
 
         describe('duration', () => {
@@ -62,7 +62,7 @@ describe('features', () => {
     describe('example two', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(to.ContourElement<PitchDurationGain>([ 4, 0.25, 1.5 ]))
+            note = computeNote(to.ContourElement<PitchDurationGainSustain>([ 4, 0.25, 1.5, 0.25 ]))
         })
 
         describe('duration', () => {
@@ -115,7 +115,7 @@ describe('features', () => {
     describe('example - rest', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(to.ContourElement<PitchDurationGain>([ 0, 0.5, 2 ]))
+            note = computeNote(to.ContourElement<PitchDurationGainSustain>([ 0, 0.5, 2 ]))
         })
 
         describe('duration', () => {

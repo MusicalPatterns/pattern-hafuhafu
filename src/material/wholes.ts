@@ -1,18 +1,19 @@
-import { PitchDurationGain } from '@musical-patterns/pattern'
+import { PitchDurationGainSustain } from '@musical-patterns/pattern'
 import { ContourPiece, ContourWhole, Cycle, sequence, to } from '@musical-patterns/utilities'
 import { Kernel } from '../nominals'
 import { HafuhafuSpecs } from '../spec'
-import { computePiece } from './pieces'
+import { computeKernelIteration } from './pieces'
 
-const computeWhole: (kernelCycle: Cycle<Kernel>, specs: HafuhafuSpecs) => ContourWhole<PitchDurationGain> =
-    (kernelCycle: Cycle<Kernel>, specs: HafuhafuSpecs): ContourWhole<PitchDurationGain> => {
-        const iterations: Array<ContourPiece<PitchDurationGain>> = kernelCycle.map(
-            (kernel: Kernel): ContourPiece<PitchDurationGain> =>
-                computePiece(kernel, specs))
+const computeKernelIterations:
+    (kernelCycle: Cycle<Kernel>, specs: HafuhafuSpecs) => ContourWhole<PitchDurationGainSustain> =
+    (kernelCycle: Cycle<Kernel>, specs: HafuhafuSpecs): ContourWhole<PitchDurationGainSustain> => {
+        const kernelIterations: Array<ContourPiece<PitchDurationGainSustain>> = kernelCycle.map(
+            (cycleKernel: Kernel): ContourPiece<PitchDurationGainSustain> =>
+                computeKernelIteration(cycleKernel, specs))
 
-        return to.ContourWhole<PitchDurationGain>(sequence(...iterations))
+        return to.ContourWhole<PitchDurationGainSustain>(sequence(...kernelIterations))
     }
 
 export {
-    computeWhole,
+    computeKernelIterations,
 }

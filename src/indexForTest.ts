@@ -7,16 +7,27 @@ export {
     materializeScales,
     computeKernelCycle,
     computeScalars,
-    computePiece,
+    computeKernelIteration,
+    computeKernelIterationIndexProgress,
+    computeKernelIterationElementDuration,
+    computeKernelIterationElementSustain,
+    computeKernelIterationElementPitch,
+    computeKernelIterationTotalIndices,
+    computeKernelIterations,
+    computeKernelIterationElementGain,
+    computeRandomDropGain,
+    computeKernelIterationDurationProgress,
+    computeKernelIterationTotalDuration,
 } from './material/indexForTest'
 export {
     initialSpecs,
     DeletionStyle,
+    HafuhafuSpec,
     HafuhafuSpecs,
     computeValidations,
 } from './spec/indexForTest'
 export { pattern } from './patterns'
-export { to, Kernel } from './nominals'
+export { to, Kernel, Sieve } from './nominals'
 
 // tslint:disable-next-line no-default-import
 import * as snapshot from './snapshot.json'

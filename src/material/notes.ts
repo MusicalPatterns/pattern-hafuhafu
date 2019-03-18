@@ -3,11 +3,11 @@ import { Cycle } from '@musical-patterns/utilities'
 import { Kernel } from '../nominals'
 import { HafuhafuSpecs } from '../spec'
 import { computeNote } from './features'
-import { computeWhole } from './wholes'
+import { computeKernelIterations } from './wholes'
 
 const computeNotes: (kernelCycle: Cycle<Kernel>, specs: HafuhafuSpecs) => Note[] =
     (kernelCycle: Cycle<Kernel>, specs: HafuhafuSpecs): Note[] =>
-        computeWhole(kernelCycle, specs)
+        computeKernelIterations(kernelCycle, specs)
             .map(computeNote)
 
 export {

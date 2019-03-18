@@ -14,7 +14,7 @@
       },
       {
         "duration": 346.98058,
-        "gain": 0.98275,
+        "gain": 0.96564,
         "frequency": 200,
         "position": [
           0,
@@ -36,7 +36,7 @@
       },
       {
         "duration": 341.01966,
-        "gain": 0.94868,
+        "gain": 0.93187,
         "frequency": 100,
         "position": [
           0,
@@ -58,7 +58,7 @@
       },
       {
         "duration": 335.16115,
-        "gain": 0.91521,
+        "gain": 0.89868,
         "frequency": 100,
         "position": [
           0,
@@ -80,7 +80,7 @@
       },
       {
         "duration": 329.40328,
-        "gain": 0.8823,
+        "gain": 0.86607,
         "frequency": 100,
         "position": [
           0,
@@ -102,7 +102,7 @@
       },
       {
         "duration": 323.74433,
-        "gain": 0.84997,
+        "gain": 0.83401,
         "frequency": 200,
         "position": [
           0,
@@ -124,7 +124,7 @@
       },
       {
         "duration": 318.1826,
-        "gain": 0.81819,
+        "gain": 0.8025,
         "frequency": 200,
         "position": [
           0,
@@ -146,7 +146,7 @@
       },
       {
         "duration": 312.71641,
-        "gain": 0.78695,
+        "gain": 0.77154,
         "frequency": 100,
         "position": [
           0,
@@ -168,7 +168,7 @@
       },
       {
         "duration": 307.34413,
-        "gain": 0.75625,
+        "gain": 0.7411,
         "frequency": 100,
         "position": [
           0,
@@ -190,7 +190,7 @@
       },
       {
         "duration": 302.06414,
-        "gain": 0.72608,
+        "gain": 0.71119,
         "frequency": 100,
         "position": [
           0,
@@ -212,7 +212,7 @@
       },
       {
         "duration": 296.87486,
-        "gain": 0.69643,
+        "gain": 0.68179,
         "frequency": 200,
         "position": [
           0,
@@ -234,7 +234,7 @@
       },
       {
         "duration": 291.77473,
-        "gain": 0.66728,
+        "gain": 0.6529,
         "frequency": 200,
         "position": [
           0,
@@ -256,7 +256,7 @@
       },
       {
         "duration": 286.76221,
-        "gain": 0.63864,
+        "gain": 0.6245,
         "frequency": 100,
         "position": [
           0,
@@ -278,7 +278,7 @@
       },
       {
         "duration": 281.83581,
-        "gain": 0.61049,
+        "gain": 0.5966,
         "frequency": 100,
         "position": [
           0,
@@ -300,7 +300,7 @@
       },
       {
         "duration": 276.99404,
-        "gain": 0.58282,
+        "gain": 0.56917,
         "frequency": 100,
         "position": [
           0,
@@ -322,7 +322,7 @@
       },
       {
         "duration": 272.23545,
-        "gain": 0.55563,
+        "gain": 0.54221,
         "frequency": 200,
         "position": [
           0,
@@ -344,7 +344,7 @@
       },
       {
         "duration": 267.5586,
-        "gain": 0.52891,
+        "gain": 0.51572,
         "frequency": 200,
         "position": [
           0,
@@ -366,7 +366,7 @@
       },
       {
         "duration": 262.96211,
-        "gain": 0.50264,
+        "gain": 0.48968,
         "frequency": 100,
         "position": [
           0,
@@ -388,7 +388,7 @@
       },
       {
         "duration": 258.44458,
-        "gain": 0.47683,
+        "gain": 0.46409,
         "frequency": 100,
         "position": [
           0,
@@ -410,7 +410,7 @@
       },
       {
         "duration": 254.00465,
-        "gain": 0.45146,
+        "gain": 0.43893,
         "frequency": 100,
         "position": [
           0,
@@ -432,7 +432,7 @@
       },
       {
         "duration": 249.641,
-        "gain": 0.42652,
+        "gain": 0.41421,
         "frequency": 200,
         "position": [
           0,
@@ -454,7 +454,7 @@
       },
       {
         "duration": 245.35232,
-        "gain": 0.40201,
+        "gain": 0.38992,
         "frequency": 200,
         "position": [
           0,
@@ -476,7 +476,7 @@
       },
       {
         "duration": 241.13732,
-        "gain": 0.37793,
+        "gain": 0.36604,
         "frequency": 100,
         "position": [
           0,
@@ -498,7 +498,7 @@
       },
       {
         "duration": 236.99472,
-        "gain": 0.35426,
+        "gain": 0.34257,
         "frequency": 100,
         "position": [
           0,
@@ -520,7 +520,7 @@
       },
       {
         "duration": 232.92329,
-        "gain": 0.33099,
+        "gain": 0.31951,
         "frequency": 100,
         "position": [
           0,
@@ -542,7 +542,7 @@
       },
       {
         "duration": 228.92181,
-        "gain": 0.30812,
+        "gain": 0.29684,
         "frequency": 200,
         "position": [
           0,
@@ -564,7 +564,7 @@
       },
       {
         "duration": 224.98907,
-        "gain": 0.28565,
+        "gain": 0.27456,
         "frequency": 200,
         "position": [
           0,
@@ -586,7 +586,7 @@
       },
       {
         "duration": 221.12389,
-        "gain": 0.26357,
+        "gain": 0.25266,
         "frequency": 100,
         "position": [
           0,
@@ -608,7 +608,7 @@
       },
       {
         "duration": 217.32512,
-        "gain": 0.24186,
+        "gain": 0.23114,
         "frequency": 100,
         "position": [
           0,
@@ -630,7 +630,7 @@
       },
       {
         "duration": 213.5916,
-        "gain": 0.22052,
+        "gain": 0.20999,
         "frequency": 100,
         "position": [
           0,
@@ -652,7 +652,7 @@
       },
       {
         "duration": 209.92223,
-        "gain": 0.19956,
+        "gain": 0.18921,
         "frequency": 200,
         "position": [
           0,
@@ -674,7 +674,7 @@
       },
       {
         "duration": 206.31589,
-        "gain": 0.17895,
+        "gain": 0.16878,
         "frequency": 200,
         "position": [
           0,
@@ -696,7 +696,7 @@
       },
       {
         "duration": 202.7715,
-        "gain": 0.15869,
+        "gain": 0.1487,
         "frequency": 100,
         "position": [
           0,
@@ -718,7 +718,7 @@
       },
       {
         "duration": 199.28801,
-        "gain": 0.13879,
+        "gain": 0.12896,
         "frequency": 100,
         "position": [
           0,
@@ -740,7 +740,7 @@
       },
       {
         "duration": 195.86436,
-        "gain": 0.11922,
+        "gain": 0.10957,
         "frequency": 100,
         "position": [
           0,
@@ -762,7 +762,7 @@
       },
       {
         "duration": 192.49953,
-        "gain": 0.1,
+        "gain": 0.09051,
         "frequency": 200,
         "position": [
           0,
@@ -784,7 +784,7 @@
       },
       {
         "duration": 189.1925,
-        "gain": 0.0811,
+        "gain": 0.07177,
         "frequency": 200,
         "position": [
           0,
@@ -806,7 +806,7 @@
       },
       {
         "duration": 185.94229,
-        "gain": 0.06253,
+        "gain": 0.05336,
         "frequency": 100,
         "position": [
           0,
@@ -828,7 +828,7 @@
       },
       {
         "duration": 182.74791,
-        "gain": 0.04427,
+        "gain": 0.03526,
         "frequency": 100,
         "position": [
           0,
@@ -850,7 +850,7 @@
       },
       {
         "duration": 179.60841,
-        "gain": 0.02633,
+        "gain": 0.01748,
         "frequency": 100,
         "position": [
           0,
@@ -872,7 +872,7 @@
       },
       {
         "duration": 176.52285,
-        "gain": 0.0087,
+        "gain": 0,
         "frequency": 200,
         "position": [
           0,
@@ -894,7 +894,7 @@
       },
       {
         "duration": 346.98058,
-        "gain": 0.98275,
+        "gain": 0.96564,
         "frequency": 100,
         "position": [
           0,
@@ -916,7 +916,7 @@
       },
       {
         "duration": 341.01966,
-        "gain": 0.94868,
+        "gain": 0.93187,
         "frequency": 200,
         "position": [
           0,
@@ -938,7 +938,7 @@
       },
       {
         "duration": 335.16115,
-        "gain": 0.91521,
+        "gain": 0.89868,
         "frequency": 100,
         "position": [
           0,
@@ -960,7 +960,7 @@
       },
       {
         "duration": 329.40328,
-        "gain": 0.8823,
+        "gain": 0.86607,
         "frequency": 200,
         "position": [
           0,
@@ -982,7 +982,7 @@
       },
       {
         "duration": 323.74433,
-        "gain": 0.84997,
+        "gain": 0.83401,
         "frequency": 100,
         "position": [
           0,
@@ -1004,7 +1004,7 @@
       },
       {
         "duration": 318.1826,
-        "gain": 0.81819,
+        "gain": 0.8025,
         "frequency": 100,
         "position": [
           0,
@@ -1026,7 +1026,7 @@
       },
       {
         "duration": 312.71641,
-        "gain": 0.78695,
+        "gain": 0.77154,
         "frequency": 200,
         "position": [
           0,
@@ -1048,7 +1048,7 @@
       },
       {
         "duration": 307.34413,
-        "gain": 0.75625,
+        "gain": 0.7411,
         "frequency": 100,
         "position": [
           0,
@@ -1070,7 +1070,7 @@
       },
       {
         "duration": 302.06414,
-        "gain": 0.72608,
+        "gain": 0.71119,
         "frequency": 200,
         "position": [
           0,
@@ -1092,7 +1092,7 @@
       },
       {
         "duration": 296.87486,
-        "gain": 0.69643,
+        "gain": 0.68179,
         "frequency": 100,
         "position": [
           0,
@@ -1114,7 +1114,7 @@
       },
       {
         "duration": 291.77473,
-        "gain": 0.66728,
+        "gain": 0.6529,
         "frequency": 100,
         "position": [
           0,
@@ -1136,7 +1136,7 @@
       },
       {
         "duration": 286.76221,
-        "gain": 0.63864,
+        "gain": 0.6245,
         "frequency": 200,
         "position": [
           0,
@@ -1158,7 +1158,7 @@
       },
       {
         "duration": 281.83581,
-        "gain": 0.61049,
+        "gain": 0.5966,
         "frequency": 100,
         "position": [
           0,
@@ -1180,7 +1180,7 @@
       },
       {
         "duration": 276.99404,
-        "gain": 0.58282,
+        "gain": 0.56917,
         "frequency": 200,
         "position": [
           0,
@@ -1202,7 +1202,7 @@
       },
       {
         "duration": 272.23545,
-        "gain": 0.55563,
+        "gain": 0.54221,
         "frequency": 100,
         "position": [
           0,
@@ -1224,7 +1224,7 @@
       },
       {
         "duration": 267.5586,
-        "gain": 0.52891,
+        "gain": 0.51572,
         "frequency": 100,
         "position": [
           0,
@@ -1246,7 +1246,7 @@
       },
       {
         "duration": 262.96211,
-        "gain": 0.50264,
+        "gain": 0.48968,
         "frequency": 200,
         "position": [
           0,
@@ -1268,7 +1268,7 @@
       },
       {
         "duration": 258.44458,
-        "gain": 0.47683,
+        "gain": 0.46409,
         "frequency": 100,
         "position": [
           0,
@@ -1290,7 +1290,7 @@
       },
       {
         "duration": 254.00465,
-        "gain": 0.45146,
+        "gain": 0.43893,
         "frequency": 200,
         "position": [
           0,
@@ -1312,7 +1312,7 @@
       },
       {
         "duration": 249.641,
-        "gain": 0.42652,
+        "gain": 0.41421,
         "frequency": 100,
         "position": [
           0,
@@ -1334,7 +1334,7 @@
       },
       {
         "duration": 245.35232,
-        "gain": 0.40201,
+        "gain": 0.38992,
         "frequency": 100,
         "position": [
           0,
@@ -1356,7 +1356,7 @@
       },
       {
         "duration": 241.13732,
-        "gain": 0.37793,
+        "gain": 0.36604,
         "frequency": 200,
         "position": [
           0,
@@ -1378,7 +1378,7 @@
       },
       {
         "duration": 236.99472,
-        "gain": 0.35426,
+        "gain": 0.34257,
         "frequency": 100,
         "position": [
           0,
@@ -1400,7 +1400,7 @@
       },
       {
         "duration": 232.92329,
-        "gain": 0.33099,
+        "gain": 0.31951,
         "frequency": 200,
         "position": [
           0,
@@ -1422,7 +1422,7 @@
       },
       {
         "duration": 228.92181,
-        "gain": 0.30812,
+        "gain": 0.29684,
         "frequency": 100,
         "position": [
           0,
@@ -1444,7 +1444,7 @@
       },
       {
         "duration": 224.98907,
-        "gain": 0.28565,
+        "gain": 0.27456,
         "frequency": 100,
         "position": [
           0,
@@ -1466,7 +1466,7 @@
       },
       {
         "duration": 221.12389,
-        "gain": 0.26357,
+        "gain": 0.25266,
         "frequency": 200,
         "position": [
           0,
@@ -1488,7 +1488,7 @@
       },
       {
         "duration": 217.32512,
-        "gain": 0.24186,
+        "gain": 0.23114,
         "frequency": 100,
         "position": [
           0,
@@ -1510,7 +1510,7 @@
       },
       {
         "duration": 213.5916,
-        "gain": 0.22052,
+        "gain": 0.20999,
         "frequency": 200,
         "position": [
           0,
@@ -1532,7 +1532,7 @@
       },
       {
         "duration": 209.92223,
-        "gain": 0.19956,
+        "gain": 0.18921,
         "frequency": 100,
         "position": [
           0,
@@ -1554,7 +1554,7 @@
       },
       {
         "duration": 206.31589,
-        "gain": 0.17895,
+        "gain": 0.16878,
         "frequency": 100,
         "position": [
           0,
@@ -1576,7 +1576,7 @@
       },
       {
         "duration": 202.7715,
-        "gain": 0.15869,
+        "gain": 0.1487,
         "frequency": 200,
         "position": [
           0,
@@ -1598,7 +1598,7 @@
       },
       {
         "duration": 199.28801,
-        "gain": 0.13879,
+        "gain": 0.12896,
         "frequency": 100,
         "position": [
           0,
@@ -1620,7 +1620,7 @@
       },
       {
         "duration": 195.86436,
-        "gain": 0.11922,
+        "gain": 0.10957,
         "frequency": 200,
         "position": [
           0,
@@ -1642,7 +1642,7 @@
       },
       {
         "duration": 192.49953,
-        "gain": 0.1,
+        "gain": 0.09051,
         "frequency": 100,
         "position": [
           0,
@@ -1664,7 +1664,7 @@
       },
       {
         "duration": 189.1925,
-        "gain": 0.0811,
+        "gain": 0.07177,
         "frequency": 100,
         "position": [
           0,
@@ -1686,7 +1686,7 @@
       },
       {
         "duration": 185.94229,
-        "gain": 0.06253,
+        "gain": 0.05336,
         "frequency": 200,
         "position": [
           0,
@@ -1708,7 +1708,7 @@
       },
       {
         "duration": 182.74791,
-        "gain": 0.04427,
+        "gain": 0.03526,
         "frequency": 100,
         "position": [
           0,
@@ -1730,7 +1730,7 @@
       },
       {
         "duration": 179.60841,
-        "gain": 0.02633,
+        "gain": 0.01748,
         "frequency": 200,
         "position": [
           0,
@@ -1752,7 +1752,7 @@
       },
       {
         "duration": 176.52285,
-        "gain": 0.0087,
+        "gain": 0,
         "frequency": 100,
         "position": [
           0,

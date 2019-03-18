@@ -1,4 +1,17 @@
 // tslint:disable no-reaching-imports
 
-export { computeNextKernel } from './nextKernel'
-export { computeKernelCycle } from './kernelCycle'
+export {
+    computeNextKernel,
+    computeKernelCycle,
+} from './kernelCycle/indexForTest'
+export {
+    computeKernelIterationElementDuration,
+    computeKernelIterationElementSustain,
+    computeKernelIterationIndexProgress,
+    computeKernelIterationElementPitch,
+    computeKernelIterationTotalIndices,
+    computeKernelIterationElementGain,
+    computeRandomDropGain,
+    computeKernelIterationDurationProgress,
+    computeKernelIterationTotalDuration,
+} from './kernelIteration/indexForTest'

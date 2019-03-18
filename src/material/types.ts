@@ -1,14 +1,17 @@
-import { Cardinal, Ordinal } from '@musical-patterns/utilities'
-import { Kernel } from '../nominals'
-import { HafuhafuSpecs } from '../spec'
+import { Cardinal, NormalScalar, Ordinal } from '@musical-patterns/utilities'
+import { Kernel, Sieve } from '../nominals'
+import { DeletionStyle } from '../spec'
 
-interface ComputeContourElementParameters {
-    cellCount: Cardinal,
+interface ComputeElementParameters {
     cycleKernel: Kernel,
-    pieceIndex: Ordinal,
-    specs: HafuhafuSpecs,
+    deletionStyle: DeletionStyle,
+    kernelIterationDurationProgress: NormalScalar,
+    kernelIterationElementIndex: Ordinal,
+    reversed: boolean,
+    sieve: Sieve,
+    sieveCycleRepetitions: Cardinal,
 }
 
 export {
-    ComputeContourElementParameters,
+    ComputeElementParameters,
 }

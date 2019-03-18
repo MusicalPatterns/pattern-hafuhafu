@@ -5,5 +5,6 @@ export { computeValidations } from './validations'
 
 export {
     DeletionStyle,
+    HafuhafuSpec,
     HafuhafuSpecs,
 } from './types'

@@ -1,10 +1,11 @@
 import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/pattern'
 import { Units } from '@musical-patterns/utilities'
-import { DeletionStyle, HafuhafuConfigurations } from './types'
+import { specsOrder } from './orders'
+import { DeletionStyle, HafuhafuConfigurations, HafuhafuSpec } from './types'
 
 const configurations: HafuhafuConfigurations = {
     ...standardConfigurations,
-    deletionStyle: {
+    [ HafuhafuSpec.DELETION_STYLE ]: {
         constraint: [
             {
                 formattedName: 'fade',
@@ -18,38 +19,50 @@ const configurations: HafuhafuConfigurations = {
             },
         ],
         inputType: InputType.OPTIONED,
-        order: 3,
+        order: specsOrder.indexOf(HafuhafuSpec.DELETION_STYLE),
     },
-    iterationLength: {
+    [ HafuhafuSpec.SIEVE_CYCLE_REPETITIONS ]: {
         constraint: {
             integer: true,
-            min: 2,
+            min: 1,
         },
-        description: 'count of bars it takes for half the notes to have faded out and the tempo to have doubled',
+        description: `count of times it will repeat the sieve cycle over the kernel until \
+it has completely sieved the notes its going to and the tempo has increased by the corresponding amount`,
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,
-        order: 2,
+        order: specsOrder.indexOf(HafuhafuSpec.SIEVE_CYCLE_REPETITIONS),
         units: Units.BARS,
     },
-    kernel: {
+    [ HafuhafuSpec.KERNEL ]: {
         constraint: {
+            integer: true,
             min: 0,
         },
         description: 'a pattern of pitches to cycle (use 0 for a rest)',
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,
         isArrayed: true,
-        order: 1,
+        order: specsOrder.indexOf(HafuhafuSpec.KERNEL),
     },
-    pitchStep: {
+    [ HafuhafuSpec.PITCH_STEP ]: {
         description: 'the resolution you write your melody in',
         inputType: InputType.RANGED,
-        order: 4,
+        order: specsOrder.indexOf(HafuhafuSpec.PITCH_STEP),
     },
-    reversed: {
+    [ HafuhafuSpec.REVERSED ]: {
         description: 'instead fade in notes as they slow down to half the original speed',
         inputType: InputType.TOGGLED,
-        order: 5,
+        order: specsOrder.indexOf(HafuhafuSpec.REVERSED),
+    },
+    [ HafuhafuSpec.SIEVE ]: {
+        constraint: {
+            integer: true,
+            min: 2,
+        },
+        description: 'how many notes to skip when you transform from one kernel into the next',
+        hideInput: RangedInputType.RANGE,
+        inputType: InputType.RANGED,
+        order: specsOrder.indexOf(HafuhafuSpec.SIEVE),
     },
 }
 

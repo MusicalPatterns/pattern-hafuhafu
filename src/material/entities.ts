@@ -7,18 +7,14 @@ import { computeNotes } from './notes'
 
 const materializeEntities: MaterializeEntities =
     (specs: HafuhafuSpecs): Entity[] => {
-        const sourceKernel: Kernel = specs.kernel
-
-        const kernelCycle: Cycle<Kernel> = computeKernelCycle(sourceKernel)
+        const kernelCycle: Cycle<Kernel> = computeKernelCycle(specs.kernel, specs.sieve)
         const notes: Note[] = computeNotes(kernelCycle, specs)
 
-        const entity: Entity = {
-            notes,
-            timbreName: TimbreNameEnum.WURLITZER,
-        }
-
         return [
-            entity,
+            {
+                notes,
+                timbreName: TimbreNameEnum.WURLITZER,
+            },
         ]
     }
 
