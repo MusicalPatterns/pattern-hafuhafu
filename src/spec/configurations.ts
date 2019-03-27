@@ -1,68 +1,69 @@
 import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/pattern'
-import { Units } from '@musical-patterns/utilities'
+import { optionedConstraints, rangedConstraints } from './constraints'
 import { specsOrder } from './orders'
-import { DeletionStyle, HafuhafuConfigurations, HafuhafuSpec } from './types'
+import { HafuhafuConfigurations, HafuhafuSpec } from './types'
 
 const configurations: HafuhafuConfigurations = {
     ...standardConfigurations,
-    [ HafuhafuSpec.DELETION_STYLE ]: {
-        constraint: [
-            {
-                formattedName: 'fade',
-                order: 1,
-                value: DeletionStyle.FADE,
-            },
-            {
-                formattedName: 'random drop',
-                order: 2,
-                value: DeletionStyle.RANDOM_DROP,
-            },
-        ],
+    [ HafuhafuSpec.EXISTENCE_STYLE ]: {
+        constraint: optionedConstraints[ HafuhafuSpec.EXISTENCE_STYLE ],
         inputType: InputType.OPTIONED,
-        order: specsOrder.indexOf(HafuhafuSpec.DELETION_STYLE),
+        order: specsOrder.indexOf(HafuhafuSpec.EXISTENCE_STYLE),
     },
-    [ HafuhafuSpec.SIEVE_CYCLE_REPETITIONS ]: {
-        constraint: {
-            integer: true,
-            min: 1,
-        },
-        description: `count of times it will repeat the sieve cycle over the kernel until \
-it has completely sieved the notes its going to and the tempo has increased by the corresponding amount`,
+    [ HafuhafuSpec.MODE ]: {
+        constraint: optionedConstraints[ HafuhafuSpec.MODE ],
+        inputType: InputType.OPTIONED,
+        order: specsOrder.indexOf(HafuhafuSpec.MODE),
+    },
+    [ HafuhafuSpec.SIEVE_FRACTAL_REPETITIONS ]: {
+        constraint: rangedConstraints[ HafuhafuSpec.SIEVE_FRACTAL_REPETITIONS ],
+        description: `over the course of each iteration, each layer gradually transforms so that it seamlessly seems \
+to become the layer one index off in the next iteration; for layers to accomplish this, the iterations must be in \
+multiples of sieves, though that number of repetitions is arbitrary, simply determining how long it takes for an \
+iteration to complete`,
+        formattedName: 'Sieve Repetitions',
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,
-        order: specsOrder.indexOf(HafuhafuSpec.SIEVE_CYCLE_REPETITIONS),
-        units: Units.BARS,
+        order: specsOrder.indexOf(HafuhafuSpec.SIEVE_FRACTAL_REPETITIONS),
     },
-    [ HafuhafuSpec.KERNEL ]: {
-        constraint: {
-            integer: true,
-            min: 0,
-        },
-        description: 'a pattern of pitches to cycle (use 0 for a rest)',
+    [ HafuhafuSpec.SOURCE_KERNEL ]: {
+        constraint: rangedConstraints[ HafuhafuSpec.SOURCE_KERNEL ],
+        description: 'a pattern of pitches to cycle (use -1 for a rest)',
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,
         isArrayed: true,
-        order: specsOrder.indexOf(HafuhafuSpec.KERNEL),
+        order: specsOrder.indexOf(HafuhafuSpec.SOURCE_KERNEL),
     },
     [ HafuhafuSpec.PITCH_STEP ]: {
-        description: 'the resolution you write your melody in',
+        description: 'the pitch resolution you write your melody in',
         inputType: InputType.RANGED,
         order: specsOrder.indexOf(HafuhafuSpec.PITCH_STEP),
     },
-    [ HafuhafuSpec.REVERSED ]: {
-        description: 'instead fade in notes as they slow down to half the original speed',
+    [ HafuhafuSpec.REVERSE ]: {
+        description: 'the pattern infinitely slows down instead of infinitely speeding up',
         inputType: InputType.TOGGLED,
-        order: specsOrder.indexOf(HafuhafuSpec.REVERSED),
+        order: specsOrder.indexOf(HafuhafuSpec.REVERSE),
     },
     [ HafuhafuSpec.SIEVE ]: {
-        constraint: {
-            integer: true,
-            min: 2,
-        },
-        description: 'how many notes to skip when you transform from one kernel into the next',
+        constraint: rangedConstraints[ HafuhafuSpec.SIEVE ],
+        description: 'span many notes to drop as you transform from one kernel into the next',
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,
         order: specsOrder.indexOf(HafuhafuSpec.SIEVE),
+    },
+    [ HafuhafuSpec.LAYER_COUNT ]: {
+        constraint: rangedConstraints[ HafuhafuSpec.LAYER_COUNT ],
+        description: `how many layers of speeds / gains / pitches to have present simultaneously; \
+essentially fractalizes the sieve`,
+        formattedName: 'Layers',
+        hideInput: RangedInputType.RANGE,
+        inputType: InputType.RANGED,
+        order: specsOrder.indexOf(HafuhafuSpec.LAYER_COUNT),
+    },
+    [ HafuhafuSpec.STRETCH_PITCH ]: {
+        description: 'whether or not a pitch stretch proportional to duration is applied, differentiating layers',
+        inputType: InputType.TOGGLED,
+        order: specsOrder.indexOf(HafuhafuSpec.STRETCH_PITCH),
     },
 }
 

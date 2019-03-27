@@ -8,9 +8,9 @@ describe('scalars', () => {
             pitchStep: to.Base(3),
         }
 
-        const actualScalars: Scalar[] = computeScalars(specs)
+        const scalars: Scalar[] = computeScalars(specs)
 
-        testArraysAreCloseSoFar(actualScalars, [
+        testArraysAreCloseSoFar(scalars, [
             1,
             3,
             9,

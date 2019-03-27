@@ -4,7 +4,8 @@ export { initialSpecs } from './initials'
 export { computeValidations } from './validations'
 
 export {
-    DeletionStyle,
+    ExistenceStyle,
     HafuhafuSpec,
     HafuhafuSpecs,
+    HafuhafuMode,
 } from './types'

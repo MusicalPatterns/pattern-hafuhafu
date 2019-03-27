@@ -1,72 +1,59 @@
-import { PitchDurationGainSustain } from '@musical-patterns/pattern'
+import { PitchDurationGainSustainScale } from '@musical-patterns/pattern'
 import {
+    Block,
+    Cardinal,
     ContourPiece,
     from,
     INITIAL,
     NormalScalar,
     Ordinal,
-    Scalar,
     slice,
-    Time,
     to,
-    zeroAndPositiveIntegers,
 } from '@musical-patterns/utilities'
-import { Kernel } from '../nominals'
 import { HafuhafuSpecs } from '../spec'
 import {
-    computeKernelIterationDurationProgress,
-    computeKernelIterationTotalDuration,
-    computeKernelIterationTotalIndices,
+    computeElement,
+    computeLayerIndices,
+    computeLayersProgresses,
+    computeTotalIndices,
+    zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
 } from './custom'
-import { computeKernelIterationElement } from './elements'
 
-const computeKernelIteration: (cycleKernel: Kernel, specs: HafuhafuSpecs) => ContourPiece<PitchDurationGainSustain> =
-    (cycleKernel: Kernel, specs: HafuhafuSpecs): ContourPiece<PitchDurationGainSustain> => {
-        const { deletionStyle, sieveCycleRepetitions, reversed, sieve } = specs
+const computePieces:
+    (iterationKernel: Block, specs: HafuhafuSpecs) => ContourPiece<PitchDurationGainSustainScale> =
+    (iterationKernel: Block, specs: HafuhafuSpecs): ContourPiece<PitchDurationGainSustainScale> => {
+        const { existenceStyle, layerCount, mode, reverse, sieve, sieveFractalRepetitions, stretchPitch } = specs
 
-        const kernelIterationTotalDuration: Scalar<Time> = computeKernelIterationTotalDuration({
-            cycleKernel,
-            reversed,
-            sieve,
-            sieveCycleRepetitions,
-        })
-        let kernelIterationDurationProgress: NormalScalar = to.NormalScalar(0)
+        const totalIndices: Cardinal = computeTotalIndices({ layerCount, mode, sieve, sieveFractalRepetitions })
+        const layerIndices: Ordinal[] = computeLayerIndices({ layerCount, mode, reverse, sieve, totalIndices })
+        const layersProgresses: NormalScalar[][] =
+            computeLayersProgresses({ layerCount, mode, reverse, sieve, totalIndices })
 
-        return to.ContourPiece<PitchDurationGainSustain>(
+        return to.ContourPiece<PitchDurationGainSustainScale>(
             slice(
-                zeroAndPositiveIntegers,
+                zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
                 INITIAL,
-                to.Ordinal(from.Cardinal(computeKernelIterationTotalIndices({
-                    cycleKernel,
-                    sieve,
-                    sieveCycleRepetitions,
-                }))),
+                to.Ordinal(from.Cardinal(totalIndices)),
             )
                 .map(to.Ordinal)
-                .map((kernelIterationElementIndex: Ordinal) => {
-                    kernelIterationDurationProgress = computeKernelIterationDurationProgress({
-                        cycleKernel,
-                        kernelIterationDurationProgress,
-                        kernelIterationElementIndex,
-                        kernelIterationTotalDuration,
-                        reversed,
+                .map((iterationIndex: Ordinal) =>
+                    computeElement({
+                        existenceStyle,
+                        iterationIndex,
+                        iterationKernel,
+                        layerCount,
+                        layerIndices,
+                        layersProgresses,
+                        mode,
+                        reverse,
                         sieve,
-                        sieveCycleRepetitions,
-                    })
-
-                    return computeKernelIterationElement({
-                        cycleKernel,
-                        deletionStyle,
-                        kernelIterationDurationProgress,
-                        kernelIterationElementIndex,
-                        reversed,
-                        sieve,
-                        sieveCycleRepetitions,
-                    })
-                }),
+                        stretchPitch,
+                        totalIndices,
+                    }),
+                ),
         )
     }
 
 export {
-    computeKernelIteration,
+    computePieces,
 }

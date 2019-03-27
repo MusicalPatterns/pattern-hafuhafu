@@ -1,7 +1,7 @@
 // tslint:disable no-duplicate-string
 
 import { Note, NoteFeature } from '@musical-patterns/compiler'
-import { PitchDurationGainSustain } from '@musical-patterns/pattern'
+import { PitchDurationGainSustainScale } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
 import { computeNote } from '../../../src/indexForTest'
 
@@ -9,7 +9,7 @@ describe('features', () => {
     describe('example one', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(to.ContourElement<PitchDurationGainSustain>([ 3, 0.5, 2, 0.5 ]))
+            note = computeNote(to.ContourElement<PitchDurationGainSustainScale>([ 3, 0.5, 2, 0.5, 0.333 ]))
         })
 
         describe('duration', () => {
@@ -52,9 +52,14 @@ describe('features', () => {
                     .toBe(to.Ordinal(2))
             })
 
-            it('uses the pitch parameter, translated by one, as the index', () => {
+            it('uses the pitch parameter', () => {
                 expect(pitch.index)
-                    .toBe(to.Ordinal(2))
+                    .toBe(to.Ordinal(3))
+            })
+
+            it('uses (abuses?) the scale element as a delivery mechanism for a second pitch-related amount - its scalar', () => {
+                expect(pitch.scalar)
+                    .toBe(to.Scalar(0.333))
             })
         })
     })
@@ -62,7 +67,7 @@ describe('features', () => {
     describe('example two', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(to.ContourElement<PitchDurationGainSustain>([ 4, 0.25, 1.5, 0.25 ]))
+            note = computeNote(to.ContourElement<PitchDurationGainSustainScale>([ 4, 0.25, 1.5, 0.25, 0.666 ]))
         })
 
         describe('duration', () => {
@@ -94,7 +99,7 @@ describe('features', () => {
             })
         })
 
-        describe('pitch', () => {
+        describe('pitch index', () => {
             let pitch: NoteFeature
             beforeEach(() => {
                 pitch = note.pitch || {}
@@ -105,9 +110,14 @@ describe('features', () => {
                     .toBe(to.Ordinal(2))
             })
 
-            it('uses the pitch parameter, translated by one, as the index', () => {
+            it('uses the pitch parameter as the index', () => {
                 expect(pitch.index)
-                    .toBe(to.Ordinal(3))
+                    .toBe(to.Ordinal(4))
+            })
+
+            it('uses (abuses?) the scale element as a delivery mechanism for a second pitch-related amount - its scalar', () => {
+                expect(pitch.scalar)
+                    .toBe(to.Scalar(0.666))
             })
         })
     })
@@ -115,7 +125,7 @@ describe('features', () => {
     describe('example - rest', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(to.ContourElement<PitchDurationGainSustain>([ 0, 0.5, 2 ]))
+            note = computeNote(to.ContourElement<PitchDurationGainSustainScale>([ -1, 0.5, 2, 0.4, 0.7 ]))
         })
 
         describe('duration', () => {

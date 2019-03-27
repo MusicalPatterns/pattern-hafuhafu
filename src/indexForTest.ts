@@ -2,32 +2,35 @@
 
 export {
     computeNextKernel,
+    computeKernelCycle,
     computeNote,
     materializeEntities,
     materializeScales,
-    computeKernelCycle,
+    computeElementProgress,
     computeScalars,
-    computeKernelIteration,
-    computeKernelIterationIndexProgress,
-    computeKernelIterationElementDuration,
-    computeKernelIterationElementSustain,
-    computeKernelIterationElementPitch,
-    computeKernelIterationTotalIndices,
-    computeKernelIterations,
-    computeKernelIterationElementGain,
+    computePieces,
+    computeDuration,
+    computeSustain,
+    computeTotalIndices,
     computeRandomDropGain,
-    computeKernelIterationDurationProgress,
-    computeKernelIterationTotalDuration,
+    computeDurationProgress,
+    computeTotalDuration,
+    computeLayersProgresses,
+    computeLayerIndices,
+    computeSieveFractal,
+    computeWholes,
+    computePitchIndex,
 } from './material/indexForTest'
 export {
     initialSpecs,
-    DeletionStyle,
+    ExistenceStyle,
     HafuhafuSpec,
     HafuhafuSpecs,
     computeValidations,
+    HafuhafuMode,
 } from './spec/indexForTest'
 export { pattern } from './patterns'
-export { to, Kernel, Sieve } from './nominals'
+export { to, Sieve } from './nominals'
 
 // tslint:disable-next-line no-default-import
 import * as snapshot from './snapshot.json'

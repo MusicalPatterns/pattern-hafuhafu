@@ -2,5 +2,6 @@ export { spec } from './specs'
 
 export {
     HafuhafuSpecs,
-    DeletionStyle,
+    ExistenceStyle,
+    HafuhafuMode,
 } from './types'

@@ -1,13 +1,13 @@
-export {
-    computeKernelIterationElementDuration,
-    computeKernelIterationElementGain,
-    computeKernelIterationElementSustain,
-    computeKernelIterationElementPitch,
-    computeKernelIterationIndexProgress,
-    computeKernelIterationTotalIndices,
-    computeKernelIterationTotalDuration,
-    computeKernelIterationDurationProgress,
-} from './kernelIteration'
+export { zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities } from './integers'
+
 export {
     computeKernelCycle,
-} from './kernelCycle'
+    computeTotalIndices,
+} from './cycle'
+export {
+    computeElement,
+} from './element'
+export {
+    computeLayerIndices,
+    computeLayersProgresses,
+} from './layer'

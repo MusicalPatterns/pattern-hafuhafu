@@ -4,19 +4,21 @@ export { computeNote } from './features'
 export { materializeEntities } from './entities'
 export { materializeScales } from './scales'
 export { computeScalars } from './scalars'
-export { computeKernelIteration } from './pieces'
-export { computeKernelIterations } from './wholes'
+export { computeWholes } from './wholes'
+export { computePieces } from './pieces'
 
 export {
+    computeLayerIndices,
+    computeLayersProgresses,
+    computeSieveFractal,
+    computeTotalIndices,
+    computeElementProgress,
     computeKernelCycle,
     computeNextKernel,
-    computeKernelIterationIndexProgress,
-    computeKernelIterationElementDuration,
-    computeKernelIterationElementSustain,
-    computeKernelIterationElementPitch,
-    computeKernelIterationTotalIndices,
-    computeKernelIterationElementGain,
+    computePitchIndex,
     computeRandomDropGain,
-    computeKernelIterationDurationProgress,
-    computeKernelIterationTotalDuration,
+    computeSustain,
+    computeDuration,
+    computeDurationProgress,
+    computeTotalDuration,
 } from './custom/indexForTest'
