@@ -1,6 +1,6 @@
 {
   "name": "@musical-patterns/pattern-hafuhafu",
-  "version": "1.0.143",
+  "version": "1.0.144",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "MIT",

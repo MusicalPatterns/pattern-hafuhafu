@@ -1,4 +1,9 @@
-import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/pattern'
+import {
+    InputType,
+    RangedInputType,
+    STANDARD_PITCH_INDEX_INDICATING_REST,
+    standardConfigurations,
+} from '@musical-patterns/pattern'
 import { optionedConstraints, rangedConstraints } from './constraints'
 import { specsOrder } from './orders'
 import { HafuhafuConfigurations, HafuhafuSpec } from './types'
@@ -27,6 +32,7 @@ iteration to complete`,
         order: specsOrder.indexOf(HafuhafuSpec.SIEVE_FRACTAL_REPETITIONS),
     },
     [ HafuhafuSpec.SOURCE_KERNEL ]: {
+        arrayedNewFieldInitialValue: STANDARD_PITCH_INDEX_INDICATING_REST,
         constraint: rangedConstraints[ HafuhafuSpec.SOURCE_KERNEL ],
         description: 'a pattern of pitches to cycle (use -1 for a rest)',
         hideInput: RangedInputType.RANGE,
