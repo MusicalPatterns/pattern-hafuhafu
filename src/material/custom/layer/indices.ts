@@ -1,5 +1,6 @@
 import {
     apply,
+    Cardinal,
     Cycle,
     deepClone,
     from,
@@ -9,13 +10,20 @@ import {
     slice,
     to,
 } from '@musical-patterns/utilities'
+import { Sieve } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { DROSTE_ITERATION_REALIGNMENT_TRANSLATION } from '../constants'
 import { zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities } from '../integers'
 import { computeSieveFractal } from './sieveFractals'
 import { ComputeLayerIndexParameters, LayerParameters } from './types'
 
-const computeLayerIndex: (parameters: ComputeLayerIndexParameters) => Ordinal =
+const computeLayerIndex: (parameters: {
+    iterationIndex: Ordinal,
+    layerCount: Cardinal,
+    mode: HafuhafuMode,
+    reverse: boolean,
+    sieve: Sieve,
+}) => Ordinal =
     ({ layerCount, mode, reverse, sieve, iterationIndex }: ComputeLayerIndexParameters): Ordinal => {
         const sieveFractalCycle: Cycle<Ordinal> = to.Cycle(computeSieveFractal(sieve, layerCount, mode))
 
@@ -30,7 +38,13 @@ const computeLayerIndex: (parameters: ComputeLayerIndexParameters) => Ordinal =
         return apply.Ordinal(maybeReversedSieveFractalCycle, iterationIndex)
     }
 
-const computeLayerIndices: (parameters: LayerParameters) => Ordinal[] =
+const computeLayerIndices: (parameters: {
+    layerCount: Ordinal,
+    mode: HafuhafuMode,
+    reverse: boolean,
+    sieve: Sieve,
+    totalIndices: Cardinal,
+}) => Ordinal[] =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): Ordinal[] =>
         slice(
             zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,

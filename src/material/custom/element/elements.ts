@@ -2,6 +2,8 @@ import { PitchDurationGainSustainScale } from '@musical-patterns/pattern'
 import {
     Amplitude,
     apply,
+    Block,
+    Cardinal,
     ContourElement,
     Frequency,
     from,
@@ -11,20 +13,38 @@ import {
     Time,
     to,
 } from '@musical-patterns/utilities'
+import { Sieve } from '../../../nominals'
+import { ExistenceStyle, HafuhafuMode } from '../../../spec'
 import { computeDuration } from './duration'
 import { computeGain } from './gain'
 import { computePitchIndex, computePitchScalar } from './pitch'
 import { computeSustain } from './sustain'
 import { ComputeElementParameters, ComputeLayerProgressParameters } from './types'
 
-const computeLayerProgress: (parameters: ComputeLayerProgressParameters) => NormalScalar =
+const computeLayerProgress: (parameters: {
+    iterationIndex: Ordinal,
+    layerIndices: Ordinal[],
+    layersProgresses: NormalScalar[][],
+}) => NormalScalar =
     ({ layerIndices, iterationIndex, layersProgresses }: ComputeLayerProgressParameters): NormalScalar => {
         const layerIndex: Ordinal = apply.Ordinal(layerIndices, iterationIndex)
 
         return apply.Ordinal(apply.Ordinal(layersProgresses, layerIndex), iterationIndex)
     }
 
-const computeElement: (parameters: ComputeElementParameters) => ContourElement<PitchDurationGainSustainScale> =
+const computeElement: (parameters: {
+    existenceStyle: ExistenceStyle,
+    iterationIndex: Ordinal,
+    iterationKernel: Block,
+    layerCount: Cardinal,
+    layerIndices: Ordinal[],
+    layersProgresses: NormalScalar[][],
+    mode: HafuhafuMode,
+    reverse: boolean,
+    sieve: Sieve,
+    stretchPitch: boolean,
+    totalIndices: Cardinal,
+}) => ContourElement<PitchDurationGainSustainScale> =
     (parameters: ComputeElementParameters): ContourElement<PitchDurationGainSustainScale> => {
         const {
             existenceStyle,

@@ -8,7 +8,7 @@ import {
 } from '@musical-patterns/pattern'
 import { Amplitude, ContourElement, from, Scalar, to } from '@musical-patterns/utilities'
 
-const computeNote: (computeNoteParameters: ContourElement<PitchDurationGainSustainScale>) => Note =
+const computeNote: (contourElement: ContourElement<PitchDurationGainSustainScale>) => Note =
     ([ pitch, duration, gain, sustain, scale ]: ContourElement<PitchDurationGainSustainScale>): Note => {
         if (pitch === STANDARD_PITCH_INDEX_INDICATING_REST) {
             return {

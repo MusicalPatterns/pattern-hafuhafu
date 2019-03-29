@@ -1,5 +1,5 @@
 import {
-    apply,
+    apply, Cardinal,
     from,
     invertNormalScalar,
     NEXT,
@@ -11,11 +11,15 @@ import {
     Time,
     to,
 } from '@musical-patterns/utilities'
-import { from as hafuhafuFrom } from '../../../nominals'
+import { from as hafuhafuFrom, Sieve } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { ComputeDurationParameters, ComputeElementProgressParameters } from './types'
 
-const computeElementProgress: (parameters: ComputeElementProgressParameters) => NormalScalar =
+const computeElementProgress: (parameters: {
+    iterationIndex: Ordinal,
+    reverse: boolean,
+    totalIndices: Cardinal,
+}) => NormalScalar =
     ({ iterationIndex, reverse, totalIndices }: ComputeElementProgressParameters): NormalScalar => {
         if (!reverse) {
             return to.NormalScalar(quotient(iterationIndex, totalIndices))
@@ -32,7 +36,14 @@ const computeElementProgress: (parameters: ComputeElementProgressParameters) => 
         )))
     }
 
-const computeDuration: (parameters: ComputeDurationParameters) => Scalar<Time> =
+const computeDuration: (parameters: {
+    iterationIndex: Ordinal,
+    layerCount: Cardinal,
+    mode: HafuhafuMode,
+    reverse: boolean,
+    sieve: Sieve,
+    totalIndices: Cardinal,
+}) => Scalar<Time> =
     ({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices }: ComputeDurationParameters): Scalar<Time> => {
         const elementProgress: NormalScalar = computeElementProgress({ iterationIndex, reverse, totalIndices })
 

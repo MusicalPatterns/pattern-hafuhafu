@@ -1,8 +1,8 @@
 import { reciprocal, Scalar, Time, to } from '@musical-patterns/utilities'
-import { from as hafuhafuFrom } from '../../../nominals'
+import { from as hafuhafuFrom, Sieve } from '../../../nominals'
 import { ComputeSustainParameters } from './types'
 
-const computeSustain: (parameters: ComputeSustainParameters) => Scalar<Time> =
+const computeSustain: (parameters: { sieve: Sieve }) => Scalar<Time> =
     ({ sieve }: ComputeSustainParameters): Scalar<Time> =>
         to.Scalar(to.Time(hafuhafuFrom.Sieve(reciprocal(sieve))))
 

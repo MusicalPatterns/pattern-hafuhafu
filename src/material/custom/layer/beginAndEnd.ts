@@ -15,7 +15,11 @@ import {
 import { HafuhafuMode } from '../../../spec'
 import { ComputeLayerBeginAndEndParameters } from './types'
 
-const computeLayerBegin: (parameters: ComputeLayerBeginAndEndParameters) => NormalScalar =
+const computeLayerBegin: (parameters: {
+    layerCount: Cardinal,
+    layerIndex: Ordinal,
+    mode: HafuhafuMode,
+}) => NormalScalar =
     ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): NormalScalar => {
         const activeLayerCount: Cardinal = apply.Translation(layerCount, ONE_FEWER)
         const layerStep: NormalScalar = to.NormalScalar(from.Cardinal(reciprocal(activeLayerCount)))
@@ -27,7 +31,11 @@ const computeLayerBegin: (parameters: ComputeLayerBeginAndEndParameters) => Norm
         return apply.Scalar(index, layerStep)
     }
 
-const computeLayerEnd: (parameters: ComputeLayerBeginAndEndParameters) => NormalScalar =
+const computeLayerEnd: (parameters: {
+    layerCount: Cardinal,
+    layerIndex: Ordinal,
+    mode: HafuhafuMode,
+}) => NormalScalar =
     ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): NormalScalar =>
         layerIndex === finalIndexFromElementsTotal(layerCount) ?
             to.NormalScalar(1) :

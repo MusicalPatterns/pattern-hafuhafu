@@ -15,10 +15,15 @@ import {
     totalElements,
     zeroAndPositiveIntegers,
 } from '@musical-patterns/utilities'
-import { from as hafuhafuFrom } from '../../../nominals'
+import { from as hafuhafuFrom, Sieve } from '../../../nominals'
 import { ComputeNextKernelParameters } from './types'
 
-const computeNextKernel: (parameters: ComputeNextKernelParameters) => Block =
+const computeNextKernel: (parameters: {
+    previousKernel: Block,
+    reverse: boolean,
+    sieve: Sieve,
+    totalIndices: Cardinal,
+}) => Block =
     ({ totalIndices, previousKernel, reverse, sieve }: ComputeNextKernelParameters): Block => {
         const kernelLength: Cardinal = totalElements(previousKernel)
 

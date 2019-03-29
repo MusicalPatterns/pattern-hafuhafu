@@ -18,7 +18,12 @@ const computeIterationLength: (sieve: Sieve, layerCount: Cardinal, sieveFractalR
             to.Scalar(from.Cardinal(sieveFractalRepetitions)),
         )
 
-const computeTotalIndices: (parameters: ComputeTotalIndicesParameters) => Cardinal =
+const computeTotalIndices: (parameters: {
+    layerCount: Cardinal,
+    mode: HafuhafuMode,
+    sieve: Sieve,
+    sieveFractalRepetitions: Cardinal,
+}) => Cardinal =
     ({ layerCount, mode, sieve, sieveFractalRepetitions }: ComputeTotalIndicesParameters): Cardinal =>
         apply.Translation(
             computeIterationLength(sieve, layerCount, sieveFractalRepetitions),

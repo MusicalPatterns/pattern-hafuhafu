@@ -1,5 +1,5 @@
 import {
-    apply,
+    apply, Block,
     Cardinal,
     Frequency,
     from,
@@ -14,11 +14,11 @@ import {
     to,
     valueLinearlyBetweenValues,
 } from '@musical-patterns/utilities'
-import { from as hafuhafuFrom } from '../../../nominals'
+import { from as hafuhafuFrom, Sieve } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { ComputePitchIndexParameters, ComputePitchScalarParameters } from './types'
 
-const computePitchIndex: (parameters: ComputePitchIndexParameters) => Ordinal =
+const computePitchIndex: (parameters: { iterationIndex: Ordinal, iterationKernel: Block }) => Ordinal =
     ({ iterationKernel, iterationIndex }: ComputePitchIndexParameters): Ordinal =>
         to.Ordinal(apply.Ordinal(
             to.Cycle(iterationKernel),
@@ -39,7 +39,13 @@ const computeDrostePitchScalarPower: (activeLayerCount: Cardinal, layerProgress:
         )
     }
 
-const computePitchScalar: (parameters: ComputePitchScalarParameters) => Scalar<Frequency> =
+const computePitchScalar: (parameters: {
+    layerCount: Cardinal,
+    layerProgress: NormalScalar,
+    mode: HafuhafuMode,
+    sieve: Sieve,
+    stretchPitch: boolean,
+}) => Scalar<Frequency> =
     ({ layerCount, layerProgress, mode, sieve, stretchPitch }: ComputePitchScalarParameters): Scalar<Frequency> => {
         if (!stretchPitch) {
             return to.Frequency(MULTIPLICATIVE_IDENTITY)

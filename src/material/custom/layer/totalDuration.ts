@@ -1,9 +1,17 @@
-import { apply, from, INITIAL, Ordinal, Scalar, slice, Time, to } from '@musical-patterns/utilities'
+import { apply, Cardinal, from, INITIAL, Ordinal, Scalar, slice, Time, to } from '@musical-patterns/utilities'
+import { Sieve } from '../../../nominals'
+import { HafuhafuMode } from '../../../spec'
 import { computeDuration } from '../element'
 import { zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities } from '../integers'
 import { LayerParameters } from './types'
 
-const computeTotalDuration: (parameters: LayerParameters) => Scalar<Time> =
+const computeTotalDuration: (parameters: {
+    layerCount: Ordinal,
+    mode: HafuhafuMode,
+    reverse: boolean,
+    sieve: Sieve,
+    totalIndices: Cardinal,
+}) => Scalar<Time> =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): Scalar<Time> =>
         slice(
             zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,

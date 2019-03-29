@@ -18,7 +18,10 @@ import {
 } from './constants'
 import { ComputeGainParameters, ComputeRandomDropGainParameters } from './types'
 
-const computeRandomDropGain: (parameters: ComputeRandomDropGainParameters) => Scalar<Amplitude> =
+const computeRandomDropGain: (parameters: {
+    fadingGain: Scalar<Amplitude>,
+    randomizingFunction: (within?: number) => number,
+}) => Scalar<Amplitude> =
     ({ fadingGain, randomizingFunction }: ComputeRandomDropGainParameters): Scalar<Amplitude> =>
         randomizingFunction() < from.Scalar(from.Amplitude<Scalar, Scalar<Amplitude>>(fadingGain)) ?
             FULL_GAIN :

@@ -1,6 +1,7 @@
 import {
+    Cardinal,
     from,
-    INITIAL,
+    INITIAL, Ms,
     NormalScalar,
     Ordinal,
     Scalar,
@@ -10,12 +11,22 @@ import {
     valueLinearlyBetweenValues,
     zeroAndPositiveIntegers,
 } from '@musical-patterns/utilities'
+import { Sieve } from '../../../nominals'
+import { HafuhafuMode } from '../../../spec'
 import { computeLayerBegin, computeLayerEnd } from './beginAndEnd'
 import { computeDurationProgresses } from './durationProgress'
 import { computeTotalDuration } from './totalDuration'
 import { ComputeLayerProgressesParameters, LayerParameters } from './types'
 
-const computeLayerProgresses: (parameters: ComputeLayerProgressesParameters) => NormalScalar[] =
+const computeLayerProgresses: (parameters: {
+    layerCount: Ordinal,
+    layerIndex: Ordinal,
+    mode: HafuhafuMode,
+    reverse: boolean,
+    sieve: Sieve,
+    totalDuration: Scalar<Time>,
+    totalIndices: Cardinal,
+}) => NormalScalar[] =
     (parameters: ComputeLayerProgressesParameters): NormalScalar[] => {
         const { layerCount, layerIndex, mode, reverse, sieve, totalDuration, totalIndices } = parameters
 
@@ -39,7 +50,13 @@ const computeLayerProgresses: (parameters: ComputeLayerProgressesParameters) => 
             ))
     }
 
-const computeLayersProgresses: (parameters: LayerParameters) => NormalScalar[][] =
+const computeLayersProgresses: (parameters: {
+    layerCount: Ordinal,
+    mode: HafuhafuMode,
+    reverse: boolean,
+    sieve: Sieve,
+    totalIndices: Cardinal,
+}) => NormalScalar[][] =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): NormalScalar[][] => {
         const totalDuration: Scalar<Time> = computeTotalDuration({ layerCount, mode, reverse, sieve, totalIndices })
 

@@ -1,5 +1,5 @@
 import {
-    apply,
+    apply, Cardinal,
     from,
     INITIAL,
     NormalScalar,
@@ -10,11 +10,22 @@ import {
     Time,
     to,
 } from '@musical-patterns/utilities'
+import { Sieve } from '../../../nominals'
+import { HafuhafuMode } from '../../../spec'
 import { computeDuration } from '../element'
 import { zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities } from '../integers'
 import { ComputeDurationProgressesParameters, ComputeDurationProgressParameters } from './types'
 
-const computeDurationProgress: (parameters: ComputeDurationProgressParameters) => NormalScalar =
+const computeDurationProgress: (parameters: {
+    durationProgress: NormalScalar,
+    iterationIndex: Ordinal,
+    layerCount: Ordinal,
+    mode: HafuhafuMode,
+    reverse: boolean,
+    sieve: Sieve,
+    totalDuration: Scalar<Time>,
+    totalIndices: Cardinal,
+}) => NormalScalar =
     (parameters: ComputeDurationProgressParameters): NormalScalar => {
         const {
             durationProgress,
