@@ -5,7 +5,7 @@ import { computeNotes } from './notes'
 const materializeEntities: MaterializeEntities =
     (specs: HafuhafuSpecs): Entity[] => [
         {
-            notes: computeNotes(specs),
+            sections: [ { notes: computeNotes(specs) } ],
             timbreName: TimbreNameEnum.WURLITZER,
         },
     ]
