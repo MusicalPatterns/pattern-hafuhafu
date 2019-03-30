@@ -31,8 +31,3 @@ export {
 } from './spec/indexForTest'
 export { pattern } from './patterns'
 export { to, Sieve } from './nominals'
-
-// tslint:disable-next-line no-default-import
-import * as snapshot from './snapshot.json'
-
-export { snapshot }
