@@ -1,30 +1,10 @@
-import { OptionedConstraint, RangedConstraint } from '@musical-patterns/pattern'
+import { computeBasicOptionedConstraintFromEnum, OptionedConstraint, RangedConstraint } from '@musical-patterns/pattern'
 import { ObjectOf } from '@musical-patterns/utilities'
 import { ExistenceStyle, HafuhafuMode, HafuhafuSpec } from './types'
 
 const optionedConstraints: ObjectOf<OptionedConstraint> = {
-    [ HafuhafuSpec.EXISTENCE_STYLE ]: [
-        {
-            formattedName: 'Fade',
-            order: 1,
-            value: ExistenceStyle.FADE,
-        },
-        {
-            formattedName: 'Random Drop',
-            order: 2,
-            value: ExistenceStyle.RANDOM_DROP,
-        },
-    ],
-    [ HafuhafuSpec.MODE ]: [
-        {
-            order: 1,
-            value: HafuhafuMode.ZENO,
-        },
-        {
-            order: 2,
-            value: HafuhafuMode.DROSTE,
-        },
-    ],
+    [ HafuhafuSpec.EXISTENCE_STYLE ]: computeBasicOptionedConstraintFromEnum(ExistenceStyle),
+    [ HafuhafuSpec.MODE ]: computeBasicOptionedConstraintFromEnum(HafuhafuMode),
 }
 
 const rangedConstraints: ObjectOf<RangedConstraint> = {
