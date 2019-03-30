@@ -40,7 +40,7 @@ webpack.local.js
 webpack.prod.js
 webpack.publish.js
 webpack.qa.js
-Makefile.snapshot
-test/snapshot.test.ts
+Makefile.snapshots
+test/snapshots.test.ts
 src/start.ts
 webpack.self.js
