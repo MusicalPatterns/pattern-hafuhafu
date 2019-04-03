@@ -1,0 +1,917 @@
+{
+  "segnoTime": 0,
+  "totalDuration": 12523,
+  "voices": [
+    {
+      "sounds": [
+        {
+          "duration": 250,
+          "gain": 0.65336,
+          "frequency": 306.652,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 246.67291,
+          "gain": 0.69311,
+          "frequency": 60.30617,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 243.3901,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 240.15097,
+          "gain": 0.61449,
+          "frequency": 188.75785,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 236.95496,
+          "gain": 0.06479,
+          "frequency": 37.08948,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 233.80148,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 230.68996,
+          "gain": 0.57715,
+          "frequency": 347.68784,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 227.61986,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 224.59061,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 221.60168,
+          "gain": 0.54128,
+          "frequency": 212.96092,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 218.65252,
+          "gain": 0.8037,
+          "frequency": 125.33419,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 215.74261,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 212.87143,
+          "gain": 0.50682,
+          "frequency": 390.40938,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 210.03846,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 207.2432,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 204.48513,
+          "gain": 0.47372,
+          "frequency": 238.03884,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 201.76377,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 199.07862,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 196.42921,
+          "gain": 0.44193,
+          "frequency": 434.47363,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 193.81506,
+          "gain": 0.90172,
+          "frequency": 85.04828,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 191.2357,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 188.69067,
+          "gain": 0.41138,
+          "frequency": 263.79182,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 186.1795,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 183.70176,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 181.25699,
+          "gain": 0.38205,
+          "frequency": 479.53392,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 178.84476,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 176.46463,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 174.11617,
+          "gain": 0.35386,
+          "frequency": 290.02061,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 171.79897,
+          "gain": 0.98862,
+          "frequency": 169.98613,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 169.51261,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 167.25667,
+          "gain": 0.32679,
+          "frequency": 525.24876,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 165.03076,
+          "gain": 0.34866,
+          "frequency": 34.18608,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 162.83447,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 160.66741,
+          "gain": 0.30078,
+          "frequency": 316.53128,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 158.52919,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 156.41943,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 154.33774,
+          "gain": 0.2758,
+          "frequency": 571.28948,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 152.28376,
+          "gain": 0.93436,
+          "frequency": 111.42332,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 150.25711,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 148.25744,
+          "gain": 0.2518,
+          "frequency": 343.1391,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 146.28437,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 144.33757,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 142.41667,
+          "gain": 0.22875,
+          "frequency": 617.34628,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 140.52134,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 138.65123,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 136.80601,
+          "gain": 0.20661,
+          "frequency": 369.67173,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 134.98535,
+          "gain": 0.86609,
+          "frequency": 215.97243,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 133.18891,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 131.41639,
+          "gain": 0.18534,
+          "frequency": 663.13288,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 129.66745,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 127.94179,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 126.23909,
+          "gain": 0.1649,
+          "frequency": 395.97145,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 124.55906,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 122.90138,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 121.26576,
+          "gain": 0.14527,
+          "frequency": 708.38981,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 119.65192,
+          "gain": 0.80557,
+          "frequency": 137.76819,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 118.05954,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 116.48837,
+          "gain": 0.12642,
+          "frequency": 421.89663,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 114.9381,
+          "gain": 0.54637,
+          "frequency": 82.01685,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 113.40846,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 111.89918,
+          "gain": 0.10831,
+          "frequency": 752.88638,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 110.40998,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 108.94061,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 107.49079,
+          "gain": 0.09091,
+          "frequency": 447.32264,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 106.06026,
+          "gain": 0.75193,
+          "frequency": 260.67595,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 104.64877,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 103.25607,
+          "gain": 0.07419,
+          "frequency": 796.42158,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 101.8819,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 100.52602,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 99.18818,
+          "gain": 0.05814,
+          "frequency": 472.14203,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 97.86815,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 96.56568,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 95.28055,
+          "gain": 0.04272,
+          "frequency": 838.82408,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 94.01253,
+          "gain": 0.70438,
+          "frequency": 162.76863,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 92.76137,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 91.52687,
+          "gain": 0.0279,
+          "frequency": 496.26429,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 90.3088,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 89.10694,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 87.92107,
+          "gain": 0.01367,
+          "frequency": 879.95144,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 86.75098,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 85.59647,
+          "gain": 0,
+          "frequency": 900,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        },
+        {
+          "duration": 84.45732,
+          "gain": 0,
+          "frequency": 519.61524,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "sustain": 83.33333
+        }
+      ],
+      "sourceRequest": {
+        "sourceType": "OSCILLATOR",
+        "timbreName": "WURLITZER"
+      },
+      "segnoIndex": 0
+    }
+  ]
+}
