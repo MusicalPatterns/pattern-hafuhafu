@@ -16,6 +16,7 @@ import {
     PREVIOUS,
     Scalar,
     testIsCloseTo,
+    testIsGreaterThan,
     Time,
     to,
     VERY_LOW_PRECISION,
@@ -232,8 +233,7 @@ no matter the layer count`,
                 })
 
                 if (!isUndefined(previousIterationElementProgress)) {
-                    expect(from.NormalScalar(elementProgress))
-                        .toBeGreaterThan(from.NormalScalar(previousIterationElementProgress))
+                    testIsGreaterThan(elementProgress, previousIterationElementProgress)
                 }
 
                 previousIterationElementProgress = elementProgress
@@ -376,8 +376,7 @@ no matter the layer count`,
                     })
 
                     if (!isUndefined(previousIterationElementProgress)) {
-                        expect(from.NormalScalar(elementProgress))
-                            .toBeGreaterThan(from.NormalScalar(previousIterationElementProgress))
+                        testIsGreaterThan(elementProgress, previousIterationElementProgress)
                     }
 
                     previousIterationElementProgress = elementProgress
