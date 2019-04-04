@@ -3,6 +3,7 @@
   "totalDuration": 12523,
   "voices": [
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 250,
