@@ -45,8 +45,8 @@ const computeElement: (parameters: {
     stretchPitch: boolean,
     totalIndices: Cardinal,
 }) => ContourElement<PitchDurationGainSustainScale> =
-    (parameters: ComputeElementParameters): ContourElement<PitchDurationGainSustainScale> => {
-        const {
+    (
+        {
             existenceStyle,
             iterationIndex,
             iterationKernel,
@@ -58,8 +58,8 @@ const computeElement: (parameters: {
             sieve,
             stretchPitch,
             totalIndices,
-        } = parameters
-
+        }: ComputeElementParameters,
+    ): ContourElement<PitchDurationGainSustainScale> => {
         const layerProgress: NormalScalar = computeLayerProgress({ iterationIndex, layerIndices, layersProgresses })
 
         const pitchIndex: Ordinal =

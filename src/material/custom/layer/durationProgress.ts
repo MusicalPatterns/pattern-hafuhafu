@@ -1,5 +1,6 @@
 import {
-    apply, Cardinal,
+    apply,
+    Cardinal,
     from,
     INITIAL,
     NormalScalar,
@@ -26,8 +27,8 @@ const computeDurationProgress: (parameters: {
     totalDuration: Scalar<Time>,
     totalIndices: Cardinal,
 }) => NormalScalar =
-    (parameters: ComputeDurationProgressParameters): NormalScalar => {
-        const {
+    (
+        {
             durationProgress,
             iterationIndex,
             layerCount,
@@ -36,8 +37,8 @@ const computeDurationProgress: (parameters: {
             sieve,
             totalDuration,
             totalIndices,
-        } = parameters
-
+        }: ComputeDurationProgressParameters,
+    ): NormalScalar => {
         const duration: Scalar<Time> =
             computeDuration({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices })
 
@@ -56,8 +57,16 @@ const computeDurationProgress: (parameters: {
     }
 
 const computeDurationProgresses: (parameters: ComputeDurationProgressesParameters) => NormalScalar[] =
-    (parameters: ComputeDurationProgressesParameters): NormalScalar[] => {
-        const { layerCount, mode, reverse, sieve, totalDuration, totalIndices } = parameters
+    (
+        {
+            layerCount,
+            mode,
+            reverse,
+            sieve,
+            totalDuration,
+            totalIndices,
+        }: ComputeDurationProgressesParameters,
+    ): NormalScalar[] => {
         let durationProgress: NormalScalar = to.NormalScalar(0)
 
         return slice(

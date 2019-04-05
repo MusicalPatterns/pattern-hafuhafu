@@ -1,7 +1,7 @@
 import {
     Cardinal,
     from,
-    INITIAL, Ms,
+    INITIAL,
     NormalScalar,
     Ordinal,
     Scalar,
@@ -27,9 +27,17 @@ const computeLayerProgresses: (parameters: {
     totalDuration: Scalar<Time>,
     totalIndices: Cardinal,
 }) => NormalScalar[] =
-    (parameters: ComputeLayerProgressesParameters): NormalScalar[] => {
-        const { layerCount, layerIndex, mode, reverse, sieve, totalDuration, totalIndices } = parameters
-
+    (
+        {
+            layerCount,
+            layerIndex,
+            mode,
+            reverse,
+            sieve,
+            totalDuration,
+            totalIndices,
+        }: ComputeLayerProgressesParameters,
+    ): NormalScalar[] => {
         const begin: NormalScalar = computeLayerBegin({ layerCount, layerIndex, mode })
         const end: NormalScalar = computeLayerEnd({ layerCount, layerIndex, mode })
 

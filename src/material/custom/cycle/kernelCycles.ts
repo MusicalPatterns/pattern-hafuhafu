@@ -13,9 +13,16 @@ const computeKernelCycle: (parameters: {
     sieveFractalRepetitions: Cardinal,
     sourceKernel: Block,
 }) => Cycle<Block> =
-    (parameters: ComputeKernelCycleParameters): Cycle<Block> => {
-        const { sourceKernel, layerCount, mode, reverse, sieve, sieveFractalRepetitions } = parameters
-
+    (
+        {
+            sourceKernel,
+            layerCount,
+            mode,
+            reverse,
+            sieve,
+            sieveFractalRepetitions,
+        }: ComputeKernelCycleParameters,
+    ): Cycle<Block> => {
         const totalIndices: Cardinal = computeTotalIndices({ layerCount, mode, sieve, sieveFractalRepetitions })
 
         const kernelCycle: Cycle<Block> = to.Cycle([ deepClone(sourceKernel) ])
