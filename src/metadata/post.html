@@ -7,7 +7,7 @@
             </i>
         </p>
         <h3>
-            kernel cycles
+            Kernel Cycles
         </h3>
         <p>
             Start with a <b>kernel</b>, and make a cycle of kernels from it.
@@ -57,20 +57,21 @@
             3.
         </p>
         <h3>
-            iteration
+            Iteration
         </h3>
         <p>
             Each time a kernel has evolved into the next kernel, an iteration has completed.
         </p>
         <h3>
-            layer
+            Layer
         </h3>
         <p>
             Each iteration usually has several layers at different speeds, or pitches, or volumes.
             Each layer usually spans multiple iterations, changing speed, pitch, or volume across them.
+            Once you go down to a single layer, the effect is lost, whether in Droste or Zeno mode.
         </p>
         <h3>
-            sieve fractal
+            Sieve Fractal
         </h3>
         <p>
             As the layer count increases, the sieve layers on top of itself.
@@ -78,62 +79,63 @@
             The more you've been sieved, the more gone you are.
         </p>
         <h3>
-            mode
+            Mode
         </h3>
         <p>
-            Two modes: droste and zeno.
+            Two modes: Droste and Zeno.
             Two different popular conceptions of infinite process.
         </p>
         <p>
-            In droste mode, you are barreling through a tunnel of kernels within kernels.
+            In Droste mode, you are barreling through a tunnel of kernels within kernels.
             The previous one disappears around your periphery; the destination is infinitesimal in the distance.
             Layers fade in from nothing, have their day in the sun, then fade back out to nothing.
             Each iteration's inactive layer is silent.
             It stands in the place for all the layers yet to come, still too far away and quiet to hear.
         </p>
         <p>
-            In zeno mode, you asymptotically approach a destination, but will never reach it.
+            In Zeno mode, you asymptotically approach a destination, but will never reach it.
             Half of the notes keep dying away, but half always still remain.
             Each iteration's inactive layer is at full gain.
+            It stands in the place of all the layers yet to come, still to far away for us to know which ones are soonest to die next.
         </p>
         <p>
-            Droste seems to need an additional layer to sound as dense as zeno, and that's because it's inactive layer
-            is silent where zeno's is at full gain. By inactive layer I mean the one which is stable / unchanging in
+            Droste seems to need an additional layer to sound as dense as Zeno, and that's because it's inactive layer
+            is silent where Zeno's is at full gain. By inactive layer I mean the one which is stable / unchanging in
             pitch, gain, and/or duration.
         </p>
         <h3>
-            progress
+            Progress
         </h3>
         <p>
             Progress gets measured in a few different ways, but all of them are normalized to a scalar between 0 and 1:
         </p>
         <h4>
-            element progress
+            Element Progress
         </h4>
         <p>
-            a flat ratio of how many elements you are through the iteration to the total elements
+            A flat ratio of how many elements you are through the iteration to the total elements
             of the iteration, without respect to how long the notes are.
         </p>
         <h4>
-            duration progress
+            Duration Progress
         </h4>
         <p>
-            taking into account the duration of the notes (so if the pattern is slowing down, your duration progress
+            Taking into account the duration of the notes (so if the pattern is slowing down, your duration progress
             will be ahead of the element progress at first before they catch up and tie at the end of
-            each iteration)
+            each iteration).
         </p>
         <h4>
-            layer progress
+            Layer progress
         </h4>
         <p>
-            if a layer spans 3 iterations, then it would be at layer progress 1/3 by the end of the
+            If a layer spans 3 iterations, then it would be at layer progress 1/3 by the end of the
             first, 2/3 by the end of the second, and 3/3 by the end of the third.
         </p>
         <p>
             Each of these progresses are helpful for calculating different things throughout the process.
         </p>
         <h3>
-            reverse
+            Reverse
         </h3>
         <p>
             By default Hafuhafu speeds up and fades out, but you can also slow down and fade in!
