@@ -32,6 +32,9 @@ iteration to complete`,
         order: specsOrder.indexOf(HafuhafuSpec.SIEVE_FRACTAL_REPETITIONS),
     },
     [ HafuhafuSpec.SOURCE_KERNEL ]: {
+        arrayedConstraint: {
+            minLength: 1,
+        },
         arrayedNewFieldInitialValue: STANDARD_PITCH_INDEX_INDICATING_REST,
         constraint: rangedConstraints[ HafuhafuSpec.SOURCE_KERNEL ],
         description: 'a pattern of pitches to cycle (use -1 for a rest)',
