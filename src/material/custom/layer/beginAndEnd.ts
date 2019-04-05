@@ -21,6 +21,10 @@ const computeLayerBegin: (parameters: {
     mode: HafuhafuMode,
 }) => NormalScalar =
     ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): NormalScalar => {
+        if (layerCount === to.Cardinal(1)) {
+            return to.NormalScalar(0)
+        }
+
         const activeLayerCount: Cardinal = apply.Translation(layerCount, ONE_FEWER)
         const layerStep: NormalScalar = to.NormalScalar(from.Cardinal(reciprocal(activeLayerCount)))
 

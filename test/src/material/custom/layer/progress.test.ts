@@ -4,6 +4,7 @@ import {
     INITIAL,
     NormalScalar,
     testAllValuesAreTheSame,
+    testGoesMonotonicallyFromValueToValue,
     testGoesQuadraticallyFromValueToValue,
     to,
     totalElements,
@@ -201,6 +202,29 @@ and span it quadratically (except the first layer, the home layer, which just st
                     thirdLayerProgressDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne,
                     to.NormalScalar(1),
                     to.NormalScalar(2 / 3),
+                    VERY_LOW_PRECISION,
+                )
+            })
+        })
+
+        describe('when layer count is one', () => {
+            beforeEach(() => {
+                layersProgresses = computeLayersProgresses({
+                    layerCount: to.Cardinal(1),
+                    mode: HafuhafuMode.ZENO,
+                    reverse: false,
+                    sieve,
+                    totalIndices,
+                })
+            })
+
+            it('the progress goes from one to zero', () => {
+                expect(totalElements(layersProgresses))
+                    .toBe(to.Cardinal(1))
+                testGoesMonotonicallyFromValueToValue(
+                    layersProgresses[ 0 ],
+                    to.NormalScalar(0),
+                    to.NormalScalar(1),
                     VERY_LOW_PRECISION,
                 )
             })
