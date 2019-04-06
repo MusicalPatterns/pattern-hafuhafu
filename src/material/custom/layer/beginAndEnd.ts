@@ -32,7 +32,7 @@ const computeLayerBegin: (parameters: {
             layerIndex :
             apply.Translation(layerIndex, PREVIOUS)
 
-        return apply.Scalar(index, layerStep)
+        return to.NormalScalar(from.Ordinal(apply.Scalar(index, layerStep)))
     }
 
 const computeLayerEnd: (parameters: {

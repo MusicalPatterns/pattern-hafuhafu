@@ -2,6 +2,7 @@ import {
     apply,
     Cardinal,
     from,
+    indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
     NormalScalar,
     Ordinal,
@@ -20,7 +21,7 @@ import { ComputeDurationProgressesParameters, ComputeDurationProgressParameters 
 const computeDurationProgress: (parameters: {
     durationProgress: NormalScalar,
     iterationIndex: Ordinal,
-    layerCount: Ordinal,
+    layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Sieve,
@@ -72,7 +73,7 @@ const computeDurationProgresses: (parameters: ComputeDurationProgressesParameter
         return slice(
             zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
             INITIAL,
-            totalIndices,
+            indexJustBeyondFinalElementFromElementsTotal(totalIndices),
         )
             .map(to.Ordinal)
             .map((iterationIndex: Ordinal) => {

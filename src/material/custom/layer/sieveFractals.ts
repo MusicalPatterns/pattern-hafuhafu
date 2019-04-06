@@ -32,7 +32,7 @@ const computeLayerInitialIndex: ComputeLayerInitialIndex =
 const computeSieveFractal:
     (sieve: Sieve, layerCount: Cardinal, mode: HafuhafuMode) => Ordinal[] =
     (sieve: Sieve, layerCount: Cardinal, mode: HafuhafuMode): Ordinal[] => {
-        if (layerCount === FIRST) {
+        if (layerCount === to.Cardinal(1)) {
             return [ INITIAL ]
         }
 

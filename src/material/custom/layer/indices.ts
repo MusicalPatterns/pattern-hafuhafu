@@ -39,7 +39,7 @@ const computeLayerIndex: (parameters: {
     }
 
 const computeLayerIndices: (parameters: {
-    layerCount: Ordinal,
+    layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Sieve,

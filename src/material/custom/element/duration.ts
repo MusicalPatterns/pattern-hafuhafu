@@ -22,7 +22,7 @@ const computeElementProgress: (parameters: {
 }) => NormalScalar =
     ({ iterationIndex, reverse, totalIndices }: ComputeElementProgressParameters): NormalScalar => {
         if (!reverse) {
-            return to.NormalScalar(quotient(iterationIndex, totalIndices))
+            return to.NormalScalar(quotient(iterationIndex, from.Cardinal(totalIndices)))
         }
 
         const indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote: Ordinal = apply.Modulus(
@@ -32,7 +32,7 @@ const computeElementProgress: (parameters: {
 
         return invertNormalScalar(to.NormalScalar(quotient(
             indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote,
-            totalIndices,
+            from.Cardinal(totalIndices),
         )))
     }
 

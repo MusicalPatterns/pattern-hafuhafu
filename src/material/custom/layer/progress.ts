@@ -19,7 +19,7 @@ import { computeTotalDuration } from './totalDuration'
 import { ComputeLayerProgressesParameters, LayerParameters } from './types'
 
 const computeLayerProgresses: (parameters: {
-    layerCount: Ordinal,
+    layerCount: Cardinal,
     layerIndex: Ordinal,
     mode: HafuhafuMode,
     reverse: boolean,
@@ -59,7 +59,7 @@ const computeLayerProgresses: (parameters: {
     }
 
 const computeLayersProgresses: (parameters: {
-    layerCount: Ordinal,
+    layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Sieve,

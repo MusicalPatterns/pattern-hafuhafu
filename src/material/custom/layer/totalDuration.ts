@@ -1,4 +1,15 @@
-import { apply, Cardinal, from, INITIAL, Ordinal, Scalar, slice, Time, to } from '@musical-patterns/utilities'
+import {
+    apply,
+    Cardinal,
+    from,
+    indexJustBeyondFinalElementFromElementsTotal,
+    INITIAL,
+    Ordinal,
+    Scalar,
+    slice,
+    Time,
+    to,
+} from '@musical-patterns/utilities'
 import { Sieve } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { computeDuration } from '../element'
@@ -6,7 +17,7 @@ import { zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities } from '../
 import { LayerParameters } from './types'
 
 const computeTotalDuration: (parameters: {
-    layerCount: Ordinal,
+    layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Sieve,
@@ -16,7 +27,7 @@ const computeTotalDuration: (parameters: {
         slice(
             zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
             INITIAL,
-            totalIndices,
+            indexJustBeyondFinalElementFromElementsTotal(totalIndices),
         )
             .map(to.Ordinal)
             .reduce(

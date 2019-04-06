@@ -5,7 +5,7 @@ import { HafuhafuMode } from '../../../spec'
 type ComputeLayerInitialIndex = (sieve: Sieve, layerCount: Cardinal, mode: HafuhafuMode) => Ordinal
 
 interface LayerParameters {
-    layerCount: Ordinal,
+    layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Sieve,
