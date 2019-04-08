@@ -1,6 +1,6 @@
 // tslint:disable no-duplicate-string
 
-import { Note, NoteFeature } from '@musical-patterns/compiler'
+import { Note, NoteFeature } from '@musical-patterns/material'
 import { PitchDurationGainSustainScale } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
 import { computeNote } from '../../../src/indexForTest'

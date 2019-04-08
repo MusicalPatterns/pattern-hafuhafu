@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { HafuhafuSpecs } from '../spec'
 import { computeNote } from './features'
 import { computeWholes } from './wholes'
