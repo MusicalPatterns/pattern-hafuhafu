@@ -4,7 +4,6 @@ import {
     Cardinal,
     computePartialSumOfPowers,
     DECREMENT,
-    FIRST,
     from,
     INCREMENT,
     INITIAL,

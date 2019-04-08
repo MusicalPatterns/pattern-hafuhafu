@@ -1,6 +1,6 @@
 // tslint:disable max-file-line-count
 
-import { Preset, StandardSpec } from '@musical-patterns/pattern'
+import { Preset, StandardSpec } from '@musical-patterns/spec'
 import { ObjectOf } from '@musical-patterns/utilities'
 import {
     AASB_KERNELWISE_PRESET_KERNEL,

@@ -1,4 +1,4 @@
-import { Spec } from '@musical-patterns/pattern'
+import { Spec } from '@musical-patterns/spec'
 import { configurations } from './configurations'
 import { initialSpecs } from './initials'
 import { presets } from './presets'

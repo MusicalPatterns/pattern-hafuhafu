@@ -1,6 +1,6 @@
 // tslint:disable no-duplicate-string
 
-import { PitchDurationGainSustainScale } from '@musical-patterns/pattern'
+import { PitchDurationGainSustainScale } from '@musical-patterns/material'
 import {
     apply,
     Block,

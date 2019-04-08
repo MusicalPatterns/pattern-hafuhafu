@@ -1,5 +1,6 @@
 import {
-    apply, Block,
+    apply,
+    Block,
     Cardinal,
     Frequency,
     from,

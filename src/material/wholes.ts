@@ -1,4 +1,4 @@
-import { PitchDurationGainSustainScale } from '@musical-patterns/pattern'
+import { PitchDurationGainSustainScale } from '@musical-patterns/material'
 import { Block, ContourPiece, ContourWhole, Cycle, sequence, to } from '@musical-patterns/utilities'
 import { HafuhafuSpecs } from '../spec'
 import { computeKernelCycle } from './custom'

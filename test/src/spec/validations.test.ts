@@ -1,6 +1,6 @@
 // tslint:disable no-duplicate-string
 
-import { Validations } from '@musical-patterns/pattern'
+import { Validations } from '@musical-patterns/spec'
 import { to } from '@musical-patterns/utilities'
 import {
     computeValidations,

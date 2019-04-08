@@ -1,4 +1,4 @@
-import { PitchDurationGainSustainScale } from '@musical-patterns/pattern'
+import { PitchDurationGainSustainScale } from '@musical-patterns/material'
 import { ContourWhole, to, totalElements } from '@musical-patterns/utilities'
 import { computeWholes, HafuhafuSpecs, initialSpecs, to as hafuhafuTo } from '../../../src/indexForTest'
 

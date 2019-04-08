@@ -1,4 +1,4 @@
-import { FULL_GAIN, SILENT } from '@musical-patterns/pattern'
+import { FULL_GAIN, SILENT } from '@musical-patterns/material'
 import {
     Amplitude,
     apply,

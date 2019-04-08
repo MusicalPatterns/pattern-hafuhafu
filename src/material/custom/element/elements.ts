@@ -1,4 +1,4 @@
-import { PitchDurationGainSustainScale } from '@musical-patterns/pattern'
+import { PitchDurationGainSustainScale } from '@musical-patterns/material'
 import {
     Amplitude,
     apply,

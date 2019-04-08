@@ -1,4 +1,4 @@
-import { computeBasicOptionedConstraintFromEnum, OptionedConstraint, RangedConstraint } from '@musical-patterns/pattern'
+import { computeBasicOptionedConstraintFromEnum, OptionedConstraint, RangedConstraint } from '@musical-patterns/spec'
 import { ObjectOf } from '@musical-patterns/utilities'
 import { ExistenceStyle, HafuhafuMode, HafuhafuSpec } from './types'
 

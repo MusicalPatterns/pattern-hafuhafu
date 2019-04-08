@@ -1,9 +1,5 @@
-import {
-    InputType,
-    RangedInputType,
-    STANDARD_PITCH_INDEX_INDICATING_REST,
-    standardConfigurations,
-} from '@musical-patterns/pattern'
+import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
+import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/spec'
 import { optionedConstraints, rangedConstraints } from './constraints'
 import { specsOrder } from './orders'
 import { HafuhafuConfigurations, HafuhafuSpec } from './types'

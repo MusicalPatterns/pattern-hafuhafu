@@ -1,4 +1,4 @@
-import { Metadata } from '@musical-patterns/pattern'
+import { Metadata } from '@musical-patterns/metadata'
 import { post } from './posts'
 
 const metadata: Metadata = {

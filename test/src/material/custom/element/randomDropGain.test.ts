@@ -1,5 +1,5 @@
 import Spy = jasmine.Spy
-import { FULL_GAIN, SILENT } from '@musical-patterns/pattern'
+import { FULL_GAIN, SILENT } from '@musical-patterns/material'
 import { Amplitude, Scalar, to } from '@musical-patterns/utilities'
 import { computeRandomDropGain } from '../../../../../src/indexForTest'
 
