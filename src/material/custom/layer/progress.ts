@@ -9,7 +9,7 @@ import {
     Time,
     to,
     valueLinearlyBetweenValues,
-    zeroAndPositiveIntegers,
+    ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { Sieve } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
@@ -69,7 +69,7 @@ const computeLayersProgresses: (parameters: {
         const totalDuration: Scalar<Time> = computeTotalDuration({ layerCount, mode, reverse, sieve, totalIndices })
 
         return slice(
-            zeroAndPositiveIntegers,
+            ZERO_AND_POSITIVE_INTEGERS,
             INITIAL,
             to.Ordinal(from.Cardinal(layerCount)),
         )

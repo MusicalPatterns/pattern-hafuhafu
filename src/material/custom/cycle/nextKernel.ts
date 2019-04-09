@@ -14,7 +14,7 @@ import {
     slice,
     to,
     totalElements,
-    zeroAndPositiveIntegers,
+    ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { from as hafuhafuFrom, Sieve } from '../../../nominals'
 import { ComputeNextKernelParameters } from './types'
@@ -56,7 +56,7 @@ const computeNextKernel: (parameters: {
 
         return to.Block(
             slice(
-                zeroAndPositiveIntegers,
+                ZERO_AND_POSITIVE_INTEGERS,
                 INITIAL,
                 indexJustBeyondFinalElementFromElementsTotal(kernelLength),
             )
