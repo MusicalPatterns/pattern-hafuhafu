@@ -1,4 +1,4 @@
-import { Scalar, testArraysAreCloseSoFar, to } from '@musical-patterns/utilities'
+import { Scalar, to } from '@musical-patterns/utilities'
 import { computeScalars, HafuhafuSpecs, initialSpecs } from '../../../src/indexForTest'
 
 describe('scalars', () => {
@@ -10,13 +10,14 @@ describe('scalars', () => {
 
         const scalars: Scalar[] = computeScalars(specs)
 
-        testArraysAreCloseSoFar(scalars, [
-            1,
-            3,
-            9,
-            27,
-            81,
-            243,
-        ].map(to.Scalar))
+        expect(scalars)
+            .toBeCloseSoFar([
+                1,
+                3,
+                9,
+                27,
+                81,
+                243,
+            ].map(to.Scalar))
     })
 })

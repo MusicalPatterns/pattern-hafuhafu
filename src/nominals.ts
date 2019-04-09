@@ -1,5 +1,3 @@
-// tslint:disable ban-types
-
 import { computeNominalInterface, DUMMY_VALUE_FOR_COMPUTING_NOMINAL_INTERFACE } from '@musical-patterns/utilities'
 
 type Sieve = Number & { _NominalBrand: 'Sieve' }

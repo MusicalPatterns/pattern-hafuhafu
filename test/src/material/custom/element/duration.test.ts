@@ -15,8 +15,6 @@ import {
     Ordinal,
     PREVIOUS,
     Scalar,
-    testIsCloseTo,
-    testIsGreaterThan,
     Time,
     to,
     VERY_LOW_PRECISION,
@@ -71,10 +69,8 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                         totalIndices: ARBITRARY_TOTAL_INDICES,
                     })
 
-                    testIsCloseTo(
-                        duration,
-                        to.Scalar(to.Time(1 / 2)),
-                    )
+                    expect(duration)
+                        .toBeCloseToTyped(to.Scalar(to.Time(1 / 2)))
                 },
             )
         })
@@ -112,10 +108,8 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                         totalIndices: ARBITRARY_TOTAL_INDICES,
                     })
 
-                    testIsCloseTo(
-                        duration,
-                        to.Scalar(to.Time(1 / 3)),
-                    )
+                    expect(duration)
+                        .toBeCloseToTyped(to.Scalar(to.Time(1 / 3)))
                 },
             )
         })
@@ -156,11 +150,11 @@ no matter the layer count`,
                         totalIndices: ARBITRARY_TOTAL_INDICES,
                     })
 
-                    testIsCloseTo(
-                        duration,
-                        to.Scalar(to.Time(1 / 2)),
-                        VERY_LOW_PRECISION,
-                    )
+                    expect(duration)
+                        .toBeCloseToTyped(
+                            to.Scalar(to.Time(1 / 2)),
+                            VERY_LOW_PRECISION,
+                        )
                 },
             )
         })
@@ -233,7 +227,8 @@ no matter the layer count`,
                 })
 
                 if (!isUndefined(previousIterationElementProgress)) {
-                    testIsGreaterThan(elementProgress, previousIterationElementProgress)
+                    expect(elementProgress)
+                        .toBeGreaterThanTyped(previousIterationElementProgress)
                 }
 
                 previousIterationElementProgress = elementProgress
@@ -376,7 +371,8 @@ no matter the layer count`,
                     })
 
                     if (!isUndefined(previousIterationElementProgress)) {
-                        testIsGreaterThan(elementProgress, previousIterationElementProgress)
+                        expect(elementProgress)
+                            .toBeGreaterThanTyped(previousIterationElementProgress)
                     }
 
                     previousIterationElementProgress = elementProgress

@@ -16,9 +16,6 @@ import {
     oddElements,
     Ordinal,
     slice,
-    testAllValuesAreTheSame,
-    testGoesMonotonicallyFromValueToValue,
-    testGoesQuadraticallyFromValueToValue,
     to,
     totalElements,
     Translation,
@@ -75,7 +72,8 @@ describe('pieces', () => {
                         (element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_DURATION_IN_CONTOUR),
                     )
 
-                    testGoesQuadraticallyFromValueToValue(durations, 1, 1 / 2, VERY_LOW_PRECISION)
+                    expect(durations)
+                        .toGoMonotonicallyFromValueToValue(1, 1 / 2, VERY_LOW_PRECISION)
                 })
             })
 
@@ -84,21 +82,24 @@ describe('pieces', () => {
                     const evenGains: number[] = evenElements(pieces)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                    testGoesMonotonicallyFromValueToValue(evenGains, 1, 0, VERY_LOW_PRECISION)
+                    expect(evenGains)
+                        .toGoMonotonicallyFromValueToValue(1, 0, VERY_LOW_PRECISION)
                 })
 
                 it('the gain on the even elements of the odd elements (layer 2 of 3) increases from almost 0 to almost 1 - crossing the evens in the middle at 0.5', () => {
                     const evenOddGains: number[] = evenElements(oddElements(pieces))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                    testGoesMonotonicallyFromValueToValue(evenOddGains, 0, 1, VERY_LOW_PRECISION)
+                    expect(evenOddGains)
+                        .toGoMonotonicallyFromValueToValue(0, 1, VERY_LOW_PRECISION)
                 })
 
                 it('the gain on all the other elements (layer 3 of 3, AKA the non-layer) is set at 0', () => {
                     const oddOddGains: number[] = oddElements(oddElements(pieces))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                    testAllValuesAreTheSame(oddOddGains, 0)
+                    expect(oddOddGains)
+                        .toBeHomogenous(0)
                 })
             })
 
@@ -119,21 +120,24 @@ describe('pieces', () => {
                     const evenPitchScalars: number[] = evenElements(pieces)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testGoesQuadraticallyFromValueToValue(evenPitchScalars, 1, 2, VERY_LOW_PRECISION)
+                    expect(evenPitchScalars)
+                        .toGoQuadraticallyFromValueToValue(1, 2, VERY_LOW_PRECISION)
                 })
 
                 it('the pitch on the even elements of the odd elements (layer 2 of 3) is scaled, by a factor increasing quadratically from 1/sieve to (almost, because it is not quite at the end) 1', () => {
                     const evenOddPitchScalars: number[] = evenElements(oddElements(pieces))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testGoesQuadraticallyFromValueToValue(evenOddPitchScalars, 1 / 2, 1, VERY_LOW_PRECISION)
+                    expect(evenOddPitchScalars)
+                        .toGoQuadraticallyFromValueToValue(1 / 2, 1, VERY_LOW_PRECISION)
                 })
 
                 it('the pitch on all other elements (odds of the odds, layer 3 of 3 AKA the non-layer) are at 2, the max, though it does not really matter because their gains are at zero, but we think of this as like their resting place after having climbed this high I guess', () => {
                     const oddOddPitchScalars: number[] = oddElements(oddElements(pieces))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testAllValuesAreTheSame(oddOddPitchScalars, 2)
+                    expect(oddOddPitchScalars)
+                        .toBeHomogenous(2)
                 })
             })
 
@@ -143,7 +147,8 @@ describe('pieces', () => {
                         (element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_SUSTAIN_IN_CONTOUR),
                     )
 
-                    testAllValuesAreTheSame(sustains, 1 / 2)
+                    expect(sustains)
+                        .toBeHomogenous(1 / 2)
                 })
             })
         })
@@ -174,7 +179,8 @@ describe('pieces', () => {
                         (element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_DURATION_IN_CONTOUR),
                     )
 
-                    testGoesQuadraticallyFromValueToValue(durations, 1, 1 / 2, VERY_LOW_PRECISION)
+                    expect(durations)
+                        .toGoQuadraticallyFromValueToValue(1, 1 / 2, VERY_LOW_PRECISION)
                 })
             })
 
@@ -183,7 +189,8 @@ describe('pieces', () => {
                     const evenGains: number[] = evenElements(pieces)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                    testGoesMonotonicallyFromValueToValue(evenGains, 2 / 3, 0, VERY_LOW_PRECISION)
+                    expect(evenGains)
+                        .toGoMonotonicallyFromValueToValue(2 / 3, 0, VERY_LOW_PRECISION)
                 })
 
                 it('the gain on the even elements of the odd elements (layer 2 of 4) increases from 2/3 to 1 then back down to 2/3', () => {
@@ -212,22 +219,26 @@ describe('pieces', () => {
                         indexOfFinalElement(evenOddGains),
                     )
 
-                    testGoesMonotonicallyFromValueToValue(firstHalfOfThose, 2 / 3, 1, VERY_LOW_PRECISION)
-                    testGoesMonotonicallyFromValueToValue(secondHalfOfThose, 1, 2 / 3, VERY_LOW_PRECISION)
+                    expect(firstHalfOfThose)
+                        .toGoMonotonicallyFromValueToValue(2 / 3, 1, VERY_LOW_PRECISION)
+                    expect(secondHalfOfThose)
+                        .toGoMonotonicallyFromValueToValue(1, 2 / 3, VERY_LOW_PRECISION)
                 })
 
                 it('the gain on the even elements of the odd elements of the odd elements (layer 3 of 4) increases from 0 to almost 2/3', () => {
                     const evenOddOddGains: number[] = evenElements(oddElements(oddElements(pieces)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                    testGoesMonotonicallyFromValueToValue(evenOddOddGains, 0, 2 / 3, VERY_LOW_PRECISION)
+                    expect(evenOddOddGains)
+                        .toGoMonotonicallyFromValueToValue(0, 2 / 3, VERY_LOW_PRECISION)
                 })
 
                 it('the gain on all other elements (odds of the odds of the odds, layer 4 of 4 AKA the non-layer) are at zero', () => {
                     const oddOddOddGains: number[] = oddElements(oddElements(oddElements(pieces)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                    testAllValuesAreTheSame(oddOddOddGains, 0)
+                    expect(oddOddOddGains)
+                        .toBeHomogenous(0)
                 })
             })
 
@@ -248,33 +259,36 @@ describe('pieces', () => {
                     const evenPitchScalars: number[] = evenElements(pieces)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testGoesQuadraticallyFromValueToValue(evenPitchScalars, Math.pow(2, 1 / 2), Math.pow(2, 3 / 2), VERY_LOW_PRECISION)
+                    expect(evenPitchScalars)
+                        .toGoQuadraticallyFromValueToValue(Math.pow(2, 1 / 2), Math.pow(2, 3 / 2), VERY_LOW_PRECISION)
                 })
 
                 it('the pitch on the even elements of the odd elements (layer 2 of 4) is scaled, by a factor increasing quadratically from 2^(-1/2) to 2^(1/2) (which = 1 in the middle)', () => {
                     const evenOddPitchScalars: number[] = evenElements(oddElements(pieces))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testGoesQuadraticallyFromValueToValue(evenOddPitchScalars, Math.pow(2, -1 / 2), Math.pow(2, 1 / 2), VERY_LOW_PRECISION)
+                    expect(evenOddPitchScalars)
+                        .toGoQuadraticallyFromValueToValue(Math.pow(2, -1 / 2), Math.pow(2, 1 / 2), VERY_LOW_PRECISION)
                 })
 
                 it('the pitch on the even elements of the odd elements of the odd elements (layer 3 of 4) is scaled, by a factor increasing quadratically from 2^(-3/2) to 2^(-1/2) (which = 1/2 in the middle)', () => {
                     const evenOddOddPitchScalars: number[] = evenElements(oddElements(oddElements(pieces)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testGoesQuadraticallyFromValueToValue(
-                        evenOddOddPitchScalars,
-                        Math.pow(2, -3 / 2),
-                        Math.pow(2, -1 / 2),
-                        VERY_LOW_PRECISION,
-                    )
+                    expect(evenOddOddPitchScalars)
+                        .toGoQuadraticallyFromValueToValue(
+                            Math.pow(2, -3 / 2),
+                            Math.pow(2, -1 / 2),
+                            VERY_LOW_PRECISION,
+                        )
                 })
 
                 it('the pitch on all the remaining elements (the odds of the odds of the odds, layer 4 of 4 AKA the non-layer) is at 2^(3/2), the max, though it does not really matter because gain is at zero, but I guess we think of this is as its final resting pitch having climbed this high haha', () => {
                     const oddOddOddPitchScalars: number[] = oddElements(oddElements(oddElements(pieces)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testAllValuesAreTheSame(oddOddOddPitchScalars, Math.pow(2, 3 / 2))
+                    expect(oddOddOddPitchScalars)
+                        .toBeHomogenous(Math.pow(2, 3 / 2))
                 })
             })
         })
@@ -297,7 +311,8 @@ describe('pieces', () => {
                 const pitchScalars: number[] = pieces
                     .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                testAllValuesAreTheSame(pitchScalars, 1)
+                expect(pitchScalars)
+                    .toBeHomogenous(1)
             })
         })
 
@@ -330,7 +345,8 @@ so you have to give your duration to the element behind you`,
                             TRANSLATION_TO_FLIP_DURATION_ASSOCIATIONS_WHEN_REVERSE,
                         )
 
-                        testGoesMonotonicallyFromValueToValue(durations, 1 / 2, 1, VERY_LOW_PRECISION)
+                        expect(durations)
+                            .toGoMonotonicallyFromValueToValue(1 / 2, 1, VERY_LOW_PRECISION)
                     },
                 )
             })
@@ -340,28 +356,32 @@ so you have to give your duration to the element behind you`,
                     const evenPitchScalars: number[] = evenElements(pieces)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
                     const evenPitchScalarsDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne: number[] = evenPitchScalars.slice(INITIAL, indexOfFinalElement(evenPitchScalars))
-                    testGoesQuadraticallyFromValueToValue(evenPitchScalarsDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne, Math.pow(2, 3 / 2), Math.pow(2, 1 / 2), VERY_LOW_PRECISION)
+                    expect(evenPitchScalarsDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne)
+                        .toGoQuadraticallyFromValueToValue(Math.pow(2, 3 / 2), Math.pow(2, 1 / 2), VERY_LOW_PRECISION)
                 })
 
                 it('the pitch on the odd elements of the odd elements (yes, layer 2 of 4, is odd of odd when reverse is true, turns out - try it yourself!) is scaled, by a factor decreasing quadratically from sqrt(2) to 1/sqrt(2) (which = 1 in the middle)', () => {
                     const evenOddPitchScalars: number[] = oddElements(oddElements(pieces))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testGoesQuadraticallyFromValueToValue(evenOddPitchScalars, Math.pow(2, 1 / 2), Math.pow(2, -1 / 2), VERY_LOW_PRECISION)
+                    expect(evenOddPitchScalars)
+                        .toGoQuadraticallyFromValueToValue(Math.pow(2, 1 / 2), Math.pow(2, -1 / 2), VERY_LOW_PRECISION)
                 })
 
                 it('the pitch on the odd elements of the even elements of the odd elements (layer 3 of 4, yes, odd of even of odd is layer 3 when reverse is true - try it yourself!) is scaled, by a factor decreasing quadratically from 2^(-1/2) to 2^(-3/2) (which = 1/2 in the middle)', () => {
                     const evenOddOddPitchScalars: number[] = oddElements(evenElements(oddElements(pieces)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testGoesQuadraticallyFromValueToValue(evenOddOddPitchScalars, Math.pow(2, -1 / 2), Math.pow(2, -3 / 2), VERY_LOW_PRECISION)
+                    expect(evenOddOddPitchScalars)
+                        .toGoQuadraticallyFromValueToValue(Math.pow(2, -1 / 2), Math.pow(2, -3 / 2), VERY_LOW_PRECISION)
                 })
 
                 it('the pitch is scaled on all the other elements to 2^(3/2), the max, because thats as high as they reached before going to gain 0 silence (layer 4 of 4, AKA the non-layer, the evens of the evens of the odds)', () => {
                     const evenEvenOddPitchScalars: number[] = evenElements(evenElements(oddElements(pieces)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testAllValuesAreTheSame(evenEvenOddPitchScalars, Math.pow(2, 3 / 2))
+                    expect(evenEvenOddPitchScalars)
+                        .toBeHomogenous(Math.pow(2, 3 / 2))
                 })
             })
 
@@ -370,7 +390,8 @@ so you have to give your duration to the element behind you`,
                     const evenGains: number[] = evenElements(pieces)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                    testGoesMonotonicallyFromValueToValue(evenGains, 0, 2 / 3, VERY_LOW_PRECISION)
+                    expect(evenGains)
+                        .toGoMonotonicallyFromValueToValue(0, 2 / 3, VERY_LOW_PRECISION)
                 })
 
                 it('the gain on the odd elements of the odd elements (layer 2 of 4) increases from 2/3 to 1 then back down to 2/3 (same as when not reverse, as it is mirrored when layer count is odd, as this example i happened to pick is, so maybe i should actually get an even layer count example too... nah it is covered well enough by the gain curve suite', () => {
@@ -399,22 +420,26 @@ so you have to give your duration to the element behind you`,
                         indexOfFinalElement(oddOddGains),
                     )
 
-                    testGoesMonotonicallyFromValueToValue(firstHalfOfThose, 2 / 3, 1, VERY_LOW_PRECISION)
-                    testGoesMonotonicallyFromValueToValue(secondHalfOfThose, 1, 2 / 3, VERY_LOW_PRECISION)
+                    expect(firstHalfOfThose)
+                        .toGoMonotonicallyFromValueToValue(2 / 3, 1, VERY_LOW_PRECISION)
+                    expect(secondHalfOfThose)
+                        .toGoMonotonicallyFromValueToValue(1, 2 / 3, VERY_LOW_PRECISION)
                 })
 
                 it('the gain on the odd elements of the even elements of the odd elements (layer 3 of 4) decreases from 2/3 to almost 0', () => {
                     const oddEvenOddGains: number[] = oddElements(evenElements(oddElements(pieces)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                    testGoesMonotonicallyFromValueToValue(oddEvenOddGains, 2 / 3, 0, VERY_LOW_PRECISION)
+                    expect(oddEvenOddGains)
+                        .toGoMonotonicallyFromValueToValue(2 / 3, 0, VERY_LOW_PRECISION)
                 })
 
                 it('the gain on all other elements (evens of the evens of the odds, layer 4 of 4 AKA the non-layer) are at zero', () => {
                     const oddOddOddGains: number[] = evenElements(evenElements(oddElements(pieces)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                    testAllValuesAreTheSame(oddOddOddGains, 0)
+                    expect(oddOddOddGains)
+                        .toBeHomogenous(0)
                 })
             })
         })
@@ -439,14 +464,16 @@ so you have to give your duration to the element behind you`,
                     const layerOnePitchScalars: number[] = everyNthElement(pieces, to.Scalar(3))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testGoesQuadraticallyFromValueToValue(layerOnePitchScalars, 1, 3, VERY_LOW_PRECISION)
+                    expect(layerOnePitchScalars)
+                        .toGoQuadraticallyFromValueToValue(1, 3, VERY_LOW_PRECISION)
                 })
 
                 it('the pitch on layer 2 of 3 elements is scaled, by a factor increasing quadratically from 1/sieve to (almost, because it is not quite at the end) 1', () => {
                     const layerTwoPitchScalars: number[] = everyNthElement(pieces, to.Scalar(9), to.Ordinal(1))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testGoesQuadraticallyFromValueToValue(layerTwoPitchScalars, 1 / 3, 1, VERY_LOW_PRECISION)
+                    expect(layerTwoPitchScalars)
+                        .toGoQuadraticallyFromValueToValue(1 / 3, 1, VERY_LOW_PRECISION)
                 })
             })
 
@@ -456,7 +483,8 @@ so you have to give your duration to the element behind you`,
                         (element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_DURATION_IN_CONTOUR),
                     )
 
-                    testGoesQuadraticallyFromValueToValue(durations, 1, 1 / 3, VERY_LOW_PRECISION)
+                    expect(durations)
+                        .toGoQuadraticallyFromValueToValue(1, 1 / 3, VERY_LOW_PRECISION)
                 })
             })
 
@@ -466,7 +494,8 @@ so you have to give your duration to the element behind you`,
                         (element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_SUSTAIN_IN_CONTOUR),
                     )
 
-                    testAllValuesAreTheSame(sustains, 1 / 3)
+                    expect(sustains)
+                        .toBeHomogenous(1 / 3)
                 })
             })
         })
@@ -519,21 +548,24 @@ so you have to give your duration to the element behind you`,
                 const layerOneGains: number [] = layerOneElements
                     .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                testAllValuesAreTheSame(layerOneGains, 1)
+                expect(layerOneGains)
+                    .toBeHomogenous(1)
             })
 
             it('for layer two, they should decrease from 1 to 1/2', () => {
                 const layerTwoGains: number [] = layerTwoElements
                     .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                testGoesMonotonicallyFromValueToValue(layerTwoGains, 1, 1 / 2, VERY_LOW_PRECISION)
+                expect(layerTwoGains)
+                    .toGoMonotonicallyFromValueToValue(1, 1 / 2, VERY_LOW_PRECISION)
             })
 
             it('for layer three, they should decrease from 1/2 to 0', () => {
                 const layerThreeGains: number [] = layerThreeElements
                     .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
-                testGoesMonotonicallyFromValueToValue(layerThreeGains, 1 / 2, 0, VERY_LOW_PRECISION)
+                expect(layerThreeGains)
+                    .toGoMonotonicallyFromValueToValue(1 / 2, 0, VERY_LOW_PRECISION)
             })
         })
 
@@ -560,7 +592,8 @@ because there are 1/sieve as many notes happening then - when sieve is 2`,
                             apply.Ordinal(kernelElement, INDEX_OF_DURATION_IN_CONTOUR),
                     )
 
-                    testGoesQuadraticallyFromValueToValue(durations, 1, 1 / 2, VERY_LOW_PRECISION)
+                    expect(durations)
+                        .toGoQuadraticallyFromValueToValue(1, 1 / 2, VERY_LOW_PRECISION)
                 },
             )
 
@@ -586,7 +619,8 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
                             apply.Ordinal(kernelElement, INDEX_OF_DURATION_IN_CONTOUR),
                     )
 
-                    testGoesQuadraticallyFromValueToValue(durations, 1, 1 / 3, VERY_LOW_PRECISION)
+                    expect(durations)
+                        .toGoQuadraticallyFromValueToValue(1, 1 / 3, VERY_LOW_PRECISION)
                 },
             )
         })
@@ -613,7 +647,8 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
                     const iterationPitchScalars: number [] = pieces
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testAllValuesAreTheSame(iterationPitchScalars, 1)
+                    expect(iterationPitchScalars)
+                        .toBeHomogenous(1)
                 })
             })
 
@@ -662,7 +697,8 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
                     const layerOnePitchScalars: number [] = layerOneElements
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
-                    testAllValuesAreTheSame(layerOnePitchScalars, 1)
+                    expect(layerOnePitchScalars)
+                        .toBeHomogenous(1)
                 })
 
                 it('for layer two, they should increase from 1 to sieve', () => {
@@ -671,12 +707,12 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
 
                     // I would test that it goes quadratically, but because it's clusters of sampled elements instead of every single element, the utility will fail it.
                     // That's okay, though, because its quadratic change is covered by tests of the layers progress it is based on.
-                    testGoesMonotonicallyFromValueToValue(
-                        layerTwoPitchScalars,
-                        1,
-                        5,
-                        VERY_LOW_PRECISION,
-                    )
+                    expect(layerTwoPitchScalars)
+                        .toGoMonotonicallyFromValueToValue(
+                            1,
+                            5,
+                            VERY_LOW_PRECISION,
+                        )
                 })
 
                 it('for layer three, they should increase from sieve to sieve^2', () => {
@@ -685,12 +721,12 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
 
                     // I would test that it goes quadratically, but because it's clusters of sampled elements instead of every single element, the utility will fail it.
                     // That's okay, though, because its quadratic change is covered by tests of the layers progress it is based on.
-                    testGoesMonotonicallyFromValueToValue(
-                        layerThreePitchScalars,
-                        5,
-                        25,
-                        VERY_LOW_PRECISION,
-                    )
+                    expect(layerThreePitchScalars)
+                        .toGoMonotonicallyFromValueToValue(
+                            5,
+                            25,
+                            VERY_LOW_PRECISION,
+                        )
                 })
             })
         })
