@@ -3,26 +3,25 @@ import {
     arraySet,
     Block,
     Cardinal,
-    Cycle,
+    Cycle, DECREMENT,
     from,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
+    Multiple,
     negative,
     NEXT,
     Ordinal,
     PREVIOUS,
     slice,
     to,
-    totalElements,
-    ZERO_AND_POSITIVE_INTEGERS,
+    totalElements, ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
-import { from as hafuhafuFrom, Sieve } from '../../../nominals'
 import { ComputeNextKernelParameters } from './types'
 
 const computeNextKernel: (parameters: {
     previousKernel: Block,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     totalIndices: Cardinal,
 }) => Block =
     ({ totalIndices, previousKernel, reverse, sieve }: ComputeNextKernelParameters): Block => {
@@ -32,20 +31,20 @@ const computeNextKernel: (parameters: {
             const nextKernel: Block = to.Block([])
             const terminalKernel: Cycle = apply.Translation(
                 to.Cycle(previousKernel),
-                to.Translation(from.Cardinal(negative(totalIndices))),
+                to.Translation<Cycle>(from.Cardinal(negative(totalIndices))),
             )
 
             for (
                 let terminalKernelIndex: Ordinal = INITIAL;
-                terminalKernelIndex < kernelLength;
+                terminalKernelIndex < indexJustBeyondFinalElementFromElementsTotal(kernelLength);
                 terminalKernelIndex = apply.Translation(terminalKernelIndex, NEXT)
             ) {
                 const nextKernelIndex: Ordinal = apply.Modulus(
                     apply.Translation(
-                        apply.Scalar(terminalKernelIndex, to.Scalar(hafuhafuFrom.Sieve(sieve))),
-                        to.Translation(hafuhafuFrom.Sieve(apply.Translation(sieve, PREVIOUS))),
+                        apply.Multiple(terminalKernelIndex, sieve),
+                        to.Translation<Ordinal>(from.Multiple(apply.Translation(sieve, DECREMENT))),
                     ),
-                    to.Modulus(from.Cardinal(kernelLength)),
+                    to.Modulus<Ordinal>(from.Cardinal(kernelLength)),
                 )
 
                 arraySet(nextKernel, nextKernelIndex, apply.Ordinal(terminalKernel, terminalKernelIndex))
@@ -63,8 +62,8 @@ const computeNextKernel: (parameters: {
                 .map(to.Ordinal)
                 .map((index: Ordinal) => {
                     const nextIndex: Ordinal = apply.Translation(
-                        apply.Scalar(index, to.Scalar(hafuhafuFrom.Sieve(sieve))),
-                        to.Translation(from.Cardinal(totalIndices)),
+                        apply.Scalar(index, to.Scalar(from.Multiple<Ordinal>(sieve))),
+                        to.Translation<Ordinal>(from.Cardinal(totalIndices)),
                     )
 
                     return apply.Ordinal(to.Cycle(previousKernel), nextIndex)

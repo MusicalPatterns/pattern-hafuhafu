@@ -4,9 +4,12 @@ import {
     Cardinal,
     Frequency,
     from,
+    insteadOf,
+    Multiple,
     MULTIPLICATIVE_IDENTITY,
     negative,
     NormalScalar,
+    of,
     ONE_FEWER,
     ONE_HALF,
     Ordinal,
@@ -15,7 +18,6 @@ import {
     to,
     valueLinearlyBetweenValues,
 } from '@musical-patterns/utilities'
-import { from as hafuhafuFrom, Sieve } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { ComputePitchIndexParameters, ComputePitchScalarParameters } from './types'
 
@@ -26,9 +28,10 @@ const computePitchIndex: (parameters: { iterationIndex: Ordinal, iterationKernel
             iterationIndex,
         ))
 
-const computeDrostePitchScalarPower: (activeLayerCount: Cardinal, layerProgress: NormalScalar) => Power =
-    (activeLayerCount: Cardinal, layerProgress: NormalScalar): Power => {
-        const maximumAbsolutePower: Power = to.Power(from.Cardinal(apply.Scalar(
+const computeDrostePitchScalarPower:
+    (activeLayerCount: Cardinal, layerProgress: NormalScalar) => Power<Multiple<Ordinal>> =
+    (activeLayerCount: Cardinal, layerProgress: NormalScalar): Power<Multiple<Ordinal>> => {
+        const maximumAbsolutePower: Power<Multiple<Ordinal>> = to.Power<Multiple<Ordinal>>(from.Cardinal(apply.Scalar(
             activeLayerCount,
             ONE_HALF,
         )))
@@ -36,7 +39,7 @@ const computeDrostePitchScalarPower: (activeLayerCount: Cardinal, layerProgress:
         return valueLinearlyBetweenValues(
             negative(maximumAbsolutePower),
             maximumAbsolutePower,
-            layerProgress,
+            insteadOf<NormalScalar, Power<Multiple<Ordinal>>>(layerProgress),
         )
     }
 
@@ -44,21 +47,21 @@ const computePitchScalar: (parameters: {
     layerCount: Cardinal,
     layerProgress: NormalScalar,
     mode: HafuhafuMode,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     stretchPitch: boolean,
 }) => Scalar<Frequency> =
     ({ layerCount, layerProgress, mode, sieve, stretchPitch }: ComputePitchScalarParameters): Scalar<Frequency> => {
         if (!stretchPitch) {
-            return to.Frequency(MULTIPLICATIVE_IDENTITY)
+            return MULTIPLICATIVE_IDENTITY
         }
 
         const activeLayerCount: Cardinal = apply.Translation(layerCount, ONE_FEWER)
-        const layerScalar: Scalar = to.Scalar(from.Cardinal(activeLayerCount))
-        const pitchScalarPower: Power = mode === HafuhafuMode.DROSTE ?
+        const layerScalar: Scalar<NormalScalar> = to.Scalar<NormalScalar>(from.Cardinal(activeLayerCount))
+        const pitchScalarPower: Power<Multiple<Ordinal>> = mode === HafuhafuMode.DROSTE ?
             computeDrostePitchScalarPower(activeLayerCount, layerProgress) :
-            to.Power(from.NormalScalar<number, Scalar>(apply.Scalar(layerProgress, layerScalar)))
+            to.Power<Multiple<Ordinal>>(from.NormalScalar(apply.Scalar(layerProgress, layerScalar)))
 
-        return to.Scalar(to.Frequency(hafuhafuFrom.Sieve(apply.Power(
+        return to.Scalar(of.Frequency(from.Multiple<Ordinal>(apply.Power(
             sieve,
             pitchScalarPower,
         ))))

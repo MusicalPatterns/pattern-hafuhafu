@@ -11,7 +11,7 @@ where the sieve fractal cycle length is the sieve^(layerCount - 1)`,
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 layerCount: to.Cardinal(2),
-                sieve: hafuhafuTo.Sieve(3),
+                sieve: to.Multiple(3),
                 sieveFractalRepetitions: to.Cardinal(7),
             }
 

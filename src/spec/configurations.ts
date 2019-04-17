@@ -1,5 +1,6 @@
 import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
 import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/spec'
+import { from, Scalar } from '@musical-patterns/utilities'
 import { optionedConstraints, rangedConstraints } from './constraints'
 import { specsOrder } from './orders'
 import { HafuhafuConfigurations, HafuhafuSpec } from './types'
@@ -22,7 +23,7 @@ const configurations: HafuhafuConfigurations = {
 to become the layer one index off in the next iteration; for layers to accomplish this, the iterations must be in \
 multiples of sieves, though that number of repetitions is arbitrary, simply determining how long it takes for an \
 iteration to complete`,
-        formattedName: 'Sieve Repetitions',
+        formattedName: 'Multiple Repetitions',
         hideInput: RangedInputType.RANGE,
         inputType: InputType.RANGED,
         order: specsOrder.indexOf(HafuhafuSpec.SIEVE_FRACTAL_REPETITIONS),
@@ -31,7 +32,7 @@ iteration to complete`,
         arrayedConstraint: {
             minLength: 1,
         },
-        arrayedNewFieldInitialValue: STANDARD_PITCH_INDEX_INDICATING_REST,
+        arrayedNewFieldInitialValue: from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST),
         constraint: rangedConstraints[ HafuhafuSpec.SOURCE_KERNEL ],
         description: 'a pattern of pitches to cycle (use -1 for a rest)',
         hideInput: RangedInputType.RANGE,

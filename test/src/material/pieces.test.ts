@@ -27,7 +27,7 @@ import {
     HafuhafuMode,
     HafuhafuSpecs,
     initialSpecs,
-    Sieve,
+    Multiple,
     to as hafuhafuTo,
 } from '../../../src/indexForTest'
 import {
@@ -54,7 +54,7 @@ describe('pieces', () => {
                     layerCount: to.Cardinal(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: false,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions,
                     stretchPitch: true,
                 }
@@ -161,7 +161,7 @@ describe('pieces', () => {
                     layerCount: to.Cardinal(4),
                     mode: HafuhafuMode.DROSTE,
                     reverse: false,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions,
                     stretchPitch: true,
                 }
@@ -452,7 +452,7 @@ so you have to give your duration to the element behind you`,
                     layerCount: to.Cardinal(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: false,
-                    sieve: hafuhafuTo.Sieve(3),
+                    sieve: to.Multiple(3),
                     sieveFractalRepetitions,
                     stretchPitch: true,
                 }
@@ -510,7 +510,7 @@ so you have to give your duration to the element behind you`,
             let layerTwoElements: ContourPiece<PitchDurationGainSustainScale>
             let layerThreeElements: ContourPiece<PitchDurationGainSustainScale>
             beforeEach(() => {
-                const sieve: Sieve = hafuhafuTo.Sieve(5)
+                const sieve: Multiple<Ordinal> = to.Multiple(5)
                 pieces = computePieces(
                     to.Block([ 0, 1, 0, 0, 1 ]),
                     {
@@ -582,7 +582,7 @@ because there are 1/sieve as many notes happening then - when sieve is 2`,
                             existenceStyle: ExistenceStyle.FADE,
                             mode: HafuhafuMode.ZENO,
                             reverse: false,
-                            sieve: hafuhafuTo.Sieve(2),
+                            sieve: to.Multiple(2),
                             sieveFractalRepetitions: to.Cardinal(4),
                             sourceKernel: KERNEL_AND_OR_CYCLE_KERNEL_DOESNT_MATTER_HERE_AS_LONG_AS_SAME_LENGTH,
                         },
@@ -609,7 +609,7 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
                             existenceStyle: ExistenceStyle.FADE,
                             mode: HafuhafuMode.ZENO,
                             reverse: false,
-                            sieve: hafuhafuTo.Sieve(3),
+                            sieve: to.Multiple(3),
                             sieveFractalRepetitions: to.Cardinal(4),
                             sourceKernel: KERNEL_AND_OR_CYCLE_KERNEL_DOESNT_MATTER_HERE_AS_LONG_AS_SAME_LENGTH,
                         },
@@ -628,7 +628,7 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
         describe('pitch scalar', () => {
             describe('when stretch pitch is false', () => {
                 it('all pitch scalars are 1', () => {
-                    const sieve: Sieve = hafuhafuTo.Sieve(5)
+                    const sieve: Multiple<Ordinal> = to.Multiple(5)
                     const pieces: ContourPiece<PitchDurationGainSustainScale> = computePieces(
                         to.Block([ 0, 1, 0, 0, 1 ]),
                         {
@@ -658,7 +658,7 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
                 let layerTwoElements: ContourPiece<PitchDurationGainSustainScale>
                 let layerThreeElements: ContourPiece<PitchDurationGainSustainScale>
                 beforeEach(() => {
-                    const sieve: Sieve = hafuhafuTo.Sieve(5)
+                    const sieve: Multiple<Ordinal> = to.Multiple(5)
                     pieces = computePieces(
                         to.Block([ 0, 1, 0, 0, 1 ]),
                         {

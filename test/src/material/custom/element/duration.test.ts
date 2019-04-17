@@ -23,7 +23,7 @@ import {
     computeDuration,
     computeElementProgress,
     HafuhafuMode,
-    Sieve,
+    Multiple,
     to as hafuhafuTo,
 } from '../../../../../src/indexForTest'
 
@@ -32,13 +32,13 @@ describe('duration', () => {
     let reverse: boolean = false
 
     describe('zeno mode', () => {
-        let sieve: Sieve
+        let sieve: Multiple<Ordinal>
         let layerCount: Cardinal = to.Cardinal(2)
         let indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact: Ordinal
 
         describe('when sieve is 2', () => {
             beforeEach(() => {
-                sieve = hafuhafuTo.Sieve(2)
+                sieve = to.Multiple(2)
                 indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = to.Ordinal(10)
             })
 
@@ -77,7 +77,7 @@ effectively increasing the tempo in proportion to counteract the fading out of t
 
         describe('when sieve is 3', () => {
             beforeEach(() => {
-                sieve = hafuhafuTo.Sieve(3)
+                sieve = to.Multiple(3)
                 indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = to.Ordinal(15)
             })
 
@@ -116,7 +116,7 @@ effectively increasing the tempo in proportion to counteract the fading out of t
 
         describe('when layer count is greater than the standard 2', () => {
             beforeEach(() => {
-                sieve = hafuhafuTo.Sieve(2)
+                sieve = to.Multiple(2)
                 layerCount = to.Cardinal(4)
                 indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = to.Ordinal(41)
             })
@@ -166,7 +166,7 @@ no matter the layer count`,
                     layerCount: to.Cardinal(1),
                     mode: HafuhafuMode.ZENO,
                     reverse,
-                    sieve: hafuhafuTo.Sieve(7),
+                    sieve: to.Multiple(7),
                     totalIndices: ARBITRARY_TOTAL_INDICES,
                 })
 
@@ -178,7 +178,7 @@ no matter the layer count`,
 
     describe('element progress', () => {
         let iterationKernel: Block
-        let sieve: Sieve
+        let sieve: Multiple<Ordinal>
         let sieveFractalRepetitions: Cardinal
 
         const TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Cardinal = to.Cardinal(160)
@@ -186,7 +186,7 @@ no matter the layer count`,
 
         beforeEach(() => {
             iterationKernel = to.Block([ 1, 2, 1, 1, 2 ])
-            sieve = hafuhafuTo.Sieve(2)
+            sieve = to.Multiple(2)
             sieveFractalRepetitions = to.Cardinal(80)
             reverse = false
         })
@@ -332,7 +332,7 @@ no matter the layer count`,
             const FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Ordinal = finalIndexFromElementsTotal(TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2)
 
             beforeEach(() => {
-                sieve = hafuhafuTo.Sieve(3)
+                sieve = to.Multiple(3)
             })
 
             it('the first element in the iteration has element progress 0', () => {

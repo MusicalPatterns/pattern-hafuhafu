@@ -1,12 +1,11 @@
-import { Block, Cardinal } from '@musical-patterns/utilities'
-import { Sieve } from '../../../nominals'
+import { Block, Cardinal, Multiple, Ordinal } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 
 interface ComputeKernelCycleParameters {
     layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     sieveFractalRepetitions: Cardinal,
     sourceKernel: Block,
 }
@@ -14,14 +13,14 @@ interface ComputeKernelCycleParameters {
 interface ComputeNextKernelParameters {
     previousKernel: Block,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     totalIndices: Cardinal,
 }
 
 interface ComputeTotalIndicesParameters {
     layerCount: Cardinal,
     mode: HafuhafuMode,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     sieveFractalRepetitions: Cardinal,
 }
 

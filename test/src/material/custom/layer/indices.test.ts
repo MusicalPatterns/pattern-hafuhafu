@@ -3,14 +3,14 @@ import {
     computeLayerIndices,
     computeTotalIndices,
     HafuhafuMode,
-    Sieve,
+    Multiple,
     to as hafuhafuTo,
 } from '../../../../../src/indexForTest'
 
 describe('layer indices', () => {
     describe('droste mode', () => {
         const REPEAT_THE_SIEVE_FRACTAL_AT_LEAST_ONCE_TO_DEMONSTRATE_THE_CONSEQUENT_REPTITION_IN_THE_LAYER_INDICES: Cardinal = to.Cardinal(2)
-        const sieve: Sieve = hafuhafuTo.Sieve(2)
+        const sieve: Multiple<Ordinal> = to.Multiple(2)
 
         it('tells you which layer a droste element is in, for layer count 2', () => {
             const layerCount: Cardinal = to.Cardinal(2)
@@ -217,7 +217,7 @@ is a separate problem solved by the method for calculating that total # of indic
                     layerCount: to.Cardinal(4),
                     mode: HafuhafuMode.ZENO,
                     reverse: false,
-                    sieve: hafuhafuTo.Sieve(3),
+                    sieve: to.Multiple(3),
                     totalIndices: to.Cardinal(135),
                 })
 
@@ -251,7 +251,7 @@ is a separate problem solved by the method for calculating that total # of indic
                 layerCount: to.Cardinal(4),
                 mode: HafuhafuMode.ZENO,
                 reverse: true,
-                sieve: hafuhafuTo.Sieve(3),
+                sieve: to.Multiple(3),
                 totalIndices: to.Cardinal(135),
             })
 

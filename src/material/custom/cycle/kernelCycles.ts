@@ -1,5 +1,4 @@
-import { Block, Cardinal, Cycle, deepClone, deepEqual, to } from '@musical-patterns/utilities'
-import { Sieve } from '../../../nominals'
+import { Block, Cardinal, Cycle, deepClone, deepEqual, Multiple, Ordinal, to } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 import { computeNextKernel } from './nextKernel'
 import { computeTotalIndices } from './totalIndices'
@@ -9,7 +8,7 @@ const computeKernelCycle: (parameters: {
     layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     sieveFractalRepetitions: Cardinal,
     sourceKernel: Block,
 }) => Cycle<Block> =

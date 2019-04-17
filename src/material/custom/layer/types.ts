@@ -1,14 +1,13 @@
-import { Cardinal, NormalScalar, Ordinal, Scalar, Time } from '@musical-patterns/utilities'
-import { Sieve } from '../../../nominals'
+import { Cardinal, Multiple, NormalScalar, Ordinal, Scalar, Time } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 
-type ComputeLayerInitialIndex = (sieve: Sieve, layerCount: Cardinal, mode: HafuhafuMode) => Ordinal
+type ComputeLayerInitialIndex = (sieve: Multiple<Ordinal>, layerCount: Cardinal, mode: HafuhafuMode) => Ordinal<Ordinal>
 
 interface LayerParameters {
     layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     totalIndices: Cardinal,
 }
 
@@ -17,7 +16,7 @@ interface ComputeDurationProgressesParameters extends LayerParameters {
 }
 
 interface ComputeDurationProgressParameters extends ComputeDurationProgressesParameters {
-    durationProgress: NormalScalar,
+    durationProgress: NormalScalar<NormalScalar>,
     iterationIndex: Ordinal,
 }
 
@@ -30,7 +29,7 @@ interface ComputeLayerIndexParameters {
     layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
 }
 
 interface ComputeLayerBeginAndEndParameters {

@@ -10,7 +10,7 @@ times the sieve fractal repetitions, plus 1 extra for realignment`,
                 const totalIndices: Cardinal = computeTotalIndices({
                     layerCount: to.Cardinal(4),
                     mode: HafuhafuMode.DROSTE,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(5),
                 })
 
@@ -23,7 +23,7 @@ times the sieve fractal repetitions, plus 1 extra for realignment`,
             const totalIndices: Cardinal = computeTotalIndices({
                 layerCount: to.Cardinal(3),
                 mode: HafuhafuMode.DROSTE,
-                sieve: hafuhafuTo.Sieve(2),
+                sieve: to.Multiple(2),
                 sieveFractalRepetitions: to.Cardinal(1),
             })
 
@@ -35,7 +35,7 @@ times the sieve fractal repetitions, plus 1 extra for realignment`,
             const totalIndices: Cardinal = computeTotalIndices({
                 layerCount: to.Cardinal(3),
                 mode: HafuhafuMode.DROSTE,
-                sieve: hafuhafuTo.Sieve(2),
+                sieve: to.Multiple(2),
                 sieveFractalRepetitions: to.Cardinal(31),
             })
 
@@ -47,7 +47,7 @@ times the sieve fractal repetitions, plus 1 extra for realignment`,
             const totalIndices: Cardinal = computeTotalIndices({
                 layerCount: to.Cardinal(11),
                 mode: HafuhafuMode.DROSTE,
-                sieve: hafuhafuTo.Sieve(2),
+                sieve: to.Multiple(2),
                 sieveFractalRepetitions: to.Cardinal(4),
             })
 
@@ -59,7 +59,7 @@ times the sieve fractal repetitions, plus 1 extra for realignment`,
             const totalIndices: Cardinal = computeTotalIndices({
                 layerCount: to.Cardinal(3),
                 mode: HafuhafuMode.DROSTE,
-                sieve: hafuhafuTo.Sieve(7),
+                sieve: to.Multiple(7),
                 sieveFractalRepetitions: to.Cardinal(4),
             })
 
@@ -73,7 +73,7 @@ times the sieve fractal repetitions, plus 1 extra for realignment`,
             const totalIndices: Cardinal = computeTotalIndices({
                 layerCount: to.Cardinal(2),
                 mode: HafuhafuMode.ZENO,
-                sieve: hafuhafuTo.Sieve(7),
+                sieve: to.Multiple(7),
                 sieveFractalRepetitions: to.Cardinal(4),
             })
 
@@ -85,7 +85,7 @@ times the sieve fractal repetitions, plus 1 extra for realignment`,
             const totalIndices: Cardinal = computeTotalIndices({
                 layerCount: to.Cardinal(3),
                 mode: HafuhafuMode.ZENO,
-                sieve: hafuhafuTo.Sieve(3),
+                sieve: to.Multiple(3),
                 sieveFractalRepetitions: to.Cardinal(1),
             })
 

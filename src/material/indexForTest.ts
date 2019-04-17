@@ -3,7 +3,7 @@
 export { computeNote } from './features'
 export { materializeEntities } from './entities'
 export { materializeScales } from './scales'
-export { computeScalars } from './scalars'
+export { computePitchScalars } from './scalars'
 export { computeWholes } from './wholes'
 export { computePieces } from './pieces'
 

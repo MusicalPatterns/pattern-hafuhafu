@@ -6,14 +6,13 @@ import {
     Cardinal,
     ContourElement,
     Frequency,
-    from,
+    from, insteadOf,
+    Multiple,
     NormalScalar,
     Ordinal,
     Scalar,
-    Time,
-    to,
+    Time, to,
 } from '@musical-patterns/utilities'
-import { Sieve } from '../../../nominals'
 import { ExistenceStyle, HafuhafuMode } from '../../../spec'
 import { computeDuration } from './duration'
 import { computeGain } from './gain'
@@ -27,9 +26,15 @@ const computeLayerProgress: (parameters: {
     layersProgresses: NormalScalar[][],
 }) => NormalScalar =
     ({ layerIndices, iterationIndex, layersProgresses }: ComputeLayerProgressParameters): NormalScalar => {
-        const layerIndex: Ordinal = apply.Ordinal(layerIndices, iterationIndex)
+        const layerIndex: Ordinal = apply.Ordinal(layerIndices, insteadOf<Ordinal, Ordinal>(iterationIndex))
 
-        return apply.Ordinal(apply.Ordinal(layersProgresses, layerIndex), iterationIndex)
+        return apply.Ordinal(
+            apply.Ordinal(
+                layersProgresses,
+                insteadOf<Ordinal, NormalScalar[]>(layerIndex),
+            ),
+            insteadOf<Ordinal, NormalScalar>(iterationIndex),
+        )
     }
 
 const computeElement: (parameters: {
@@ -41,7 +46,7 @@ const computeElement: (parameters: {
     layersProgresses: NormalScalar[][],
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     stretchPitch: boolean,
     totalIndices: Cardinal,
 }) => ContourElement<PitchDurationGainSustainScale> =
@@ -75,10 +80,10 @@ const computeElement: (parameters: {
 
         return to.ContourElement<PitchDurationGainSustainScale>([
             from.Ordinal(pitchIndex),
-            from.Scalar<number, Scalar>(from.Time(duration)),
-            from.Scalar<number, Scalar>(from.Amplitude(gain)),
-            from.Scalar<number, Scalar>(from.Time(sustain)),
-            from.Scalar<number, Scalar>(from.Frequency(pitchScalar)),
+            from.Scalar<Time>(duration),
+            from.Scalar<Amplitude>(gain),
+            from.Scalar<Time>(sustain),
+            from.Scalar<Frequency>(pitchScalar),
         ])
     }
 

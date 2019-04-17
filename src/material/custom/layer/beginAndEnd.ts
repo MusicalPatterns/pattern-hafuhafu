@@ -10,6 +10,7 @@ import {
     Ordinal,
     PREVIOUS,
     reciprocal,
+    Scalar,
     to,
 } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
@@ -26,13 +27,15 @@ const computeLayerBegin: (parameters: {
         }
 
         const activeLayerCount: Cardinal = apply.Translation(layerCount, ONE_FEWER)
-        const layerStep: NormalScalar = to.NormalScalar(from.Cardinal(reciprocal(activeLayerCount)))
+        const layerStep: NormalScalar<Scalar> = to.NormalScalar<Scalar>(from.Cardinal(reciprocal(activeLayerCount)))
 
-        const index: Ordinal = mode === HafuhafuMode.DROSTE || layerIndex === INITIAL ?
-            layerIndex :
-            apply.Translation(layerIndex, PREVIOUS)
+        const baseScalarFromIndex: Scalar = to.Scalar(from.Ordinal(
+            mode === HafuhafuMode.DROSTE || layerIndex === INITIAL ?
+                layerIndex :
+                apply.Translation(layerIndex, PREVIOUS),
+        ))
 
-        return to.NormalScalar(from.Ordinal(apply.Scalar(index, layerStep)))
+        return to.NormalScalar(from.Scalar(apply.NormalScalar(baseScalarFromIndex, layerStep)))
     }
 
 const computeLayerEnd: (parameters: {

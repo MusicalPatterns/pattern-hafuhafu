@@ -1,5 +1,5 @@
-import { Block, Cardinal, to } from '@musical-patterns/utilities'
-import { computeKernelCycle, HafuhafuMode, Sieve, to as hafuhafuTo } from '../../../../../src/indexForTest'
+import { Block, Cardinal, Multiple, to } from '@musical-patterns/utilities'
+import { computeKernelCycle, HafuhafuMode } from '../../../../../src/indexForTest'
 
 describe('kernel cycle', () => {
     let mode: HafuhafuMode
@@ -20,7 +20,7 @@ based on where the previous iteration left off`,
                     layerCount,
                     mode,
                     reverse: false,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(1), // Iteration lasts 2^2 * 1 + 1, so start on index 5 then take every other
                     sourceKernel,
                 }))
@@ -35,7 +35,7 @@ based on where the previous iteration left off`,
                     layerCount,
                     mode,
                     reverse: false,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(2), // Iteration lasts 2^2 * 2 + 1, so start on index 9 then take every other
                     sourceKernel,
                 }))
@@ -56,7 +56,7 @@ based on where the previous iteration left off`,
                 layerCount,
                 mode,
                 reverse: false,
-                sieve: hafuhafuTo.Sieve(2),
+                sieve: to.Multiple(2),
                 sieveFractalRepetitions: to.Cardinal(1), // Iteration lasts 2^3 * 1 + 1, so start on index 9 then take every other
                 sourceKernel,
             }))
@@ -71,7 +71,7 @@ based on where the previous iteration left off`,
                 layerCount,
                 mode,
                 reverse: false,
-                sieve: hafuhafuTo.Sieve(2),
+                sieve: to.Multiple(2),
                 sieveFractalRepetitions: to.Cardinal(2), // Iteration lasts 2^3 * 2 + 1, so start on index 17 then take every other
                 sourceKernel,
             }))
@@ -91,7 +91,7 @@ based on where the previous iteration left off`,
                 layerCount,
                 mode,
                 reverse: false,
-                sieve: hafuhafuTo.Sieve(3),
+                sieve: to.Multiple(3),
                 sieveFractalRepetitions: to.Cardinal(1), // Iteration lasts 3^2 * 1 + 1, so start on index 10 then take every third
                 sourceKernel,
             }))
@@ -109,7 +109,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(6), // 6 * 2^(3-1) + (1 for realign) = 25 iteration length, which is a multiple of kernel length 5
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5 ]),
                 }))
@@ -126,7 +126,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(4), // 4 * 2^(3-1) + (1 for realign) = 17 iteration length, which is *not* a multiple of kernel length 5
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5 ]),
                 }))
@@ -143,7 +143,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
-                    sieve: hafuhafuTo.Sieve(3),
+                    sieve: to.Multiple(3),
                     sieveFractalRepetitions: to.Cardinal(2), // 2 * 3^(3-1) + (1 for realign) = 19 iteration length
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5 ]),
                 }))
@@ -160,7 +160,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(4),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(2), // 2 * 2^(4-1) + (1 for realign) = 17 iteration length
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5 ]),
                 }))
@@ -177,7 +177,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(4), // 4 * 2^(3-1) + (1 for realign) = 17 iteration length
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5, 6, 7 ]),
                 }))
@@ -191,7 +191,7 @@ based on where the previous iteration left off`,
     })
 
     describe('when mode is zeno', () => {
-        let sieve: Sieve
+        let sieve: Multiple<Ordinal>
         const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_THREE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: Cardinal = to.Cardinal(3)
         const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_FIVE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: Cardinal = to.Cardinal(5)
         const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_SEVEN_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: Cardinal = to.Cardinal(7)
@@ -204,7 +204,7 @@ based on where the previous iteration left off`,
 
         describe('when sieve is 2', () => {
             beforeEach(() => {
-                sieve = hafuhafuTo.Sieve(2)
+                sieve = to.Multiple(2)
             })
 
             it('returns the cycle of kernels required to get from the original kernel back to itself by repeatedly applying the sieve, for a four-phase cycle', () => {
@@ -276,7 +276,7 @@ based on where the previous iteration left off`,
                     layerCount,
                     mode,
                     reverse: false,
-                    sieve: hafuhafuTo.Sieve(3),
+                    sieve: to.Multiple(3),
                     sieveFractalRepetitions,
                     sourceKernel: to.Block([ 0, 0, 1, 0, 1 ]),
                 }))
@@ -293,7 +293,7 @@ based on where the previous iteration left off`,
                     layerCount,
                     mode,
                     reverse: false,
-                    sieve: hafuhafuTo.Sieve(5),
+                    sieve: to.Multiple(5),
                     sieveFractalRepetitions: REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_THREE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION,
                     sourceKernel: to.Block([ 0, 0, 1 ]),
                 }))
@@ -310,7 +310,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(4),
                     mode,
                     reverse: false,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(4), // Total 32 indices in iteration because 2^(4-1) * 4, so it should start on index 32 and take every 2nd from there
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5 ]),
                 }))
@@ -329,7 +329,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(2),
                     mode,
                     reverse: true,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(5), // 5 * 2^(2-1) = 10 iteration length, which is a multiple of 5 kernel length
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5 ]),
                 }))
@@ -346,7 +346,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(2),
                     mode,
                     reverse: true,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(7), // 7 * 2^(2-1) = 14 iteration length, which is *not* a multiple of 5 kernel length
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5 ]),
                 }))
@@ -363,7 +363,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(2),
                     mode,
                     reverse: true,
-                    sieve: hafuhafuTo.Sieve(3),
+                    sieve: to.Multiple(3),
                     sieveFractalRepetitions: to.Cardinal(6), // 6 * 3^(2-1) = 18 iteration length, which is *not* a multiple of 5 kernel length
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5 ]),
                 }))
@@ -380,7 +380,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(3),
                     mode,
                     reverse: true,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(3), // 3 * 2^(3-1) = 12 iteration length, which is *not* a multiple of 5 kernel length
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5 ]),
                 }))
@@ -397,7 +397,7 @@ based on where the previous iteration left off`,
                     layerCount: to.Cardinal(2),
                     mode,
                     reverse: true,
-                    sieve: hafuhafuTo.Sieve(2),
+                    sieve: to.Multiple(2),
                     sieveFractalRepetitions: to.Cardinal(11), // 11 * 2^(2-1) = 22 iteration length, which is *not* a multiple of 7 kernel length
                     sourceKernel: to.Block([ 1, 2, 3, 4, 5, 6, 7 ]),
                 }))

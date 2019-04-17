@@ -2,16 +2,15 @@ import {
     Cardinal,
     from,
     INITIAL,
+    Multiple,
     NormalScalar,
     Ordinal,
     Scalar,
     slice,
     Time,
     to,
-    valueLinearlyBetweenValues,
-    ZERO_AND_POSITIVE_INTEGERS,
+    valueLinearlyBetweenValues, ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
-import { Sieve } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { computeLayerBegin, computeLayerEnd } from './beginAndEnd'
 import { computeDurationProgresses } from './durationProgress'
@@ -23,7 +22,7 @@ const computeLayerProgresses: (parameters: {
     layerIndex: Ordinal,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     totalDuration: Scalar<Time>,
     totalIndices: Cardinal,
 }) => NormalScalar[] =
@@ -41,7 +40,7 @@ const computeLayerProgresses: (parameters: {
         const begin: NormalScalar = computeLayerBegin({ layerCount, layerIndex, mode })
         const end: NormalScalar = computeLayerEnd({ layerCount, layerIndex, mode })
 
-        const durationProgresses: NormalScalar[] = computeDurationProgresses({
+        const durationProgresses: Array<NormalScalar<NormalScalar>> = computeDurationProgresses({
             layerCount,
             mode,
             reverse,
@@ -50,7 +49,7 @@ const computeLayerProgresses: (parameters: {
             totalIndices,
         })
 
-        return durationProgresses.map((durationProgress: NormalScalar) =>
+        return durationProgresses.map((durationProgress: NormalScalar<NormalScalar>) =>
             valueLinearlyBetweenValues(
                 reverse ? end : begin,
                 reverse ? begin : end,
@@ -62,7 +61,7 @@ const computeLayersProgresses: (parameters: {
     layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     totalIndices: Cardinal,
 }) => NormalScalar[][] =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): NormalScalar[][] => {

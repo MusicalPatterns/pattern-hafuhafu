@@ -16,7 +16,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: to.Block([ 0, 1, 0, 1 ]),
-                [ HafuhafuSpec.SIEVE ]: hafuhafuTo.Sieve(2),
+                [ HafuhafuSpec.SIEVE ]: to.Multiple(2),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)
@@ -37,7 +37,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: to.Block([ 0, 1, 1 ]),
-                [ HafuhafuSpec.SIEVE ]: hafuhafuTo.Sieve(6),
+                [ HafuhafuSpec.SIEVE ]: to.Multiple(6),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)
@@ -57,7 +57,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: to.Block([ 0, 1, 1, 0 ]),
-                [ HafuhafuSpec.SIEVE ]: hafuhafuTo.Sieve(6),
+                [ HafuhafuSpec.SIEVE ]: to.Multiple(6),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)
@@ -80,7 +80,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: to.Block([ 0, 1, 1, 1 ]),
-                [ HafuhafuSpec.SIEVE ]: hafuhafuTo.Sieve(3),
+                [ HafuhafuSpec.SIEVE ]: to.Multiple(3),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)

@@ -1,16 +1,16 @@
 import {
     apply,
     Cardinal,
-    from,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
+    Multiple,
+    ofFrom,
     Ordinal,
     Scalar,
     slice,
     Time,
     to,
 } from '@musical-patterns/utilities'
-import { Sieve } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { computeDuration } from '../element'
 import { zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities } from '../integers'
@@ -20,7 +20,7 @@ const computeTotalDuration: (parameters: {
     layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     totalIndices: Cardinal,
 }) => Scalar<Time> =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): Scalar<Time> =>
@@ -34,16 +34,16 @@ const computeTotalDuration: (parameters: {
                 (totalDuration: Scalar<Time>, iterationIndex: Ordinal) =>
                     apply.Translation(
                         totalDuration,
-                        to.Translation(from.Scalar<number, Scalar>(from.Time(computeDuration({
+                        to.Translation(ofFrom(computeDuration({
                             iterationIndex,
                             layerCount,
                             mode,
                             reverse,
                             sieve,
                             totalIndices,
-                        })))),
+                        }))),
                     ),
-                to.Scalar(to.Time(0)),
+                to.Scalar<Time>(0),
             )
 
 export {

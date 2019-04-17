@@ -1,5 +1,5 @@
-import { Cardinal, NormalScalar, Ordinal, Scalar, Time, to } from '@musical-patterns/utilities'
-import { computeDurationProgress, HafuhafuMode, Sieve, to as hafuhafuTo } from '../../../../../src/indexForTest'
+import { Cardinal, Multiple, NormalScalar, Ordinal, Scalar, Time, to } from '@musical-patterns/utilities'
+import { computeDurationProgress, HafuhafuMode } from '../../../../../src/indexForTest'
 
 describe('duration progress', () => {
     describe('zeno mode', () => {
@@ -9,7 +9,7 @@ describe('duration progress', () => {
             const FOR_SIMPLICITY_TESTING_THE_BEGINNING_PROGRESS: NormalScalar = to.NormalScalar(0)
             const FOR_SIMPLICITY_TESTING_THE_BEGINNING_INDEX: Ordinal = to.Ordinal(0)
             const ARBITRARY_TOTAL_DURATION_FOR_ASSERTION: Scalar<Time> = to.Scalar(to.Time(88.888))
-            const IRRELEVANT_FOR_THESE_PURPOSES_SIEVE: Sieve = hafuhafuTo.Sieve(999)
+            const IRRELEVANT_FOR_THESE_PURPOSES_SIEVE: Multiple = to.Multiple(999)
             const ARBITRARY_TOTAL_INDICES_FOR_ASSERTION: Cardinal = to.Cardinal(9949)
 
             const durationProgress: NormalScalar = computeDurationProgress({

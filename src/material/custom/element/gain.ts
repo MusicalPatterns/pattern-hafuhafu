@@ -4,7 +4,7 @@ import {
     apply,
     from,
     invertNormalScalar,
-    NormalScalar,
+    NormalScalar, of,
     random,
     Scalar,
     to,
@@ -23,20 +23,20 @@ const computeRandomDropGain: (parameters: {
     randomizingFunction: (within?: number) => number,
 }) => Scalar<Amplitude> =
     ({ fadingGain, randomizingFunction }: ComputeRandomDropGainParameters): Scalar<Amplitude> =>
-        randomizingFunction() < from.Scalar(from.Amplitude<Scalar, Scalar<Amplitude>>(fadingGain)) ?
+        randomizingFunction() < from.Scalar<Amplitude>(fadingGain) ?
             FULL_GAIN :
             SILENT
 
 const transformProgressToUseItForFirstHalf: (elementProgress: NormalScalar) => NormalScalar =
     (elementProgress: NormalScalar): NormalScalar =>
-        apply.Scalar(
+        apply.Multiple(
             elementProgress,
             DOUBLE_THE_PROGRESS_AS_A_HACK_TO_MAKE_IT_WORK_FOR_HALF_AN_ITERATION,
         )
 
 const transformProgressToUseItForSecondHalf: (elementProgress: NormalScalar) => NormalScalar =
     (elementProgress: NormalScalar): NormalScalar =>
-        apply.Scalar(
+        apply.Multiple(
             apply.Translation(
                 elementProgress,
                 CONSIDER_ONLY_THE_SECOND_HALF_OF_THE_PROGRESS,
@@ -46,7 +46,7 @@ const transformProgressToUseItForSecondHalf: (elementProgress: NormalScalar) => 
 
 const computeGain: (parameters: ComputeGainParameters) => Scalar<Amplitude> =
     ({ existenceStyle, layerProgress, mode }: ComputeGainParameters): Scalar<Amplitude> => {
-        const fadingGain: Scalar<Amplitude> = to.Scalar(to.Amplitude(
+        const fadingGain: Scalar<Amplitude> = to.Scalar(of.Amplitude(
             mode === HafuhafuMode.ZENO ?
                 from.NormalScalar(invertNormalScalar(layerProgress)) :
                 layerProgress < HALFWAY_THROUGH ?

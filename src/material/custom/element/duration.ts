@@ -3,8 +3,11 @@ import {
     Cardinal,
     from,
     invertNormalScalar,
+    Multiple,
     NEXT,
     NormalScalar,
+    of,
+    ofFrom,
     Ordinal,
     quotient,
     reciprocal,
@@ -12,7 +15,6 @@ import {
     Time,
     to,
 } from '@musical-patterns/utilities'
-import { from as hafuhafuFrom, Sieve } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { ComputeDurationParameters, ComputeElementProgressParameters } from './types'
 
@@ -23,16 +25,16 @@ const computeElementProgress: (parameters: {
 }) => NormalScalar =
     ({ iterationIndex, reverse, totalIndices }: ComputeElementProgressParameters): NormalScalar => {
         if (!reverse) {
-            return to.NormalScalar(quotient(iterationIndex, from.Cardinal(totalIndices)))
+            return to.NormalScalar(quotient(from.Ordinal(iterationIndex), from.Cardinal(totalIndices)))
         }
 
         const indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote: Ordinal = apply.Modulus(
             apply.Translation(iterationIndex, NEXT),
-            to.Modulus(from.Cardinal(totalIndices)),
+            to.Modulus<Ordinal>(from.Cardinal(totalIndices)),
         )
 
         return invertNormalScalar(to.NormalScalar(quotient(
-            indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote,
+            from.Ordinal(indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote),
             from.Cardinal(totalIndices),
         )))
     }
@@ -42,22 +44,22 @@ const computeDuration: (parameters: {
     layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     totalIndices: Cardinal,
 }) => Scalar<Time> =
     ({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices }: ComputeDurationParameters): Scalar<Time> => {
         const elementProgress: NormalScalar = computeElementProgress({ iterationIndex, reverse, totalIndices })
 
         return mode === HafuhafuMode.ZENO && layerCount === to.Cardinal(1) ?
-            to.Scalar(to.Time(1)) :
-            to.Scalar(to.Time(hafuhafuFrom.Sieve(apply.Scalar(
+            to.Scalar<Time>(1) :
+            to.Scalar(of.Time(from.Multiple<Ordinal>(apply.Scalar(
                 apply.Power(
                     sieve,
-                    to.Power(from.NormalScalar<number, NormalScalar>(
+                    to.Power<Multiple<Ordinal>>(from.NormalScalar(
                         invertNormalScalar(elementProgress),
                     )),
                 ),
-                to.Scalar(hafuhafuFrom.Sieve(reciprocal(sieve))),
+                to.Scalar(ofFrom(reciprocal(sieve))),
             ))))
     }
 

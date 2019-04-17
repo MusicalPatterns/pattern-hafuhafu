@@ -6,18 +6,18 @@ import {
     STANDARD_PITCH_INDEX_INDICATING_REST,
     STANDARD_PITCH_SCALE_INDEX,
 } from '@musical-patterns/material'
-import { Amplitude, ContourElement, from, Scalar, to } from '@musical-patterns/utilities'
+import { ContourElement, from, insteadOf, Scalar, to } from '@musical-patterns/utilities'
 
 const computeNote: (contourElement: ContourElement<PitchDurationGainSustainScale>) => Note =
     ([ pitch, duration, gain, sustain, scale ]: ContourElement<PitchDurationGainSustainScale>): Note => {
-        if (pitch === STANDARD_PITCH_INDEX_INDICATING_REST) {
+        if (pitch === from.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST)) {
             return {
                 duration: {
-                    scalar: to.Scalar(duration),
+                    scalar: to.Scalar<Scalar>(duration),
                     scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
                 },
                 gain: {
-                    scalar: from.Amplitude<Scalar, Scalar<Amplitude>>(SILENT),
+                    scalar: insteadOf<Scalar, Scalar>(SILENT),
                 },
                 sustain: {
                     scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
@@ -27,19 +27,19 @@ const computeNote: (contourElement: ContourElement<PitchDurationGainSustainScale
 
         return {
             duration: {
-                scalar: to.Scalar(duration),
+                scalar: to.Scalar<Scalar>(duration),
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
             gain: {
-                scalar: to.Scalar(gain),
+                scalar: to.Scalar<Scalar>(gain),
             },
             pitch: {
-                index: to.Ordinal(pitch),
-                scalar: to.Scalar(scale),
+                index: to.Ordinal<Scalar>(pitch),
+                scalar: to.Scalar<Scalar>(scale),
                 scaleIndex: STANDARD_PITCH_SCALE_INDEX,
             },
             sustain: {
-                scalar: to.Scalar(sustain),
+                scalar: to.Scalar<Scalar>(sustain),
                 scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
             },
         }

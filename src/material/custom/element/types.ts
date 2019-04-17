@@ -1,5 +1,4 @@
-import { Amplitude, Block, Cardinal, NormalScalar, Ordinal, Scalar } from '@musical-patterns/utilities'
-import { Sieve } from '../../../nominals'
+import { Amplitude, Block, Cardinal, Multiple, NormalScalar, Ordinal, Scalar } from '@musical-patterns/utilities'
 import { ExistenceStyle, HafuhafuMode } from '../../../spec'
 
 interface ComputePitchIndexParameters {
@@ -16,7 +15,7 @@ interface ComputeElementParameters {
     layersProgresses: NormalScalar[][],
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     stretchPitch: boolean,
     totalIndices: Cardinal,
 }
@@ -25,7 +24,7 @@ interface ComputePitchScalarParameters {
     layerCount: Cardinal,
     layerProgress: NormalScalar,
     mode: HafuhafuMode,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     stretchPitch: boolean,
 }
 
@@ -34,7 +33,7 @@ interface ComputeDurationParameters {
     layerCount: Cardinal,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
     totalIndices: Cardinal,
 }
 
@@ -51,7 +50,7 @@ interface ComputeElementProgressParameters {
 }
 
 interface ComputeSustainParameters {
-    sieve: Sieve,
+    sieve: Multiple<Ordinal>,
 }
 
 interface ComputeLayerProgressParameters {

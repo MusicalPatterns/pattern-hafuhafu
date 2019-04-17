@@ -7,7 +7,7 @@ export {
     materializeEntities,
     materializeScales,
     computeElementProgress,
-    computeScalars,
+    computePitchScalars,
     computePieces,
     computeDuration,
     computeSustain,
@@ -30,4 +30,3 @@ export {
     HafuhafuMode,
 } from './spec/indexForTest'
 export { pattern } from './patterns'
-export { to, Sieve } from './nominals'
