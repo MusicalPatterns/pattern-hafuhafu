@@ -1,16 +1,16 @@
 import {
-    apply,
     arraySet,
+    as,
     Cardinal,
     computePartialSumOfExponents,
     DECREMENT,
-    from,
     INITIAL,
     Multiple,
     NEXT,
+    notAs,
     Ordinal,
     repeat,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 import { DROSTE_SIEVE_FRACTAL_LAYER_INITIAL_INDEX_COMPUTATION_PARTIAL_POWER_SUM_TRANSLATION } from './constants'
@@ -19,9 +19,9 @@ import { ComputeLayerInitialIndex } from './types'
 const computeLayerInitialIndex: ComputeLayerInitialIndex =
     (sieve: Multiple<Ordinal>, layerCount: Cardinal, mode: HafuhafuMode): Ordinal<Ordinal> =>
         mode === HafuhafuMode.DROSTE ?
-            to.Ordinal<Ordinal>(computePartialSumOfExponents(
-                to.Base(from.Multiple<Ordinal>(sieve)),
-                to.Exponent(from.Cardinal(apply.Translation(
+            as.Ordinal<Ordinal>(computePartialSumOfExponents(
+                as.Base(notAs.Multiple<Ordinal>(sieve)),
+                as.Exponent(notAs.Cardinal(use.Translation(
                     layerCount,
                     DROSTE_SIEVE_FRACTAL_LAYER_INITIAL_INDEX_COMPUTATION_PARTIAL_POWER_SUM_TRANSLATION,
                 ))),
@@ -31,20 +31,20 @@ const computeLayerInitialIndex: ComputeLayerInitialIndex =
 const computeSieveFractal:
     (sieve: Multiple<Ordinal>, layerCount: Cardinal, mode: HafuhafuMode) => Ordinal[] =
     (sieve: Multiple<Ordinal>, layerCount: Cardinal, mode: HafuhafuMode): Ordinal[] => {
-        if (layerCount === to.Cardinal(1)) {
+        if (layerCount === as.Cardinal(1)) {
             return [ INITIAL ]
         }
 
         const lowerLayerSieveFractal: Ordinal[] = computeSieveFractal(
             sieve,
-            apply.Translation(layerCount, DECREMENT),
+            use.Translation(layerCount, DECREMENT),
             mode,
         )
         const incrementedSieveFractal: Ordinal[] = lowerLayerSieveFractal.map(
-            (sieveFractalElement: Ordinal) => apply.Translation(sieveFractalElement, NEXT),
+            (sieveFractalElement: Ordinal) => use.Translation(sieveFractalElement, NEXT),
         )
 
-        const sieveFractal: Ordinal[] = repeat(incrementedSieveFractal, to.Cardinal(from.Multiple<Ordinal>(sieve)))
+        const sieveFractal: Ordinal[] = repeat(incrementedSieveFractal, as.Cardinal(notAs.Multiple<Ordinal>(sieve)))
 
         arraySet(sieveFractal, computeLayerInitialIndex(sieve, layerCount, mode), INITIAL)
 

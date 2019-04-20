@@ -1,45 +1,46 @@
 // tslint:disable no-duplicate-string
 
 import {
-    apply,
+    as,
     Block,
     Cardinal,
     difference,
     finalIndexFromElementsTotal,
-    from,
-    INITIAL, insteadOf,
+    INITIAL,
+    insteadOf,
     isUndefined,
     Maybe,
     Multiple,
     NEXT,
     NormalScalar,
+    notAs,
     Ordinal,
     PREVIOUS,
     Scalar,
     Time,
-    to,
+    use,
     VERY_LOW_PRECISION,
 } from '@musical-patterns/utilities'
 import { computeDuration, computeElementProgress, HafuhafuMode } from '../../../../../src/indexForTest'
 
 describe('duration', () => {
-    const ARBITRARY_TOTAL_INDICES: Cardinal<Ordinal> = to.Cardinal<Ordinal>(100)
+    const ARBITRARY_TOTAL_INDICES: Cardinal<Ordinal> = as.Cardinal<Ordinal>(100)
     let reverse: boolean = false
 
     describe('zeno mode', () => {
         let sieve: Multiple<Ordinal>
-        let layerCount: Cardinal = to.Cardinal(2)
+        let layerCount: Cardinal = as.Cardinal(2)
         let indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact: Ordinal
 
         describe('when sieve is 2', () => {
             beforeEach(() => {
-                sieve = to.Multiple<Ordinal>(2)
-                indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = to.Ordinal(10)
+                sieve = as.Multiple<Ordinal>(2)
+                indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = as.Ordinal(10)
             })
 
             it('when an iteration begins, gives you the full duration 1', () => {
                 const duration: Scalar<Time> = computeDuration({
-                    iterationIndex: to.Ordinal(0),
+                    iterationIndex: as.Ordinal(0),
                     layerCount,
                     mode: HafuhafuMode.ZENO,
                     reverse,
@@ -48,7 +49,7 @@ describe('duration', () => {
                 })
 
                 expect(duration)
-                    .toBe(to.Scalar<Time>(1))
+                    .toBe(as.Scalar<Time>(1))
             })
 
             it(
@@ -65,20 +66,20 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                     })
 
                     expect(duration)
-                        .toBeCloseToTyped(to.Scalar<Time>(1 / 2))
+                        .toBeCloseToTyped(as.Scalar<Time>(1 / 2))
                 },
             )
         })
 
         describe('when sieve is 3', () => {
             beforeEach(() => {
-                sieve = to.Multiple<Ordinal>(3)
-                indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = to.Ordinal(15)
+                sieve = as.Multiple<Ordinal>(3)
+                indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = as.Ordinal(15)
             })
 
             it('when an iteration begins, gives you the full duration 1', () => {
                 const duration: Scalar<Time> = computeDuration({
-                    iterationIndex: to.Ordinal(0),
+                    iterationIndex: as.Ordinal(0),
                     layerCount,
                     mode: HafuhafuMode.ZENO,
                     reverse,
@@ -87,7 +88,7 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                 })
 
                 expect(duration)
-                    .toBe(to.Scalar<Time>(1))
+                    .toBe(as.Scalar<Time>(1))
             })
 
             it(
@@ -104,21 +105,21 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                     })
 
                     expect(duration)
-                        .toBeCloseToTyped(to.Scalar<Time>(1 / 3))
+                        .toBeCloseToTyped(as.Scalar<Time>(1 / 3))
                 },
             )
         })
 
         describe('when layer count is greater than the standard 2', () => {
             beforeEach(() => {
-                sieve = to.Multiple<Ordinal>(2)
-                layerCount = to.Cardinal(4)
-                indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = to.Ordinal(41)
+                sieve = as.Multiple<Ordinal>(2)
+                layerCount = as.Cardinal(4)
+                indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = as.Ordinal(41)
             })
 
             it('when an iteration begins, gives you the full duration 1', () => {
                 const duration: Scalar<Time> = computeDuration({
-                    iterationIndex: to.Ordinal(0),
+                    iterationIndex: as.Ordinal(0),
                     layerCount,
                     mode: HafuhafuMode.ZENO,
                     reverse,
@@ -127,7 +128,7 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                 })
 
                 expect(duration)
-                    .toBe(to.Scalar<Time>(1))
+                    .toBe(as.Scalar<Time>(1))
             })
 
             it(
@@ -147,7 +148,7 @@ no matter the layer count`,
 
                     expect(duration)
                         .toBeCloseToTyped(
-                            to.Scalar<Time>(1 / 2),
+                            as.Scalar<Time>(1 / 2),
                             VERY_LOW_PRECISION,
                         )
                 },
@@ -157,16 +158,16 @@ no matter the layer count`,
         describe('when layer count is 1', () => {
             it('the duration stays at 1, because there are not enough layers to affect any transformation', () => {
                 const duration: Scalar<Time> = computeDuration({
-                    iterationIndex: to.Ordinal(4),
-                    layerCount: to.Cardinal(1),
+                    iterationIndex: as.Ordinal(4),
+                    layerCount: as.Cardinal(1),
                     mode: HafuhafuMode.ZENO,
                     reverse,
-                    sieve: to.Multiple<Ordinal>(7),
+                    sieve: as.Multiple<Ordinal>(7),
                     totalIndices: ARBITRARY_TOTAL_INDICES,
                 })
 
                 expect(duration)
-                    .toBe(to.Scalar<Time>(1))
+                    .toBe(as.Scalar<Time>(1))
             })
         })
     })
@@ -176,13 +177,13 @@ no matter the layer count`,
         let sieve: Multiple<Ordinal>
         let sieveFractalRepetitions: Cardinal
 
-        const TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Cardinal<Ordinal> = to.Cardinal<Ordinal>(160)
+        const TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Cardinal<Ordinal> = as.Cardinal<Ordinal>(160)
         const FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Ordinal = insteadOf<Ordinal>(finalIndexFromElementsTotal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
 
         beforeEach(() => {
-            iterationKernel = to.Block([ 1, 2, 1, 1, 2 ])
-            sieve = to.Multiple<Ordinal>(2)
-            sieveFractalRepetitions = to.Cardinal(80)
+            iterationKernel = as.Block([ 1, 2, 1, 1, 2 ])
+            sieve = as.Multiple<Ordinal>(2)
+            sieveFractalRepetitions = as.Cardinal(80)
             reverse = false
         })
 
@@ -194,7 +195,7 @@ no matter the layer count`,
             })
 
             expect(elementProgress)
-                .toBe(to.NormalScalar(0))
+                .toBe(as.NormalScalar(0))
         })
 
         it('the final element in the iteration almost has element progress almost 1 (the next one would be 1)', () => {
@@ -205,7 +206,7 @@ no matter the layer count`,
             })
 
             expect(elementProgress)
-                .toBe(to.NormalScalar(1 - (1 / from.Cardinal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
+                .toBe(as.NormalScalar(1 - (1 / notAs.Cardinal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
         })
 
         it('each element progress result is greater than the one before it', () => {
@@ -213,7 +214,7 @@ no matter the layer count`,
             for (
                 let iterationIndex: Ordinal = INITIAL;
                 iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
-                iterationIndex = apply.Translation(iterationIndex, NEXT)
+                iterationIndex = use.Translation(iterationIndex, NEXT)
             ) {
                 const elementProgress: NormalScalar = computeElementProgress({
                     iterationIndex,
@@ -243,18 +244,18 @@ no matter the layer count`,
                 })
 
                 expect(elementProgress)
-                    .toBe(to.NormalScalar(1 - (1 / from.Cardinal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
+                    .toBe(as.NormalScalar(1 - (1 / notAs.Cardinal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
             })
 
             it('the penultimate element in the iteration has element progress almost 0 (the next one would be 0)', () => {
                 const elementProgress: NormalScalar = computeElementProgress({
-                    iterationIndex: apply.Translation(FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2, PREVIOUS),
+                    iterationIndex: use.Translation(FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2, PREVIOUS),
                     reverse,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 })
 
-                expect(from.NormalScalar(elementProgress))
-                    .toBeCloseTo(1 / from.Cardinal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
+                expect(notAs.NormalScalar(elementProgress))
+                    .toBeCloseTo(1 / notAs.Cardinal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
             })
 
             it('the final element in the iteration has element progress 1 (because it has been cycled by one element to account for how durations are on the other side of their notes when they are reversed', () => {
@@ -265,7 +266,7 @@ no matter the layer count`,
                 })
 
                 expect(elementProgress)
-                    .toBe(to.NormalScalar(1))
+                    .toBe(as.NormalScalar(1))
             })
 
             it('each element progress result is less than the one before it', () => {
@@ -273,7 +274,7 @@ no matter the layer count`,
                 for (
                     let iterationIndex: Ordinal = INITIAL;
                     iterationIndex < FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
-                    iterationIndex = apply.Translation(iterationIndex, NEXT)
+                    iterationIndex = use.Translation(iterationIndex, NEXT)
                 ) {
                     const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,
@@ -282,8 +283,8 @@ no matter the layer count`,
                     })
 
                     if (!isUndefined(previousIterationElementProgress)) {
-                        expect(from.NormalScalar(elementProgress))
-                            .toBeLessThan(from.NormalScalar(previousIterationElementProgress))
+                        expect(notAs.NormalScalar(elementProgress))
+                            .toBeLessThan(notAs.NormalScalar(previousIterationElementProgress))
                     }
 
                     previousIterationElementProgress = elementProgress
@@ -296,7 +297,7 @@ no matter the layer count`,
                 for (
                     let iterationIndex: Ordinal = INITIAL;
                     iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
-                    iterationIndex = apply.Translation(iterationIndex, NEXT)
+                    iterationIndex = use.Translation(iterationIndex, NEXT)
                 ) {
                     const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,
@@ -323,11 +324,11 @@ no matter the layer count`,
         })
 
         describe('when sieve is other than 2', () => {
-            const TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Cardinal<Ordinal> = to.Cardinal<Ordinal>(240)
+            const TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Cardinal<Ordinal> = as.Cardinal<Ordinal>(240)
             const FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Ordinal = insteadOf<Ordinal>(finalIndexFromElementsTotal(TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
 
             beforeEach(() => {
-                sieve = to.Multiple<Ordinal>(3)
+                sieve = as.Multiple<Ordinal>(3)
             })
 
             it('the first element in the iteration has element progress 0', () => {
@@ -338,7 +339,7 @@ no matter the layer count`,
                 })
 
                 expect(elementProgress)
-                    .toBe(to.NormalScalar(0))
+                    .toBe(as.NormalScalar(0))
             })
 
             it('the final element in the iteration almost has element progress 1 (the next one would be 1)', () => {
@@ -348,7 +349,7 @@ no matter the layer count`,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 })
 
-                expect(from.NormalScalar(elementProgress))
+                expect(notAs.NormalScalar(elementProgress))
                     .toBeCloseTo(1, VERY_LOW_PRECISION)
             })
 
@@ -357,7 +358,7 @@ no matter the layer count`,
                 for (
                     let iterationIndex: Ordinal = INITIAL;
                     iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
-                    iterationIndex = apply.Translation(iterationIndex, NEXT)
+                    iterationIndex = use.Translation(iterationIndex, NEXT)
                 ) {
                     const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,
@@ -380,7 +381,7 @@ no matter the layer count`,
                 for (
                     let iterationIndex: Ordinal = INITIAL;
                     iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
-                    iterationIndex = apply.Translation(iterationIndex, NEXT)
+                    iterationIndex = use.Translation(iterationIndex, NEXT)
                 ) {
                     const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,

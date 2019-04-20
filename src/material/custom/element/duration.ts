@@ -1,18 +1,18 @@
 import {
-    apply,
+    as,
     Cardinal,
-    from,
     insteadOf,
     invertNormalScalar,
     Multiple,
     NEXT,
     NormalScalar,
+    notAs,
     Ordinal,
     quotient,
     reciprocal,
     Scalar,
     Time,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 import { ComputeDurationParameters, ComputeElementProgressParameters } from './types'
@@ -24,17 +24,17 @@ const computeElementProgress: (parameters: {
 }) => NormalScalar =
     ({ iterationIndex, reverse, totalIndices }: ComputeElementProgressParameters): NormalScalar => {
         if (!reverse) {
-            return to.NormalScalar(quotient(from.Ordinal(iterationIndex), from.Cardinal<Ordinal>(totalIndices)))
+            return as.NormalScalar(quotient(notAs.Ordinal(iterationIndex), notAs.Cardinal<Ordinal>(totalIndices)))
         }
 
-        const indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote: Ordinal = apply.IntegerModulus(
-            apply.Translation(iterationIndex, NEXT),
-            to.IntegerModulus<Ordinal>(from.Cardinal<Ordinal>(totalIndices)),
+        const indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote: Ordinal = use.IntegerModulus(
+            use.Translation(iterationIndex, NEXT),
+            as.IntegerModulus<Ordinal>(notAs.Cardinal<Ordinal>(totalIndices)),
         )
 
-        return invertNormalScalar(to.NormalScalar(quotient(
-            from.Ordinal(indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote),
-            from.Cardinal<Ordinal>(totalIndices),
+        return invertNormalScalar(as.NormalScalar(quotient(
+            notAs.Ordinal(indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote),
+            notAs.Cardinal<Ordinal>(totalIndices),
         )))
     }
 
@@ -49,12 +49,12 @@ const computeDuration: (parameters: {
     ({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices }: ComputeDurationParameters): Scalar<Time> => {
         const elementProgress: NormalScalar = computeElementProgress({ iterationIndex, reverse, totalIndices })
 
-        return mode === HafuhafuMode.ZENO && layerCount === to.Cardinal(1) ?
-            to.Scalar<Time>(1) :
-            to.Scalar<Time>(apply.Scalar(
-                apply.Exponent(
-                    from.Multiple<Ordinal>(sieve),
-                    to.Exponent(from.NormalScalar(invertNormalScalar(elementProgress))),
+        return mode === HafuhafuMode.ZENO && layerCount === as.Cardinal(1) ?
+            as.Scalar<Time>(1) :
+            as.Scalar<Time>(use.Scalar(
+                use.Exponent(
+                    notAs.Multiple<Ordinal>(sieve),
+                    as.Exponent(notAs.NormalScalar(invertNormalScalar(elementProgress))),
                 ),
                 insteadOf<Scalar>(reciprocal(sieve)),
             ))

@@ -1,15 +1,15 @@
 import {
-    apply,
+    as,
     Cardinal,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
     Multiple,
-    ofFrom,
+    ofNotAs,
     Ordinal,
     Scalar,
     slice,
     Time,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 import { computeDuration } from '../element'
@@ -29,12 +29,12 @@ const computeTotalDuration: (parameters: {
             INITIAL,
             indexJustBeyondFinalElementFromElementsTotal(totalIndices),
         )
-            .map(to.Ordinal)
+            .map(as.Ordinal)
             .reduce(
                 (totalDuration: Scalar<Time>, iterationIndex: Ordinal) =>
-                    apply.Translation(
+                    use.Translation(
                         totalDuration,
-                        to.Translation(ofFrom(computeDuration({
+                        as.Translation(ofNotAs(computeDuration({
                             iterationIndex,
                             layerCount,
                             mode,
@@ -43,7 +43,7 @@ const computeTotalDuration: (parameters: {
                             totalIndices,
                         }))),
                     ),
-                to.Scalar<Time>(0),
+                as.Scalar<Time>(0),
             )
 
 export {

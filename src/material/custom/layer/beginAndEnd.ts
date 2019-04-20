@@ -1,17 +1,17 @@
 import {
-    apply,
+    as,
     Cardinal,
     finalIndexFromElementsTotal,
-    from,
     INITIAL,
     NEXT,
     NormalScalar,
+    notAs,
     ONE_FEWER,
     Ordinal,
     PREVIOUS,
     reciprocal,
     Scalar,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 import { ComputeLayerBeginAndEndParameters } from './types'
@@ -22,20 +22,20 @@ const computeLayerBegin: (parameters: {
     mode: HafuhafuMode,
 }) => NormalScalar =
     ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): NormalScalar => {
-        if (layerCount === to.Cardinal(1)) {
-            return to.NormalScalar(0)
+        if (layerCount === as.Cardinal(1)) {
+            return as.NormalScalar(0)
         }
 
-        const activeLayerCount: Cardinal = apply.Translation(layerCount, ONE_FEWER)
-        const layerStep: NormalScalar<Scalar> = to.NormalScalar<Scalar>(reciprocal(activeLayerCount))
+        const activeLayerCount: Cardinal = use.Translation(layerCount, ONE_FEWER)
+        const layerStep: NormalScalar<Scalar> = as.NormalScalar<Scalar>(reciprocal(activeLayerCount))
 
-        const baseScalarFromIndex: Scalar = to.Scalar(from.Ordinal(
+        const baseScalarFromIndex: Scalar = as.Scalar(notAs.Ordinal(
             mode === HafuhafuMode.DROSTE || layerIndex === INITIAL ?
                 layerIndex :
-                apply.Translation(layerIndex, PREVIOUS),
+                use.Translation(layerIndex, PREVIOUS),
         ))
 
-        return to.NormalScalar(from.Scalar(apply.NormalScalar(baseScalarFromIndex, layerStep)))
+        return as.NormalScalar(notAs.Scalar(use.NormalScalar(baseScalarFromIndex, layerStep)))
     }
 
 const computeLayerEnd: (parameters: {
@@ -45,8 +45,8 @@ const computeLayerEnd: (parameters: {
 }) => NormalScalar =
     ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): NormalScalar =>
         layerIndex === finalIndexFromElementsTotal(layerCount) ?
-            to.NormalScalar(1) :
-            computeLayerBegin({ layerCount, layerIndex: apply.Translation(layerIndex, NEXT), mode })
+            as.NormalScalar(1) :
+            computeLayerBegin({ layerCount, layerIndex: use.Translation(layerIndex, NEXT), mode })
 
 export {
     computeLayerBegin,

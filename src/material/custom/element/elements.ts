@@ -1,19 +1,19 @@
 import { PitchDurationGainSustainScale } from '@musical-patterns/material'
 import {
     Amplitude,
-    apply,
+    as,
     Block,
     Cardinal,
     ContourElement,
     Frequency,
-    from,
     insteadOf,
     Multiple,
     NormalScalar,
+    notAs,
     Ordinal,
     Scalar,
     Time,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { ExistenceStyle, HafuhafuMode } from '../../../spec'
 import { computeDuration } from './duration'
@@ -28,10 +28,10 @@ const computeLayerProgress: (parameters: {
     layersProgresses: NormalScalar[][],
 }) => NormalScalar =
     ({ layerIndices, iterationIndex, layersProgresses }: ComputeLayerProgressParameters): NormalScalar => {
-        const layerIndex: Ordinal = apply.Ordinal(layerIndices, insteadOf<Ordinal, Ordinal>(iterationIndex))
+        const layerIndex: Ordinal = use.Ordinal(layerIndices, insteadOf<Ordinal, Ordinal>(iterationIndex))
 
-        return apply.Ordinal(
-            apply.Ordinal(
+        return use.Ordinal(
+            use.Ordinal(
                 layersProgresses,
                 insteadOf<Ordinal, NormalScalar[]>(layerIndex),
             ),
@@ -80,12 +80,12 @@ const computeElement: (parameters: {
         const pitchScalar: Scalar<Frequency> =
             computePitchScalar({ layerCount, layerProgress, mode, sieve, stretchPitch })
 
-        return to.ContourElement<PitchDurationGainSustainScale>([
-            from.Ordinal(pitchIndex),
-            from.Scalar<Time>(duration),
-            from.Scalar<Amplitude>(gain),
-            from.Scalar<Time>(sustain),
-            from.Scalar<Frequency>(pitchScalar),
+        return as.ContourElement<PitchDurationGainSustainScale>([
+            notAs.Ordinal(pitchIndex),
+            notAs.Scalar<Time>(duration),
+            notAs.Scalar<Amplitude>(gain),
+            notAs.Scalar<Time>(sustain),
+            notAs.Scalar<Frequency>(pitchScalar),
         ])
     }
 

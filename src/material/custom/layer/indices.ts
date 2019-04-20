@@ -1,16 +1,16 @@
 import {
-    apply,
+    as,
     Cardinal,
     Cycle,
     deepClone,
-    from,
     INITIAL,
     insteadOf,
     Multiple,
     NO_TRANSLATION,
+    notAs,
     Ordinal,
     slice,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 import { DROSTE_ITERATION_REALIGNMENT_TRANSLATION } from '../constants'
@@ -26,17 +26,17 @@ const computeLayerIndex: (parameters: {
     sieve: Multiple<Ordinal>,
 }) => Ordinal =
     ({ layerCount, mode, reverse, sieve, iterationIndex }: ComputeLayerIndexParameters): Ordinal => {
-        const sieveFractalCycle: Cycle<Ordinal> = to.Cycle(computeSieveFractal(sieve, layerCount, mode))
+        const sieveFractalCycle: Cycle<Ordinal> = as.Cycle(computeSieveFractal(sieve, layerCount, mode))
 
         const maybeReversedSieveFractalCycle: Cycle<Ordinal> = reverse ?
-            apply.Translation(
-                to.Cycle(deepClone(sieveFractalCycle)
+            use.Translation(
+                as.Cycle(deepClone(sieveFractalCycle)
                     .reverse()),
                 mode === HafuhafuMode.DROSTE ? DROSTE_ITERATION_REALIGNMENT_TRANSLATION : NO_TRANSLATION,
             ) :
             sieveFractalCycle
 
-        return apply.Ordinal(maybeReversedSieveFractalCycle, insteadOf<Ordinal, Ordinal>(iterationIndex))
+        return use.Ordinal(maybeReversedSieveFractalCycle, insteadOf<Ordinal, Ordinal>(iterationIndex))
     }
 
 const computeLayerIndices: (parameters: {
@@ -50,9 +50,9 @@ const computeLayerIndices: (parameters: {
         slice(
             zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
             INITIAL,
-            to.Ordinal(from.Cardinal(totalIndices)),
+            as.Ordinal(notAs.Cardinal(totalIndices)),
         )
-            .map(to.Ordinal)
+            .map(as.Ordinal)
             .map((iterationIndex: Ordinal) =>
                 computeLayerIndex({ iterationIndex, layerCount, mode, reverse, sieve }),
             )

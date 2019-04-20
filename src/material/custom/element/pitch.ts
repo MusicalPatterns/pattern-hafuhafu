@@ -1,20 +1,19 @@
 import {
-    apply,
+    as,
     Block,
     Cardinal,
     Exponent,
     Frequency,
-    from,
     Multiple,
     MULTIPLICATIVE_IDENTITY,
     negative,
     NormalScalar,
-    of,
+    notAs,
     ONE_FEWER,
     ONE_HALF,
     Ordinal,
     Scalar,
-    to,
+    use,
     valueLinearlyBetweenValues,
 } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
@@ -22,15 +21,15 @@ import { ComputePitchIndexParameters, ComputePitchScalarParameters } from './typ
 
 const computePitchIndex: (parameters: { iterationIndex: Ordinal, iterationKernel: Block }) => Ordinal =
     ({ iterationKernel, iterationIndex }: ComputePitchIndexParameters): Ordinal =>
-        to.Ordinal(apply.Ordinal(
-            to.Cycle(iterationKernel),
+        as.Ordinal(use.Ordinal(
+            as.Cycle(iterationKernel),
             iterationIndex,
         ))
 
 const computeDrostePitchScalarPower:
     (activeLayerCount: Cardinal, layerProgress: Scalar) => Exponent =
     (activeLayerCount: Cardinal, layerProgress: Scalar): Exponent => {
-        const maximumAbsolutePower: Exponent = to.Exponent(from.Cardinal(apply.Scalar(
+        const maximumAbsolutePower: Exponent = as.Exponent(notAs.Cardinal(use.Scalar(
             activeLayerCount,
             ONE_HALF,
         )))
@@ -38,7 +37,7 @@ const computeDrostePitchScalarPower:
         return valueLinearlyBetweenValues(
             negative(maximumAbsolutePower),
             maximumAbsolutePower,
-            to.NormalScalar<Exponent>(from.Scalar(layerProgress)),
+            as.NormalScalar<Exponent>(notAs.Scalar(layerProgress)),
         )
     }
 
@@ -54,14 +53,14 @@ const computePitchScalar: (parameters: {
             return MULTIPLICATIVE_IDENTITY
         }
 
-        const activeLayerCount: Cardinal = apply.Translation(layerCount, ONE_FEWER)
-        const layerScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Cardinal(activeLayerCount))
+        const activeLayerCount: Cardinal = use.Translation(layerCount, ONE_FEWER)
+        const layerScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Cardinal(activeLayerCount))
         const pitchScalarPower: Exponent = mode === HafuhafuMode.DROSTE ?
             computeDrostePitchScalarPower(activeLayerCount, layerProgress) :
-            to.Exponent(from.Scalar(apply.Scalar(layerProgress, layerScalar)))
+            as.Exponent(notAs.Scalar(use.Scalar(layerProgress, layerScalar)))
 
-        return to.Scalar<Frequency>(apply.Exponent(
-            from.Multiple<Ordinal>(sieve),
+        return as.Scalar<Frequency>(use.Exponent(
+            notAs.Multiple<Ordinal>(sieve),
             pitchScalarPower,
         ))
     }

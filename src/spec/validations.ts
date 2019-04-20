@@ -1,6 +1,7 @@
 import { ComputeValidations, Validations } from '@musical-patterns/spec'
 import {
     areCoprime,
+    as,
     Block,
     Cardinal,
     computeCommonFactors,
@@ -9,7 +10,6 @@ import {
     Multiple,
     Ordinal,
     slice,
-    to,
 } from '@musical-patterns/utilities'
 import { HafuhafuSpec, HafuhafuSpecs } from './types'
 
@@ -20,7 +20,7 @@ const computeValidations: ComputeValidations<HafuhafuSpecs> =
 
         const kernelLength: Cardinal = length(sourceKernel)
         if (!areCoprime(kernelLength, sieve)) {
-            const doNotIncludeTheFirstCommonFactorBecauseItIsJustOne: Ordinal<Integer> = to.Ordinal<Integer>(1)
+            const doNotIncludeTheFirstCommonFactorBecauseItIsJustOne: Ordinal<Integer> = as.Ordinal<Integer>(1)
             const commonFactors: Integer[] = slice(
                 computeCommonFactors(kernelLength, sieve),
                 doNotIncludeTheFirstCommonFactorBecauseItIsJustOne,

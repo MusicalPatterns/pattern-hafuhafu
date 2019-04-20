@@ -1,18 +1,18 @@
 import {
-    apply,
+    as,
     Cardinal,
-    from,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
     Multiple,
     NormalScalar,
-    ofFrom,
+    notAs,
+    ofNotAs,
     Ordinal,
     quotient,
     Scalar,
     slice,
     Time,
-    to,
+    use,
 } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 import { computeDuration } from '../element'
@@ -45,11 +45,11 @@ const computeDurationProgress: (parameters: {
             computeDuration({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices })
 
         const currentDurationProgress: NormalScalar<NormalScalar> =
-            to.NormalScalar<NormalScalar>(from.Scalar<Time>(quotient(duration, totalDuration)))
+            as.NormalScalar<NormalScalar>(notAs.Scalar<Time>(quotient(duration, totalDuration)))
 
-        return apply.Translation(
+        return use.Translation(
             durationProgress,
-            to.Translation(ofFrom(
+            as.Translation(ofNotAs(
                 currentDurationProgress,
             )),
         )
@@ -67,14 +67,14 @@ const computeDurationProgresses:
             totalIndices,
         }: ComputeDurationProgressesParameters,
     ): Array<NormalScalar<NormalScalar>> => {
-        let durationProgress: NormalScalar<NormalScalar> = to.NormalScalar<NormalScalar>(0)
+        let durationProgress: NormalScalar<NormalScalar> = as.NormalScalar<NormalScalar>(0)
 
         return slice(
             zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
             INITIAL,
             indexJustBeyondFinalElementFromElementsTotal(totalIndices),
         )
-            .map(to.Ordinal)
+            .map(as.Ordinal)
             .map((iterationIndex: Ordinal) => {
                 durationProgress = computeDurationProgress({
                     durationProgress,

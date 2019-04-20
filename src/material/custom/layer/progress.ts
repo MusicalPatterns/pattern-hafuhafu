@@ -1,14 +1,14 @@
 import {
+    as,
     Cardinal,
-    from,
     INITIAL,
     Multiple,
     NormalScalar,
+    notAs,
     Ordinal,
     Scalar,
     slice,
     Time,
-    to,
     valueLinearlyBetweenValues,
     ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
@@ -71,9 +71,9 @@ const computeLayersProgresses: (parameters: {
         return slice(
             ZERO_AND_POSITIVE_INTEGERS,
             INITIAL,
-            to.Ordinal(from.Cardinal(layerCount)),
+            as.Ordinal(notAs.Cardinal(layerCount)),
         )
-            .map(to.Ordinal)
+            .map(as.Ordinal)
             .map((layerIndex: Ordinal) => computeLayerProgresses({
                 layerCount,
                 layerIndex,

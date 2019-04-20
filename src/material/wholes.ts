@@ -1,5 +1,5 @@
 import { PitchDurationGainSustainScale } from '@musical-patterns/material'
-import { Block, ContourPiece, ContourWhole, Cycle, sequence, to } from '@musical-patterns/utilities'
+import { as, Block, ContourPiece, ContourWhole, Cycle, sequence } from '@musical-patterns/utilities'
 import { HafuhafuSpecs } from '../spec'
 import { computeKernelCycle } from './custom'
 import { computePieces } from './pieces'
@@ -12,7 +12,7 @@ const computeWholes: (specs: HafuhafuSpecs) => ContourWhole<PitchDurationGainSus
                 computePieces(iterationKernel, specs),
         )
 
-        return to.ContourWhole<PitchDurationGainSustainScale>(sequence(...pieces))
+        return as.ContourWhole<PitchDurationGainSustainScale>(sequence(...pieces))
     }
 
 export {

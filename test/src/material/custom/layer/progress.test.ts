@@ -1,13 +1,14 @@
 import {
+    as,
     Cardinal,
     indexOfFinalElement,
-    INITIAL, insteadOf,
+    INITIAL,
+    insteadOf,
     length,
     Multiple,
     Ordinal,
     Scalar,
     slice,
-    to, VERY_HIGH_PRECISION,
     VERY_LOW_PRECISION,
 } from '@musical-patterns/utilities'
 import { computeLayersProgresses, HafuhafuMode } from '../../../../../src/indexForTest'
@@ -15,10 +16,10 @@ import { computeLayersProgresses, HafuhafuMode } from '../../../../../src/indexF
 describe('layers progresses', () => {
     describe('droste mode', () => {
         let layersProgresses: Scalar[][]
-        const totalIndices: Cardinal<Ordinal> = to.Cardinal<Ordinal>(27)
+        const totalIndices: Cardinal<Ordinal> = as.Cardinal<Ordinal>(27)
 
-        const layerCount: Cardinal = to.Cardinal(4)
-        const sieve: Multiple<Ordinal> = to.Multiple<Ordinal>(3)
+        const layerCount: Cardinal = as.Cardinal(4)
+        const sieve: Multiple<Ordinal> = as.Multiple<Ordinal>(3)
 
         beforeEach(() => {
             layersProgresses = computeLayersProgresses({
@@ -44,28 +45,28 @@ and span it quadratically (except the last layer, the beyond layer, which just s
                 const firstLayerProgresses: Scalar[] = layersProgresses[ 0 ]
                 expect(firstLayerProgresses)
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(0),
-                        to.Scalar(1 / 3),
+                        as.Scalar(0),
+                        as.Scalar(1 / 3),
                         VERY_LOW_PRECISION,
                     )
 
                 const secondLayerProgresses: Scalar[] = layersProgresses[ 1 ]
                 expect(secondLayerProgresses)
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(1 / 3),
-                        to.Scalar(2 / 3),
+                        as.Scalar(1 / 3),
+                        as.Scalar(2 / 3),
                         VERY_LOW_PRECISION,
                     )
                 const thirdLayerProgresses: Scalar[] = layersProgresses[ 2 ]
                 expect(thirdLayerProgresses)
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(2 / 3),
-                        to.Scalar(1),
+                        as.Scalar(2 / 3),
+                        as.Scalar(1),
                         VERY_LOW_PRECISION,
                     )
 
                 expect(layersProgresses[ 3 ])
-                    .toBeHomogenous(to.Scalar(1))
+                    .toBeHomogenous(as.Scalar(1))
             },
         )
 
@@ -84,8 +85,8 @@ and span it quadratically (except the last layer, the beyond layer, which just s
                     slice(firstLayerProgresses, INITIAL, indexOfFinalElement(firstLayerProgresses))
                 expect(firstLayerProgressDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne)
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(1 / 3),
-                        to.Scalar(0),
+                        as.Scalar(1 / 3),
+                        as.Scalar(0),
                         VERY_LOW_PRECISION,
                     )
 
@@ -94,8 +95,8 @@ and span it quadratically (except the last layer, the beyond layer, which just s
                     slice(secondLayerProgresses, INITIAL, indexOfFinalElement(secondLayerProgresses))
                 expect(secondLayerProgressDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne)
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(2 / 3),
-                        to.Scalar(1 / 3),
+                        as.Scalar(2 / 3),
+                        as.Scalar(1 / 3),
                         VERY_LOW_PRECISION,
                     )
 
@@ -104,24 +105,24 @@ and span it quadratically (except the last layer, the beyond layer, which just s
                     slice(thirdLayerProgresses, INITIAL, indexOfFinalElement(thirdLayerProgresses))
                 expect(thirdLayerProgressDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne)
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(1),
-                        to.Scalar(2 / 3),
+                        as.Scalar(1),
+                        as.Scalar(2 / 3),
                         VERY_LOW_PRECISION,
                     )
 
                 const ALMOST_VERY_HIGH_PRECISION: number = 9
                 expect(layersProgresses[ 3 ])
-                    .toBeHomogenous(to.Scalar(1), ALMOST_VERY_HIGH_PRECISION)
+                    .toBeHomogenous(as.Scalar(1), ALMOST_VERY_HIGH_PRECISION)
             })
         })
     })
 
     describe('zeno mode', () => {
         let layersProgresses: Scalar[][]
-        const totalIndices: Cardinal<Ordinal> = to.Cardinal<Ordinal>(27)
+        const totalIndices: Cardinal<Ordinal> = as.Cardinal<Ordinal>(27)
 
-        const layerCount: Cardinal = to.Cardinal(4)
-        const sieve: Multiple<Ordinal> = to.Multiple<Ordinal>(3)
+        const layerCount: Cardinal = as.Cardinal(4)
+        const sieve: Multiple<Ordinal> = as.Multiple<Ordinal>(3)
 
         beforeEach(() => {
             layersProgresses = computeLayersProgresses({
@@ -145,23 +146,23 @@ and span it quadratically (except the last layer, the beyond layer, which just s
 and span it quadratically (except the first layer, the home layer, which just sticks at 0)`,
             () => {
                 expect(layersProgresses[ 0 ])
-                    .toBeHomogenous(to.Scalar(0))
+                    .toBeHomogenous(as.Scalar(0))
                 expect(layersProgresses[ 1 ])
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(0),
-                        to.Scalar(1 / 3),
+                        as.Scalar(0),
+                        as.Scalar(1 / 3),
                         VERY_LOW_PRECISION,
                     )
                 expect(layersProgresses[ 2 ])
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(1 / 3),
-                        to.Scalar(2 / 3),
+                        as.Scalar(1 / 3),
+                        as.Scalar(2 / 3),
                         VERY_LOW_PRECISION,
                     )
                 expect(layersProgresses[ 3 ])
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(2 / 3),
-                        to.Scalar(1),
+                        as.Scalar(2 / 3),
+                        as.Scalar(1),
                         VERY_LOW_PRECISION,
                     )
             },
@@ -178,15 +179,15 @@ and span it quadratically (except the first layer, the home layer, which just st
                 })
 
                 expect(layersProgresses[ 0 ])
-                    .toBeHomogenous(to.Scalar(0))
+                    .toBeHomogenous(as.Scalar(0))
 
                 const firstLayerProgresses: Scalar[] = layersProgresses[ 1 ]
                 const firstLayerProgressDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne: Scalar[] =
                     slice(firstLayerProgresses, INITIAL, indexOfFinalElement(firstLayerProgresses))
                 expect(firstLayerProgressDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne)
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(1 / 3),
-                        to.Scalar(0),
+                        as.Scalar(1 / 3),
+                        as.Scalar(0),
                         VERY_LOW_PRECISION,
                     )
 
@@ -195,8 +196,8 @@ and span it quadratically (except the first layer, the home layer, which just st
                     slice(secondLayerProgresses, INITIAL, indexOfFinalElement(secondLayerProgresses))
                 expect(secondLayerProgressDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne)
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(2 / 3),
-                        to.Scalar(1 / 3),
+                        as.Scalar(2 / 3),
+                        as.Scalar(1 / 3),
                         VERY_LOW_PRECISION,
                     )
 
@@ -205,8 +206,8 @@ and span it quadratically (except the first layer, the home layer, which just st
                     slice(thirdLayerProgresses, INITIAL, indexOfFinalElement(thirdLayerProgresses))
                 expect(thirdLayerProgressDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne)
                     .toGoQuadraticallyFromValueToValue(
-                        to.Scalar(1),
-                        to.Scalar(2 / 3),
+                        as.Scalar(1),
+                        as.Scalar(2 / 3),
                         VERY_LOW_PRECISION,
                     )
             })
@@ -215,7 +216,7 @@ and span it quadratically (except the first layer, the home layer, which just st
         describe('when layer count is one', () => {
             beforeEach(() => {
                 layersProgresses = computeLayersProgresses({
-                    layerCount: to.Cardinal(1),
+                    layerCount: as.Cardinal(1),
                     mode: HafuhafuMode.ZENO,
                     reverse: false,
                     sieve,
@@ -225,11 +226,11 @@ and span it quadratically (except the first layer, the home layer, which just st
 
             it('the progress goes from one to zero', () => {
                 expect(length(layersProgresses))
-                    .toBe(to.Cardinal<Scalar[]>(1))
+                    .toBe(as.Cardinal<Scalar[]>(1))
                 expect(layersProgresses[ 0 ])
                     .toGoMonotonicallyFromValueToValue(
-                        to.Scalar(0),
-                        to.Scalar(1),
+                        as.Scalar(0),
+                        as.Scalar(1),
                         VERY_LOW_PRECISION,
                     )
             })

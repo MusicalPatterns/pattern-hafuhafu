@@ -1,23 +1,13 @@
-import {
-    apply,
-    Cardinal,
-    from,
-    Multiple,
-    NO_TRANSLATION,
-    of,
-    ONE_FEWER,
-    Ordinal,
-    to,
-} from '@musical-patterns/utilities'
+import { as, Cardinal, Multiple, NO_TRANSLATION, notAs, ONE_FEWER, Ordinal, use } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 import { DROSTE_ITERATION_REALIGNMENT_TRANSLATION } from '../constants'
 import { ComputeTotalIndicesParameters } from './types'
 
 const computeSieveFractalLength: (sieve: Multiple<Ordinal>, layerCount: Cardinal) => Cardinal<Ordinal> =
     (sieve: Multiple<Ordinal>, layerCount: Cardinal): Cardinal<Ordinal> =>
-        to.Cardinal<Ordinal>(from.Multiple(apply.Power(
+        as.Cardinal<Ordinal>(notAs.Multiple(use.Power(
             sieve,
-            to.Power<Multiple<Ordinal>>(from.Cardinal(apply.Translation(layerCount, ONE_FEWER))),
+            as.Power<Multiple<Ordinal>>(notAs.Cardinal(use.Translation(layerCount, ONE_FEWER))),
         )))
 
 const computeIterationLength: (
@@ -30,7 +20,7 @@ const computeIterationLength: (
         layerCount: Cardinal,
         sieveFractalRepetitions: Multiple<Cardinal<Ordinal>>,
     ): Cardinal<Ordinal> =>
-        apply.Multiple(
+        use.Multiple(
             computeSieveFractalLength(sieve, layerCount),
             sieveFractalRepetitions,
         )
@@ -42,7 +32,7 @@ const computeTotalIndices: (parameters: {
     sieveFractalRepetitions: Multiple<Cardinal<Ordinal>>,
 }) => Cardinal<Ordinal> =
     ({ layerCount, mode, sieve, sieveFractalRepetitions }: ComputeTotalIndicesParameters): Cardinal<Ordinal> =>
-        apply.Translation(
+        use.Translation(
             computeIterationLength(sieve, layerCount, sieveFractalRepetitions),
             mode === HafuhafuMode.DROSTE ? DROSTE_ITERATION_REALIGNMENT_TRANSLATION : NO_TRANSLATION,
         )

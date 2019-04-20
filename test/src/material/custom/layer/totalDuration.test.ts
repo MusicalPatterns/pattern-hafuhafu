@@ -1,20 +1,20 @@
-import { Ordinal, Scalar, sum, Time, to } from '@musical-patterns/utilities'
+import { as, Ordinal, Scalar, sum, Time } from '@musical-patterns/utilities'
 import { computeTotalDuration, HafuhafuMode } from '../../../../../src/indexForTest'
 
 describe('total duration', () => {
     describe('zeno mode', () => {
         it('sums the durations of every element', () => {
             const totalDuration: Scalar<Time> = computeTotalDuration({
-                layerCount: to.Cardinal(2),
+                layerCount: as.Cardinal(2),
                 mode: HafuhafuMode.ZENO,
                 reverse: false,
-                sieve: to.Multiple<Ordinal>(2),
-                totalIndices: to.Cardinal<Ordinal>(12),
+                sieve: as.Multiple<Ordinal>(2),
+                totalIndices: as.Cardinal<Ordinal>(12),
             })
 
             expect(totalDuration)
                 .toBeCloseToTyped(
-                    to.Scalar<Time>(sum(
+                    as.Scalar<Time>(sum(
                         1,
                         0.9438743126816934, // Multiple fractal repetition
                         0.8908987181403393, // Kernel repetition

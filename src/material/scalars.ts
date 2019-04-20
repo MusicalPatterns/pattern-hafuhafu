@@ -1,12 +1,12 @@
 import {
-    apply,
+    as,
     Frequency,
-    from,
     Hz,
     Integer,
     Logarithm,
+    notAs,
     Scalar,
-    to,
+    use,
     ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { HafuhafuSpecs } from '../spec'
@@ -14,9 +14,9 @@ import { HafuhafuSpecs } from '../spec'
 const computePitchScalars: (specs: HafuhafuSpecs) => Array<Scalar<Hz>> =
     ({ pitchStep }: HafuhafuSpecs): Array<Scalar<Hz>> =>
         ZERO_AND_POSITIVE_INTEGERS.map((integer: Integer) =>
-            to.Scalar<Hz>(from.Logarithm<Frequency>(apply.Power(
+            as.Scalar<Hz>(notAs.Logarithm<Frequency>(use.Power(
                 pitchStep,
-                to.Power<Logarithm<Frequency>>(integer),
+                as.Power<Logarithm<Frequency>>(integer),
             ))),
         )
 

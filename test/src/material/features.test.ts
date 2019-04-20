@@ -1,14 +1,14 @@
 // tslint:disable no-duplicate-string
 
 import { Note, NoteFeature, PitchDurationGainSustainScale, Scale } from '@musical-patterns/material'
-import { Scalar, to } from '@musical-patterns/utilities'
+import { as, Scalar } from '@musical-patterns/utilities'
 import { computeNote } from '../../../src/indexForTest'
 
 describe('features', () => {
     describe('example one', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(to.ContourElement<PitchDurationGainSustainScale>([ 3, 0.5, 2, 0.5, 0.333 ]))
+            note = computeNote(as.ContourElement<PitchDurationGainSustainScale>([ 3, 0.5, 2, 0.5, 0.333 ]))
         })
 
         describe('duration', () => {
@@ -19,12 +19,12 @@ describe('features', () => {
 
             it('uses the duration parameter as the scalar', () => {
                 expect(duration.scalar)
-                    .toBe(to.Scalar<Scalar>(0.5))
+                    .toBe(as.Scalar<Scalar>(0.5))
             })
 
             it('uses the scale for durations', () => {
                 expect(duration.scaleIndex)
-                    .toBe(to.Ordinal<Scale>(1))
+                    .toBe(as.Ordinal<Scale>(1))
             })
         })
 
@@ -36,7 +36,7 @@ describe('features', () => {
 
             it('uses the gain parameter as the scalar', () => {
                 expect(gain.scalar)
-                    .toBe(to.Scalar<Scalar>(2))
+                    .toBe(as.Scalar<Scalar>(2))
             })
         })
 
@@ -48,17 +48,17 @@ describe('features', () => {
 
             it('uses the scale for pitches', () => {
                 expect(pitch.scaleIndex)
-                    .toBe(to.Ordinal<Scale>(2))
+                    .toBe(as.Ordinal<Scale>(2))
             })
 
             it('uses the pitch parameter', () => {
                 expect(pitch.index)
-                    .toBe(to.Ordinal<Scalar>(3))
+                    .toBe(as.Ordinal<Scalar>(3))
             })
 
             it('uses (abuses?) the scale element as a delivery mechanism for a second pitch-related amount - its scalar', () => {
                 expect(pitch.scalar)
-                    .toBe(to.Scalar<Scalar>(0.333))
+                    .toBe(as.Scalar<Scalar>(0.333))
             })
         })
     })
@@ -66,7 +66,7 @@ describe('features', () => {
     describe('example two', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(to.ContourElement<PitchDurationGainSustainScale>([ 4, 0.25, 1.5, 0.25, 0.666 ]))
+            note = computeNote(as.ContourElement<PitchDurationGainSustainScale>([ 4, 0.25, 1.5, 0.25, 0.666 ]))
         })
 
         describe('duration', () => {
@@ -77,12 +77,12 @@ describe('features', () => {
 
             it('uses the duration parameter as the scalar', () => {
                 expect(duration.scalar)
-                    .toBe(to.Scalar<Scalar>(0.25))
+                    .toBe(as.Scalar<Scalar>(0.25))
             })
 
             it('uses the scale for durations', () => {
                 expect(duration.scaleIndex)
-                    .toBe(to.Ordinal<Scale>(1))
+                    .toBe(as.Ordinal<Scale>(1))
             })
         })
 
@@ -94,7 +94,7 @@ describe('features', () => {
 
             it('uses the gain parameter as the scalar', () => {
                 expect(gain.scalar)
-                    .toBe(to.Scalar<Scalar>(1.5))
+                    .toBe(as.Scalar<Scalar>(1.5))
             })
         })
 
@@ -106,17 +106,17 @@ describe('features', () => {
 
             it('uses the scale for pitches', () => {
                 expect(pitch.scaleIndex)
-                    .toBe(to.Ordinal<Scale>(2))
+                    .toBe(as.Ordinal<Scale>(2))
             })
 
             it('uses the pitch parameter as the index', () => {
                 expect(pitch.index)
-                    .toBe(to.Ordinal<Scalar>(4))
+                    .toBe(as.Ordinal<Scalar>(4))
             })
 
             it('uses (abuses?) the scale element as a delivery mechanism for a second pitch-related amount - its scalar', () => {
                 expect(pitch.scalar)
-                    .toBe(to.Scalar<Scalar>(0.666))
+                    .toBe(as.Scalar<Scalar>(0.666))
             })
         })
     })
@@ -124,7 +124,7 @@ describe('features', () => {
     describe('example - rest', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(to.ContourElement<PitchDurationGainSustainScale>([ -1, 0.5, 2, 0.4, 0.7 ]))
+            note = computeNote(as.ContourElement<PitchDurationGainSustainScale>([ -1, 0.5, 2, 0.4, 0.7 ]))
         })
 
         describe('duration', () => {
@@ -135,12 +135,12 @@ describe('features', () => {
 
             it('uses the duration parameter as the scalar', () => {
                 expect(duration.scalar)
-                    .toBe(to.Scalar<Scalar>(0.5))
+                    .toBe(as.Scalar<Scalar>(0.5))
             })
 
             it('uses the scale for durations', () => {
                 expect(duration.scaleIndex)
-                    .toBe(to.Ordinal<Scale>(1))
+                    .toBe(as.Ordinal<Scale>(1))
             })
         })
 
@@ -152,7 +152,7 @@ describe('features', () => {
 
             it('has no gain', () => {
                 expect(gain.scalar)
-                    .toBe(to.Scalar<Scalar>(0))
+                    .toBe(as.Scalar<Scalar>(0))
             })
         })
     })
