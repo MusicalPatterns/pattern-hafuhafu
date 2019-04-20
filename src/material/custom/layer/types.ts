@@ -8,7 +8,7 @@ interface LayerParameters {
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }
 
 interface ComputeDurationProgressesParameters extends LayerParameters {

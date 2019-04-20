@@ -1,14 +1,8 @@
 // tslint:disable no-duplicate-string
 
 import { Validations } from '@musical-patterns/spec'
-import { to } from '@musical-patterns/utilities'
-import {
-    computeValidations,
-    HafuhafuSpec,
-    HafuhafuSpecs,
-    initialSpecs,
-    to as hafuhafuTo,
-} from '../../../src/indexForTest'
+import { Ordinal, to } from '@musical-patterns/utilities'
+import { computeValidations, HafuhafuSpec, HafuhafuSpecs, initialSpecs } from '../../../src/indexForTest'
 
 describe('validations', () => {
     describe('when the source kernel length and sieve are coprime', () => {
@@ -16,7 +10,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: to.Block([ 0, 1, 0, 1 ]),
-                [ HafuhafuSpec.SIEVE ]: to.Multiple(2),
+                [ HafuhafuSpec.SIEVE ]: to.Multiple<Ordinal>(2),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)
@@ -37,7 +31,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: to.Block([ 0, 1, 1 ]),
-                [ HafuhafuSpec.SIEVE ]: to.Multiple(6),
+                [ HafuhafuSpec.SIEVE ]: to.Multiple<Ordinal>(6),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)
@@ -57,7 +51,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: to.Block([ 0, 1, 1, 0 ]),
-                [ HafuhafuSpec.SIEVE ]: to.Multiple(6),
+                [ HafuhafuSpec.SIEVE ]: to.Multiple<Ordinal>(6),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)
@@ -80,7 +74,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: to.Block([ 0, 1, 1, 1 ]),
-                [ HafuhafuSpec.SIEVE ]: to.Multiple(3),
+                [ HafuhafuSpec.SIEVE ]: to.Multiple<Ordinal>(3),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)

@@ -1,14 +1,14 @@
-import { Scalar, to } from '@musical-patterns/utilities'
+import { Frequency, Hz, Scalar, to } from '@musical-patterns/utilities'
 import { computePitchScalars, HafuhafuSpecs, initialSpecs } from '../../../src/indexForTest'
 
 describe('scalars', () => {
     it('creates a scale where each next scalar is the previous multiplied by whatever the pitch step is set to', () => {
         const specs: HafuhafuSpecs = {
             ...initialSpecs,
-            pitchStep: to.Base(3),
+            pitchStep: to.Logarithm<Frequency>(3),
         }
 
-        const scalars: Scalar[] = computePitchScalars(specs)
+        const scalars: Array<Scalar<Hz>> = computePitchScalars(specs)
 
         expect(scalars)
             .toBeCloseSoFar([

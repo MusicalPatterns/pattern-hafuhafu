@@ -1,11 +1,11 @@
 // tslint:disable no-magic-numbers max-file-line-count
 
 import {
-    Base,
     Block,
     Cardinal,
     Frequency,
     Hz,
+    Logarithm,
     Ms,
     Multiple,
     ofFrom,
@@ -25,8 +25,8 @@ const HAFUHAFU_INITIAL_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(350)
 const HAFUHAFU_INITIAL_KERNEL: Block = to.Block([ 0, 12, 0, 0, 12 ])
 const HAFUHAFU_INITIAL_MODE: HafuhafuMode = HafuhafuMode.ZENO
 const HAFUHAFU_INITIAL_EXISTENCE_STYLE: ExistenceStyle = ExistenceStyle.FADE
-const HAFUHAFU_INITIAL_SIEVE_FRACTAL_REPETITIONS: Cardinal = to.Cardinal(40)
-const HAFUHAFU_INITIAL_PITCH_STEP: Base<Frequency> = SEMITONE
+const HAFUHAFU_INITIAL_SIEVE_FRACTAL_REPETITIONS: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(40)
+const HAFUHAFU_INITIAL_PITCH_STEP: Logarithm<Frequency> = SEMITONE
 const HAFUHAFU_INITIAL_REVERSE: boolean = false
 const HAFUHAFU_INITIAL_SIEVE: Multiple<Ordinal> = to.Multiple<Ordinal>(2)
 const HAFUHAFU_INITIAL_LAYER_COUNT: Cardinal = to.Cardinal(2)
@@ -37,36 +37,36 @@ const POPCORN_PRESET_BASE_FREQUENCY: Scalar<Hz> =
     to.Scalar(ofFrom(SCIENTIFIC_PITCHES[ ScientificPitchNoteName.B ][ ScientificPitchOctaveNumber._3 ]))
 const POPCORN_PRESET_KERNEL: Block = to.Block([ 12, 10, 12, 7, 3, 7, 0, -1 ])
 const POPCORN_PRESET_SIEVE: Multiple<Ordinal> = to.Multiple<Ordinal>(3)
-const POPCORN_PRESET_SIEVE_FRACTAL_REPETITIONS: Cardinal = to.Cardinal(64)
+const POPCORN_PRESET_SIEVE_FRACTAL_REPETITIONS: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(64)
 
 const AASB_SIEVEWISE_PRESET_SIEVE: Multiple<Ordinal> = to.Multiple<Ordinal>(6)
 
 const MONOCOT_PRESET_KERNEL: Block = to.Block([ 1 ])
 const MONOCOT_PRESET_SIEVE: Multiple<Ordinal> = to.Multiple<Ordinal>(5)
-const MONOCOT_PRESET_SIEVE_FRACTAL_REPETITIONS: Cardinal = to.Cardinal(8)
+const MONOCOT_PRESET_SIEVE_FRACTAL_REPETITIONS: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(8)
 
 const SCALE_SCRAMBLE_PRESET_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(343)
 const SCALE_SCRAMBLE_PRESET_BASE_FREQUENCY: Scalar<Hz> = to.Scalar<Hz>(77)
 const SCALE_SCRAMBLE_PRESET_KERNEL: Block = to.Block([ 0, 1, 2, 3, 4, 5, 6 ])
-const SCALE_SCRAMBLE_PRESET_PITCH_STEP: Base<Frequency> = to.Base<Frequency>(1.25992104989)
-const SCALE_SCRAMBLE_PRESET_SIEVE_FRACTAL_REPETITIONS: Cardinal = to.Cardinal(49)
+const SCALE_SCRAMBLE_PRESET_PITCH_STEP: Logarithm<Frequency> = to.Logarithm<Frequency>(1.25992104989)
+const SCALE_SCRAMBLE_PRESET_SIEVE_FRACTAL_REPETITIONS: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(49)
 const SCALE_SCRAMBLE_PRESET_SIEVE: Multiple<Ordinal> = to.Multiple<Ordinal>(3)
 
 const AASB_KERNELWISE_PRESET_KERNEL: Block = to.Block([ 0, 0, 0, 12, 0, 12, 12 ])
-const AASB_KERNELWISE_PRESET_SIEVE_FRACTAL_REPETITIONS: Cardinal = to.Cardinal(56)
+const AASB_KERNELWISE_PRESET_SIEVE_FRACTAL_REPETITIONS: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(56)
 
 const THREE_PHASER_PRESET_KERNEL: Block = to.Block([ 0, 0, 12, 0, 0, 12, 12 ])
-const THREE_PHASER_PRESET_SIEVE_FRACTAL_REPETITIONS: Cardinal = to.Cardinal(28)
+const THREE_PHASER_PRESET_SIEVE_FRACTAL_REPETITIONS: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(28)
 
 const RECURSIEVE_PRESET_KERNEL: Block = to.Block([ 0, 3, 4, 7, 9 ])
 const RECURSIEVE_PRESET_LAYER_COUNT: Cardinal = to.Cardinal(6)
-const RECURSIEVE_PRESET_SIEVE_FRACTAL_REPETITIONS: Cardinal = to.Cardinal(32)
+const RECURSIEVE_PRESET_SIEVE_FRACTAL_REPETITIONS: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(32)
 const RECURSIEVE_PRESET_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(150)
 const RECURSIEVE_PRESET_BASE_FREQUENCY: Scalar<Hz> = to.Scalar<Hz>(175)
 
 const SHOW_TEXTURE_PRESET_KERNEL: Block = to.Block([ 0 ])
 const SHOW_TEXTURE_LAYER_COUNT: Cardinal = to.Cardinal(4)
-const SHOW_TEXTURE_SIEVE_FRACTAL_REPETITIONS: Cardinal = to.Cardinal(4)
+const SHOW_TEXTURE_SIEVE_FRACTAL_REPETITIONS: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(4)
 const SHOW_TEXTURE_PRESET_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(200)
 const SHOW_TEXTURE_PRESET_BASE_FREQUENCY: Scalar<Hz> = to.Scalar<Hz>(200)
 
@@ -77,16 +77,17 @@ const CHORTLES_PRESET_BASE_FREQUENCY: Scalar<Hz> =
     to.Scalar(ofFrom(SCIENTIFIC_PITCHES[ ScientificPitchNoteName.C ][ ScientificPitchOctaveNumber._4 ]))
 
 const CATERPILLAR_PRESET_LAYER_COUNT: Cardinal = to.Cardinal(3)
-const CATERPILLAR_PRESET_SIEVE_FRACTAL_REPETITIONS: Cardinal = to.Cardinal(80)
+const CATERPILLAR_PRESET_SIEVE_FRACTAL_REPETITIONS: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(80)
 const CATERPILLAR_PRESET_KERNEL: Block = to.Block([ 0, -1, 0, 0, -1 ])
 const CATERPILLAR_PRESET_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(250)
 const CATERPILLAR_PRESET_BASE_FREQUENCY: Scalar<Hz> = to.Scalar<Hz>(150)
 
 const SIEVELIZATION_III_PRESET_BASE_DURATION: Scalar<Ms> = to.Scalar<Ms>(250)
-const SIEVELIZATION_III_PRESET_PITCH_STEP: Base<Frequency> = to.Base<Frequency>(SQUARE_ROOT_OF_THREE)
+const SIEVELIZATION_III_PRESET_PITCH_STEP: Logarithm<Frequency> = to.Logarithm<Frequency>(SQUARE_ROOT_OF_THREE)
 const SIEVELIZATION_III_PRESET_KERNEL: Block = to.Block([ 1, 0 ])
 const SIEVELIZATION_III_PRESET_LAYER_COUNT: Cardinal = to.Cardinal(4)
-const SIEVELIZATION_III_PRESET_SIEVE_FRACTAL_REPETITIONS: Cardinal = to.Cardinal(3)
+const SIEVELIZATION_III_PRESET_SIEVE_FRACTAL_REPETITIONS: Multiple<Cardinal<Ordinal>> =
+    to.Multiple<Cardinal<Ordinal>>(3)
 const SIEVELIZATION_III_PRESET_SIEVE: Multiple<Ordinal> = to.Multiple<Ordinal>(3)
 
 export {

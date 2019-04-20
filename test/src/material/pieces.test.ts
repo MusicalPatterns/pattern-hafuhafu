@@ -6,18 +6,18 @@ import {
     Block,
     Cardinal,
     ContourElement,
-    ContourPiece,
+    ContourPiece, Cycle,
     dividesEvenly,
     evenElements,
     everyNthElement,
-    forEach,
+    forEach, from,
     indexOfFinalElement,
     INITIAL,
+    length, Multiple,
     oddElements,
     Ordinal,
     slice,
     to,
-    totalElements,
     Translation,
     VERY_LOW_PRECISION,
 } from '@musical-patterns/utilities'
@@ -27,8 +27,6 @@ import {
     HafuhafuMode,
     HafuhafuSpecs,
     initialSpecs,
-    Multiple,
-    to as hafuhafuTo,
 } from '../../../src/indexForTest'
 import {
     INDEX_OF_DURATION_IN_CONTOUR,
@@ -38,12 +36,12 @@ import {
 } from '../../support'
 
 describe('pieces', () => {
-    const A_VERY_LARGE_NUMBER_OF_REPETITIONS_WHICH_IMPROVES_MY_ABILITY_TEST_GOING_FROM_ONE_VALUE_TO_ANOTHER_AS_THE_VALUES_I_CHECK_ARE_NOT_QUITE_AT_THE_BEGINNINGS_AND_ENDS_OF_THE_ARRAYS_SO_THE_HIGHER_THE_RESOLUTION_THE_MORE_ACCURATE: Cardinal = to.Cardinal(100)
+    const A_VERY_LARGE_NUMBER_OF_REPETITIONS_WHICH_IMPROVES_MY_ABILITY_TEST_GOING_FROM_ONE_VALUE_TO_ANOTHER_AS_THE_VALUES_I_CHECK_ARE_NOT_QUITE_AT_THE_BEGINNINGS_AND_ENDS_OF_THE_ARRAYS_SO_THE_HIGHER_THE_RESOLUTION_THE_MORE_ACCURATE: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(100)
 
     describe('droste mode', () => {
         let pieces: ContourPiece<PitchDurationGainSustainScale>
         const iterationKernel: Block = to.Block([ 10, 30, 50, 70, 90 ])
-        const sieveFractalRepetitions: Cardinal = A_VERY_LARGE_NUMBER_OF_REPETITIONS_WHICH_IMPROVES_MY_ABILITY_TEST_GOING_FROM_ONE_VALUE_TO_ANOTHER_AS_THE_VALUES_I_CHECK_ARE_NOT_QUITE_AT_THE_BEGINNINGS_AND_ENDS_OF_THE_ARRAYS_SO_THE_HIGHER_THE_RESOLUTION_THE_MORE_ACCURATE
+        const sieveFractalRepetitions: Multiple<Cardinal<Ordinal>> = A_VERY_LARGE_NUMBER_OF_REPETITIONS_WHICH_IMPROVES_MY_ABILITY_TEST_GOING_FROM_ONE_VALUE_TO_ANOTHER_AS_THE_VALUES_I_CHECK_ARE_NOT_QUITE_AT_THE_BEGINNINGS_AND_ENDS_OF_THE_ARRAYS_SO_THE_HIGHER_THE_RESOLUTION_THE_MORE_ACCURATE
         const existenceStyle: ExistenceStyle = ExistenceStyle.FADE
 
         describe('with 3 layers', () => {
@@ -54,7 +52,7 @@ describe('pieces', () => {
                     layerCount: to.Cardinal(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: false,
-                    sieve: to.Multiple(2),
+                    sieve: to.Multiple<Ordinal>(2),
                     sieveFractalRepetitions,
                     stretchPitch: true,
                 }
@@ -62,8 +60,8 @@ describe('pieces', () => {
             })
 
             it('has length equal to the sieve fractal repetitions times the sieve to the power of the layer count minus 1, plus one extra for realignment', () => {
-                expect(totalElements(pieces))
-                    .toEqual(to.Cardinal(401))
+                expect(length(pieces))
+                    .toEqual(to.Cardinal<ContourElement<PitchDurationGainSustainScale>>(401))
             })
 
             describe('duration', () => {
@@ -107,9 +105,9 @@ describe('pieces', () => {
                 it('wraps around the kernel over and over', () => {
                     forEach(
                         pieces,
-                        ([ pitchIndex, duration, gain, sustain, pitchScalar ]: ContourElement<PitchDurationGainSustainScale>, index: Ordinal) => {
+                        ([ pitchIndex, duration, gain, sustain, pitchScalar ]: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourElement<PitchDurationGainSustainScale>>) => {
                             expect(pitchIndex)
-                                .toBe(iterationKernel[ index % iterationKernel.length ])
+                                .toBe(iterationKernel[ from.Ordinal(index) % iterationKernel.length ])
                         },
                     )
                 })
@@ -161,7 +159,7 @@ describe('pieces', () => {
                     layerCount: to.Cardinal(4),
                     mode: HafuhafuMode.DROSTE,
                     reverse: false,
-                    sieve: to.Multiple(2),
+                    sieve: to.Multiple<Ordinal>(2),
                     sieveFractalRepetitions,
                     stretchPitch: true,
                 }
@@ -169,8 +167,8 @@ describe('pieces', () => {
             })
 
             it('has length equal to the sieve fractal repetitions times the sieve to the power of the layer count minus 1, plus one extra for realignment', () => {
-                expect(totalElements(pieces))
-                    .toEqual(to.Cardinal(801))
+                expect(length(pieces))
+                    .toEqual(to.Cardinal<ContourElement<PitchDurationGainSustainScale>>(801))
             })
 
             describe('duration', () => {
@@ -246,9 +244,9 @@ describe('pieces', () => {
                 it('wraps around the kernel over and over, just the same as it is in layer count 2', () => {
                     forEach(
                         pieces,
-                        ([ pitchIndex, duration, gain, sustain, pitchScalar ]: ContourElement<PitchDurationGainSustainScale>, index: Ordinal) => {
+                        ([ pitchIndex, duration, gain, sustain, pitchScalar ]: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourElement<PitchDurationGainSustainScale>>) => {
                             expect(pitchIndex)
-                                .toBe(iterationKernel[ index % iterationKernel.length ])
+                                .toBe(iterationKernel[ from.Ordinal(index) % iterationKernel.length ])
                         },
                     )
                 })
@@ -337,7 +335,7 @@ the results are also cyclically translated by -1 so that the last element gets t
 this is because when one reverses a set of notes, their original durations are no longer in front of them, but behind them, \
 so you have to give your duration to the element behind you`,
                     () => {
-                        const TRANSLATION_TO_FLIP_DURATION_ASSOCIATIONS_WHEN_REVERSE: Translation = to.Translation(1)
+                        const TRANSLATION_TO_FLIP_DURATION_ASSOCIATIONS_WHEN_REVERSE: Translation<Cycle> = to.Translation<Cycle>(1)
                         const durations: number[] = apply.Translation(
                             to.Cycle(pieces.map(
                                 (element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_DURATION_IN_CONTOUR),
@@ -355,7 +353,7 @@ so you have to give your duration to the element behind you`,
                 it('the pitch on the even elements (layer 1 of 4) is scaled, by a factor decreasing quadratically from 2^(3/2) to 2^(1/2) (which = 2 in the middle), because the first layer is the highest pitch, fastest one, when reversed, coming out of silence', () => {
                     const evenPitchScalars: number[] = evenElements(pieces)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
-                    const evenPitchScalarsDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne: number[] = evenPitchScalars.slice(INITIAL, indexOfFinalElement(evenPitchScalars))
+                    const evenPitchScalarsDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne: number[] = slice(evenPitchScalars, INITIAL, indexOfFinalElement(evenPitchScalars))
                     expect(evenPitchScalarsDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne)
                         .toGoQuadraticallyFromValueToValue(Math.pow(2, 3 / 2), Math.pow(2, 1 / 2), VERY_LOW_PRECISION)
                 })
@@ -452,7 +450,7 @@ so you have to give your duration to the element behind you`,
                     layerCount: to.Cardinal(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: false,
-                    sieve: to.Multiple(3),
+                    sieve: to.Multiple<Ordinal>(3),
                     sieveFractalRepetitions,
                     stretchPitch: true,
                 }
@@ -461,7 +459,7 @@ so you have to give your duration to the element behind you`,
 
             describe('pitch scalar', () => {
                 it('the pitch on every 3rd element (layer 1 of 3) is scaled, by a factor increasing quadratically from 1 to 3, because the first layer is the highest pitch, fastest one, about to fade out', () => {
-                    const layerOnePitchScalars: number[] = everyNthElement(pieces, to.Scalar(3))
+                    const layerOnePitchScalars: number[] = everyNthElement(pieces, to.Multiple(3))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(layerOnePitchScalars)
@@ -469,7 +467,7 @@ so you have to give your duration to the element behind you`,
                 })
 
                 it('the pitch on layer 2 of 3 elements is scaled, by a factor increasing quadratically from 1/sieve to (almost, because it is not quite at the end) 1', () => {
-                    const layerTwoPitchScalars: number[] = everyNthElement(pieces, to.Scalar(9), to.Ordinal(1))
+                    const layerTwoPitchScalars: number[] = everyNthElement(pieces, to.Multiple(9), to.Ordinal<ContourElement<PitchDurationGainSustainScale>>(1))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => apply.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(layerTwoPitchScalars)
@@ -510,7 +508,7 @@ so you have to give your duration to the element behind you`,
             let layerTwoElements: ContourPiece<PitchDurationGainSustainScale>
             let layerThreeElements: ContourPiece<PitchDurationGainSustainScale>
             beforeEach(() => {
-                const sieve: Multiple<Ordinal> = to.Multiple(5)
+                const sieve: Multiple<Ordinal> = to.Multiple<Ordinal>(5)
                 pieces = computePieces(
                     to.Block([ 0, 1, 0, 0, 1 ]),
                     {
@@ -520,7 +518,7 @@ so you have to give your duration to the element behind you`,
                         mode: HafuhafuMode.ZENO,
                         reverse: false,
                         sieve,
-                        sieveFractalRepetitions: to.Cardinal(20),
+                        sieveFractalRepetitions: to.Multiple<Cardinal<Ordinal>>(20),
                         sourceKernel: to.Block([ 0, 1, 0, 0, 1 ]),
                     },
                 )
@@ -529,9 +527,9 @@ so you have to give your duration to the element behind you`,
                 layerTwoElements = to.ContourPiece<PitchDurationGainSustainScale>([])
                 layerThreeElements = to.ContourPiece<PitchDurationGainSustainScale>([])
 
-                forEach(pieces, (element: ContourElement<PitchDurationGainSustainScale>, index: Ordinal) => {
+                forEach(pieces, (element: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourElement<PitchDurationGainSustainScale>>) => {
                     if (dividesEvenly(index, sieve)) {
-                        if (dividesEvenly(index, apply.Power(sieve, to.Power(2)))) {
+                        if (dividesEvenly(index, apply.Power(sieve, to.Power<Multiple<Ordinal>>(2)))) {
                             layerOneElements.push(element)
                         }
                         else {
@@ -582,8 +580,8 @@ because there are 1/sieve as many notes happening then - when sieve is 2`,
                             existenceStyle: ExistenceStyle.FADE,
                             mode: HafuhafuMode.ZENO,
                             reverse: false,
-                            sieve: to.Multiple(2),
-                            sieveFractalRepetitions: to.Cardinal(4),
+                            sieve: to.Multiple<Ordinal>(2),
+                            sieveFractalRepetitions: to.Multiple<Cardinal<Ordinal>>(4),
                             sourceKernel: KERNEL_AND_OR_CYCLE_KERNEL_DOESNT_MATTER_HERE_AS_LONG_AS_SAME_LENGTH,
                         },
                     )
@@ -609,8 +607,8 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
                             existenceStyle: ExistenceStyle.FADE,
                             mode: HafuhafuMode.ZENO,
                             reverse: false,
-                            sieve: to.Multiple(3),
-                            sieveFractalRepetitions: to.Cardinal(4),
+                            sieve: to.Multiple<Ordinal>(3),
+                            sieveFractalRepetitions: to.Multiple<Cardinal<Ordinal>>(4),
                             sourceKernel: KERNEL_AND_OR_CYCLE_KERNEL_DOESNT_MATTER_HERE_AS_LONG_AS_SAME_LENGTH,
                         },
                     )
@@ -628,7 +626,7 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
         describe('pitch scalar', () => {
             describe('when stretch pitch is false', () => {
                 it('all pitch scalars are 1', () => {
-                    const sieve: Multiple<Ordinal> = to.Multiple(5)
+                    const sieve: Multiple<Ordinal> = to.Multiple<Ordinal>(5)
                     const pieces: ContourPiece<PitchDurationGainSustainScale> = computePieces(
                         to.Block([ 0, 1, 0, 0, 1 ]),
                         {
@@ -638,7 +636,7 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
                             mode: HafuhafuMode.ZENO,
                             reverse: false,
                             sieve,
-                            sieveFractalRepetitions: to.Cardinal(4),
+                            sieveFractalRepetitions: to.Multiple<Cardinal<Ordinal>>(4),
                             sourceKernel: to.Block([ 0, 1, 0, 0, 1 ]),
                             stretchPitch: false,
                         },
@@ -658,7 +656,7 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
                 let layerTwoElements: ContourPiece<PitchDurationGainSustainScale>
                 let layerThreeElements: ContourPiece<PitchDurationGainSustainScale>
                 beforeEach(() => {
-                    const sieve: Multiple<Ordinal> = to.Multiple(5)
+                    const sieve: Multiple<Ordinal> = to.Multiple<Ordinal>(5)
                     pieces = computePieces(
                         to.Block([ 0, 1, 0, 0, 1 ]),
                         {
@@ -678,9 +676,9 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
                     layerTwoElements = to.ContourPiece<PitchDurationGainSustainScale>([])
                     layerThreeElements = to.ContourPiece<PitchDurationGainSustainScale>([])
 
-                    forEach(pieces, (element: ContourElement<PitchDurationGainSustainScale>, index: Ordinal) => {
+                    forEach(pieces, (element: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourElement<PitchDurationGainSustainScale>>) => {
                         if (dividesEvenly(index, sieve)) {
-                            if (dividesEvenly(index, apply.Power(sieve, to.Power(2)))) {
+                            if (dividesEvenly(index, apply.Power(sieve, to.Power<Multiple<Ordinal>>(2)))) {
                                 layerOneElements.push(element)
                             }
                             else {

@@ -1,10 +1,10 @@
-import { Cardinal, Multiple, to } from '@musical-patterns/utilities'
+import { Cardinal, Multiple, Ordinal, to } from '@musical-patterns/utilities'
 import { computeSieveFractal, HafuhafuMode } from '../../../../../src/indexForTest'
 
 describe('sieve fractals', () => {
     describe('droste mode', () => {
         it('grows like this, when sieve is 2', () => {
-            const sieve: Multiple<Ordinal> = to.Multiple(2)
+            const sieve: Multiple<Ordinal> = to.Multiple<Ordinal>(2)
             let layerCount: Cardinal
 
             layerCount = to.Cardinal(1)
@@ -41,7 +41,7 @@ describe('sieve fractals', () => {
         })
 
         it('grows like this, when sieve is 3', () => {
-            const sieve: Multiple<Ordinal> = to.Multiple(3)
+            const sieve: Multiple<Ordinal> = to.Multiple<Ordinal>(3)
             let layerCount: Cardinal
 
             layerCount = to.Cardinal(1)
@@ -90,7 +90,7 @@ describe('sieve fractals', () => {
 
     describe('zeno mode', () => {
         it('grows like this, when sieve is 2', () => {
-            const sieve: Multiple<Ordinal> = to.Multiple(2)
+            const sieve: Multiple<Ordinal> = to.Multiple<Ordinal>(2)
             let layerCount: Cardinal
 
             layerCount = to.Cardinal(1)
@@ -128,7 +128,7 @@ describe('sieve fractals', () => {
         })
 
         it('grows like this, when sieve is 3', () => {
-            const sieve: Multiple<Ordinal> = to.Multiple(3)
+            const sieve: Multiple<Ordinal> = to.Multiple<Ordinal>(3)
             let layerCount: Cardinal
 
             layerCount = to.Cardinal(1)

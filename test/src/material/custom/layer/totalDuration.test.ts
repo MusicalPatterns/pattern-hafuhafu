@@ -1,5 +1,5 @@
-import { Scalar, sum, Time, to } from '@musical-patterns/utilities'
-import { computeTotalDuration, HafuhafuMode, to as hafuhafuTo } from '../../../../../src/indexForTest'
+import { Ordinal, Scalar, sum, Time, to } from '@musical-patterns/utilities'
+import { computeTotalDuration, HafuhafuMode } from '../../../../../src/indexForTest'
 
 describe('total duration', () => {
     describe('zeno mode', () => {
@@ -8,13 +8,13 @@ describe('total duration', () => {
                 layerCount: to.Cardinal(2),
                 mode: HafuhafuMode.ZENO,
                 reverse: false,
-                sieve: to.Multiple(2),
-                totalIndices: to.Cardinal(12),
+                sieve: to.Multiple<Ordinal>(2),
+                totalIndices: to.Cardinal<Ordinal>(12),
             })
 
             expect(totalDuration)
                 .toBeCloseToTyped(
-                    to.Scalar(to.Time(sum(
+                    to.Scalar<Time>(sum(
                         1,
                         0.9438743126816934, // Multiple fractal repetition
                         0.8908987181403393, // Kernel repetition
@@ -27,7 +27,7 @@ describe('total duration', () => {
                         0.5946035575013605, // Multiple fractal repetition
                         0.5612310241546865,
                         0.5297315471796477, // Multiple fractal repetition & kernel repetition (6 requested sieve fractal repetitions = done)
-                    ))),
+                    )),
                 )
         })
     })

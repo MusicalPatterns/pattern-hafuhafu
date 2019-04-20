@@ -1,9 +1,9 @@
-import { from, Multiple, of, Ordinal, reciprocal, Scalar, Time, to } from '@musical-patterns/utilities'
+import { insteadOf, Multiple, Ordinal, reciprocal, Scalar, Time } from '@musical-patterns/utilities'
 import { ComputeSustainParameters } from './types'
 
 const computeSustain: (parameters: { sieve: Multiple<Ordinal> }) => Scalar<Time> =
     ({ sieve }: ComputeSustainParameters): Scalar<Time> =>
-        to.Scalar(of.Time(from.Multiple<Ordinal>(reciprocal(sieve))))
+        insteadOf<Scalar, Time>(reciprocal(sieve))
 
 export {
     computeSustain,

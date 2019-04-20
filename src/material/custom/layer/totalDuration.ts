@@ -21,7 +21,7 @@ const computeTotalDuration: (parameters: {
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }) => Scalar<Time> =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): Scalar<Time> =>
         slice(

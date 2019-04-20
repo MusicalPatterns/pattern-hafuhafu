@@ -6,12 +6,14 @@ import {
     Cardinal,
     ContourElement,
     Frequency,
-    from, insteadOf,
+    from,
+    insteadOf,
     Multiple,
     NormalScalar,
     Ordinal,
     Scalar,
-    Time, to,
+    Time,
+    to,
 } from '@musical-patterns/utilities'
 import { ExistenceStyle, HafuhafuMode } from '../../../spec'
 import { computeDuration } from './duration'
@@ -48,7 +50,7 @@ const computeElement: (parameters: {
     reverse: boolean,
     sieve: Multiple<Ordinal>,
     stretchPitch: boolean,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }) => ContourElement<PitchDurationGainSustainScale> =
     (
         {

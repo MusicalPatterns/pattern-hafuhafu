@@ -9,7 +9,7 @@ const computeKernelCycle: (parameters: {
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Multiple<Ordinal>,
-    sieveFractalRepetitions: Cardinal,
+    sieveFractalRepetitions: Multiple<Cardinal<Ordinal>>,
     sourceKernel: Block,
 }) => Cycle<Block> =
     (
@@ -22,7 +22,8 @@ const computeKernelCycle: (parameters: {
             sieveFractalRepetitions,
         }: ComputeKernelCycleParameters,
     ): Cycle<Block> => {
-        const totalIndices: Cardinal = computeTotalIndices({ layerCount, mode, sieve, sieveFractalRepetitions })
+        const totalIndices: Cardinal<Ordinal> =
+            computeTotalIndices({ layerCount, mode, sieve, sieveFractalRepetitions })
 
         const kernelCycle: Cycle<Block> = to.Cycle([ deepClone(sourceKernel) ])
 

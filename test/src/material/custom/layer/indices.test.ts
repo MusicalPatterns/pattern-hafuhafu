@@ -1,20 +1,14 @@
-import { Cardinal, Ordinal, to } from '@musical-patterns/utilities'
-import {
-    computeLayerIndices,
-    computeTotalIndices,
-    HafuhafuMode,
-    Multiple,
-    to as hafuhafuTo,
-} from '../../../../../src/indexForTest'
+import { Cardinal, Multiple, Ordinal, to } from '@musical-patterns/utilities'
+import { computeLayerIndices, computeTotalIndices, HafuhafuMode } from '../../../../../src/indexForTest'
 
 describe('layer indices', () => {
     describe('droste mode', () => {
-        const REPEAT_THE_SIEVE_FRACTAL_AT_LEAST_ONCE_TO_DEMONSTRATE_THE_CONSEQUENT_REPTITION_IN_THE_LAYER_INDICES: Cardinal = to.Cardinal(2)
-        const sieve: Multiple<Ordinal> = to.Multiple(2)
+        const REPEAT_THE_SIEVE_FRACTAL_AT_LEAST_ONCE_TO_DEMONSTRATE_THE_CONSEQUENT_REPTITION_IN_THE_LAYER_INDICES: Multiple<Cardinal<Ordinal>> = to.Multiple<Cardinal<Ordinal>>(2)
+        const sieve: Multiple<Ordinal> = to.Multiple<Ordinal>(2)
 
         it('tells you which layer a droste element is in, for layer count 2', () => {
             const layerCount: Cardinal = to.Cardinal(2)
-            const totalIndices: Cardinal = computeTotalIndices({
+            const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
                 layerCount,
                 mode: HafuhafuMode.DROSTE,
                 sieve,
@@ -38,7 +32,7 @@ describe('layer indices', () => {
 
         it('tells you which layer a droste element is in, for layer count 3', () => {
             const layerCount: Cardinal = to.Cardinal(3)
-            const totalIndices: Cardinal = computeTotalIndices({
+            const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
                 layerCount,
                 mode: HafuhafuMode.DROSTE,
                 sieve,
@@ -62,7 +56,7 @@ describe('layer indices', () => {
 
         it('tells you which layer a droste element is in, for layer count 4', () => {
             const layerCount: Cardinal = to.Cardinal(4)
-            const totalIndices: Cardinal = computeTotalIndices({
+            const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
                 layerCount,
                 mode: HafuhafuMode.DROSTE,
                 sieve,
@@ -86,7 +80,7 @@ describe('layer indices', () => {
 
         it('tells you which layer a droste element is in, for layer count 5', () => {
             const layerCount: Cardinal = to.Cardinal(5)
-            const totalIndices: Cardinal = computeTotalIndices({
+            const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
                 layerCount,
                 mode: HafuhafuMode.DROSTE,
                 sieve,
@@ -111,7 +105,7 @@ describe('layer indices', () => {
         describe('when reverse is true', () => {
             it('tells you which layer a droste element is in, for layer count 2', () => {
                 const layerCount: Cardinal = to.Cardinal(2)
-                const totalIndices: Cardinal = computeTotalIndices({
+                const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
                     layerCount,
                     mode: HafuhafuMode.DROSTE,
                     sieve,
@@ -135,7 +129,7 @@ describe('layer indices', () => {
 
             it('tells you which layer a droste element is in, for layer count 3', () => {
                 const layerCount: Cardinal = to.Cardinal(3)
-                const totalIndices: Cardinal = computeTotalIndices({
+                const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
                     layerCount,
                     mode: HafuhafuMode.DROSTE,
                     sieve,
@@ -159,7 +153,7 @@ describe('layer indices', () => {
 
             it('tells you which layer a droste element is in, for layer count 4', () => {
                 const layerCount: Cardinal = to.Cardinal(4)
-                const totalIndices: Cardinal = computeTotalIndices({
+                const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
                     layerCount,
                     mode: HafuhafuMode.DROSTE,
                     sieve,
@@ -183,7 +177,7 @@ describe('layer indices', () => {
 
             it('tells you which layer a droste element is in, for layer count 5', () => {
                 const layerCount: Cardinal = to.Cardinal(5)
-                const totalIndices: Cardinal = computeTotalIndices({
+                const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
                     layerCount,
                     mode: HafuhafuMode.DROSTE,
                     sieve,
@@ -217,8 +211,8 @@ is a separate problem solved by the method for calculating that total # of indic
                     layerCount: to.Cardinal(4),
                     mode: HafuhafuMode.ZENO,
                     reverse: false,
-                    sieve: to.Multiple(3),
-                    totalIndices: to.Cardinal(135),
+                    sieve: to.Multiple<Ordinal>(3),
+                    totalIndices: to.Cardinal<Ordinal>(135),
                 })
 
                 expect(layerIndices)
@@ -251,8 +245,8 @@ is a separate problem solved by the method for calculating that total # of indic
                 layerCount: to.Cardinal(4),
                 mode: HafuhafuMode.ZENO,
                 reverse: true,
-                sieve: to.Multiple(3),
-                totalIndices: to.Cardinal(135),
+                sieve: to.Multiple<Ordinal>(3),
+                totalIndices: to.Cardinal<Ordinal>(135),
             })
 
             expect(layerIndices)

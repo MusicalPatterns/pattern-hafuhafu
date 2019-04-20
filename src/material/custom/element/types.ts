@@ -17,7 +17,7 @@ interface ComputeElementParameters {
     reverse: boolean,
     sieve: Multiple<Ordinal>,
     stretchPitch: boolean,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }
 
 interface ComputePitchScalarParameters {
@@ -34,7 +34,7 @@ interface ComputeDurationParameters {
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }
 
 interface ComputeGainParameters {
@@ -46,7 +46,7 @@ interface ComputeGainParameters {
 interface ComputeElementProgressParameters {
     iterationIndex: Ordinal,
     reverse: boolean,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }
 
 interface ComputeSustainParameters {

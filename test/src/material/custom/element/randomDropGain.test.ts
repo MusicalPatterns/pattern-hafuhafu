@@ -9,7 +9,7 @@ describe('random drop grain', () => {
         const randomSpy: Spy = jasmine.createSpy()
         randomSpy.and.returnValue(ARBITRARY_NUMBER_RANDOM_MIGHT_HAVE_GENERATED)
 
-        const fadingGainWhichIsTooWeakToBeatTheRandomSieveThisTime: Scalar<Amplitude> = to.Scalar(to.Amplitude(0.2))
+        const fadingGainWhichIsTooWeakToBeatTheRandomSieveThisTime: Scalar<Amplitude> = to.Scalar<Amplitude>(0.2)
         const randomDropGain: Scalar<Amplitude> = computeRandomDropGain({
             fadingGain: fadingGainWhichIsTooWeakToBeatTheRandomSieveThisTime,
             randomizingFunction: randomSpy,
@@ -23,7 +23,7 @@ describe('random drop grain', () => {
         const randomSpy: Spy = jasmine.createSpy()
         randomSpy.and.returnValue(ARBITRARY_NUMBER_RANDOM_MIGHT_HAVE_GENERATED)
 
-        const fadingGainWhichIsStrongEnoughToBeatTheRandomSieveThisTime: Scalar<Amplitude> = to.Scalar(to.Amplitude(0.6))
+        const fadingGainWhichIsStrongEnoughToBeatTheRandomSieveThisTime: Scalar<Amplitude> = to.Scalar<Amplitude>(0.6)
         const randomDropGain: Scalar<Amplitude> = computeRandomDropGain({
             fadingGain: fadingGainWhichIsStrongEnoughToBeatTheRandomSieveThisTime,
             randomizingFunction: randomSpy,

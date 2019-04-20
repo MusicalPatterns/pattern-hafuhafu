@@ -1,7 +1,7 @@
 // tslint:disable no-duplicate-string
 
-import { Note, NoteFeature, PitchDurationGainSustainScale } from '@musical-patterns/material'
-import { to } from '@musical-patterns/utilities'
+import { Note, NoteFeature, PitchDurationGainSustainScale, Scale } from '@musical-patterns/material'
+import { Scalar, to } from '@musical-patterns/utilities'
 import { computeNote } from '../../../src/indexForTest'
 
 describe('features', () => {
@@ -19,12 +19,12 @@ describe('features', () => {
 
             it('uses the duration parameter as the scalar', () => {
                 expect(duration.scalar)
-                    .toBe(to.Scalar(0.5))
+                    .toBe(to.Scalar<Scalar>(0.5))
             })
 
             it('uses the scale for durations', () => {
                 expect(duration.scaleIndex)
-                    .toBe(to.Ordinal(1))
+                    .toBe(to.Ordinal<Scale>(1))
             })
         })
 
@@ -36,7 +36,7 @@ describe('features', () => {
 
             it('uses the gain parameter as the scalar', () => {
                 expect(gain.scalar)
-                    .toBe(to.Scalar(2))
+                    .toBe(to.Scalar<Scalar>(2))
             })
         })
 
@@ -48,17 +48,17 @@ describe('features', () => {
 
             it('uses the scale for pitches', () => {
                 expect(pitch.scaleIndex)
-                    .toBe(to.Ordinal(2))
+                    .toBe(to.Ordinal<Scale>(2))
             })
 
             it('uses the pitch parameter', () => {
                 expect(pitch.index)
-                    .toBe(to.Ordinal(3))
+                    .toBe(to.Ordinal<Scalar>(3))
             })
 
             it('uses (abuses?) the scale element as a delivery mechanism for a second pitch-related amount - its scalar', () => {
                 expect(pitch.scalar)
-                    .toBe(to.Scalar(0.333))
+                    .toBe(to.Scalar<Scalar>(0.333))
             })
         })
     })
@@ -77,12 +77,12 @@ describe('features', () => {
 
             it('uses the duration parameter as the scalar', () => {
                 expect(duration.scalar)
-                    .toBe(to.Scalar(0.25))
+                    .toBe(to.Scalar<Scalar>(0.25))
             })
 
             it('uses the scale for durations', () => {
                 expect(duration.scaleIndex)
-                    .toBe(to.Ordinal(1))
+                    .toBe(to.Ordinal<Scale>(1))
             })
         })
 
@@ -94,7 +94,7 @@ describe('features', () => {
 
             it('uses the gain parameter as the scalar', () => {
                 expect(gain.scalar)
-                    .toBe(to.Scalar(1.5))
+                    .toBe(to.Scalar<Scalar>(1.5))
             })
         })
 
@@ -106,17 +106,17 @@ describe('features', () => {
 
             it('uses the scale for pitches', () => {
                 expect(pitch.scaleIndex)
-                    .toBe(to.Ordinal(2))
+                    .toBe(to.Ordinal<Scale>(2))
             })
 
             it('uses the pitch parameter as the index', () => {
                 expect(pitch.index)
-                    .toBe(to.Ordinal(4))
+                    .toBe(to.Ordinal<Scalar>(4))
             })
 
             it('uses (abuses?) the scale element as a delivery mechanism for a second pitch-related amount - its scalar', () => {
                 expect(pitch.scalar)
-                    .toBe(to.Scalar(0.666))
+                    .toBe(to.Scalar<Scalar>(0.666))
             })
         })
     })
@@ -135,12 +135,12 @@ describe('features', () => {
 
             it('uses the duration parameter as the scalar', () => {
                 expect(duration.scalar)
-                    .toBe(to.Scalar(0.5))
+                    .toBe(to.Scalar<Scalar>(0.5))
             })
 
             it('uses the scale for durations', () => {
                 expect(duration.scaleIndex)
-                    .toBe(to.Ordinal(1))
+                    .toBe(to.Ordinal<Scale>(1))
             })
         })
 
@@ -152,7 +152,7 @@ describe('features', () => {
 
             it('has no gain', () => {
                 expect(gain.scalar)
-                    .toBe(to.Scalar(0))
+                    .toBe(to.Scalar<Scalar>(0))
             })
         })
     })

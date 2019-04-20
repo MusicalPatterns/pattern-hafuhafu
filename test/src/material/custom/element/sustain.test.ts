@@ -1,4 +1,4 @@
-import { Cardinal, Multiple, to } from '@musical-patterns/utilities'
+import { Cardinal, Multiple, Ordinal, Time, to } from '@musical-patterns/utilities'
 import { computeSustain } from '../../../../../src/indexForTest'
 
 describe('sustain', () => {
@@ -7,7 +7,7 @@ describe('sustain', () => {
 
     describe('when sieve is 2 and layer count is 2 (OG hafuhafu)', () => {
         beforeEach(() => {
-            sieve = to.Multiple(2)
+            sieve = to.Multiple<Ordinal>(2)
             layerCount = to.Cardinal(2)
         })
 
@@ -17,14 +17,14 @@ in the space of 1 right before all the sieved ones finally officially cease to e
 in the cluster that is audible does not seem to suddenly become more staccato after it wraps around`,
             () => {
                 expect(computeSustain({ sieve }))
-                    .toBe(to.Scalar(to.Time(1 / 2)))
+                    .toBe(to.Scalar<Time>(1 / 2))
             },
         )
     })
 
     describe('when sieve is 3 and layer count is 4 (some new kind of super hafuhafu)', () => {
         beforeEach(() => {
-            sieve = to.Multiple(3)
+            sieve = to.Multiple<Ordinal>(3)
             layerCount = to.Cardinal(4)
         })
 
@@ -34,7 +34,7 @@ in the space of 1 right before all the sieved ones finally officially cease to e
 in the cluster that is audible does not seem to suddenly become more staccato after it wraps around`,
             () => {
                 expect(computeSustain({ sieve }))
-                    .toBe(to.Scalar(to.Time(1 / 3)))
+                    .toBe(to.Scalar<Time>(1 / 3))
             },
         )
     })

@@ -27,7 +27,7 @@ const computeLayerBegin: (parameters: {
         }
 
         const activeLayerCount: Cardinal = apply.Translation(layerCount, ONE_FEWER)
-        const layerStep: NormalScalar<Scalar> = to.NormalScalar<Scalar>(from.Cardinal(reciprocal(activeLayerCount)))
+        const layerStep: NormalScalar<Scalar> = to.NormalScalar<Scalar>(reciprocal(activeLayerCount))
 
         const baseScalarFromIndex: Scalar = to.Scalar(from.Ordinal(
             mode === HafuhafuMode.DROSTE || layerIndex === INITIAL ?

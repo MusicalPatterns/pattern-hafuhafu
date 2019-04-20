@@ -6,7 +6,7 @@ interface ComputeKernelCycleParameters {
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Multiple<Ordinal>,
-    sieveFractalRepetitions: Cardinal,
+    sieveFractalRepetitions: Multiple<Cardinal<Ordinal>>,
     sourceKernel: Block,
 }
 
@@ -14,14 +14,14 @@ interface ComputeNextKernelParameters {
     previousKernel: Block,
     reverse: boolean,
     sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }
 
 interface ComputeTotalIndicesParameters {
     layerCount: Cardinal,
     mode: HafuhafuMode,
     sieve: Multiple<Ordinal>,
-    sieveFractalRepetitions: Cardinal,
+    sieveFractalRepetitions: Multiple<Cardinal<Ordinal>>,
 }
 
 export {

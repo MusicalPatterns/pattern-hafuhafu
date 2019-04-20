@@ -24,7 +24,8 @@ const computePieces:
     (iterationKernel: Block, specs: HafuhafuSpecs): ContourPiece<PitchDurationGainSustainScale> => {
         const { existenceStyle, layerCount, mode, reverse, sieve, sieveFractalRepetitions, stretchPitch } = specs
 
-        const totalIndices: Cardinal = computeTotalIndices({ layerCount, mode, sieve, sieveFractalRepetitions })
+        const totalIndices: Cardinal<Ordinal> =
+            computeTotalIndices({ layerCount, mode, sieve, sieveFractalRepetitions })
         const layerIndices: Ordinal[] = computeLayerIndices({ layerCount, mode, reverse, sieve, totalIndices })
         const layersProgresses: NormalScalar[][] =
             computeLayersProgresses({ layerCount, mode, reverse, sieve, totalIndices })

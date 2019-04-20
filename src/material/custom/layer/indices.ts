@@ -44,7 +44,7 @@ const computeLayerIndices: (parameters: {
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }) => Ordinal[] =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): Ordinal[] =>
         slice(

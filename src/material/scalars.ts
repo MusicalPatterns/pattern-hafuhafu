@@ -1,10 +1,10 @@
 import {
     apply,
-    Base,
     Frequency,
     from,
     Hz,
     Integer,
+    Logarithm,
     Scalar,
     to,
     ZERO_AND_POSITIVE_INTEGERS,
@@ -14,9 +14,9 @@ import { HafuhafuSpecs } from '../spec'
 const computePitchScalars: (specs: HafuhafuSpecs) => Array<Scalar<Hz>> =
     ({ pitchStep }: HafuhafuSpecs): Array<Scalar<Hz>> =>
         ZERO_AND_POSITIVE_INTEGERS.map((integer: Integer) =>
-            to.Scalar<Hz>(from.Base<Frequency>(apply.Power(
+            to.Scalar<Hz>(from.Logarithm<Frequency>(apply.Power(
                 pitchStep,
-                to.Power<Base<Frequency>>(integer),
+                to.Power<Logarithm<Frequency>>(integer),
             ))),
         )
 

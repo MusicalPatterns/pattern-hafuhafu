@@ -9,7 +9,8 @@ import {
     slice,
     Time,
     to,
-    valueLinearlyBetweenValues, ZERO_AND_POSITIVE_INTEGERS,
+    valueLinearlyBetweenValues,
+    ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 import { computeLayerBegin, computeLayerEnd } from './beginAndEnd'
@@ -24,7 +25,7 @@ const computeLayerProgresses: (parameters: {
     reverse: boolean,
     sieve: Multiple<Ordinal>,
     totalDuration: Scalar<Time>,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }) => NormalScalar[] =
     (
         {
@@ -62,7 +63,7 @@ const computeLayersProgresses: (parameters: {
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }) => NormalScalar[][] =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): NormalScalar[][] => {
         const totalDuration: Scalar<Time> = computeTotalDuration({ layerCount, mode, reverse, sieve, totalIndices })

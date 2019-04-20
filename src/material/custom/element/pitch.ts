@@ -2,9 +2,9 @@ import {
     apply,
     Block,
     Cardinal,
+    Exponent,
     Frequency,
     from,
-    insteadOf,
     Multiple,
     MULTIPLICATIVE_IDENTITY,
     negative,
@@ -13,7 +13,6 @@ import {
     ONE_FEWER,
     ONE_HALF,
     Ordinal,
-    Power,
     Scalar,
     to,
     valueLinearlyBetweenValues,
@@ -29,9 +28,9 @@ const computePitchIndex: (parameters: { iterationIndex: Ordinal, iterationKernel
         ))
 
 const computeDrostePitchScalarPower:
-    (activeLayerCount: Cardinal, layerProgress: NormalScalar) => Power<Multiple<Ordinal>> =
-    (activeLayerCount: Cardinal, layerProgress: NormalScalar): Power<Multiple<Ordinal>> => {
-        const maximumAbsolutePower: Power<Multiple<Ordinal>> = to.Power<Multiple<Ordinal>>(from.Cardinal(apply.Scalar(
+    (activeLayerCount: Cardinal, layerProgress: Scalar) => Exponent =
+    (activeLayerCount: Cardinal, layerProgress: Scalar): Exponent => {
+        const maximumAbsolutePower: Exponent = to.Exponent(from.Cardinal(apply.Scalar(
             activeLayerCount,
             ONE_HALF,
         )))
@@ -39,7 +38,7 @@ const computeDrostePitchScalarPower:
         return valueLinearlyBetweenValues(
             negative(maximumAbsolutePower),
             maximumAbsolutePower,
-            insteadOf<NormalScalar, Power<Multiple<Ordinal>>>(layerProgress),
+            to.NormalScalar<Exponent>(from.Scalar(layerProgress)),
         )
     }
 
@@ -56,15 +55,15 @@ const computePitchScalar: (parameters: {
         }
 
         const activeLayerCount: Cardinal = apply.Translation(layerCount, ONE_FEWER)
-        const layerScalar: Scalar<NormalScalar> = to.Scalar<NormalScalar>(from.Cardinal(activeLayerCount))
-        const pitchScalarPower: Power<Multiple<Ordinal>> = mode === HafuhafuMode.DROSTE ?
+        const layerScalar: Scalar<Scalar> = to.Scalar<Scalar>(from.Cardinal(activeLayerCount))
+        const pitchScalarPower: Exponent = mode === HafuhafuMode.DROSTE ?
             computeDrostePitchScalarPower(activeLayerCount, layerProgress) :
-            to.Power<Multiple<Ordinal>>(from.NormalScalar(apply.Scalar(layerProgress, layerScalar)))
+            to.Exponent(from.Scalar(apply.Scalar(layerProgress, layerScalar)))
 
-        return to.Scalar(of.Frequency(from.Multiple<Ordinal>(apply.Power(
-            sieve,
+        return to.Scalar<Frequency>(apply.Exponent(
+            from.Multiple<Ordinal>(sieve),
             pitchScalarPower,
-        ))))
+        ))
     }
 
 export {

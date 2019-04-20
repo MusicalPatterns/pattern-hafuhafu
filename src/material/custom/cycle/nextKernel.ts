@@ -3,18 +3,19 @@ import {
     arraySet,
     Block,
     Cardinal,
-    Cycle, DECREMENT,
+    Cycle,
+    DECREMENT,
     from,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
+    length,
     Multiple,
     negative,
-    NEXT,
+    NEXT, of,
     Ordinal,
-    PREVIOUS,
     slice,
     to,
-    totalElements, ZERO_AND_POSITIVE_INTEGERS,
+    ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { ComputeNextKernelParameters } from './types'
 
@@ -22,16 +23,16 @@ const computeNextKernel: (parameters: {
     previousKernel: Block,
     reverse: boolean,
     sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }) => Block =
     ({ totalIndices, previousKernel, reverse, sieve }: ComputeNextKernelParameters): Block => {
-        const kernelLength: Cardinal = totalElements(previousKernel)
+        const kernelLength: Cardinal = length(previousKernel)
 
         if (reverse) {
             const nextKernel: Block = to.Block([])
             const terminalKernel: Cycle = apply.Translation(
                 to.Cycle(previousKernel),
-                to.Translation<Cycle>(from.Cardinal(negative(totalIndices))),
+                to.Translation<Cycle>(from.Cardinal<Ordinal>(negative(totalIndices))),
             )
 
             for (
@@ -39,12 +40,12 @@ const computeNextKernel: (parameters: {
                 terminalKernelIndex < indexJustBeyondFinalElementFromElementsTotal(kernelLength);
                 terminalKernelIndex = apply.Translation(terminalKernelIndex, NEXT)
             ) {
-                const nextKernelIndex: Ordinal = apply.Modulus(
+                const nextKernelIndex: Ordinal = apply.IntegerModulus(
                     apply.Translation(
                         apply.Multiple(terminalKernelIndex, sieve),
                         to.Translation<Ordinal>(from.Multiple(apply.Translation(sieve, DECREMENT))),
                     ),
-                    to.Modulus<Ordinal>(from.Cardinal(kernelLength)),
+                    to.IntegerModulus<Ordinal>(from.Cardinal(kernelLength)),
                 )
 
                 arraySet(nextKernel, nextKernelIndex, apply.Ordinal(terminalKernel, terminalKernelIndex))
@@ -62,7 +63,7 @@ const computeNextKernel: (parameters: {
                 .map(to.Ordinal)
                 .map((index: Ordinal) => {
                     const nextIndex: Ordinal = apply.Translation(
-                        apply.Scalar(index, to.Scalar(from.Multiple<Ordinal>(sieve))),
+                        apply.Multiple(index, sieve),
                         to.Translation<Ordinal>(from.Cardinal(totalIndices)),
                     )
 

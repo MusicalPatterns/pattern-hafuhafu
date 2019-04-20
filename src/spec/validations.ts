@@ -5,11 +5,11 @@ import {
     Cardinal,
     computeCommonFactors,
     Integer,
+    length,
     Multiple,
     Ordinal,
     slice,
     to,
-    totalElements,
 } from '@musical-patterns/utilities'
 import { HafuhafuSpec, HafuhafuSpecs } from './types'
 
@@ -18,11 +18,11 @@ const computeValidations: ComputeValidations<HafuhafuSpecs> =
         const sourceKernel: Block = hafuhafuSpecs[ HafuhafuSpec.SOURCE_KERNEL ]
         const sieve: Multiple<Ordinal> = hafuhafuSpecs[ HafuhafuSpec.SIEVE ]
 
-        const kernelLength: Cardinal = totalElements(sourceKernel)
-        if (!areCoprime(kernelLength, to.Integer(sieve))) {
+        const kernelLength: Cardinal = length(sourceKernel)
+        if (!areCoprime(kernelLength, sieve)) {
             const doNotIncludeTheFirstCommonFactorBecauseItIsJustOne: Ordinal<Integer> = to.Ordinal<Integer>(1)
             const commonFactors: Integer[] = slice(
-                computeCommonFactors(kernelLength, to.Integer(sieve)),
+                computeCommonFactors(kernelLength, sieve),
                 doNotIncludeTheFirstCommonFactorBecauseItIsJustOne,
             )
             const validationMessage: string = `The sieve and kernel share at least one non-1 factor (${commonFactors}) \

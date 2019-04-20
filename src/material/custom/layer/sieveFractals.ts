@@ -2,14 +2,15 @@ import {
     apply,
     arraySet,
     Cardinal,
-    computePartialSumOfPowers,
+    computePartialSumOfExponents,
     DECREMENT,
     from,
     INITIAL,
     Multiple,
-    NEXT, of,
+    NEXT,
     Ordinal,
-    repeat, to,
+    repeat,
+    to,
 } from '@musical-patterns/utilities'
 import { HafuhafuMode } from '../../../spec'
 import { DROSTE_SIEVE_FRACTAL_LAYER_INITIAL_INDEX_COMPUTATION_PARTIAL_POWER_SUM_TRANSLATION } from './constants'
@@ -18,12 +19,12 @@ import { ComputeLayerInitialIndex } from './types'
 const computeLayerInitialIndex: ComputeLayerInitialIndex =
     (sieve: Multiple<Ordinal>, layerCount: Cardinal, mode: HafuhafuMode): Ordinal<Ordinal> =>
         mode === HafuhafuMode.DROSTE ?
-            to.Ordinal<Ordinal>(computePartialSumOfPowers(
+            to.Ordinal<Ordinal>(computePartialSumOfExponents(
                 to.Base(from.Multiple<Ordinal>(sieve)),
-                to.Power(of.Ordinal(from.Cardinal(apply.Translation(
+                to.Exponent(from.Cardinal(apply.Translation(
                     layerCount,
                     DROSTE_SIEVE_FRACTAL_LAYER_INITIAL_INDEX_COMPUTATION_PARTIAL_POWER_SUM_TRANSLATION,
-                )))),
+                ))),
             )) :
             INITIAL
 

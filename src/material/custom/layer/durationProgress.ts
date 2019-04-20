@@ -4,7 +4,6 @@ import {
     from,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
-    insteadOf,
     Multiple,
     NormalScalar,
     ofFrom,
@@ -28,7 +27,7 @@ const computeDurationProgress: (parameters: {
     reverse: boolean,
     sieve: Multiple<Ordinal>,
     totalDuration: Scalar<Time>,
-    totalIndices: Cardinal,
+    totalIndices: Cardinal<Ordinal>,
 }) => NormalScalar<NormalScalar> =
     (
         {
