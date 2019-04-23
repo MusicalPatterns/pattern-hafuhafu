@@ -5,7 +5,9 @@ import {
     StandardSpecs,
     ToggledConfiguration,
 } from '@musical-patterns/spec'
-import { Block, Cardinal, Frequency, Logarithm, Multiple, Ordinal } from '@musical-patterns/utilities'
+import { Block, Cardinal, Frequency, Logarithm } from '@musical-patterns/utilities'
+import { Layer } from '../nominals'
+import { Sieve, SieveFractalRepetitions } from '../types'
 
 enum ExistenceStyle {
     FADE = 'FADE',
@@ -31,13 +33,13 @@ enum HafuhafuSpec {
 
 interface HafuhafuSpecs extends StandardSpecs {
     [ HafuhafuSpec.EXISTENCE_STYLE ]: ExistenceStyle,
-    [ HafuhafuSpec.SIEVE_FRACTAL_REPETITIONS ]: Multiple<Cardinal<Ordinal>>,
+    [ HafuhafuSpec.SIEVE_FRACTAL_REPETITIONS ]: SieveFractalRepetitions,
     [ HafuhafuSpec.SOURCE_KERNEL ]: Block,
     [ HafuhafuSpec.PITCH_STEP ]: Logarithm<Frequency>,
     [ HafuhafuSpec.REVERSE ]: boolean,
-    [ HafuhafuSpec.SIEVE ]: Multiple<Ordinal>,
+    [ HafuhafuSpec.SIEVE ]: Sieve,
     [ HafuhafuSpec.MODE ]: HafuhafuMode,
-    [ HafuhafuSpec.LAYER_COUNT ]: Cardinal,
+    [ HafuhafuSpec.LAYER_COUNT ]: Cardinal<Layer[]>,
     [ HafuhafuSpec.STRETCH_PITCH ]: boolean,
 }
 

@@ -5,21 +5,20 @@ import {
     INITIAL,
     insteadOf,
     length,
-    Multiple,
-    Ordinal,
+    NormalScalar,
     Scalar,
     slice,
     VERY_LOW_PRECISION,
 } from '@musical-patterns/utilities'
-import { computeLayersProgresses, HafuhafuMode } from '../../../../../src/indexForTest'
+import { computeLayersProgresses, HafuhafuMode, Layer, LayerIndex, Sieve } from '../../../../../src/indexForTest'
 
 describe('layers progresses', () => {
     describe('droste mode', () => {
         let layersProgresses: Scalar[][]
-        const totalIndices: Cardinal<Ordinal> = as.Cardinal<Ordinal>(27)
+        const totalIndices: Cardinal<LayerIndex[]> = as.Cardinal<LayerIndex[]>(27)
 
-        const layerCount: Cardinal = as.Cardinal(4)
-        const sieve: Multiple<Ordinal> = as.Multiple<Ordinal>(3)
+        const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(4)
+        const sieve: Sieve = as.Multiple<LayerIndex>(3)
 
         beforeEach(() => {
             layersProgresses = computeLayersProgresses({
@@ -34,7 +33,7 @@ describe('layers progresses', () => {
         it('each layer has a progress for each index', () => {
             layersProgresses.forEach((layerProgress: Scalar[]) => {
                 expect(length(layerProgress))
-                    .toBe(insteadOf<Cardinal, Scalar>(totalIndices))
+                    .toBe(insteadOf<Cardinal, Scalar[]>(totalIndices))
             })
         })
 
@@ -119,10 +118,10 @@ and span it quadratically (except the last layer, the beyond layer, which just s
 
     describe('zeno mode', () => {
         let layersProgresses: Scalar[][]
-        const totalIndices: Cardinal<Ordinal> = as.Cardinal<Ordinal>(27)
+        const totalIndices: Cardinal<LayerIndex[]> = as.Cardinal<LayerIndex[]>(27)
 
-        const layerCount: Cardinal = as.Cardinal(4)
-        const sieve: Multiple<Ordinal> = as.Multiple<Ordinal>(3)
+        const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(4)
+        const sieve: Sieve = as.Multiple<LayerIndex>(3)
 
         beforeEach(() => {
             layersProgresses = computeLayersProgresses({
@@ -137,7 +136,7 @@ and span it quadratically (except the last layer, the beyond layer, which just s
         it('each layer has a progress for each index', () => {
             layersProgresses.forEach((layerProgress: Scalar[]) => {
                 expect(length(layerProgress))
-                    .toBe(insteadOf<Cardinal, Scalar>(totalIndices))
+                    .toBe(insteadOf<Cardinal, Scalar[]>(totalIndices))
             })
         })
 
@@ -216,7 +215,7 @@ and span it quadratically (except the first layer, the home layer, which just st
         describe('when layer count is one', () => {
             beforeEach(() => {
                 layersProgresses = computeLayersProgresses({
-                    layerCount: as.Cardinal(1),
+                    layerCount: as.Cardinal<Layer[]>(1),
                     mode: HafuhafuMode.ZENO,
                     reverse: false,
                     sieve,
@@ -226,7 +225,7 @@ and span it quadratically (except the first layer, the home layer, which just st
 
             it('the progress goes from one to zero', () => {
                 expect(length(layersProgresses))
-                    .toBe(as.Cardinal<Scalar[]>(1))
+                    .toBe(as.Cardinal<NormalScalar[][]>(1))
                 expect(layersProgresses[ 0 ])
                     .toGoMonotonicallyFromValueToValue(
                         as.Scalar(0),

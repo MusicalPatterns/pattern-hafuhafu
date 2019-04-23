@@ -1,15 +1,15 @@
-import { as, Ordinal, Scalar, sum, Time } from '@musical-patterns/utilities'
-import { computeTotalDuration, HafuhafuMode } from '../../../../../src/indexForTest'
+import { as, Scalar, sum, Time } from '@musical-patterns/utilities'
+import { computeTotalDuration, HafuhafuMode, Layer, LayerIndex } from '../../../../../src/indexForTest'
 
 describe('total duration', () => {
     describe('zeno mode', () => {
         it('sums the durations of every element', () => {
             const totalDuration: Scalar<Time> = computeTotalDuration({
-                layerCount: as.Cardinal(2),
+                layerCount: as.Cardinal<Layer[]>(2),
                 mode: HafuhafuMode.ZENO,
                 reverse: false,
-                sieve: as.Multiple<Ordinal>(2),
-                totalIndices: as.Cardinal<Ordinal>(12),
+                sieve: as.Multiple<LayerIndex>(2),
+                totalIndices: as.Cardinal<LayerIndex[]>(12),
             })
 
             expect(totalDuration)

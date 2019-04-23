@@ -15,16 +15,24 @@ import {
     indexOfFinalElement,
     INITIAL,
     length,
-    Multiple,
     notAs,
     oddElements,
     Ordinal,
     slice,
-    Translation,
     use,
     VERY_LOW_PRECISION,
 } from '@musical-patterns/utilities'
-import { computePieces, ExistenceStyle, HafuhafuMode, HafuhafuSpecs, initialSpecs } from '../../../src/indexForTest'
+import {
+    computePiece,
+    ExistenceStyle,
+    HafuhafuMode,
+    HafuhafuSpecs,
+    initialSpecs,
+    Layer,
+    LayerIndex,
+    Sieve,
+    SieveFractalRepetitions,
+} from '../../../src/indexForTest'
 import {
     INDEX_OF_DURATION_IN_CONTOUR,
     INDEX_OF_GAIN_IN_CONTOUR,
@@ -32,13 +40,13 @@ import {
     INDEX_OF_SUSTAIN_IN_CONTOUR,
 } from '../../support'
 
-describe('pieces', () => {
-    const A_VERY_LARGE_NUMBER_OF_REPETITIONS_WHICH_IMPROVES_MY_ABILITY_TEST_GOING_FROM_ONE_VALUE_TO_ANOTHER_AS_THE_VALUES_I_CHECK_ARE_NOT_QUITE_AT_THE_BEGINNINGS_AND_ENDS_OF_THE_ARRAYS_SO_THE_HIGHER_THE_RESOLUTION_THE_MORE_ACCURATE: Multiple<Cardinal<Ordinal>> = as.Multiple<Cardinal<Ordinal>>(100)
+describe('compute piece', () => {
+    const A_VERY_LARGE_NUMBER_OF_REPETITIONS_WHICH_IMPROVES_MY_ABILITY_TEST_GOING_FROM_ONE_VALUE_TO_ANOTHER_AS_THE_VALUES_I_CHECK_ARE_NOT_QUITE_AT_THE_BEGINNINGS_AND_ENDS_OF_THE_ARRAYS_SO_THE_HIGHER_THE_RESOLUTION_THE_MORE_ACCURATE: SieveFractalRepetitions = as.Multiple<Cardinal<LayerIndex[]>>(100)
 
     describe('droste mode', () => {
-        let pieces: ContourPiece<PitchDurationGainSustainScale>
+        let piece: ContourPiece<PitchDurationGainSustainScale>
         const iterationKernel: Block = as.Block([ 10, 30, 50, 70, 90 ])
-        const sieveFractalRepetitions: Multiple<Cardinal<Ordinal>> = A_VERY_LARGE_NUMBER_OF_REPETITIONS_WHICH_IMPROVES_MY_ABILITY_TEST_GOING_FROM_ONE_VALUE_TO_ANOTHER_AS_THE_VALUES_I_CHECK_ARE_NOT_QUITE_AT_THE_BEGINNINGS_AND_ENDS_OF_THE_ARRAYS_SO_THE_HIGHER_THE_RESOLUTION_THE_MORE_ACCURATE
+        const sieveFractalRepetitions: SieveFractalRepetitions = A_VERY_LARGE_NUMBER_OF_REPETITIONS_WHICH_IMPROVES_MY_ABILITY_TEST_GOING_FROM_ONE_VALUE_TO_ANOTHER_AS_THE_VALUES_I_CHECK_ARE_NOT_QUITE_AT_THE_BEGINNINGS_AND_ENDS_OF_THE_ARRAYS_SO_THE_HIGHER_THE_RESOLUTION_THE_MORE_ACCURATE
         const existenceStyle: ExistenceStyle = ExistenceStyle.FADE
 
         describe('with 3 layers', () => {
@@ -46,24 +54,24 @@ describe('pieces', () => {
                 const specs: HafuhafuSpecs = {
                     ...initialSpecs,
                     existenceStyle,
-                    layerCount: as.Cardinal(3),
+                    layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: false,
-                    sieve: as.Multiple<Ordinal>(2),
+                    sieve: as.Multiple<LayerIndex>(2),
                     sieveFractalRepetitions,
                     stretchPitch: true,
                 }
-                pieces = computePieces(iterationKernel, specs)
+                piece = computePiece(iterationKernel, specs)
             })
 
             it('has length equal to the sieve fractal repetitions times the sieve to the power of the layer count minus 1, plus one extra for realignment', () => {
-                expect(length(pieces))
-                    .toEqual(as.Cardinal<ContourElement<PitchDurationGainSustainScale>>(401))
+                expect(length(piece))
+                    .toEqual(as.Cardinal<ContourPiece<PitchDurationGainSustainScale>>(401))
             })
 
             describe('duration', () => {
                 it('the duration decreases quadratically from 1 to 1/sieve', () => {
-                    const durations: number[] = pieces.map(
+                    const durations: number[] = piece.map(
                         (element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_DURATION_IN_CONTOUR),
                     )
 
@@ -74,7 +82,7 @@ describe('pieces', () => {
 
             describe('gain', () => {
                 it('the gain on the even elements (layer 1 of 3) decreases from 1 to almost 0', () => {
-                    const evenGains: number[] = evenElements(pieces)
+                    const evenGains: number[] = evenElements(piece)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     expect(evenGains)
@@ -82,7 +90,7 @@ describe('pieces', () => {
                 })
 
                 it('the gain on the even elements of the odd elements (layer 2 of 3) increases from almost 0 to almost 1 - crossing the evens in the middle at 0.5', () => {
-                    const evenOddGains: number[] = evenElements(oddElements(pieces))
+                    const evenOddGains: number[] = evenElements(oddElements(piece))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     expect(evenOddGains)
@@ -90,7 +98,7 @@ describe('pieces', () => {
                 })
 
                 it('the gain on all the other elements (layer 3 of 3, AKA the non-layer) is set at 0', () => {
-                    const oddOddGains: number[] = oddElements(oddElements(pieces))
+                    const oddOddGains: number[] = oddElements(oddElements(piece))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     expect(oddOddGains)
@@ -101,8 +109,8 @@ describe('pieces', () => {
             describe('pitch index', () => {
                 it('wraps around the kernel over and over', () => {
                     forEach(
-                        pieces,
-                        ([ pitchIndex, duration, gain, sustain, pitchScalar ]: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourElement<PitchDurationGainSustainScale>>) => {
+                        piece,
+                        ([ pitchIndex, duration, gain, sustain, pitchScalar ]: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourPiece<PitchDurationGainSustainScale>>) => {
                             expect(pitchIndex)
                                 .toBe(iterationKernel[ notAs.Ordinal(index) % iterationKernel.length ])
                         },
@@ -112,7 +120,7 @@ describe('pieces', () => {
 
             describe('pitch scalar, with stretch pitch true', () => {
                 it('the pitch on the even elements (layer 1 of 3) is scaled, by a factor increasing quadratically from 1 to sieve, because the first layer is the highest pitch, fastest one, about to fade out', () => {
-                    const evenPitchScalars: number[] = evenElements(pieces)
+                    const evenPitchScalars: number[] = evenElements(piece)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(evenPitchScalars)
@@ -120,7 +128,7 @@ describe('pieces', () => {
                 })
 
                 it('the pitch on the even elements of the odd elements (layer 2 of 3) is scaled, by a factor increasing quadratically from 1/sieve to (almost, because it is not quite at the end) 1', () => {
-                    const evenOddPitchScalars: number[] = evenElements(oddElements(pieces))
+                    const evenOddPitchScalars: number[] = evenElements(oddElements(piece))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(evenOddPitchScalars)
@@ -128,7 +136,7 @@ describe('pieces', () => {
                 })
 
                 it('the pitch on all other elements (odds of the odds, layer 3 of 3 AKA the non-layer) are at 2, the max, though it does not really matter because their gains are at zero, but we think of this as like their resting place after having climbed this high I guess', () => {
-                    const oddOddPitchScalars: number[] = oddElements(oddElements(pieces))
+                    const oddOddPitchScalars: number[] = oddElements(oddElements(piece))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(oddOddPitchScalars)
@@ -138,7 +146,7 @@ describe('pieces', () => {
 
             describe('sustain', () => {
                 it('is the reciprocal of the sieve', () => {
-                    const sustains: number[] = pieces.map(
+                    const sustains: number[] = piece.map(
                         (element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_SUSTAIN_IN_CONTOUR),
                     )
 
@@ -153,24 +161,24 @@ describe('pieces', () => {
                 const specs: HafuhafuSpecs = {
                     ...initialSpecs,
                     existenceStyle,
-                    layerCount: as.Cardinal(4),
+                    layerCount: as.Cardinal<Layer[]>(4),
                     mode: HafuhafuMode.DROSTE,
                     reverse: false,
-                    sieve: as.Multiple<Ordinal>(2),
+                    sieve: as.Multiple<LayerIndex>(2),
                     sieveFractalRepetitions,
                     stretchPitch: true,
                 }
-                pieces = computePieces(iterationKernel, specs)
+                piece = computePiece(iterationKernel, specs)
             })
 
             it('has length equal to the sieve fractal repetitions times the sieve to the power of the layer count minus 1, plus one extra for realignment', () => {
-                expect(length(pieces))
-                    .toEqual(as.Cardinal<ContourElement<PitchDurationGainSustainScale>>(801))
+                expect(length(piece))
+                    .toEqual(as.Cardinal<ContourPiece<PitchDurationGainSustainScale>>(801))
             })
 
             describe('duration', () => {
                 it('the duration decreases quadratically from 1 to 1/sieve, just as it does in layer count 2', () => {
-                    const durations: number[] = pieces.map(
+                    const durations: number[] = piece.map(
                         (element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_DURATION_IN_CONTOUR),
                     )
 
@@ -181,7 +189,7 @@ describe('pieces', () => {
 
             describe('gain', () => {
                 it('the gain on the even elements (layer 1 of 4) decreases from 2/3 to almost 0', () => {
-                    const evenGains: number[] = evenElements(pieces)
+                    const evenGains: number[] = evenElements(piece)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     expect(evenGains)
@@ -189,7 +197,7 @@ describe('pieces', () => {
                 })
 
                 it('the gain on the even elements of the odd elements (layer 2 of 4) increases from 2/3 to 1 then back down to 2/3', () => {
-                    const evenOddGains: number[] = evenElements(oddElements(pieces))
+                    const evenOddGains: number[] = evenElements(oddElements(piece))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     const ACTUALLY_WE_NEED_TO_DEFINE_HALFWAY_IN_TERMS_OF_THE_DURATION_PROGRESS_AND_SINCE_IT_IS_SPEEDING_UP_THERE_ARE_MORE_INDICES_ON_ONE_SIDE_THAN_OTHER: number = 32
@@ -221,7 +229,7 @@ describe('pieces', () => {
                 })
 
                 it('the gain on the even elements of the odd elements of the odd elements (layer 3 of 4) increases from 0 to almost 2/3', () => {
-                    const evenOddOddGains: number[] = evenElements(oddElements(oddElements(pieces)))
+                    const evenOddOddGains: number[] = evenElements(oddElements(oddElements(piece)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     expect(evenOddOddGains)
@@ -229,7 +237,7 @@ describe('pieces', () => {
                 })
 
                 it('the gain on all other elements (odds of the odds of the odds, layer 4 of 4 AKA the non-layer) are at zero', () => {
-                    const oddOddOddGains: number[] = oddElements(oddElements(oddElements(pieces)))
+                    const oddOddOddGains: number[] = oddElements(oddElements(oddElements(piece)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     expect(oddOddOddGains)
@@ -240,8 +248,8 @@ describe('pieces', () => {
             describe('pitch index', () => {
                 it('wraps around the kernel over and over, just the same as it is in layer count 2', () => {
                     forEach(
-                        pieces,
-                        ([ pitchIndex, duration, gain, sustain, pitchScalar ]: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourElement<PitchDurationGainSustainScale>>) => {
+                        piece,
+                        ([ pitchIndex, duration, gain, sustain, pitchScalar ]: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourPiece<PitchDurationGainSustainScale>>) => {
                             expect(pitchIndex)
                                 .toBe(iterationKernel[ notAs.Ordinal(index) % iterationKernel.length ])
                         },
@@ -251,7 +259,7 @@ describe('pieces', () => {
 
             describe('pitch scalar', () => {
                 it('the pitch on the even elements (layer 1 of 4) is scaled, by a factor increasing quadratically from 2^(1/2) to 2^(3/2) (which = 2 in the middle), because the first layer is the highest pitch, fastest one, about to fade out', () => {
-                    const evenPitchScalars: number[] = evenElements(pieces)
+                    const evenPitchScalars: number[] = evenElements(piece)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(evenPitchScalars)
@@ -259,7 +267,7 @@ describe('pieces', () => {
                 })
 
                 it('the pitch on the even elements of the odd elements (layer 2 of 4) is scaled, by a factor increasing quadratically from 2^(-1/2) to 2^(1/2) (which = 1 in the middle)', () => {
-                    const evenOddPitchScalars: number[] = evenElements(oddElements(pieces))
+                    const evenOddPitchScalars: number[] = evenElements(oddElements(piece))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(evenOddPitchScalars)
@@ -267,7 +275,7 @@ describe('pieces', () => {
                 })
 
                 it('the pitch on the even elements of the odd elements of the odd elements (layer 3 of 4) is scaled, by a factor increasing quadratically from 2^(-3/2) to 2^(-1/2) (which = 1/2 in the middle)', () => {
-                    const evenOddOddPitchScalars: number[] = evenElements(oddElements(oddElements(pieces)))
+                    const evenOddOddPitchScalars: number[] = evenElements(oddElements(oddElements(piece)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(evenOddOddPitchScalars)
@@ -279,7 +287,7 @@ describe('pieces', () => {
                 })
 
                 it('the pitch on all the remaining elements (the odds of the odds of the odds, layer 4 of 4 AKA the non-layer) is at 2^(3/2), the max, though it does not really matter because gain is at zero, but I guess we think of this is as its final resting pitch having climbed this high haha', () => {
-                    const oddOddOddPitchScalars: number[] = oddElements(oddElements(oddElements(pieces)))
+                    const oddOddOddPitchScalars: number[] = oddElements(oddElements(oddElements(piece)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(oddOddOddPitchScalars)
@@ -293,17 +301,17 @@ describe('pieces', () => {
                 const specs: HafuhafuSpecs = {
                     ...initialSpecs,
                     existenceStyle,
-                    layerCount: as.Cardinal(3),
+                    layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: false,
                     sieveFractalRepetitions,
                     stretchPitch: false,
                 }
-                pieces = computePieces(iterationKernel, specs)
+                piece = computePiece(iterationKernel, specs)
             })
 
             it('keeps a flat pitch scalar of 1', () => {
-                const pitchScalars: number[] = pieces
+                const pitchScalars: number[] = piece
                     .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                 expect(pitchScalars)
@@ -316,13 +324,13 @@ describe('pieces', () => {
                 const specs: HafuhafuSpecs = {
                     ...initialSpecs,
                     existenceStyle,
-                    layerCount: as.Cardinal(4),
+                    layerCount: as.Cardinal<Layer[]>(4),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
                     sieveFractalRepetitions,
                     stretchPitch: true,
                 }
-                pieces = computePieces(iterationKernel, specs)
+                piece = computePiece(iterationKernel, specs)
             })
 
             describe('duration', () => {
@@ -332,12 +340,12 @@ the results are also cyclically translated by -1 so that the last element gets t
 this is because when one reverses a set of notes, their original durations are no longer in front of them, but behind them, \
 so you have to give your duration to the element behind you`,
                     () => {
-                        const TRANSLATION_TO_FLIP_DURATION_ASSOCIATIONS_WHEN_REVERSE: Translation<Cycle> = as.Translation<Cycle>(1)
-                        const durations: number[] = use.Translation(
-                            as.Cycle(pieces.map(
+                        const SHIFT_TO_FLIP_DURATION_ASSOCIATIONS_WHEN_REVERSE: Cardinal<Cycle> = as.Cardinal<Cycle>(1)
+                        const durations: number[] = use.Cardinal(
+                            as.Cycle(piece.map(
                                 (element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_DURATION_IN_CONTOUR),
                             )),
-                            TRANSLATION_TO_FLIP_DURATION_ASSOCIATIONS_WHEN_REVERSE,
+                            SHIFT_TO_FLIP_DURATION_ASSOCIATIONS_WHEN_REVERSE,
                         )
 
                         expect(durations)
@@ -348,7 +356,7 @@ so you have to give your duration to the element behind you`,
 
             describe('pitch scalar - with stretch pitch true', () => {
                 it('the pitch on the even elements (layer 1 of 4) is scaled, by a factor decreasing quadratically from 2^(3/2) to 2^(1/2) (which = 2 in the middle), because the first layer is the highest pitch, fastest one, when reversed, coming out of silence', () => {
-                    const evenPitchScalars: number[] = evenElements(pieces)
+                    const evenPitchScalars: number[] = evenElements(piece)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
                     const evenPitchScalarsDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne: number[] = slice(evenPitchScalars, INITIAL, indexOfFinalElement(evenPitchScalars))
                     expect(evenPitchScalarsDroppingTheLastElementBecauseReverseDrosteMustCycleDurationsByOne)
@@ -356,7 +364,7 @@ so you have to give your duration to the element behind you`,
                 })
 
                 it('the pitch on the odd elements of the odd elements (yes, layer 2 of 4, is odd of odd when reverse is true, turns out - try it yourself!) is scaled, by a factor decreasing quadratically from sqrt(2) to 1/sqrt(2) (which = 1 in the middle)', () => {
-                    const evenOddPitchScalars: number[] = oddElements(oddElements(pieces))
+                    const evenOddPitchScalars: number[] = oddElements(oddElements(piece))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(evenOddPitchScalars)
@@ -364,7 +372,7 @@ so you have to give your duration to the element behind you`,
                 })
 
                 it('the pitch on the odd elements of the even elements of the odd elements (layer 3 of 4, yes, odd of even of odd is layer 3 when reverse is true - try it yourself!) is scaled, by a factor decreasing quadratically from 2^(-1/2) to 2^(-3/2) (which = 1/2 in the middle)', () => {
-                    const evenOddOddPitchScalars: number[] = oddElements(evenElements(oddElements(pieces)))
+                    const evenOddOddPitchScalars: number[] = oddElements(evenElements(oddElements(piece)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(evenOddOddPitchScalars)
@@ -372,7 +380,7 @@ so you have to give your duration to the element behind you`,
                 })
 
                 it('the pitch is scaled on all the other elements to 2^(3/2), the max, because thats as high as they reached before going to gain 0 silence (layer 4 of 4, AKA the non-layer, the evens of the evens of the odds)', () => {
-                    const evenEvenOddPitchScalars: number[] = evenElements(evenElements(oddElements(pieces)))
+                    const evenEvenOddPitchScalars: number[] = evenElements(evenElements(oddElements(piece)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(evenEvenOddPitchScalars)
@@ -382,7 +390,7 @@ so you have to give your duration to the element behind you`,
 
             describe('gain', () => {
                 it('the gain on the even elements (layer 1 of 4) increases from 0 to almost 2/3', () => {
-                    const evenGains: number[] = evenElements(pieces)
+                    const evenGains: number[] = evenElements(piece)
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     expect(evenGains)
@@ -390,7 +398,7 @@ so you have to give your duration to the element behind you`,
                 })
 
                 it('the gain on the odd elements of the odd elements (layer 2 of 4) increases from 2/3 to 1 then back down to 2/3 (same as when not reverse, as it is mirrored when layer count is odd, as this example i happened to pick is, so maybe i should actually get an even layer count example too... nah it is covered well enough by the gain curve suite', () => {
-                    const oddOddGains: number[] = oddElements(oddElements(pieces))
+                    const oddOddGains: number[] = oddElements(oddElements(piece))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     const ACTUALLY_WE_NEED_TO_DEFINE_HALFWAY_IN_TERMS_OF_THE_DURATION_PROGRESS_AND_SINCE_IT_IS_SPEEDING_UP_THERE_ARE_MORE_INDICES_ON_ONE_SIDE_THAN_OTHER: number = 34
@@ -422,7 +430,7 @@ so you have to give your duration to the element behind you`,
                 })
 
                 it('the gain on the odd elements of the even elements of the odd elements (layer 3 of 4) decreases from 2/3 to almost 0', () => {
-                    const oddEvenOddGains: number[] = oddElements(evenElements(oddElements(pieces)))
+                    const oddEvenOddGains: number[] = oddElements(evenElements(oddElements(piece)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     expect(oddEvenOddGains)
@@ -430,7 +438,7 @@ so you have to give your duration to the element behind you`,
                 })
 
                 it('the gain on all other elements (evens of the evens of the odds, layer 4 of 4 AKA the non-layer) are at zero', () => {
-                    const oddOddOddGains: number[] = evenElements(evenElements(oddElements(pieces)))
+                    const oddOddOddGains: number[] = evenElements(evenElements(oddElements(piece)))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_GAIN_IN_CONTOUR))
 
                     expect(oddOddOddGains)
@@ -444,19 +452,19 @@ so you have to give your duration to the element behind you`,
                 const specs: HafuhafuSpecs = {
                     ...initialSpecs,
                     existenceStyle,
-                    layerCount: as.Cardinal(3),
+                    layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: false,
-                    sieve: as.Multiple<Ordinal>(3),
+                    sieve: as.Multiple<LayerIndex>(3),
                     sieveFractalRepetitions,
                     stretchPitch: true,
                 }
-                pieces = computePieces(iterationKernel, specs)
+                piece = computePiece(iterationKernel, specs)
             })
 
             describe('pitch scalar', () => {
                 it('the pitch on every 3rd element (layer 1 of 3) is scaled, by a factor increasing quadratically from 1 to 3, because the first layer is the highest pitch, fastest one, about to fade out', () => {
-                    const layerOnePitchScalars: number[] = everyNthElement(pieces, as.Multiple(3))
+                    const layerOnePitchScalars: number[] = everyNthElement(piece, as.Multiple(3))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(layerOnePitchScalars)
@@ -464,7 +472,7 @@ so you have to give your duration to the element behind you`,
                 })
 
                 it('the pitch on layer 2 of 3 elements is scaled, by a factor increasing quadratically from 1/sieve to (almost, because it is not quite at the end) 1', () => {
-                    const layerTwoPitchScalars: number[] = everyNthElement(pieces, as.Multiple(9), as.Ordinal<ContourElement<PitchDurationGainSustainScale>>(1))
+                    const layerTwoPitchScalars: number[] = everyNthElement(piece, as.Multiple(9), as.Ordinal<ContourPiece<PitchDurationGainSustainScale>>(1))
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(layerTwoPitchScalars)
@@ -474,7 +482,7 @@ so you have to give your duration to the element behind you`,
 
             describe('duration', () => {
                 it('the duration decreases quadratically from 1 to 1/sieve, which is here 1/3', () => {
-                    const durations: number[] = pieces.map(
+                    const durations: number[] = piece.map(
                         (element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_DURATION_IN_CONTOUR),
                     )
 
@@ -485,7 +493,7 @@ so you have to give your duration to the element behind you`,
 
             describe('sustain', () => {
                 it('is the reciprocal of the sieve', () => {
-                    const sustains: number[] = pieces.map(
+                    const sustains: number[] = piece.map(
                         (element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_SUSTAIN_IN_CONTOUR),
                     )
 
@@ -500,22 +508,22 @@ so you have to give your duration to the element behind you`,
         const KERNEL_AND_OR_CYCLE_KERNEL_DOESNT_MATTER_HERE_AS_LONG_AS_SAME_LENGTH: Block = as.Block([ 1, 2, 1, 1, 2 ])
 
         describe('gain', () => {
-            let pieces: ContourPiece<PitchDurationGainSustainScale>
+            let piece: ContourPiece<PitchDurationGainSustainScale>
             let layerOneElements: ContourPiece<PitchDurationGainSustainScale>
             let layerTwoElements: ContourPiece<PitchDurationGainSustainScale>
             let layerThreeElements: ContourPiece<PitchDurationGainSustainScale>
             beforeEach(() => {
-                const sieve: Multiple<Ordinal> = as.Multiple<Ordinal>(5)
-                pieces = computePieces(
+                const sieve: Sieve = as.Multiple<LayerIndex>(5)
+                piece = computePiece(
                     as.Block([ 0, 1, 0, 0, 1 ]),
                     {
                         ...initialSpecs,
                         existenceStyle: ExistenceStyle.FADE,
-                        layerCount: as.Cardinal(3),
+                        layerCount: as.Cardinal<Layer[]>(3),
                         mode: HafuhafuMode.ZENO,
                         reverse: false,
                         sieve,
-                        sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(20),
+                        sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(20),
                         sourceKernel: as.Block([ 0, 1, 0, 0, 1 ]),
                     },
                 )
@@ -524,9 +532,9 @@ so you have to give your duration to the element behind you`,
                 layerTwoElements = as.ContourPiece<PitchDurationGainSustainScale>([])
                 layerThreeElements = as.ContourPiece<PitchDurationGainSustainScale>([])
 
-                forEach(pieces, (element: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourElement<PitchDurationGainSustainScale>>) => {
+                forEach(piece, (element: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourPiece<PitchDurationGainSustainScale>>) => {
                     if (dividesEvenly(index, sieve)) {
-                        if (dividesEvenly(index, use.Power(sieve, as.Power<Multiple<Ordinal>>(2)))) {
+                        if (dividesEvenly(index, use.Power(sieve, as.Power<Sieve>(2)))) {
                             layerOneElements.push(element)
                         }
                         else {
@@ -570,19 +578,19 @@ so you have to give your duration to the element behind you`,
 duration though, needs to be changing by sieve times as much at the beginning of an iteration, \
 because there are 1/sieve as many notes happening then - when sieve is 2`,
                 () => {
-                    const pieces: ContourPiece<PitchDurationGainSustainScale> = computePieces(
+                    const piece: ContourPiece<PitchDurationGainSustainScale> = computePiece(
                         KERNEL_AND_OR_CYCLE_KERNEL_DOESNT_MATTER_HERE_AS_LONG_AS_SAME_LENGTH,
                         {
                             ...initialSpecs,
                             existenceStyle: ExistenceStyle.FADE,
                             mode: HafuhafuMode.ZENO,
                             reverse: false,
-                            sieve: as.Multiple<Ordinal>(2),
-                            sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(4),
+                            sieve: as.Multiple<LayerIndex>(2),
+                            sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(4),
                             sourceKernel: KERNEL_AND_OR_CYCLE_KERNEL_DOESNT_MATTER_HERE_AS_LONG_AS_SAME_LENGTH,
                         },
                     )
-                    const durations: number[] = pieces.map(
+                    const durations: number[] = piece.map(
                         (kernelElement: ContourElement<PitchDurationGainSustainScale>) =>
                             use.Ordinal(kernelElement, INDEX_OF_DURATION_IN_CONTOUR),
                     )
@@ -597,19 +605,19 @@ because there are 1/sieve as many notes happening then - when sieve is 2`,
 duration though, needs to be changing by sieve times as much at the beginning of an iteration, \
 because there are 1/sieve as many notes happening then - when sieve is 3`,
                 () => {
-                    const pieces: ContourPiece<PitchDurationGainSustainScale> = computePieces(
+                    const piece: ContourPiece<PitchDurationGainSustainScale> = computePiece(
                         KERNEL_AND_OR_CYCLE_KERNEL_DOESNT_MATTER_HERE_AS_LONG_AS_SAME_LENGTH,
                         {
                             ...initialSpecs,
                             existenceStyle: ExistenceStyle.FADE,
                             mode: HafuhafuMode.ZENO,
                             reverse: false,
-                            sieve: as.Multiple<Ordinal>(3),
-                            sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(4),
+                            sieve: as.Multiple<LayerIndex>(3),
+                            sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(4),
                             sourceKernel: KERNEL_AND_OR_CYCLE_KERNEL_DOESNT_MATTER_HERE_AS_LONG_AS_SAME_LENGTH,
                         },
                     )
-                    const durations: number[] = pieces.map(
+                    const durations: number[] = piece.map(
                         (kernelElement: ContourElement<PitchDurationGainSustainScale>) =>
                             use.Ordinal(kernelElement, INDEX_OF_DURATION_IN_CONTOUR),
                     )
@@ -623,23 +631,23 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
         describe('pitch scalar', () => {
             describe('when stretch pitch is false', () => {
                 it('all pitch scalars are 1', () => {
-                    const sieve: Multiple<Ordinal> = as.Multiple<Ordinal>(5)
-                    const pieces: ContourPiece<PitchDurationGainSustainScale> = computePieces(
+                    const sieve: Sieve = as.Multiple<LayerIndex>(5)
+                    const piece: ContourPiece<PitchDurationGainSustainScale> = computePiece(
                         as.Block([ 0, 1, 0, 0, 1 ]),
                         {
                             ...initialSpecs,
                             existenceStyle: ExistenceStyle.FADE,
-                            layerCount: as.Cardinal(3),
+                            layerCount: as.Cardinal<Layer[]>(3),
                             mode: HafuhafuMode.ZENO,
                             reverse: false,
                             sieve,
-                            sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(4),
+                            sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(4),
                             sourceKernel: as.Block([ 0, 1, 0, 0, 1 ]),
                             stretchPitch: false,
                         },
                     )
 
-                    const iterationPitchScalars: number [] = pieces
+                    const iterationPitchScalars: number [] = piece
                         .map((element: ContourElement<PitchDurationGainSustainScale>) => use.Ordinal(element, INDEX_OF_PITCH_SCALAR_IN_CONTOUR))
 
                     expect(iterationPitchScalars)
@@ -648,18 +656,18 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
             })
 
             describe('when stretch pitch is true', () => {
-                let pieces: ContourPiece<PitchDurationGainSustainScale>
+                let piece: ContourPiece<PitchDurationGainSustainScale>
                 let layerOneElements: ContourPiece<PitchDurationGainSustainScale>
                 let layerTwoElements: ContourPiece<PitchDurationGainSustainScale>
                 let layerThreeElements: ContourPiece<PitchDurationGainSustainScale>
                 beforeEach(() => {
-                    const sieve: Multiple<Ordinal> = as.Multiple<Ordinal>(5)
-                    pieces = computePieces(
+                    const sieve: Sieve = as.Multiple<LayerIndex>(5)
+                    piece = computePiece(
                         as.Block([ 0, 1, 0, 0, 1 ]),
                         {
                             ...initialSpecs,
                             existenceStyle: ExistenceStyle.FADE,
-                            layerCount: as.Cardinal(3),
+                            layerCount: as.Cardinal<Layer[]>(3),
                             mode: HafuhafuMode.ZENO,
                             reverse: false,
                             sieve,
@@ -673,9 +681,9 @@ because there are 1/sieve as many notes happening then - when sieve is 3`,
                     layerTwoElements = as.ContourPiece<PitchDurationGainSustainScale>([])
                     layerThreeElements = as.ContourPiece<PitchDurationGainSustainScale>([])
 
-                    forEach(pieces, (element: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourElement<PitchDurationGainSustainScale>>) => {
+                    forEach(piece, (element: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourPiece<PitchDurationGainSustainScale>>) => {
                         if (dividesEvenly(index, sieve)) {
-                            if (dividesEvenly(index, use.Power(sieve, as.Power<Multiple<Ordinal>>(2)))) {
+                            if (dividesEvenly(index, use.Power(sieve, as.Power<Sieve>(2)))) {
                                 layerOneElements.push(element)
                             }
                             else {

@@ -7,19 +7,19 @@ describe('pitch', () => {
             const iterationKernel: Block = as.Block([ 1, 2, 3, 4, 5 ])
 
             expect(computePitchIndex({
-                iterationIndex: as.Ordinal(2),
+                iterationIndex: as.Ordinal<Block>(2),
                 iterationKernel,
             }))
                 .toBe(as.Ordinal(3))
 
             expect(computePitchIndex({
-                iterationIndex: as.Ordinal(3),
+                iterationIndex: as.Ordinal<Block>(3),
                 iterationKernel,
             }))
                 .toBe(as.Ordinal(4))
 
             expect(computePitchIndex({
-                iterationIndex: as.Ordinal(99),
+                iterationIndex: as.Ordinal<Block>(99),
                 iterationKernel,
             }))
                 .toBe(as.Ordinal(5))

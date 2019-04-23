@@ -5,12 +5,14 @@ import {
     Cardinal,
     ContourPiece,
     INITIAL,
+    Integer,
     NormalScalar,
     notAs,
     Ordinal,
     slice,
 } from '@musical-patterns/utilities'
 import { HafuhafuSpecs } from '../spec'
+import { LayerIndex } from '../types'
 import {
     computeElement,
     computeLayerIndices,
@@ -19,14 +21,15 @@ import {
     zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
 } from './custom'
 
-const computePieces:
+const computePiece:
     (iterationKernel: Block, specs: HafuhafuSpecs) => ContourPiece<PitchDurationGainSustainScale> =
     (iterationKernel: Block, specs: HafuhafuSpecs): ContourPiece<PitchDurationGainSustainScale> => {
         const { existenceStyle, layerCount, mode, reverse, sieve, sieveFractalRepetitions, stretchPitch } = specs
 
-        const totalIndices: Cardinal<Ordinal> =
+        const totalIndices: Cardinal<LayerIndex[]> =
             computeTotalIndices({ layerCount, mode, sieve, sieveFractalRepetitions })
-        const layerIndices: Ordinal[] = computeLayerIndices({ layerCount, mode, reverse, sieve, totalIndices })
+        const layerIndices: LayerIndex[] =
+            computeLayerIndices({ layerCount, mode, reverse, sieve, totalIndices })
         const layersProgresses: NormalScalar[][] =
             computeLayersProgresses({ layerCount, mode, reverse, sieve, totalIndices })
 
@@ -34,10 +37,10 @@ const computePieces:
             slice(
                 zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
                 INITIAL,
-                as.Ordinal(notAs.Cardinal(totalIndices)),
+                as.Ordinal<Integer[]>(notAs.Cardinal(totalIndices)),
             )
-                .map(as.Ordinal)
-                .map((iterationIndex: Ordinal) =>
+                .map((integer: Integer) => as.Ordinal<Block>(integer))
+                .map((iterationIndex: Ordinal<Block>) =>
                     computeElement({
                         existenceStyle,
                         iterationIndex,
@@ -56,5 +59,5 @@ const computePieces:
     }
 
 export {
-    computePieces,
+    computePiece,
 }

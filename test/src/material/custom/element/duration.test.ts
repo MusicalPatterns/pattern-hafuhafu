@@ -4,43 +4,49 @@ import {
     as,
     Block,
     Cardinal,
+    DECREMENT,
     difference,
     finalIndexFromElementsTotal,
+    INCREMENT,
     INITIAL,
     insteadOf,
     isUndefined,
     Maybe,
-    Multiple,
-    NEXT,
     NormalScalar,
     notAs,
     Ordinal,
-    PREVIOUS,
     Scalar,
     Time,
     use,
     VERY_LOW_PRECISION,
 } from '@musical-patterns/utilities'
-import { computeDuration, computeElementProgress, HafuhafuMode } from '../../../../../src/indexForTest'
+import {
+    computeDuration,
+    computeElementProgress,
+    HafuhafuMode,
+    Layer,
+    LayerIndex,
+    Sieve,
+} from '../../../../../src/indexForTest'
 
 describe('duration', () => {
-    const ARBITRARY_TOTAL_INDICES: Cardinal<Ordinal> = as.Cardinal<Ordinal>(100)
+    const ARBITRARY_TOTAL_INDICES: Cardinal<LayerIndex[]> = as.Cardinal<LayerIndex[]>(100)
     let reverse: boolean = false
 
     describe('zeno mode', () => {
-        let sieve: Multiple<Ordinal>
-        let layerCount: Cardinal = as.Cardinal(2)
+        let sieve: Sieve
+        let layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(2)
         let indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact: Ordinal
 
         describe('when sieve is 2', () => {
             beforeEach(() => {
-                sieve = as.Multiple<Ordinal>(2)
+                sieve = as.Multiple<LayerIndex>(2)
                 indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = as.Ordinal(10)
             })
 
             it('when an iteration begins, gives you the full duration 1', () => {
                 const duration: Scalar<Time> = computeDuration({
-                    iterationIndex: as.Ordinal(0),
+                    iterationIndex: as.Ordinal<Block>(0),
                     layerCount,
                     mode: HafuhafuMode.ZENO,
                     reverse,
@@ -57,7 +63,7 @@ describe('duration', () => {
 effectively increasing the tempo in proportion to counteract the fading out of the count of sieved notes`,
                 () => {
                     const duration: Scalar<Time> = computeDuration({
-                        iterationIndex: insteadOf<Ordinal>(finalIndexFromElementsTotal(ARBITRARY_TOTAL_INDICES)),
+                        iterationIndex: insteadOf<Ordinal, Block>(finalIndexFromElementsTotal(ARBITRARY_TOTAL_INDICES)),
                         layerCount,
                         mode: HafuhafuMode.ZENO,
                         reverse,
@@ -73,13 +79,13 @@ effectively increasing the tempo in proportion to counteract the fading out of t
 
         describe('when sieve is 3', () => {
             beforeEach(() => {
-                sieve = as.Multiple<Ordinal>(3)
+                sieve = as.Multiple<LayerIndex>(3)
                 indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = as.Ordinal(15)
             })
 
             it('when an iteration begins, gives you the full duration 1', () => {
                 const duration: Scalar<Time> = computeDuration({
-                    iterationIndex: as.Ordinal(0),
+                    iterationIndex: as.Ordinal<Block>(0),
                     layerCount,
                     mode: HafuhafuMode.ZENO,
                     reverse,
@@ -96,7 +102,7 @@ effectively increasing the tempo in proportion to counteract the fading out of t
 effectively increasing the tempo in proportion to counteract the fading out of the count of sieved notes`,
                 () => {
                     const duration: Scalar<Time> = computeDuration({
-                        iterationIndex: insteadOf<Ordinal>(finalIndexFromElementsTotal(ARBITRARY_TOTAL_INDICES)),
+                        iterationIndex: insteadOf<Ordinal, Block>(finalIndexFromElementsTotal(ARBITRARY_TOTAL_INDICES)),
                         layerCount,
                         mode: HafuhafuMode.ZENO,
                         reverse,
@@ -112,14 +118,14 @@ effectively increasing the tempo in proportion to counteract the fading out of t
 
         describe('when layer count is greater than the standard 2', () => {
             beforeEach(() => {
-                sieve = as.Multiple<Ordinal>(2)
-                layerCount = as.Cardinal(4)
+                sieve = as.Multiple<LayerIndex>(2)
+                layerCount = as.Cardinal<Layer[]>(4)
                 indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = as.Ordinal(41)
             })
 
             it('when an iteration begins, gives you the full duration 1', () => {
                 const duration: Scalar<Time> = computeDuration({
-                    iterationIndex: as.Ordinal(0),
+                    iterationIndex: as.Ordinal<Block>(0),
                     layerCount,
                     mode: HafuhafuMode.ZENO,
                     reverse,
@@ -138,7 +144,7 @@ it does not scale by the layer count as I once thought, because the proportion o
 no matter the layer count`,
                 () => {
                     const duration: Scalar<Time> = computeDuration({
-                        iterationIndex: insteadOf<Ordinal>(finalIndexFromElementsTotal(ARBITRARY_TOTAL_INDICES)),
+                        iterationIndex: insteadOf<Ordinal, Block>(finalIndexFromElementsTotal(ARBITRARY_TOTAL_INDICES)),
                         layerCount,
                         mode: HafuhafuMode.ZENO,
                         reverse,
@@ -158,11 +164,11 @@ no matter the layer count`,
         describe('when layer count is 1', () => {
             it('the duration stays at 1, because there are not enough layers to affect any transformation', () => {
                 const duration: Scalar<Time> = computeDuration({
-                    iterationIndex: as.Ordinal(4),
-                    layerCount: as.Cardinal(1),
+                    iterationIndex: as.Ordinal<Block>(4),
+                    layerCount: as.Cardinal<Layer[]>(1),
                     mode: HafuhafuMode.ZENO,
                     reverse,
-                    sieve: as.Multiple<Ordinal>(7),
+                    sieve: as.Multiple<LayerIndex>(7),
                     totalIndices: ARBITRARY_TOTAL_INDICES,
                 })
 
@@ -174,22 +180,22 @@ no matter the layer count`,
 
     describe('element progress', () => {
         let iterationKernel: Block
-        let sieve: Multiple<Ordinal>
+        let sieve: Sieve
         let sieveFractalRepetitions: Cardinal
 
-        const TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Cardinal<Ordinal> = as.Cardinal<Ordinal>(160)
-        const FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Ordinal = insteadOf<Ordinal>(finalIndexFromElementsTotal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
+        const TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Cardinal<LayerIndex[]> = as.Cardinal<LayerIndex[]>(160)
+        const FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Ordinal<Block> = insteadOf<Ordinal, Block>(finalIndexFromElementsTotal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
 
         beforeEach(() => {
             iterationKernel = as.Block([ 1, 2, 1, 1, 2 ])
-            sieve = as.Multiple<Ordinal>(2)
+            sieve = as.Multiple<LayerIndex>(2)
             sieveFractalRepetitions = as.Cardinal(80)
             reverse = false
         })
 
         it('the first element in the iteration has element progress 0', () => {
             const elementProgress: NormalScalar = computeElementProgress({
-                iterationIndex: INITIAL,
+                iterationIndex: insteadOf<Ordinal, Block>(INITIAL),
                 reverse,
                 totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
             })
@@ -212,9 +218,9 @@ no matter the layer count`,
         it('each element progress result is greater than the one before it', () => {
             let previousIterationElementProgress: Maybe<NormalScalar> = undefined
             for (
-                let iterationIndex: Ordinal = INITIAL;
+                let iterationIndex: Ordinal<Block> = insteadOf<Ordinal, Block>(INITIAL);
                 iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
-                iterationIndex = use.Translation(iterationIndex, NEXT)
+                iterationIndex = use.Cardinal(iterationIndex, INCREMENT)
             ) {
                 const elementProgress: NormalScalar = computeElementProgress({
                     iterationIndex,
@@ -238,7 +244,7 @@ no matter the layer count`,
 
             it('the first element in the iteration has element progress almost 1 (the reversed next one would be 1)', () => {
                 const elementProgress: NormalScalar = computeElementProgress({
-                    iterationIndex: INITIAL,
+                    iterationIndex: insteadOf<Ordinal, Block>(INITIAL),
                     reverse,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 })
@@ -249,7 +255,7 @@ no matter the layer count`,
 
             it('the penultimate element in the iteration has element progress almost 0 (the next one would be 0)', () => {
                 const elementProgress: NormalScalar = computeElementProgress({
-                    iterationIndex: use.Translation(FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2, PREVIOUS),
+                    iterationIndex: use.Cardinal(FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2, DECREMENT),
                     reverse,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 })
@@ -272,9 +278,9 @@ no matter the layer count`,
             it('each element progress result is less than the one before it', () => {
                 let previousIterationElementProgress: Maybe<NormalScalar> = undefined
                 for (
-                    let iterationIndex: Ordinal = INITIAL;
+                    let iterationIndex: Ordinal<Block> = insteadOf<Ordinal, Block>(INITIAL);
                     iterationIndex < FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
-                    iterationIndex = use.Translation(iterationIndex, NEXT)
+                    iterationIndex = use.Cardinal(iterationIndex, INCREMENT)
                 ) {
                     const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,
@@ -295,9 +301,9 @@ no matter the layer count`,
                 let previousIterationElementProgress: Maybe<NormalScalar> = undefined
                 let previousIterationElementProgressDifference: Maybe<NormalScalar> = undefined
                 for (
-                    let iterationIndex: Ordinal = INITIAL;
+                    let iterationIndex: Ordinal<Block> = insteadOf<Ordinal, Block>(INITIAL);
                     iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
-                    iterationIndex = use.Translation(iterationIndex, NEXT)
+                    iterationIndex = use.Cardinal(iterationIndex, INCREMENT)
                 ) {
                     const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,
@@ -324,16 +330,16 @@ no matter the layer count`,
         })
 
         describe('when sieve is other than 2', () => {
-            const TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Cardinal<Ordinal> = as.Cardinal<Ordinal>(240)
-            const FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Ordinal = insteadOf<Ordinal>(finalIndexFromElementsTotal(TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
+            const TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Cardinal<LayerIndex[]> = as.Cardinal<LayerIndex[]>(240)
+            const FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2: Ordinal<Block> = insteadOf<Ordinal, Block>(finalIndexFromElementsTotal(TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
 
             beforeEach(() => {
-                sieve = as.Multiple<Ordinal>(3)
+                sieve = as.Multiple<LayerIndex>(3)
             })
 
             it('the first element in the iteration has element progress 0', () => {
                 const elementProgress: NormalScalar = computeElementProgress({
-                    iterationIndex: INITIAL,
+                    iterationIndex: insteadOf<Ordinal, Block>(INITIAL),
                     reverse,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 })
@@ -356,9 +362,9 @@ no matter the layer count`,
             it('each element progress result is greater than the one before it', () => {
                 let previousIterationElementProgress: Maybe<NormalScalar> = undefined
                 for (
-                    let iterationIndex: Ordinal = INITIAL;
+                    let iterationIndex: Ordinal<Block> = insteadOf<Ordinal, Block>(INITIAL);
                     iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
-                    iterationIndex = use.Translation(iterationIndex, NEXT)
+                    iterationIndex = use.Cardinal(iterationIndex, INCREMENT)
                 ) {
                     const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,
@@ -379,9 +385,9 @@ no matter the layer count`,
                 let previousIterationElementProgress: Maybe<NormalScalar> = undefined
                 let previousIterationElementProgressDifference: Maybe<NormalScalar> = undefined
                 for (
-                    let iterationIndex: Ordinal = INITIAL;
+                    let iterationIndex: Ordinal<Block> = insteadOf<Ordinal, Block>(INITIAL);
                     iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
-                    iterationIndex = use.Translation(iterationIndex, NEXT)
+                    iterationIndex = use.Cardinal(iterationIndex, INCREMENT)
                 ) {
                     const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,

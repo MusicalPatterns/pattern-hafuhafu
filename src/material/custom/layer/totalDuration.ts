@@ -1,9 +1,11 @@
 import {
     as,
+    Block,
     Cardinal,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
-    Multiple,
+    insteadOf,
+    Integer,
     ofNotAs,
     Ordinal,
     Scalar,
@@ -11,27 +13,29 @@ import {
     Time,
     use,
 } from '@musical-patterns/utilities'
+import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
+import { LayerIndex, Sieve } from '../../../types'
 import { computeDuration } from '../element'
 import { zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities } from '../integers'
 import { LayerParameters } from './types'
 
 const computeTotalDuration: (parameters: {
-    layerCount: Cardinal,
+    layerCount: Cardinal<Layer[]>,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal<Ordinal>,
+    sieve: Sieve,
+    totalIndices: Cardinal<LayerIndex[]>,
 }) => Scalar<Time> =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): Scalar<Time> =>
         slice(
             zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
             INITIAL,
-            indexJustBeyondFinalElementFromElementsTotal(totalIndices),
+            insteadOf<Ordinal, Integer[]>(indexJustBeyondFinalElementFromElementsTotal(totalIndices)),
         )
-            .map(as.Ordinal)
+            .map((integer: Integer) => as.Ordinal<Block>(integer))
             .reduce(
-                (totalDuration: Scalar<Time>, iterationIndex: Ordinal) =>
+                (totalDuration: Scalar<Time>, iterationIndex: Ordinal<Block>) =>
                     use.Translation(
                         totalDuration,
                         as.Translation(ofNotAs(computeDuration({

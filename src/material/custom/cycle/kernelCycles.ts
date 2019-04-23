@@ -1,15 +1,17 @@
-import { as, Block, Cardinal, Cycle, deepClone, deepEqual, Multiple, Ordinal } from '@musical-patterns/utilities'
+import { as, Block, Cardinal, Cycle, deepClone, deepEqual } from '@musical-patterns/utilities'
+import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
+import { LayerIndex, Sieve, SieveFractalRepetitions } from '../../../types'
 import { computeNextKernel } from './nextKernel'
 import { computeTotalIndices } from './totalIndices'
 import { ComputeKernelCycleParameters } from './types'
 
 const computeKernelCycle: (parameters: {
-    layerCount: Cardinal,
+    layerCount: Cardinal<Layer[]>,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Multiple<Ordinal>,
-    sieveFractalRepetitions: Multiple<Cardinal<Ordinal>>,
+    sieve: Sieve,
+    sieveFractalRepetitions: SieveFractalRepetitions,
     sourceKernel: Block,
 }) => Cycle<Block> =
     (
@@ -22,7 +24,7 @@ const computeKernelCycle: (parameters: {
             sieveFractalRepetitions,
         }: ComputeKernelCycleParameters,
     ): Cycle<Block> => {
-        const totalIndices: Cardinal<Ordinal> =
+        const totalIndices: Cardinal<LayerIndex[]> =
             computeTotalIndices({ layerCount, mode, sieve, sieveFractalRepetitions })
 
         const kernelCycle: Cycle<Block> = as.Cycle([ deepClone(sourceKernel) ])

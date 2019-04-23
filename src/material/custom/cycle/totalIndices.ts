@@ -1,40 +1,42 @@
-import { as, Cardinal, Multiple, NO_TRANSLATION, notAs, ONE_FEWER, Ordinal, use } from '@musical-patterns/utilities'
+import { as, Cardinal, DECREMENT, NO_SHIFT, notAs, use } from '@musical-patterns/utilities'
+import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
-import { DROSTE_ITERATION_REALIGNMENT_TRANSLATION } from '../constants'
+import { LayerIndex, Sieve, SieveFractalRepetitions } from '../../../types'
+import { DROSTE_ITERATION_REALIGNMENT_SHIFT } from '../constants'
 import { ComputeTotalIndicesParameters } from './types'
 
-const computeSieveFractalLength: (sieve: Multiple<Ordinal>, layerCount: Cardinal) => Cardinal<Ordinal> =
-    (sieve: Multiple<Ordinal>, layerCount: Cardinal): Cardinal<Ordinal> =>
-        as.Cardinal<Ordinal>(notAs.Multiple(use.Power(
+const computeSieveFractalLength: (sieve: Sieve, layerCount: Cardinal<Layer[]>) => Cardinal<LayerIndex[]> =
+    (sieve: Sieve, layerCount: Cardinal<Layer[]>): Cardinal<LayerIndex[]> =>
+        as.Cardinal<LayerIndex[]>(notAs.Multiple(use.Power(
             sieve,
-            as.Power<Multiple<Ordinal>>(notAs.Cardinal(use.Translation(layerCount, ONE_FEWER))),
+            as.Power<Sieve>(notAs.Cardinal(use.Cardinal(layerCount, DECREMENT))),
         )))
 
 const computeIterationLength: (
-    sieve: Multiple<Ordinal>,
-    layerCount: Cardinal,
-    sieveFractalRepetitions: Multiple<Cardinal<Ordinal>>,
-) => Cardinal<Ordinal> =
+    sieve: Sieve,
+    layerCount: Cardinal<Layer[]>,
+    sieveFractalRepetitions: SieveFractalRepetitions,
+) => Cardinal<LayerIndex[]> =
     (
-        sieve: Multiple<Ordinal>,
-        layerCount: Cardinal,
-        sieveFractalRepetitions: Multiple<Cardinal<Ordinal>>,
-    ): Cardinal<Ordinal> =>
+        sieve: Sieve,
+        layerCount: Cardinal<Layer[]>,
+        sieveFractalRepetitions: SieveFractalRepetitions,
+    ): Cardinal<LayerIndex[]> =>
         use.Multiple(
             computeSieveFractalLength(sieve, layerCount),
             sieveFractalRepetitions,
         )
 
 const computeTotalIndices: (parameters: {
-    layerCount: Cardinal,
+    layerCount: Cardinal<Layer[]>,
     mode: HafuhafuMode,
-    sieve: Multiple<Ordinal>,
-    sieveFractalRepetitions: Multiple<Cardinal<Ordinal>>,
-}) => Cardinal<Ordinal> =
-    ({ layerCount, mode, sieve, sieveFractalRepetitions }: ComputeTotalIndicesParameters): Cardinal<Ordinal> =>
-        use.Translation(
+    sieve: Sieve,
+    sieveFractalRepetitions: SieveFractalRepetitions,
+}) => Cardinal<LayerIndex[]> =
+    ({ layerCount, mode, sieve, sieveFractalRepetitions }: ComputeTotalIndicesParameters): Cardinal<LayerIndex[]> =>
+        use.Cardinal(
             computeIterationLength(sieve, layerCount, sieveFractalRepetitions),
-            mode === HafuhafuMode.DROSTE ? DROSTE_ITERATION_REALIGNMENT_TRANSLATION : NO_TRANSLATION,
+            mode === HafuhafuMode.DROSTE ? DROSTE_ITERATION_REALIGNMENT_SHIFT : NO_SHIFT,
         )
 
 export {

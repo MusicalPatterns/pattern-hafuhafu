@@ -1,5 +1,12 @@
-import { as, Block, Cardinal, Multiple, Ordinal } from '@musical-patterns/utilities'
-import { computeKernelCycle, HafuhafuMode } from '../../../../../src/indexForTest'
+import { as, Block, Cardinal } from '@musical-patterns/utilities'
+import {
+    computeKernelCycle,
+    HafuhafuMode,
+    Layer,
+    LayerIndex,
+    Sieve,
+    SieveFractalRepetitions,
+} from '../../../../../src/indexForTest'
 
 describe('kernel cycle', () => {
     let mode: HafuhafuMode
@@ -14,14 +21,14 @@ each next kernel has every sieve'th element chosen until all have been chosen, b
 based on where the previous iteration left off`,
             () => {
                 const sourceKernel: Block = as.Block([ 1, 2, 3, 4, 5 ])
-                const layerCount: Cardinal = as.Cardinal(3)
+                const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(3)
 
                 expect(computeKernelCycle({
                     layerCount,
                     mode,
                     reverse: false,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(1), // Iteration lasts 2^2 * 1 + 1, so start on index 5 then take every other
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(1), // Iteration lasts 2^2 * 1 + 1, so start on index 5 then take every other
                     sourceKernel,
                 }))
                     .toEqual(as.Cycle([
@@ -35,8 +42,8 @@ based on where the previous iteration left off`,
                     layerCount,
                     mode,
                     reverse: false,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(2), // Iteration lasts 2^2 * 2 + 1, so start on index 9 then take every other
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(2), // Iteration lasts 2^2 * 2 + 1, so start on index 9 then take every other
                     sourceKernel,
                 }))
                     .toEqual(as.Cycle([
@@ -50,14 +57,14 @@ based on where the previous iteration left off`,
 
         it('works for other layer counts greater than 3', () => {
             const sourceKernel: Block = as.Block([ 1, 2, 3, 4, 5 ])
-            const layerCount: Cardinal = as.Cardinal(4)
+            const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(4)
 
             expect(computeKernelCycle({
                 layerCount,
                 mode,
                 reverse: false,
-                sieve: as.Multiple<Ordinal>(2),
-                sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(1), // Iteration lasts 2^3 * 1 + 1, so start on index 9 then take every other
+                sieve: as.Multiple<LayerIndex>(2),
+                sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(1), // Iteration lasts 2^3 * 1 + 1, so start on index 9 then take every other
                 sourceKernel,
             }))
                 .toEqual(as.Cycle([
@@ -71,8 +78,8 @@ based on where the previous iteration left off`,
                 layerCount,
                 mode,
                 reverse: false,
-                sieve: as.Multiple<Ordinal>(2),
-                sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(2), // Iteration lasts 2^3 * 2 + 1, so start on index 17 then take every other
+                sieve: as.Multiple<LayerIndex>(2),
+                sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(2), // Iteration lasts 2^3 * 2 + 1, so start on index 17 then take every other
                 sourceKernel,
             }))
                 .toEqual(as.Cycle([
@@ -85,14 +92,14 @@ based on where the previous iteration left off`,
 
         it('when sieve is greater than 2', () => {
             const sourceKernel: Block = as.Block([ 1, 2, 3, 4, 5 ])
-            const layerCount: Cardinal = as.Cardinal(3)
+            const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(3)
 
             expect(computeKernelCycle({
                 layerCount,
                 mode,
                 reverse: false,
-                sieve: as.Multiple<Ordinal>(3),
-                sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(1), // Iteration lasts 3^2 * 1 + 1, so start on index 10 then take every third
+                sieve: as.Multiple<LayerIndex>(3),
+                sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(1), // Iteration lasts 3^2 * 1 + 1, so start on index 10 then take every third
                 sourceKernel,
             }))
                 .toEqual(as.Cycle([
@@ -106,11 +113,11 @@ based on where the previous iteration left off`,
         describe('reverse', () => {
             it('example one, easy - the last kernel length of elements at the end is the same as those at the beginning, because the kernel divides evenly into the iteration', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(3),
+                    layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(6), // 6 * 2^(3-1) + (1 for realign) = 25 iteration length, which is a multiple of kernel length 5
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(6), // 6 * 2^(3-1) + (1 for realign) = 25 iteration length, which is a multiple of kernel length 5
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5 ]),
                 }))
                     .toEqual(as.Cycle([
@@ -123,11 +130,11 @@ based on where the previous iteration left off`,
 
             it('example two, where kernel length does not divide evenly into iteration length', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(3),
+                    layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(4), // 4 * 2^(3-1) + (1 for realign) = 17 iteration length, which is *not* a multiple of kernel length 5
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(4), // 4 * 2^(3-1) + (1 for realign) = 17 iteration length, which is *not* a multiple of kernel length 5
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5 ]),
                 }))
                     .toEqual(as.Cycle([
@@ -140,11 +147,11 @@ based on where the previous iteration left off`,
 
             it('example three, with higher sieve', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(3),
+                    layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
-                    sieve: as.Multiple<Ordinal>(3),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(2), // 2 * 3^(3-1) + (1 for realign) = 19 iteration length
+                    sieve: as.Multiple<LayerIndex>(3),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(2), // 2 * 3^(3-1) + (1 for realign) = 19 iteration length
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5 ]),
                 }))
                     .toEqual(as.Cycle([
@@ -157,11 +164,11 @@ based on where the previous iteration left off`,
 
             it('example four, with higher layer count', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(4),
+                    layerCount: as.Cardinal<Layer[]>(4),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(2), // 2 * 2^(4-1) + (1 for realign) = 17 iteration length
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(2), // 2 * 2^(4-1) + (1 for realign) = 17 iteration length
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5 ]),
                 }))
                     .toEqual(as.Cycle([
@@ -174,11 +181,11 @@ based on where the previous iteration left off`,
 
             it('example five, with a different kernel length', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(3),
+                    layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
                     reverse: true,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(4), // 4 * 2^(3-1) + (1 for realign) = 17 iteration length
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(4), // 4 * 2^(3-1) + (1 for realign) = 17 iteration length
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5, 6, 7 ]),
                 }))
                     .toEqual(as.Cycle([
@@ -191,12 +198,12 @@ based on where the previous iteration left off`,
     })
 
     describe('when mode is zeno', () => {
-        let sieve: Multiple<Ordinal>
-        const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_THREE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: Multiple<Cardinal<Ordinal>> = as.Multiple<Cardinal<Ordinal>>(3)
-        const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_FIVE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: Multiple<Cardinal<Ordinal>> = as.Multiple<Cardinal<Ordinal>>(5)
-        const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_SEVEN_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: Multiple<Cardinal<Ordinal>> = as.Multiple<Cardinal<Ordinal>>(7)
-        const sieveFractalRepetitions: Multiple<Cardinal<Ordinal>> = REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_FIVE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION
-        const layerCount: Cardinal = as.Cardinal(3)
+        let sieve: Sieve
+        const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_THREE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: SieveFractalRepetitions = as.Multiple<Cardinal<LayerIndex[]>>(3)
+        const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_FIVE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: SieveFractalRepetitions = as.Multiple<Cardinal<LayerIndex[]>>(5)
+        const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_SEVEN_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: SieveFractalRepetitions = as.Multiple<Cardinal<LayerIndex[]>>(7)
+        const sieveFractalRepetitions: SieveFractalRepetitions = REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_FIVE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION
+        const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(3)
 
         beforeEach(() => {
             mode = HafuhafuMode.ZENO
@@ -204,7 +211,7 @@ based on where the previous iteration left off`,
 
         describe('when sieve is 2', () => {
             beforeEach(() => {
-                sieve = as.Multiple<Ordinal>(2)
+                sieve = as.Multiple<LayerIndex>(2)
             })
 
             it('returns the cycle of kernels required to get from the original kernel back to itself by repeatedly applying the sieve, for a four-phase cycle', () => {
@@ -276,7 +283,7 @@ based on where the previous iteration left off`,
                     layerCount,
                     mode,
                     reverse: false,
-                    sieve: as.Multiple<Ordinal>(3),
+                    sieve: as.Multiple<LayerIndex>(3),
                     sieveFractalRepetitions,
                     sourceKernel: as.Block([ 0, 0, 1, 0, 1 ]),
                 }))
@@ -293,7 +300,7 @@ based on where the previous iteration left off`,
                     layerCount,
                     mode,
                     reverse: false,
-                    sieve: as.Multiple<Ordinal>(5),
+                    sieve: as.Multiple<LayerIndex>(5),
                     sieveFractalRepetitions: REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_THREE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION,
                     sourceKernel: as.Block([ 0, 0, 1 ]),
                 }))
@@ -307,11 +314,11 @@ based on where the previous iteration left off`,
         describe('when the kernel length does not divide evenly into the iteration length', () => {
             it('offsets where in the next iteration kernel the sieving begins', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(4),
+                    layerCount: as.Cardinal<Layer[]>(4),
                     mode,
                     reverse: false,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(4), // Total 32 indices in iteration because 2^(4-1) * 4, so it should start on index 32 and take every 2nd from there
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(4), // Total 32 indices in iteration because 2^(4-1) * 4, so it should start on index 32 and take every 2nd from there
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5 ]),
                 }))
                     .toEqual(as.Cycle([
@@ -326,11 +333,11 @@ based on where the previous iteration left off`,
         describe('reverse', () => {
             it('example one, easy - the last kernel length of elements at the end is the same as those at the beginning, because the kernel divides evenly into the iteration', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(2),
+                    layerCount: as.Cardinal<Layer[]>(2),
                     mode,
                     reverse: true,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(5), // 5 * 2^(2-1) = 10 iteration length, which is a multiple of 5 kernel length
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(5), // 5 * 2^(2-1) = 10 iteration length, which is a multiple of 5 kernel length
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5 ]),
                 }))
                     .toEqual(as.Cycle([
@@ -343,11 +350,11 @@ based on where the previous iteration left off`,
 
             it('example two, where kernel length does not divide evenly into iteration length', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(2),
+                    layerCount: as.Cardinal<Layer[]>(2),
                     mode,
                     reverse: true,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(7), // 7 * 2^(2-1) = 14 iteration length, which is *not* a multiple of 5 kernel length
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(7), // 7 * 2^(2-1) = 14 iteration length, which is *not* a multiple of 5 kernel length
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5 ]),
                 }))
                     .toEqual(as.Cycle([
@@ -360,11 +367,11 @@ based on where the previous iteration left off`,
 
             it('example three, with higher sieve', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(2),
+                    layerCount: as.Cardinal<Layer[]>(2),
                     mode,
                     reverse: true,
-                    sieve: as.Multiple<Ordinal>(3),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(6), // 6 * 3^(2-1) = 18 iteration length, which is *not* a multiple of 5 kernel length
+                    sieve: as.Multiple<LayerIndex>(3),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(6), // 6 * 3^(2-1) = 18 iteration length, which is *not* a multiple of 5 kernel length
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5 ]),
                 }))
                     .toEqual(as.Cycle([
@@ -377,11 +384,11 @@ based on where the previous iteration left off`,
 
             it('example four, with higher layer count', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(3),
+                    layerCount: as.Cardinal<Layer[]>(3),
                     mode,
                     reverse: true,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(3), // 3 * 2^(3-1) = 12 iteration length, which is *not* a multiple of 5 kernel length
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(3), // 3 * 2^(3-1) = 12 iteration length, which is *not* a multiple of 5 kernel length
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5 ]),
                 }))
                     .toEqual(as.Cycle([
@@ -394,11 +401,11 @@ based on where the previous iteration left off`,
 
             it('example five, with a different kernel length', () => {
                 expect(computeKernelCycle({
-                    layerCount: as.Cardinal(2),
+                    layerCount: as.Cardinal<Layer[]>(2),
                     mode,
                     reverse: true,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(11), // 11 * 2^(2-1) = 22 iteration length, which is *not* a multiple of 7 kernel length
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(11), // 11 * 2^(2-1) = 22 iteration length, which is *not* a multiple of 7 kernel length
                     sourceKernel: as.Block([ 1, 2, 3, 4, 5, 6, 7 ]),
                 }))
                     .toEqual(as.Cycle([

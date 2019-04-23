@@ -1,8 +1,8 @@
 // tslint:disable no-duplicate-string
 
 import { Validations } from '@musical-patterns/spec'
-import { as, Ordinal } from '@musical-patterns/utilities'
-import { computeValidations, HafuhafuSpec, HafuhafuSpecs, initialSpecs } from '../../../src/indexForTest'
+import { as } from '@musical-patterns/utilities'
+import { computeValidations, HafuhafuSpec, HafuhafuSpecs, initialSpecs, LayerIndex } from '../../../src/indexForTest'
 
 describe('validations', () => {
     describe('when the source kernel length and sieve are coprime', () => {
@@ -10,7 +10,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: as.Block([ 0, 1, 0, 1 ]),
-                [ HafuhafuSpec.SIEVE ]: as.Multiple<Ordinal>(2),
+                [ HafuhafuSpec.SIEVE ]: as.Multiple<LayerIndex>(2),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)
@@ -31,7 +31,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: as.Block([ 0, 1, 1 ]),
-                [ HafuhafuSpec.SIEVE ]: as.Multiple<Ordinal>(6),
+                [ HafuhafuSpec.SIEVE ]: as.Multiple<LayerIndex>(6),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)
@@ -51,7 +51,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: as.Block([ 0, 1, 1, 0 ]),
-                [ HafuhafuSpec.SIEVE ]: as.Multiple<Ordinal>(6),
+                [ HafuhafuSpec.SIEVE ]: as.Multiple<LayerIndex>(6),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)
@@ -74,7 +74,7 @@ describe('validations', () => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: as.Block([ 0, 1, 1, 1 ]),
-                [ HafuhafuSpec.SIEVE ]: as.Multiple<Ordinal>(3),
+                [ HafuhafuSpec.SIEVE ]: as.Multiple<LayerIndex>(3),
             }
 
             const validations: Validations<HafuhafuSpecs> = computeValidations(specs)

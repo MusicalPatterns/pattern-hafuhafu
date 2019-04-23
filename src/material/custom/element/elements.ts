@@ -7,7 +7,6 @@ import {
     ContourElement,
     Frequency,
     insteadOf,
-    Multiple,
     NormalScalar,
     notAs,
     Ordinal,
@@ -15,7 +14,9 @@ import {
     Time,
     use,
 } from '@musical-patterns/utilities'
+import { Layer } from '../../../nominals'
 import { ExistenceStyle, HafuhafuMode } from '../../../spec'
+import { LayerIndex, Sieve } from '../../../types'
 import { computeDuration } from './duration'
 import { computeGain } from './gain'
 import { computePitchIndex, computePitchScalar } from './pitch'
@@ -23,34 +24,37 @@ import { computeSustain } from './sustain'
 import { ComputeElementParameters, ComputeLayerProgressParameters } from './types'
 
 const computeLayerProgress: (parameters: {
-    iterationIndex: Ordinal,
-    layerIndices: Ordinal[],
+    iterationIndex: Ordinal<Block>,
+    layerIndices: LayerIndex[],
     layersProgresses: NormalScalar[][],
 }) => NormalScalar =
     ({ layerIndices, iterationIndex, layersProgresses }: ComputeLayerProgressParameters): NormalScalar => {
-        const layerIndex: Ordinal = use.Ordinal(layerIndices, insteadOf<Ordinal, Ordinal>(iterationIndex))
+        const layerIndex: LayerIndex = insteadOf<Ordinal, Layer[]>(use.Ordinal(
+            layerIndices,
+            insteadOf<Ordinal, LayerIndex[]>(iterationIndex)),
+        )
 
         return use.Ordinal(
             use.Ordinal(
                 layersProgresses,
-                insteadOf<Ordinal, NormalScalar[]>(layerIndex),
+                insteadOf<Ordinal, NormalScalar[][]>(layerIndex),
             ),
-            insteadOf<Ordinal, NormalScalar>(iterationIndex),
+            insteadOf<Ordinal, NormalScalar[]>(iterationIndex),
         )
     }
 
 const computeElement: (parameters: {
     existenceStyle: ExistenceStyle,
-    iterationIndex: Ordinal,
+    iterationIndex: Ordinal<Block>,
     iterationKernel: Block,
-    layerCount: Cardinal,
-    layerIndices: Ordinal[],
+    layerCount: Cardinal<Layer[]>,
+    layerIndices: LayerIndex[],
     layersProgresses: NormalScalar[][],
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Multiple<Ordinal>,
+    sieve: Sieve,
     stretchPitch: boolean,
-    totalIndices: Cardinal<Ordinal>,
+    totalIndices: Cardinal<LayerIndex[]>,
 }) => ContourElement<PitchDurationGainSustainScale> =
     (
         {

@@ -7,20 +7,20 @@ import {
     computeCommonFactors,
     Integer,
     length,
-    Multiple,
     Ordinal,
     slice,
 } from '@musical-patterns/utilities'
+import { Sieve } from '../types'
 import { HafuhafuSpec, HafuhafuSpecs } from './types'
 
 const computeValidations: ComputeValidations<HafuhafuSpecs> =
     (hafuhafuSpecs: HafuhafuSpecs): Validations<HafuhafuSpecs> => {
         const sourceKernel: Block = hafuhafuSpecs[ HafuhafuSpec.SOURCE_KERNEL ]
-        const sieve: Multiple<Ordinal> = hafuhafuSpecs[ HafuhafuSpec.SIEVE ]
+        const sieve: Sieve = hafuhafuSpecs[ HafuhafuSpec.SIEVE ]
 
-        const kernelLength: Cardinal = length(sourceKernel)
+        const kernelLength: Cardinal<Block> = length(sourceKernel)
         if (!areCoprime(kernelLength, sieve)) {
-            const doNotIncludeTheFirstCommonFactorBecauseItIsJustOne: Ordinal<Integer> = as.Ordinal<Integer>(1)
+            const doNotIncludeTheFirstCommonFactorBecauseItIsJustOne: Ordinal<Integer[]> = as.Ordinal<Integer[]>(1)
             const commonFactors: Integer[] = slice(
                 computeCommonFactors(kernelLength, sieve),
                 doNotIncludeTheFirstCommonFactorBecauseItIsJustOne,

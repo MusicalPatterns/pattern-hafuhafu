@@ -32,7 +32,7 @@ iteration to complete`,
         arrayedConstraint: {
             minLength: 1,
         },
-        arrayedNewFieldInitialValue: notAs.Ordinal<Scalar>(STANDARD_PITCH_INDEX_INDICATING_REST),
+        arrayedNewFieldInitialValue: notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST),
         constraint: rangedConstraints[ HafuhafuSpec.SOURCE_KERNEL ],
         description: 'a pattern of pitches to cycle (use -1 for a rest)',
         hideInput: RangedInputType.RANGE,

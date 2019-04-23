@@ -1,16 +1,17 @@
-import { as, Cardinal, Multiple, NormalScalar, Ordinal, Scalar, Time } from '@musical-patterns/utilities'
-import { computeDurationProgress, HafuhafuMode } from '../../../../../src/indexForTest'
+import { as, Cardinal, NormalScalar, Ordinal, Scalar, Time } from '@musical-patterns/utilities'
+import { computeDurationProgress, HafuhafuMode, Layer, LayerIndex, Sieve } from '../../../../../src/indexForTest'
 
 describe('duration progress', () => {
     describe('zeno mode', () => {
-        const layerCount: Cardinal = as.Cardinal(2)
+        const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(2)
 
         it('takes the existing iteration duration progress and adds to it the progress from the next element', () => {
             const FOR_SIMPLICITY_TESTING_THE_BEGINNING_PROGRESS: NormalScalar<NormalScalar> = as.NormalScalar<NormalScalar>(0)
-            const FOR_SIMPLICITY_TESTING_THE_BEGINNING_INDEX: Ordinal = as.Ordinal(0)
+            // tslint:disable-next-line no-any
+            const FOR_SIMPLICITY_TESTING_THE_BEGINNING_INDEX: Ordinal<any> = as.Ordinal<any>(0)
             const ARBITRARY_TOTAL_DURATION_FOR_ASSERTION: Scalar<Time> = as.Scalar<Time>(88.888)
-            const IRRELEVANT_FOR_THESE_PURPOSES_SIEVE: Multiple<Ordinal> = as.Multiple<Ordinal>(999)
-            const ARBITRARY_TOTAL_INDICES_FOR_ASSERTION: Cardinal<Ordinal> = as.Cardinal<Ordinal>(9949)
+            const IRRELEVANT_FOR_THESE_PURPOSES_SIEVE: Sieve = as.Multiple<LayerIndex>(999)
+            const ARBITRARY_TOTAL_INDICES_FOR_ASSERTION: Cardinal<LayerIndex[]> = as.Cardinal<LayerIndex[]>(9949)
 
             const durationProgress: NormalScalar<NormalScalar> = computeDurationProgress({
                 durationProgress: FOR_SIMPLICITY_TESTING_THE_BEGINNING_PROGRESS,

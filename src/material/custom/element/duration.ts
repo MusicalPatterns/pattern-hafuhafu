@@ -1,10 +1,10 @@
 import {
     as,
+    Block,
     Cardinal,
+    INCREMENT,
     insteadOf,
     invertNormalScalar,
-    Multiple,
-    NEXT,
     NormalScalar,
     notAs,
     Ordinal,
@@ -14,46 +14,50 @@ import {
     Time,
     use,
 } from '@musical-patterns/utilities'
+import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
+import { LayerIndex, Sieve } from '../../../types'
 import { ComputeDurationParameters, ComputeElementProgressParameters } from './types'
 
 const computeElementProgress: (parameters: {
-    iterationIndex: Ordinal,
+    iterationIndex: Ordinal<Block>,
     reverse: boolean,
-    totalIndices: Cardinal<Ordinal>,
+    totalIndices: Cardinal<LayerIndex[]>,
 }) => NormalScalar =
     ({ iterationIndex, reverse, totalIndices }: ComputeElementProgressParameters): NormalScalar => {
+        const rawTotalIndices: number = notAs.Cardinal<LayerIndex[]>(totalIndices)
+
         if (!reverse) {
-            return as.NormalScalar(quotient(notAs.Ordinal(iterationIndex), notAs.Cardinal<Ordinal>(totalIndices)))
+            return as.NormalScalar(quotient(notAs.Ordinal(iterationIndex), rawTotalIndices))
         }
 
-        const indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote: Ordinal = use.IntegerModulus(
-            use.Translation(iterationIndex, NEXT),
-            as.IntegerModulus<Ordinal>(notAs.Cardinal<Ordinal>(totalIndices)),
+        const indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote: Ordinal<Block> = use.IntegerModulus(
+            use.Cardinal(iterationIndex, INCREMENT),
+            as.IntegerModulus<Ordinal<Block>>(rawTotalIndices),
         )
 
         return invertNormalScalar(as.NormalScalar(quotient(
             notAs.Ordinal(indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote),
-            notAs.Cardinal<Ordinal>(totalIndices),
+            rawTotalIndices,
         )))
     }
 
 const computeDuration: (parameters: {
-    iterationIndex: Ordinal,
-    layerCount: Cardinal,
+    iterationIndex: Ordinal<Block>,
+    layerCount: Cardinal<Layer[]>,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal<Ordinal>,
+    sieve: Sieve,
+    totalIndices: Cardinal<LayerIndex[]>,
 }) => Scalar<Time> =
     ({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices }: ComputeDurationParameters): Scalar<Time> => {
         const elementProgress: NormalScalar = computeElementProgress({ iterationIndex, reverse, totalIndices })
 
-        return mode === HafuhafuMode.ZENO && layerCount === as.Cardinal(1) ?
+        return mode === HafuhafuMode.ZENO && layerCount === as.Cardinal<Layer[]>(1) ?
             as.Scalar<Time>(1) :
             as.Scalar<Time>(use.Scalar(
                 use.Exponent(
-                    notAs.Multiple<Ordinal>(sieve),
+                    notAs.Multiple<LayerIndex>(sieve),
                     as.Exponent(notAs.NormalScalar(invertNormalScalar(elementProgress))),
                 ),
                 insteadOf<Scalar>(reciprocal(sieve)),

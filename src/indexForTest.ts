@@ -8,7 +8,7 @@ export {
     materializeScales,
     computeElementProgress,
     computePitchScalars,
-    computePieces,
+    computePiece,
     computeDuration,
     computeSustain,
     computeTotalIndices,
@@ -30,3 +30,12 @@ export {
     HafuhafuMode,
 } from './spec/indexForTest'
 export { pattern } from './patterns'
+
+export {
+    Layer,
+} from './nominals'
+export {
+    SieveFractalRepetitions,
+    LayerIndex,
+    Sieve,
+} from './types'

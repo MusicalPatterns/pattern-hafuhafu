@@ -1,40 +1,42 @@
-import { Amplitude, Block, Cardinal, Multiple, NormalScalar, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { Amplitude, Block, Cardinal, NormalScalar, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { Layer } from '../../../nominals'
 import { ExistenceStyle, HafuhafuMode } from '../../../spec'
+import { LayerIndex, Sieve } from '../../../types'
 
 interface ComputePitchIndexParameters {
-    iterationIndex: Ordinal,
+    iterationIndex: Ordinal<Block>,
     iterationKernel: Block,
 }
 
 interface ComputeElementParameters {
     existenceStyle: ExistenceStyle,
-    iterationIndex: Ordinal,
+    iterationIndex: Ordinal<Block>,
     iterationKernel: Block,
-    layerCount: Cardinal,
-    layerIndices: Ordinal[],
+    layerCount: Cardinal<Layer[]>,
+    layerIndices: LayerIndex[],
     layersProgresses: NormalScalar[][],
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Multiple<Ordinal>,
+    sieve: Sieve,
     stretchPitch: boolean,
-    totalIndices: Cardinal<Ordinal>,
+    totalIndices: Cardinal<LayerIndex[]>,
 }
 
 interface ComputePitchScalarParameters {
-    layerCount: Cardinal,
+    layerCount: Cardinal<Layer[]>,
     layerProgress: NormalScalar,
     mode: HafuhafuMode,
-    sieve: Multiple<Ordinal>,
+    sieve: Sieve,
     stretchPitch: boolean,
 }
 
 interface ComputeDurationParameters {
-    iterationIndex: Ordinal,
-    layerCount: Cardinal,
+    iterationIndex: Ordinal<Block>,
+    layerCount: Cardinal<Layer[]>,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal<Ordinal>,
+    sieve: Sieve,
+    totalIndices: Cardinal<LayerIndex[]>,
 }
 
 interface ComputeGainParameters {
@@ -44,18 +46,18 @@ interface ComputeGainParameters {
 }
 
 interface ComputeElementProgressParameters {
-    iterationIndex: Ordinal,
+    iterationIndex: Ordinal<Block>,
     reverse: boolean,
-    totalIndices: Cardinal<Ordinal>,
+    totalIndices: Cardinal<LayerIndex[]>,
 }
 
 interface ComputeSustainParameters {
-    sieve: Multiple<Ordinal>,
+    sieve: Sieve,
 }
 
 interface ComputeLayerProgressParameters {
-    iterationIndex: Ordinal,
-    layerIndices: Ordinal[],
+    iterationIndex: Ordinal<Block>,
+    layerIndices: LayerIndex[],
     layersProgresses: NormalScalar[][],
 }
 

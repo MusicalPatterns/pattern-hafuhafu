@@ -2,30 +2,31 @@ import {
     as,
     Cardinal,
     INITIAL,
-    Multiple,
+    Integer,
     NormalScalar,
     notAs,
-    Ordinal,
     Scalar,
     slice,
     Time,
     valueLinearlyBetweenValues,
     ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
+import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
+import { LayerIndex, Sieve } from '../../../types'
 import { computeLayerBegin, computeLayerEnd } from './beginAndEnd'
 import { computeDurationProgresses } from './durationProgress'
 import { computeTotalDuration } from './totalDuration'
 import { ComputeLayerProgressesParameters, LayerParameters } from './types'
 
 const computeLayerProgresses: (parameters: {
-    layerCount: Cardinal,
-    layerIndex: Ordinal,
+    layerCount: Cardinal<Layer[]>,
+    layerIndex: LayerIndex,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Multiple<Ordinal>,
+    sieve: Sieve,
     totalDuration: Scalar<Time>,
-    totalIndices: Cardinal<Ordinal>,
+    totalIndices: Cardinal<LayerIndex[]>,
 }) => NormalScalar[] =
     (
         {
@@ -59,11 +60,11 @@ const computeLayerProgresses: (parameters: {
     }
 
 const computeLayersProgresses: (parameters: {
-    layerCount: Cardinal,
+    layerCount: Cardinal<Layer[]>,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Multiple<Ordinal>,
-    totalIndices: Cardinal<Ordinal>,
+    sieve: Sieve,
+    totalIndices: Cardinal<LayerIndex[]>,
 }) => NormalScalar[][] =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): NormalScalar[][] => {
         const totalDuration: Scalar<Time> = computeTotalDuration({ layerCount, mode, reverse, sieve, totalIndices })
@@ -71,10 +72,10 @@ const computeLayersProgresses: (parameters: {
         return slice(
             ZERO_AND_POSITIVE_INTEGERS,
             INITIAL,
-            as.Ordinal(notAs.Cardinal(layerCount)),
+            as.Ordinal<Integer[]>(notAs.Cardinal(layerCount)),
         )
-            .map(as.Ordinal)
-            .map((layerIndex: Ordinal) => computeLayerProgresses({
+            .map((integer: Integer) => as.Ordinal<Layer[]>(integer))
+            .map((layerIndex: LayerIndex) => computeLayerProgresses({
                 layerCount,
                 layerIndex,
                 mode,

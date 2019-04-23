@@ -1,14 +1,14 @@
-import { as, Cardinal, Multiple, Ordinal, Time } from '@musical-patterns/utilities'
-import { computeSustain } from '../../../../../src/indexForTest'
+import { as, Cardinal, Time } from '@musical-patterns/utilities'
+import { computeSustain, Layer, LayerIndex, Sieve } from '../../../../../src/indexForTest'
 
 describe('sustain', () => {
-    let sieve: Multiple<Ordinal>
-    let layerCount: Cardinal
+    let sieve: Sieve
+    let layerCount: Cardinal<Layer[]>
 
     describe('when sieve is 2 and layer count is 2 (OG hafuhafu)', () => {
         beforeEach(() => {
-            sieve = as.Multiple<Ordinal>(2)
-            layerCount = as.Cardinal(2)
+            sieve = as.Multiple<LayerIndex>(2)
+            layerCount = as.Cardinal<Layer[]>(2)
         })
 
         it(
@@ -24,8 +24,8 @@ in the cluster that is audible does not seem to suddenly become more staccato af
 
     describe('when sieve is 3 and layer count is 4 (some new kind of super hafuhafu)', () => {
         beforeEach(() => {
-            sieve = as.Multiple<Ordinal>(3)
-            layerCount = as.Cardinal(4)
+            sieve = as.Multiple<LayerIndex>(3)
+            layerCount = as.Cardinal<Layer[]>(4)
         })
 
         it(

@@ -24,7 +24,7 @@ describe('features', () => {
 
             it('uses the scale for durations', () => {
                 expect(duration.scaleIndex)
-                    .toBe(as.Ordinal<Scale>(1))
+                    .toBe(as.Ordinal<Scale[]>(1))
             })
         })
 
@@ -48,12 +48,12 @@ describe('features', () => {
 
             it('uses the scale for pitches', () => {
                 expect(pitch.scaleIndex)
-                    .toBe(as.Ordinal<Scale>(2))
+                    .toBe(as.Ordinal<Scale[]>(2))
             })
 
             it('uses the pitch parameter', () => {
                 expect(pitch.index)
-                    .toBe(as.Ordinal<Scalar>(3))
+                    .toBe(as.Ordinal<Scalar[]>(3))
             })
 
             it('uses (abuses?) the scale element as a delivery mechanism for a second pitch-related amount - its scalar', () => {
@@ -82,7 +82,7 @@ describe('features', () => {
 
             it('uses the scale for durations', () => {
                 expect(duration.scaleIndex)
-                    .toBe(as.Ordinal<Scale>(1))
+                    .toBe(as.Ordinal<Scale[]>(1))
             })
         })
 
@@ -106,12 +106,12 @@ describe('features', () => {
 
             it('uses the scale for pitches', () => {
                 expect(pitch.scaleIndex)
-                    .toBe(as.Ordinal<Scale>(2))
+                    .toBe(as.Ordinal<Scale[]>(2))
             })
 
             it('uses the pitch parameter as the index', () => {
                 expect(pitch.index)
-                    .toBe(as.Ordinal<Scalar>(4))
+                    .toBe(as.Ordinal<Scalar[]>(4))
             })
 
             it('uses (abuses?) the scale element as a delivery mechanism for a second pitch-related amount - its scalar', () => {
@@ -140,7 +140,7 @@ describe('features', () => {
 
             it('uses the scale for durations', () => {
                 expect(duration.scaleIndex)
-                    .toBe(as.Ordinal<Scale>(1))
+                    .toBe(as.Ordinal<Scale[]>(1))
             })
         })
 

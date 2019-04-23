@@ -1,12 +1,13 @@
 import {
     as,
+    Block,
     Cardinal,
     indexJustBeyondFinalElementFromElementsTotal,
     INITIAL,
-    Multiple,
+    insteadOf,
+    Integer,
     NormalScalar,
     notAs,
-    ofNotAs,
     Ordinal,
     quotient,
     Scalar,
@@ -14,20 +15,22 @@ import {
     Time,
     use,
 } from '@musical-patterns/utilities'
+import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
+import { LayerIndex, Sieve } from '../../../types'
 import { computeDuration } from '../element'
 import { zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities } from '../integers'
 import { ComputeDurationProgressesParameters, ComputeDurationProgressParameters } from './types'
 
 const computeDurationProgress: (parameters: {
     durationProgress: NormalScalar<NormalScalar>,
-    iterationIndex: Ordinal,
-    layerCount: Cardinal,
+    iterationIndex: Ordinal<Block>,
+    layerCount: Cardinal<Layer[]>,
     mode: HafuhafuMode,
     reverse: boolean,
-    sieve: Multiple<Ordinal>,
+    sieve: Sieve,
     totalDuration: Scalar<Time>,
-    totalIndices: Cardinal<Ordinal>,
+    totalIndices: Cardinal<LayerIndex[]>,
 }) => NormalScalar<NormalScalar> =
     (
         {
@@ -43,39 +46,35 @@ const computeDurationProgress: (parameters: {
     ): NormalScalar<NormalScalar> => {
         const duration: Scalar<Time> =
             computeDuration({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices })
-
         const currentDurationProgress: NormalScalar<NormalScalar> =
             as.NormalScalar<NormalScalar>(notAs.Scalar<Time>(quotient(duration, totalDuration)))
 
-        return use.Translation(
-            durationProgress,
-            as.Translation(ofNotAs(
-                currentDurationProgress,
-            )),
-        )
+        return as.NormalScalar<NormalScalar>(use.Translation(
+            notAs.NormalScalar(durationProgress),
+            as.Translation(notAs.NormalScalar(currentDurationProgress)),
+        ))
     }
 
-const computeDurationProgresses:
-    (parameters: ComputeDurationProgressesParameters) => Array<NormalScalar<NormalScalar>> =
+const computeDurationProgresses: (parameters: {
+    layerCount: Cardinal<Layer[]>,
+    mode: HafuhafuMode,
+    reverse: boolean,
+    sieve: Sieve,
+    totalDuration: Scalar<Time>,
+    totalIndices: Cardinal<LayerIndex[]>,
+}) => Array<NormalScalar<NormalScalar>> =
     (
-        {
-            layerCount,
-            mode,
-            reverse,
-            sieve,
-            totalDuration,
-            totalIndices,
-        }: ComputeDurationProgressesParameters,
+        { layerCount, mode, reverse, sieve, totalDuration, totalIndices }: ComputeDurationProgressesParameters,
     ): Array<NormalScalar<NormalScalar>> => {
         let durationProgress: NormalScalar<NormalScalar> = as.NormalScalar<NormalScalar>(0)
 
         return slice(
             zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
             INITIAL,
-            indexJustBeyondFinalElementFromElementsTotal(totalIndices),
+            insteadOf<Ordinal, Integer[]>(indexJustBeyondFinalElementFromElementsTotal(totalIndices)),
         )
-            .map(as.Ordinal)
-            .map((iterationIndex: Ordinal) => {
+            .map((integer: Integer) => as.Ordinal<Block>(integer))
+            .map((iterationIndex: Ordinal<Block>) => {
                 durationProgress = computeDurationProgress({
                     durationProgress,
                     iterationIndex,

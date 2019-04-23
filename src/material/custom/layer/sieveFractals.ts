@@ -5,46 +5,50 @@ import {
     computePartialSumOfExponents,
     DECREMENT,
     INITIAL,
-    Multiple,
     NEXT,
     notAs,
     Ordinal,
     repeat,
     use,
 } from '@musical-patterns/utilities'
+import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
-import { DROSTE_SIEVE_FRACTAL_LAYER_INITIAL_INDEX_COMPUTATION_PARTIAL_POWER_SUM_TRANSLATION } from './constants'
-import { ComputeLayerInitialIndex } from './types'
+import { LayerIndex, Sieve } from '../../../types'
+import { DROSTE_SIEVE_FRACTAL_LAYER_INITIAL_INDEX_COMPUTATION_PARTIAL_POWER_SUM_SHIFT } from './constants'
 
-const computeLayerInitialIndex: ComputeLayerInitialIndex =
-    (sieve: Multiple<Ordinal>, layerCount: Cardinal, mode: HafuhafuMode): Ordinal<Ordinal> =>
+const computeLayerInitialIndex:
+    (sieve: Sieve, layerCount: Cardinal<Layer[]>, mode: HafuhafuMode) => Ordinal<LayerIndex[]> =
+    (sieve: Sieve, layerCount: Cardinal<Layer[]>, mode: HafuhafuMode): Ordinal<LayerIndex[]> =>
         mode === HafuhafuMode.DROSTE ?
-            as.Ordinal<Ordinal>(computePartialSumOfExponents(
-                as.Base(notAs.Multiple<Ordinal>(sieve)),
-                as.Exponent(notAs.Cardinal(use.Translation(
+            as.Ordinal<LayerIndex[]>(computePartialSumOfExponents(
+                as.Base(notAs.Multiple<LayerIndex>(sieve)),
+                as.Exponent(notAs.Cardinal(use.Cardinal(
                     layerCount,
-                    DROSTE_SIEVE_FRACTAL_LAYER_INITIAL_INDEX_COMPUTATION_PARTIAL_POWER_SUM_TRANSLATION,
+                    DROSTE_SIEVE_FRACTAL_LAYER_INITIAL_INDEX_COMPUTATION_PARTIAL_POWER_SUM_SHIFT,
                 ))),
             )) :
             INITIAL
 
 const computeSieveFractal:
-    (sieve: Multiple<Ordinal>, layerCount: Cardinal, mode: HafuhafuMode) => Ordinal[] =
-    (sieve: Multiple<Ordinal>, layerCount: Cardinal, mode: HafuhafuMode): Ordinal[] => {
-        if (layerCount === as.Cardinal(1)) {
+    (sieve: Sieve, layerCount: Cardinal<Layer[]>, mode: HafuhafuMode) => LayerIndex[] =
+    (sieve: Sieve, layerCount: Cardinal<Layer[]>, mode: HafuhafuMode): LayerIndex[] => {
+        if (layerCount === as.Cardinal<Layer[]>(1)) {
             return [ INITIAL ]
         }
 
-        const lowerLayerSieveFractal: Ordinal[] = computeSieveFractal(
+        const lowerLayerSieveFractal: LayerIndex[] = computeSieveFractal(
             sieve,
-            use.Translation(layerCount, DECREMENT),
+            use.Cardinal(layerCount, DECREMENT),
             mode,
         )
-        const incrementedSieveFractal: Ordinal[] = lowerLayerSieveFractal.map(
-            (sieveFractalElement: Ordinal) => use.Translation(sieveFractalElement, NEXT),
+        const incrementedSieveFractal: LayerIndex[] = lowerLayerSieveFractal.map(
+            (sieveFractalElement: LayerIndex) => use.Cardinal(sieveFractalElement, NEXT),
         )
 
-        const sieveFractal: Ordinal[] = repeat(incrementedSieveFractal, as.Cardinal(notAs.Multiple<Ordinal>(sieve)))
+        const sieveFractal: LayerIndex[] = repeat(
+            incrementedSieveFractal,
+            as.Cardinal<LayerIndex[]>(notAs.Multiple<LayerIndex>(sieve)),
+        )
 
         arraySet(sieveFractal, computeLayerInitialIndex(sieve, layerCount, mode), INITIAL)
 

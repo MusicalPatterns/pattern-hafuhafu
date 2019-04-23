@@ -1,5 +1,5 @@
-import { as, Cardinal, Ordinal } from '@musical-patterns/utilities'
-import { computeTotalIndices, HafuhafuMode } from '../../../../../src/indexForTest'
+import { as, Cardinal } from '@musical-patterns/utilities'
+import { computeTotalIndices, HafuhafuMode, Layer, LayerIndex } from '../../../../../src/indexForTest'
 
 describe('total indices', () => {
     describe('droste mode', () => {
@@ -7,90 +7,90 @@ describe('total indices', () => {
             `is the sieve to the power of the layer count minus 1 (how many times it layers on itself), \
 times the sieve fractal repetitions, plus 1 extra for realignment`,
             () => {
-                const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
-                    layerCount: as.Cardinal(4),
+                const totalIndices: Cardinal<LayerIndex[]> = computeTotalIndices({
+                    layerCount: as.Cardinal<Layer[]>(4),
                     mode: HafuhafuMode.DROSTE,
-                    sieve: as.Multiple<Ordinal>(2),
-                    sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(5),
+                    sieve: as.Multiple<LayerIndex>(2),
+                    sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(5),
                 })
 
                 expect(totalIndices)
-                    .toBe(as.Cardinal<Ordinal>(41))
+                    .toBe(as.Cardinal<LayerIndex[]>(41))
             },
         )
 
         it('another example', () => {
-            const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
-                layerCount: as.Cardinal(3),
+            const totalIndices: Cardinal<LayerIndex[]> = computeTotalIndices({
+                layerCount: as.Cardinal<Layer[]>(3),
                 mode: HafuhafuMode.DROSTE,
-                sieve: as.Multiple<Ordinal>(2),
-                sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(1),
+                sieve: as.Multiple<LayerIndex>(2),
+                sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(1),
             })
 
             expect(totalIndices)
-                .toBe(as.Cardinal<Ordinal>(5))
+                .toBe(as.Cardinal<LayerIndex[]>(5))
         })
 
         it('an example with high sieve fractal repetitions', () => {
-            const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
-                layerCount: as.Cardinal(3),
+            const totalIndices: Cardinal<LayerIndex[]> = computeTotalIndices({
+                layerCount: as.Cardinal<Layer[]>(3),
                 mode: HafuhafuMode.DROSTE,
-                sieve: as.Multiple<Ordinal>(2),
-                sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(31),
+                sieve: as.Multiple<LayerIndex>(2),
+                sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(31),
             })
 
             expect(totalIndices)
-                .toBe(as.Cardinal<Ordinal>(125)) // 2^(3-1) * 31 + 1
+                .toBe(as.Cardinal<LayerIndex[]>(125)) // 2^(3-1) * 31 + 1
         })
 
         it('an example with high layer count', () => {
-            const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
-                layerCount: as.Cardinal(11),
+            const totalIndices: Cardinal<LayerIndex[]> = computeTotalIndices({
+                layerCount: as.Cardinal<Layer[]>(11),
                 mode: HafuhafuMode.DROSTE,
-                sieve: as.Multiple<Ordinal>(2),
-                sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(4),
+                sieve: as.Multiple<LayerIndex>(2),
+                sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(4),
             })
 
             expect(totalIndices)
-                .toBe(as.Cardinal<Ordinal>(4097)) // 1024 * 4 + 1
+                .toBe(as.Cardinal<LayerIndex[]>(4097)) // 1024 * 4 + 1
         })
 
         it('an example with high sieve', () => {
-            const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
-                layerCount: as.Cardinal(3),
+            const totalIndices: Cardinal<LayerIndex[]> = computeTotalIndices({
+                layerCount: as.Cardinal<Layer[]>(3),
                 mode: HafuhafuMode.DROSTE,
-                sieve: as.Multiple<Ordinal>(7),
-                sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(4),
+                sieve: as.Multiple<LayerIndex>(7),
+                sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(4),
             })
 
             expect(totalIndices)
-                .toBe(as.Cardinal<Ordinal>(197)) // 49 * 4 + 1
+                .toBe(as.Cardinal<LayerIndex[]>(197)) // 49 * 4 + 1
         })
     })
 
     describe('zeno mode', () => {
         it('the length of the sieve fractal (sieve to the power one less than the layer count) times the sieve fractal repetitions,', () => {
-            const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
-                layerCount: as.Cardinal(2),
+            const totalIndices: Cardinal<LayerIndex[]> = computeTotalIndices({
+                layerCount: as.Cardinal<Layer[]>(2),
                 mode: HafuhafuMode.ZENO,
-                sieve: as.Multiple<Ordinal>(7),
-                sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(4),
+                sieve: as.Multiple<LayerIndex>(7),
+                sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(4),
             })
 
             expect(totalIndices)
-                .toBe(as.Cardinal<Ordinal>(28))
+                .toBe(as.Cardinal<LayerIndex[]>(28))
         })
 
         it('another example', () => {
-            const totalIndices: Cardinal<Ordinal> = computeTotalIndices({
-                layerCount: as.Cardinal(3),
+            const totalIndices: Cardinal<LayerIndex[]> = computeTotalIndices({
+                layerCount: as.Cardinal<Layer[]>(3),
                 mode: HafuhafuMode.ZENO,
-                sieve: as.Multiple<Ordinal>(3),
-                sieveFractalRepetitions: as.Multiple<Cardinal<Ordinal>>(1),
+                sieve: as.Multiple<LayerIndex>(3),
+                sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(1),
             })
 
             expect(totalIndices)
-                .toBe(as.Cardinal<Ordinal>(9))
+                .toBe(as.Cardinal<LayerIndex[]>(9))
         })
     })
 })

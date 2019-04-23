@@ -5,7 +5,7 @@ export { materializeEntities } from './entities'
 export { materializeScales } from './scales'
 export { computePitchScalars } from './scalars'
 export { computeWholes } from './wholes'
-export { computePieces } from './pieces'
+export { computePiece } from './pieces'
 
 export {
     computeLayerIndices,
