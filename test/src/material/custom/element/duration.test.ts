@@ -289,8 +289,8 @@ no matter the layer count`,
                     })
 
                     if (!isUndefined(previousIterationElementProgress)) {
-                        expect(notAs.NormalScalar(elementProgress))
-                            .toBeLessThan(notAs.NormalScalar(previousIterationElementProgress))
+                        expect(elementProgress)
+                            .toBeLessThanTyped(previousIterationElementProgress)
                     }
 
                     previousIterationElementProgress = elementProgress
@@ -314,9 +314,8 @@ no matter the layer count`,
                     if (!isUndefined(previousIterationElementProgress)) {
                         let iterationElementProgressDifference: Maybe<NormalScalar>
                         if (!isUndefined(previousIterationElementProgressDifference)) {
-                            iterationElementProgressDifference = difference(
-                                elementProgress,
-                                previousIterationElementProgress,
+                            iterationElementProgressDifference = as.NormalScalar(
+                                notAs.NormalScalar(elementProgress) - notAs.NormalScalar(previousIterationElementProgress),
                             )
                             expect(iterationElementProgressDifference)
                                 .toEqual(previousIterationElementProgressDifference)
@@ -398,9 +397,8 @@ no matter the layer count`,
                     if (!isUndefined(previousIterationElementProgress)) {
                         let iterationElementProgressDifference: Maybe<NormalScalar>
                         if (!isUndefined(previousIterationElementProgressDifference)) {
-                            iterationElementProgressDifference = difference(
-                                elementProgress,
-                                previousIterationElementProgress,
+                            iterationElementProgressDifference = as.NormalScalar(
+                                notAs.NormalScalar(elementProgress) - notAs.NormalScalar(previousIterationElementProgress),
                             )
                             expect(iterationElementProgressDifference)
                                 .toEqual(previousIterationElementProgressDifference)
