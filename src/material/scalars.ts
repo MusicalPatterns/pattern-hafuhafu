@@ -1,10 +1,10 @@
 import {
     as,
     Frequency,
-    Hz,
     Integer,
     Logarithm,
-    notAs, Pitch,
+    notAs,
+    Pitch,
     Scalar,
     use,
     ZERO_AND_POSITIVE_INTEGERS,

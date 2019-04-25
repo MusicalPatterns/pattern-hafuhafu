@@ -5,7 +5,6 @@ import {
     Block,
     Cardinal,
     DECREMENT,
-    difference,
     finalIndexFromElementsTotal,
     INCREMENT,
     INITIAL,
