@@ -1,4 +1,4 @@
-import { as, Frequency, Hz, Scalar } from '@musical-patterns/utilities'
+import { as, Frequency, Pitch, Scalar } from '@musical-patterns/utilities'
 import { computePitchScalars, HafuhafuSpecs, initialSpecs } from '../../../src/indexForTest'
 
 describe('scalars', () => {
@@ -8,9 +8,9 @@ describe('scalars', () => {
             pitchStep: as.Logarithm<Frequency>(3),
         }
 
-        const scalars: Array<Scalar<Hz>> = computePitchScalars(specs)
+        const pitchScalars: Array<Scalar<Pitch>> = computePitchScalars(specs)
 
-        expect(scalars)
+        expect(pitchScalars)
             .toBeCloseSoFar([
                 1,
                 3,
