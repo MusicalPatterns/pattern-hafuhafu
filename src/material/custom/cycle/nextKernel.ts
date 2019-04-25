@@ -46,7 +46,7 @@ const computeNextKernel: (parameters: {
                 const nextKernelIndex: Ordinal = use.IntegerModulus(
                     use.Cardinal(
                         use.Multiple(terminalKernelIndex, insteadOf<Multiple, Ordinal>(sieve)),
-                        as.Cardinal<Ordinal>(notAs.Multiple(use.Cardinal(sieve, DECREMENT))),
+                        as.Transition(notAs.Multiple(use.Cardinal(sieve, DECREMENT))),
                     ),
                     as.IntegerModulus<Ordinal>(notAs.Cardinal(kernelLength)),
                 )
@@ -67,7 +67,7 @@ const computeNextKernel: (parameters: {
                 .map((index: Ordinal) => {
                     const nextIndex: Ordinal = use.Cardinal(
                         use.Multiple(index, insteadOf<Multiple, Ordinal>(sieve)),
-                        as.Cardinal<Ordinal>(notAs.Cardinal(totalIndices)),
+                        as.Transition(notAs.Cardinal(totalIndices)),
                     )
 
                     return use.Ordinal(as.Cycle(previousKernel), nextIndex)
