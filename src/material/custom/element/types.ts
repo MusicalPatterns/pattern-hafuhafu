@@ -1,4 +1,4 @@
-import { Amplitude, Block, Cardinal, NormalScalar, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { Amplitude, Block, Cardinal, Ordinal, Scalar, UnitScalar } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { ExistenceStyle, HafuhafuMode } from '../../../spec'
 import { LayerIndex, Sieve } from '../../../types'
@@ -14,7 +14,7 @@ interface ComputeElementParameters {
     iterationKernel: Block,
     layerCount: Cardinal<Layer[]>,
     layerIndices: LayerIndex[],
-    layersProgresses: NormalScalar[][],
+    layersProgresses: UnitScalar[][],
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Sieve,
@@ -24,7 +24,7 @@ interface ComputeElementParameters {
 
 interface ComputePitchScalarParameters {
     layerCount: Cardinal<Layer[]>,
-    layerProgress: NormalScalar,
+    layerProgress: UnitScalar,
     mode: HafuhafuMode,
     sieve: Sieve,
     stretchPitch: boolean,
@@ -41,7 +41,7 @@ interface ComputeDurationParameters {
 
 interface ComputeGainParameters {
     existenceStyle: ExistenceStyle,
-    layerProgress: NormalScalar,
+    layerProgress: UnitScalar,
     mode: HafuhafuMode,
 }
 
@@ -58,7 +58,7 @@ interface ComputeSustainParameters {
 interface ComputeLayerProgressParameters {
     iterationIndex: Ordinal<Block>,
     layerIndices: LayerIndex[],
-    layersProgresses: NormalScalar[][],
+    layersProgresses: UnitScalar[][],
 }
 
 interface ComputeRandomDropGainParameters {

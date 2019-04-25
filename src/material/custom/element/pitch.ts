@@ -7,12 +7,12 @@ import {
     insteadOf,
     MULTIPLICATIVE_IDENTITY,
     negative,
-    NormalScalar,
     notAs,
     ONE_FEWER,
     ONE_HALF,
     Ordinal,
     Scalar,
+    UnitScalar,
     use,
     valueLinearlyBetweenValues,
 } from '@musical-patterns/utilities'
@@ -39,13 +39,13 @@ const computeDrostePitchScalarPower:
         return valueLinearlyBetweenValues(
             negative(maximumAbsolutePower),
             maximumAbsolutePower,
-            as.NormalScalar<Exponent>(notAs.Scalar(layerProgress)),
+            as.UnitScalar<Exponent>(notAs.Scalar(layerProgress)),
         )
     }
 
 const computePitchScalar: (parameters: {
     layerCount: Cardinal<Layer[]>,
-    layerProgress: NormalScalar,
+    layerProgress: UnitScalar,
     mode: HafuhafuMode,
     sieve: Sieve,
     stretchPitch: boolean,

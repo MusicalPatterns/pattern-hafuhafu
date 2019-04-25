@@ -6,11 +6,11 @@ import {
     INCREMENT,
     INITIAL,
     insteadOf,
-    NormalScalar,
     notAs,
     Ordinal,
     reciprocal,
     Scalar,
+    UnitScalar,
     use,
 } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
@@ -22,14 +22,14 @@ const computeLayerBegin: (parameters: {
     layerCount: Cardinal<Layer[]>,
     layerIndex: LayerIndex,
     mode: HafuhafuMode,
-}) => NormalScalar =
-    ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): NormalScalar => {
+}) => UnitScalar =
+    ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): UnitScalar => {
         if (layerCount === as.Cardinal<Layer[]>(1)) {
-            return as.NormalScalar(0)
+            return as.UnitScalar(0)
         }
 
         const activeLayerCount: Cardinal = use.Cardinal(layerCount, DECREMENT)
-        const layerStep: NormalScalar<Scalar> = as.NormalScalar<Scalar>(notAs.Translation(reciprocal(activeLayerCount)))
+        const layerStep: UnitScalar<Scalar> = as.UnitScalar<Scalar>(notAs.Translation(reciprocal(activeLayerCount)))
 
         const baseScalarFromIndex: Scalar = as.Scalar(notAs.Ordinal(
             mode === HafuhafuMode.DROSTE || layerIndex === insteadOf<Ordinal, Layer[]>(INITIAL) ?
@@ -37,17 +37,17 @@ const computeLayerBegin: (parameters: {
                 use.Cardinal(layerIndex, DECREMENT),
         ))
 
-        return as.NormalScalar(notAs.Scalar(use.NormalScalar(baseScalarFromIndex, layerStep)))
+        return as.UnitScalar(notAs.Scalar(use.UnitScalar(baseScalarFromIndex, layerStep)))
     }
 
 const computeLayerEnd: (parameters: {
     layerCount: Cardinal<Layer[]>,
     layerIndex: LayerIndex,
     mode: HafuhafuMode,
-}) => NormalScalar =
-    ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): NormalScalar =>
+}) => UnitScalar =
+    ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): UnitScalar =>
         layerIndex === finalIndexFromElementsTotal(layerCount) ?
-            as.NormalScalar(1) :
+            as.UnitScalar(1) :
             computeLayerBegin({ layerCount, layerIndex: use.Cardinal(layerIndex, INCREMENT), mode })
 
 export {
