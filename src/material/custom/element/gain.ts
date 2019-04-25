@@ -1,7 +1,7 @@
 import { FULL_GAIN, SILENT } from '@musical-patterns/material'
 import {
-    Amplitude,
     as,
+    Gain,
     invertUnitScalar,
     notAs,
     random,
@@ -19,11 +19,11 @@ import {
 import { ComputeGainParameters, ComputeRandomDropGainParameters } from './types'
 
 const computeRandomDropGain: (parameters: {
-    fadingGain: Scalar<Amplitude>,
+    fadingGain: Scalar<Gain>,
     randomizingFunction: (within?: number) => number,
-}) => Scalar<Amplitude> =
-    ({ fadingGain, randomizingFunction }: ComputeRandomDropGainParameters): Scalar<Amplitude> =>
-        randomizingFunction() < notAs.Scalar<Amplitude>(fadingGain) ?
+}) => Scalar<Gain> =
+    ({ fadingGain, randomizingFunction }: ComputeRandomDropGainParameters): Scalar<Gain> =>
+        randomizingFunction() < notAs.Scalar<Gain>(fadingGain) ?
             FULL_GAIN :
             SILENT
 
@@ -44,9 +44,9 @@ const transformProgressToUseItForSecondHalf: (elementProgress: UnitScalar) => Un
             DOUBLE_THE_PROGRESS_AS_A_HACK_TO_MAKE_IT_WORK_FOR_HALF_AN_ITERATION,
         )))
 
-const computeGain: (parameters: ComputeGainParameters) => Scalar<Amplitude> =
-    ({ existenceStyle, layerProgress, mode }: ComputeGainParameters): Scalar<Amplitude> => {
-        const fadingGain: Scalar<Amplitude> = as.Scalar<Amplitude>(
+const computeGain: (parameters: ComputeGainParameters) => Scalar<Gain> =
+    ({ existenceStyle, layerProgress, mode }: ComputeGainParameters): Scalar<Gain> => {
+        const fadingGain: Scalar<Gain> = as.Scalar<Gain>(
             mode === HafuhafuMode.ZENO ?
                 notAs.UnitScalar(invertUnitScalar(layerProgress)) :
                 layerProgress < HALFWAY_THROUGH ?

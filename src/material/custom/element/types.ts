@@ -1,4 +1,4 @@
-import { Amplitude, Block, Cardinal, Ordinal, Scalar, UnitScalar } from '@musical-patterns/utilities'
+import { Block, Cardinal, Gain, Ordinal, Scalar, UnitScalar } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { ExistenceStyle, HafuhafuMode } from '../../../spec'
 import { LayerIndex, Sieve } from '../../../types'
@@ -62,7 +62,7 @@ interface ComputeLayerProgressParameters {
 }
 
 interface ComputeRandomDropGainParameters {
-    fadingGain: Scalar<Amplitude>,
+    fadingGain: Scalar<Gain>,
     randomizingFunction: (within?: number) => number
 }
 

@@ -1,7 +1,7 @@
 // tslint:disable no-duplicate-string
 
 import { Note, NoteFeature, PitchDurationGainSustainScale, Scale } from '@musical-patterns/material'
-import { Amplitude, as, Duration, Pitch, Scalar } from '@musical-patterns/utilities'
+import { as, Duration, Gain, Pitch, Scalar } from '@musical-patterns/utilities'
 import { computeNote } from '../../../src/indexForTest'
 
 describe('features', () => {
@@ -29,14 +29,14 @@ describe('features', () => {
         })
 
         describe('gain', () => {
-            let gain: NoteFeature<Amplitude>
+            let gain: NoteFeature<Gain>
             beforeEach(() => {
                 gain = note.gain || {}
             })
 
             it('uses the gain parameter as the scalar', () => {
                 expect(gain.scalar)
-                    .toBe(as.Scalar<Amplitude>(2))
+                    .toBe(as.Scalar<Gain>(2))
             })
         })
 
@@ -87,14 +87,14 @@ describe('features', () => {
         })
 
         describe('gain', () => {
-            let gain: NoteFeature<Amplitude>
+            let gain: NoteFeature<Gain>
             beforeEach(() => {
                 gain = note.gain || {}
             })
 
             it('uses the gain parameter as the scalar', () => {
                 expect(gain.scalar)
-                    .toBe(as.Scalar<Amplitude>(1.5))
+                    .toBe(as.Scalar<Gain>(1.5))
             })
         })
 
@@ -145,14 +145,14 @@ describe('features', () => {
         })
 
         describe('gain', () => {
-            let gain: NoteFeature<Amplitude>
+            let gain: NoteFeature<Gain>
             beforeEach(() => {
                 gain = note.gain || {}
             })
 
             it('has no gain', () => {
                 expect(gain.scalar)
-                    .toBe(as.Scalar<Amplitude>(0))
+                    .toBe(as.Scalar<Gain>(0))
             })
         })
     })

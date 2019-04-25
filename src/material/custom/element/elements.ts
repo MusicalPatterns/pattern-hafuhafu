@@ -1,11 +1,11 @@
 import { PitchDurationGainSustainScale } from '@musical-patterns/material'
 import {
-    Amplitude,
     as,
     Block,
     Cardinal,
     ContourElement,
     Frequency,
+    Gain,
     insteadOf,
     notAs,
     Ordinal,
@@ -77,7 +77,7 @@ const computeElement: (parameters: {
             computePitchIndex({ iterationIndex, iterationKernel })
         const duration: Scalar<Time> =
             computeDuration({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices })
-        const gain: Scalar<Amplitude> =
+        const gain: Scalar<Gain> =
             computeGain({ existenceStyle, layerProgress, mode })
         const sustain: Scalar<Time> =
             computeSustain({ sieve })
@@ -87,7 +87,7 @@ const computeElement: (parameters: {
         return as.ContourElement<PitchDurationGainSustainScale>([
             notAs.Ordinal(pitchIndex),
             notAs.Scalar<Time>(duration),
-            notAs.Scalar<Amplitude>(gain),
+            notAs.Scalar<Gain>(gain),
             notAs.Scalar<Time>(sustain),
             notAs.Scalar<Frequency>(pitchScalar),
         ])

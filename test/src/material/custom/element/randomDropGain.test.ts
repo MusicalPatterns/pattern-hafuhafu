@@ -1,6 +1,6 @@
 import Spy = jasmine.Spy
 import { FULL_GAIN, SILENT } from '@musical-patterns/material'
-import { Amplitude, as, Scalar } from '@musical-patterns/utilities'
+import { as, Gain, Scalar } from '@musical-patterns/utilities'
 import { computeRandomDropGain } from '../../../../../src/indexForTest'
 
 describe('random drop grain', () => {
@@ -9,8 +9,8 @@ describe('random drop grain', () => {
         const randomSpy: Spy = jasmine.createSpy()
         randomSpy.and.returnValue(ARBITRARY_NUMBER_RANDOM_MIGHT_HAVE_GENERATED)
 
-        const fadingGainWhichIsTooWeakToBeatTheRandomSieveThisTime: Scalar<Amplitude> = as.Scalar<Amplitude>(0.2)
-        const randomDropGain: Scalar<Amplitude> = computeRandomDropGain({
+        const fadingGainWhichIsTooWeakToBeatTheRandomSieveThisTime: Scalar<Gain> = as.Scalar<Gain>(0.2)
+        const randomDropGain: Scalar<Gain> = computeRandomDropGain({
             fadingGain: fadingGainWhichIsTooWeakToBeatTheRandomSieveThisTime,
             randomizingFunction: randomSpy,
         })
@@ -23,8 +23,8 @@ describe('random drop grain', () => {
         const randomSpy: Spy = jasmine.createSpy()
         randomSpy.and.returnValue(ARBITRARY_NUMBER_RANDOM_MIGHT_HAVE_GENERATED)
 
-        const fadingGainWhichIsStrongEnoughToBeatTheRandomSieveThisTime: Scalar<Amplitude> = as.Scalar<Amplitude>(0.6)
-        const randomDropGain: Scalar<Amplitude> = computeRandomDropGain({
+        const fadingGainWhichIsStrongEnoughToBeatTheRandomSieveThisTime: Scalar<Gain> = as.Scalar<Gain>(0.6)
+        const randomDropGain: Scalar<Gain> = computeRandomDropGain({
             fadingGain: fadingGainWhichIsStrongEnoughToBeatTheRandomSieveThisTime,
             randomizingFunction: randomSpy,
         })
