@@ -1,6 +1,6 @@
 import { STANDARD_PITCH_INDEX_INDICATING_REST } from '@musical-patterns/material'
 import { InputType, RangedInputType, standardConfigurations } from '@musical-patterns/spec'
-import { notAs, Scalar } from '@musical-patterns/utilities'
+import { as } from '@musical-patterns/utilities'
 import { optionedConstraints, rangedConstraints } from './constraints'
 import { specsOrder } from './orders'
 import { HafuhafuConfigurations, HafuhafuSpec } from './types'
@@ -32,7 +32,7 @@ iteration to complete`,
         arrayedConstraint: {
             minLength: 1,
         },
-        arrayedNewFieldInitialValue: notAs.Ordinal<Scalar[]>(STANDARD_PITCH_INDEX_INDICATING_REST),
+        arrayedNewFieldInitialValue: as.number(STANDARD_PITCH_INDEX_INDICATING_REST),
         constraint: rangedConstraints[ HafuhafuSpec.SOURCE_KERNEL ],
         description: 'a pattern of pitches to cycle (use -1 for a rest)',
         hideInput: RangedInputType.RANGE,

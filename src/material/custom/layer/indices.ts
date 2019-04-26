@@ -8,7 +8,7 @@ import {
     insteadOf,
     Integer,
     NO_SHIFT,
-    notAs,
+
     Ordinal,
     slice,
     use,
@@ -53,7 +53,7 @@ const computeLayerIndices: (parameters: {
         slice(
             zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
             INITIAL,
-            as.Ordinal<Integer[]>(notAs.Cardinal(totalIndices)),
+            as.Ordinal<Integer[]>(as.number(totalIndices)),
         )
             .map((integer: Integer) => as.Ordinal<Block>(integer))
             .map((iterationIndex: Ordinal<Block>) =>

@@ -3,7 +3,7 @@ import {
     Cardinal,
     INITIAL,
     Integer,
-    notAs,
+
     Scalar,
     slice,
     Time,
@@ -72,7 +72,7 @@ const computeLayersProgresses: (parameters: {
         return slice(
             ZERO_AND_POSITIVE_INTEGERS,
             INITIAL,
-            as.Ordinal<Integer[]>(notAs.Cardinal(layerCount)),
+            as.Ordinal<Integer[]>(as.number(layerCount)),
         )
             .map((integer: Integer) => as.Ordinal<Layer[]>(integer))
             .map((layerIndex: LayerIndex) => computeLayerProgresses({

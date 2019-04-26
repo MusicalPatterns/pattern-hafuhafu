@@ -6,7 +6,7 @@ import {
     INITIAL,
     insteadOf,
     Integer,
-    notAs,
+
     Ordinal,
     quotient,
     Scalar,
@@ -47,11 +47,11 @@ const computeDurationProgress: (parameters: {
         const duration: Scalar<Time> =
             computeDuration({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices })
         const currentDurationProgress: UnitScalar<UnitScalar> =
-            as.UnitScalar<UnitScalar>(notAs.Scalar<Time>(quotient(duration, totalDuration)))
+            as.UnitScalar<UnitScalar>(as.number(quotient(duration, totalDuration)))
 
         return as.UnitScalar<UnitScalar>(use.Translation(
-            notAs.UnitScalar(durationProgress),
-            as.Translation(notAs.UnitScalar(currentDurationProgress)),
+            as.number(durationProgress),
+            as.Translation(as.number(currentDurationProgress)),
         ))
     }
 

@@ -1,4 +1,4 @@
-import { as, Cardinal, DECREMENT, NO_SHIFT, notAs, use } from '@musical-patterns/utilities'
+import { as, Cardinal, DECREMENT, NO_SHIFT,  use } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { LayerIndex, Sieve, SieveFractalRepetitions } from '../../../types'
@@ -7,9 +7,9 @@ import { ComputeTotalIndicesParameters } from './types'
 
 const computeSieveFractalLength: (sieve: Sieve, layerCount: Cardinal<Layer[]>) => Cardinal<LayerIndex[]> =
     (sieve: Sieve, layerCount: Cardinal<Layer[]>): Cardinal<LayerIndex[]> =>
-        as.Cardinal<LayerIndex[]>(notAs.Multiple(use.Power(
+        as.Cardinal<LayerIndex[]>(as.number(use.Power(
             sieve,
-            as.Power<Sieve>(notAs.Cardinal(use.Cardinal(layerCount, DECREMENT))),
+            as.Power<Sieve>(as.number(use.Cardinal(layerCount, DECREMENT))),
         )))
 
 const computeIterationLength: (

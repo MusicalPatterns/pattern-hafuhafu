@@ -7,7 +7,7 @@ import {
     insteadOf,
     MULTIPLICATIVE_IDENTITY,
     negative,
-    notAs,
+
     ONE_FEWER,
     ONE_HALF,
     Ordinal,
@@ -31,7 +31,7 @@ const computePitchIndex: (parameters: { iterationIndex: Ordinal<Block>, iteratio
 const computeDrostePitchScalarPower:
     (activeLayerCount: Cardinal<Layer[]>, layerProgress: Scalar) => Exponent =
     (activeLayerCount: Cardinal<Layer[]>, layerProgress: Scalar): Exponent => {
-        const maximumAbsolutePower: Exponent = as.Exponent(notAs.Cardinal(use.Scalar(
+        const maximumAbsolutePower: Exponent = as.Exponent(as.number(use.Scalar(
             activeLayerCount,
             ONE_HALF,
         )))
@@ -39,7 +39,7 @@ const computeDrostePitchScalarPower:
         return valueLinearlyBetweenValues(
             negative(maximumAbsolutePower),
             maximumAbsolutePower,
-            as.UnitScalar<Exponent>(notAs.Scalar(layerProgress)),
+            as.UnitScalar<Exponent>(as.number(layerProgress)),
         )
     }
 
@@ -56,13 +56,13 @@ const computePitchScalar: (parameters: {
         }
 
         const activeLayerCount: Cardinal<Layer[]> = use.Cardinal(layerCount, ONE_FEWER)
-        const layerScalar: Scalar<Scalar> = as.Scalar<Scalar>(notAs.Cardinal(activeLayerCount))
+        const layerScalar: Scalar<Scalar> = as.Scalar<Scalar>(as.number(activeLayerCount))
         const pitchScalarPower: Exponent = mode === HafuhafuMode.DROSTE ?
             computeDrostePitchScalarPower(activeLayerCount, layerProgress) :
-            as.Exponent(notAs.Scalar(use.Scalar(layerProgress, layerScalar)))
+            as.Exponent(as.number(use.Scalar(layerProgress, layerScalar)))
 
         return as.Scalar<Frequency>(use.Exponent(
-            notAs.Multiple<LayerIndex>(sieve),
+            as.number(sieve),
             pitchScalarPower,
         ))
     }

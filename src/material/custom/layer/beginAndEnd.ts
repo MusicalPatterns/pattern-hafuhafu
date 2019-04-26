@@ -6,7 +6,7 @@ import {
     INCREMENT,
     INITIAL,
     insteadOf,
-    notAs,
+
     Ordinal,
     reciprocal,
     Scalar,
@@ -29,15 +29,15 @@ const computeLayerBegin: (parameters: {
         }
 
         const activeLayerCount: Cardinal = use.Cardinal(layerCount, DECREMENT)
-        const layerStep: UnitScalar<Scalar> = as.UnitScalar<Scalar>(notAs.Translation(reciprocal(activeLayerCount)))
+        const layerStep: UnitScalar<Scalar> = as.UnitScalar<Scalar>(as.number(reciprocal(activeLayerCount)))
 
-        const baseScalarFromIndex: Scalar = as.Scalar(notAs.Ordinal(
+        const baseScalarFromIndex: Scalar = as.Scalar(as.number(
             mode === HafuhafuMode.DROSTE || layerIndex === insteadOf<Ordinal, Layer[]>(INITIAL) ?
                 layerIndex :
                 use.Cardinal(layerIndex, DECREMENT),
         ))
 
-        return as.UnitScalar(notAs.Scalar(use.UnitScalar(baseScalarFromIndex, layerStep)))
+        return as.UnitScalar(as.number(use.UnitScalar(baseScalarFromIndex, layerStep)))
     }
 
 const computeLayerEnd: (parameters: {

@@ -2,7 +2,7 @@ import { computeNominalInterface, DUMMY_VALUE_FOR_COMPUTING_NOMINAL_INTERFACE } 
 
 type Layer = Number & { _NominalBrand: 'Layer' }
 
-const { as, notAs, of } = computeNominalInterface({
+const { as } = computeNominalInterface({
     number: {
         Layer: DUMMY_VALUE_FOR_COMPUTING_NOMINAL_INTERFACE as Layer,
     },
@@ -10,7 +10,5 @@ const { as, notAs, of } = computeNominalInterface({
 
 export {
     as,
-    notAs,
-    of,
     Layer,
 }

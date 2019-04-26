@@ -15,7 +15,7 @@ import {
     indexOfFinalElement,
     INITIAL,
     length,
-    notAs,
+
     oddElements,
     Ordinal,
     slice,
@@ -112,7 +112,7 @@ describe('compute piece', () => {
                         piece,
                         ([ pitchIndex, duration, gain, sustain, pitchScalar ]: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourPiece<PitchDurationGainSustainScale>>) => {
                             expect(pitchIndex)
-                                .toBe(iterationKernel[ notAs.Ordinal(index) % iterationKernel.length ])
+                                .toBe(iterationKernel[ as.number(index) % iterationKernel.length ])
                         },
                     )
                 })
@@ -251,7 +251,7 @@ describe('compute piece', () => {
                         piece,
                         ([ pitchIndex, duration, gain, sustain, pitchScalar ]: ContourElement<PitchDurationGainSustainScale>, index: Ordinal<ContourPiece<PitchDurationGainSustainScale>>) => {
                             expect(pitchIndex)
-                                .toBe(iterationKernel[ notAs.Ordinal(index) % iterationKernel.length ])
+                                .toBe(iterationKernel[ as.number(index) % iterationKernel.length ])
                         },
                     )
                 })

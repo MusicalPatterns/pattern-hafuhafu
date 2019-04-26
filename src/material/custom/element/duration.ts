@@ -5,7 +5,7 @@ import {
     INCREMENT,
     insteadOf,
     invertUnitScalar,
-    notAs,
+
     Ordinal,
     quotient,
     reciprocal,
@@ -25,10 +25,10 @@ const computeElementProgress: (parameters: {
     totalIndices: Cardinal<LayerIndex[]>,
 }) => UnitScalar =
     ({ iterationIndex, reverse, totalIndices }: ComputeElementProgressParameters): UnitScalar => {
-        const rawTotalIndices: number = notAs.Cardinal<LayerIndex[]>(totalIndices)
+        const rawTotalIndices: number = as.number(totalIndices)
 
         if (!reverse) {
-            return as.UnitScalar(quotient(notAs.Ordinal(iterationIndex), rawTotalIndices))
+            return as.UnitScalar(quotient(as.number(iterationIndex), rawTotalIndices))
         }
 
         const indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote: Ordinal<Block> = use.IntegerModulus(
@@ -37,7 +37,7 @@ const computeElementProgress: (parameters: {
         )
 
         return invertUnitScalar(as.UnitScalar(quotient(
-            notAs.Ordinal(indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote),
+            as.number(indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote),
             rawTotalIndices,
         )))
     }
@@ -57,8 +57,8 @@ const computeDuration: (parameters: {
             as.Scalar<Time>(1) :
             as.Scalar<Time>(use.Scalar(
                 use.Exponent(
-                    notAs.Multiple<LayerIndex>(sieve),
-                    as.Exponent(notAs.UnitScalar(invertUnitScalar(elementProgress))),
+                    as.number(sieve),
+                    as.Exponent(as.number(invertUnitScalar(elementProgress))),
                 ),
                 insteadOf<Scalar>(reciprocal(sieve)),
             ))

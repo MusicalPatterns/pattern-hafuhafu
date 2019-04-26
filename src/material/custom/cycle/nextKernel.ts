@@ -13,7 +13,7 @@ import {
     Multiple,
     negative,
     NEXT,
-    notAs,
+
     Ordinal,
     slice,
     use,
@@ -46,9 +46,9 @@ const computeNextKernel: (parameters: {
                 const nextKernelIndex: Ordinal = use.IntegerModulus(
                     use.Transition(
                         use.Multiple(terminalKernelIndex, insteadOf<Multiple, Ordinal>(sieve)),
-                        as.Transition(notAs.Multiple(use.Cardinal(sieve, DECREMENT))),
+                        as.Transition(as.number(use.Cardinal(sieve, DECREMENT))),
                     ),
-                    as.IntegerModulus<Ordinal>(notAs.Cardinal(kernelLength)),
+                    as.IntegerModulus<Ordinal>(as.number(kernelLength)),
                 )
 
                 arraySet(nextKernel, nextKernelIndex, use.Ordinal(terminalKernel, terminalKernelIndex))
@@ -67,7 +67,7 @@ const computeNextKernel: (parameters: {
                 .map((index: Ordinal) => {
                     const nextIndex: Ordinal = use.Transition(
                         use.Multiple(index, insteadOf<Multiple, Ordinal>(sieve)),
-                        as.Transition(notAs.Cardinal(totalIndices)),
+                        as.Transition(as.number(totalIndices)),
                     )
 
                     return use.Ordinal(as.Cycle(previousKernel), nextIndex)

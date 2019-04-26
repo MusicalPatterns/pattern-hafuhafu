@@ -6,7 +6,7 @@ import {
     ContourPiece,
     INITIAL,
     Integer,
-    notAs,
+
     Ordinal,
     slice,
     UnitScalar,
@@ -37,7 +37,7 @@ const computePiece:
             slice(
                 zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
                 INITIAL,
-                as.Ordinal<Integer[]>(notAs.Cardinal(totalIndices)),
+                as.Ordinal<Integer[]>(as.number(totalIndices)),
             )
                 .map((integer: Integer) => as.Ordinal<Block>(integer))
                 .map((iterationIndex: Ordinal<Block>) =>

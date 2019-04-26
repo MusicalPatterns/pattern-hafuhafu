@@ -7,7 +7,7 @@ import {
     Frequency,
     Gain,
     insteadOf,
-    notAs,
+
     Ordinal,
     Scalar,
     Time,
@@ -85,11 +85,11 @@ const computeElement: (parameters: {
             computePitchScalar({ layerCount, layerProgress, mode, sieve, stretchPitch })
 
         return as.ContourElement<PitchDurationGainSustainScale>([
-            notAs.Ordinal(pitchIndex),
-            notAs.Scalar<Time>(duration),
-            notAs.Scalar<Gain>(gain),
-            notAs.Scalar<Time>(sustain),
-            notAs.Scalar<Frequency>(pitchScalar),
+            as.number(pitchIndex),
+            as.number(duration),
+            as.number(gain),
+            as.number(sustain),
+            as.number(pitchScalar),
         ])
     }
 

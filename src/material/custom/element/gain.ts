@@ -3,7 +3,7 @@ import {
     as,
     Gain,
     invertUnitScalar,
-    notAs,
+
     random,
     Scalar,
     UnitScalar,
@@ -23,20 +23,20 @@ const computeRandomDropGain: (parameters: {
     randomizingFunction: (within?: number) => number,
 }) => Scalar<Gain> =
     ({ fadingGain, randomizingFunction }: ComputeRandomDropGainParameters): Scalar<Gain> =>
-        randomizingFunction() < notAs.Scalar<Gain>(fadingGain) ?
+        randomizingFunction() < as.number(fadingGain) ?
             FULL_GAIN :
             SILENT
 
 const transformProgressToUseItForFirstHalf: (elementProgress: UnitScalar) => UnitScalar =
     (elementProgress: UnitScalar): UnitScalar =>
-        as.UnitScalar(notAs.Scalar(use.Multiple(
-            as.Scalar(notAs.UnitScalar(elementProgress)),
+        as.UnitScalar(as.number(use.Multiple(
+            as.Scalar(as.number(elementProgress)),
             DOUBLE_THE_PROGRESS_AS_A_HACK_TO_MAKE_IT_WORK_FOR_HALF_AN_ITERATION,
         )))
 
 const transformProgressToUseItForSecondHalf: (elementProgress: UnitScalar) => UnitScalar =
     (elementProgress: UnitScalar): UnitScalar =>
-        as.UnitScalar(notAs.Scalar(use.Multiple(
+        as.UnitScalar(as.number(use.Multiple(
             use.Translation(
                 elementProgress,
                 CONSIDER_ONLY_THE_SECOND_HALF_OF_THE_PROGRESS,
@@ -48,7 +48,7 @@ const computeGain: (parameters: ComputeGainParameters) => Scalar<Gain> =
     ({ existenceStyle, layerProgress, mode }: ComputeGainParameters): Scalar<Gain> => {
         const fadingGain: Scalar<Gain> = as.Scalar<Gain>(
             mode === HafuhafuMode.ZENO ?
-                notAs.UnitScalar(invertUnitScalar(layerProgress)) :
+                as.number(invertUnitScalar(layerProgress)) :
                 layerProgress < HALFWAY_THROUGH ?
                     valueLinearlyBetweenValues(0, 1, transformProgressToUseItForFirstHalf(layerProgress)) :
                     valueLinearlyBetweenValues(1, 0, transformProgressToUseItForSecondHalf(layerProgress)),

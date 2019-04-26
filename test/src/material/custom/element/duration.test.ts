@@ -11,7 +11,7 @@ import {
     insteadOf,
     isUndefined,
     Maybe,
-    notAs,
+
     Ordinal,
     Scalar,
     Time,
@@ -211,7 +211,7 @@ no matter the layer count`,
             })
 
             expect(elementProgress)
-                .toBe(as.UnitScalar(1 - (1 / notAs.Cardinal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
+                .toBe(as.UnitScalar(1 - (1 / as.number(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
         })
 
         it('each element progress result is greater than the one before it', () => {
@@ -249,7 +249,7 @@ no matter the layer count`,
                 })
 
                 expect(elementProgress)
-                    .toBe(as.UnitScalar(1 - (1 / notAs.Cardinal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
+                    .toBe(as.UnitScalar(1 - (1 / as.number(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
             })
 
             it('the penultimate element in the iteration has element progress almost 0 (the next one would be 0)', () => {
@@ -259,8 +259,8 @@ no matter the layer count`,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 })
 
-                expect(notAs.UnitScalar(elementProgress))
-                    .toBeCloseTo(1 / notAs.Cardinal(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
+                expect(as.number(elementProgress))
+                    .toBeCloseTo(1 / as.number(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
             })
 
             it('the final element in the iteration has element progress 1 (because it has been cycled by one element to account for how durations are on the other side of their notes when they are reversed', () => {
@@ -314,7 +314,7 @@ no matter the layer count`,
                         let iterationElementProgressDifference: Maybe<UnitScalar>
                         if (!isUndefined(previousIterationElementProgressDifference)) {
                             iterationElementProgressDifference = as.UnitScalar(
-                                notAs.UnitScalar(elementProgress) - notAs.UnitScalar(previousIterationElementProgress),
+                                as.number(elementProgress) - as.number(previousIterationElementProgress),
                             )
                             expect(iterationElementProgressDifference)
                                 .toEqual(previousIterationElementProgressDifference)
@@ -353,7 +353,7 @@ no matter the layer count`,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 })
 
-                expect(notAs.UnitScalar(elementProgress))
+                expect(as.number(elementProgress))
                     .toBeCloseTo(1, VERY_LOW_PRECISION)
             })
 
@@ -397,7 +397,7 @@ no matter the layer count`,
                         let iterationElementProgressDifference: Maybe<UnitScalar>
                         if (!isUndefined(previousIterationElementProgressDifference)) {
                             iterationElementProgressDifference = as.UnitScalar(
-                                notAs.UnitScalar(elementProgress) - notAs.UnitScalar(previousIterationElementProgress),
+                                as.number(elementProgress) - as.number(previousIterationElementProgress),
                             )
                             expect(iterationElementProgressDifference)
                                 .toEqual(previousIterationElementProgressDifference)
