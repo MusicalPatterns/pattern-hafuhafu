@@ -31,9 +31,9 @@ const computeElementProgress: (parameters: {
             return as.NormalScalar(quotient(as.number(iterationIndex), rawTotalIndices))
         }
 
-        const indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote: Ordinal<Block> = use.IntegerModulus(
+        const indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote: Ordinal<Block> = use.Remaindee(
             use.Cardinal(iterationIndex, INCREMENT),
-            as.IntegerModulus<Ordinal<Block>>(rawTotalIndices),
+            as.Remaindee<Ordinal<Block>>(rawTotalIndices),
         )
 
         return invertNormalScalar(as.NormalScalar(quotient(

@@ -43,12 +43,12 @@ const computeNextKernel: (parameters: {
                 terminalKernelIndex < indexJustBeyondFinalElementFromElementsTotal(kernelLength);
                 terminalKernelIndex = use.Cardinal(terminalKernelIndex, NEXT)
             ) {
-                const nextKernelIndex: Ordinal = use.IntegerModulus(
+                const nextKernelIndex: Ordinal = use.Remaindee(
                     use.Transition(
                         use.Multiple(terminalKernelIndex, insteadOf<Multiple, Ordinal>(sieve)),
                         as.Transition(as.number(use.Cardinal(sieve, DECREMENT))),
                     ),
-                    as.IntegerModulus<Ordinal>(as.number(kernelLength)),
+                    as.Remaindee<Ordinal>(as.number(kernelLength)),
                 )
 
                 arraySet(nextKernel, nextKernelIndex, use.Ordinal(terminalKernel, terminalKernelIndex))
