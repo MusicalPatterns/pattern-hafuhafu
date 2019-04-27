@@ -4,10 +4,10 @@ import {
     INITIAL,
     Integer,
 
+    NormalScalar,
     Scalar,
     slice,
     Time,
-    UnitScalar,
     valueLinearlyBetweenValues,
     ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
@@ -27,7 +27,7 @@ const computeLayerProgresses: (parameters: {
     sieve: Sieve,
     totalDuration: Scalar<Time>,
     totalIndices: Cardinal<LayerIndex[]>,
-}) => UnitScalar[] =
+}) => NormalScalar[] =
     (
         {
             layerCount,
@@ -38,11 +38,11 @@ const computeLayerProgresses: (parameters: {
             totalDuration,
             totalIndices,
         }: ComputeLayerProgressesParameters,
-    ): UnitScalar[] => {
-        const begin: UnitScalar = computeLayerBegin({ layerCount, layerIndex, mode })
-        const end: UnitScalar = computeLayerEnd({ layerCount, layerIndex, mode })
+    ): NormalScalar[] => {
+        const begin: NormalScalar = computeLayerBegin({ layerCount, layerIndex, mode })
+        const end: NormalScalar = computeLayerEnd({ layerCount, layerIndex, mode })
 
-        const durationProgresses: Array<UnitScalar<UnitScalar>> = computeDurationProgresses({
+        const durationProgresses: Array<NormalScalar<NormalScalar>> = computeDurationProgresses({
             layerCount,
             mode,
             reverse,
@@ -51,7 +51,7 @@ const computeLayerProgresses: (parameters: {
             totalIndices,
         })
 
-        return durationProgresses.map((durationProgress: UnitScalar<UnitScalar>) =>
+        return durationProgresses.map((durationProgress: NormalScalar<NormalScalar>) =>
             valueLinearlyBetweenValues(
                 reverse ? end : begin,
                 reverse ? begin : end,
@@ -65,8 +65,8 @@ const computeLayersProgresses: (parameters: {
     reverse: boolean,
     sieve: Sieve,
     totalIndices: Cardinal<LayerIndex[]>,
-}) => UnitScalar[][] =
-    ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): UnitScalar[][] => {
+}) => NormalScalar[][] =
+    ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): NormalScalar[][] => {
         const totalDuration: Scalar<Time> = computeTotalDuration({ layerCount, mode, reverse, sieve, totalIndices })
 
         return slice(

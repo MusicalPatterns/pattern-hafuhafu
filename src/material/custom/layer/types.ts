@@ -1,4 +1,4 @@
-import { Block, Cardinal, Ordinal, Scalar, Time, UnitScalar } from '@musical-patterns/utilities'
+import { Block, Cardinal, NormalScalar, Ordinal, Scalar, Time } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { LayerIndex, Sieve } from '../../../types'
@@ -16,7 +16,7 @@ interface ComputeDurationProgressesParameters extends LayerParameters {
 }
 
 interface ComputeDurationProgressParameters extends ComputeDurationProgressesParameters {
-    durationProgress: UnitScalar<UnitScalar>,
+    durationProgress: NormalScalar<NormalScalar>,
     iterationIndex: Ordinal<Block>,
 }
 

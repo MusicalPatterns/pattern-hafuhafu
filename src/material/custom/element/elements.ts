@@ -8,10 +8,10 @@ import {
     Gain,
     insteadOf,
 
+    NormalScalar,
     Ordinal,
     Scalar,
     Time,
-    UnitScalar,
     use,
 } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
@@ -26,9 +26,9 @@ import { ComputeElementParameters, ComputeLayerProgressParameters } from './type
 const computeLayerProgress: (parameters: {
     iterationIndex: Ordinal<Block>,
     layerIndices: LayerIndex[],
-    layersProgresses: UnitScalar[][],
-}) => UnitScalar =
-    ({ layerIndices, iterationIndex, layersProgresses }: ComputeLayerProgressParameters): UnitScalar => {
+    layersProgresses: NormalScalar[][],
+}) => NormalScalar =
+    ({ layerIndices, iterationIndex, layersProgresses }: ComputeLayerProgressParameters): NormalScalar => {
         const layerIndex: LayerIndex = insteadOf<Ordinal, Layer[]>(use.Ordinal(
             layerIndices,
             insteadOf<Ordinal, LayerIndex[]>(iterationIndex)),
@@ -37,9 +37,9 @@ const computeLayerProgress: (parameters: {
         return use.Ordinal(
             use.Ordinal(
                 layersProgresses,
-                insteadOf<Ordinal, UnitScalar[][]>(layerIndex),
+                insteadOf<Ordinal, NormalScalar[][]>(layerIndex),
             ),
-            insteadOf<Ordinal, UnitScalar[]>(iterationIndex),
+            insteadOf<Ordinal, NormalScalar[]>(iterationIndex),
         )
     }
 
@@ -49,7 +49,7 @@ const computeElement: (parameters: {
     iterationKernel: Block,
     layerCount: Cardinal<Layer[]>,
     layerIndices: LayerIndex[],
-    layersProgresses: UnitScalar[][],
+    layersProgresses: NormalScalar[][],
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Sieve,
@@ -71,7 +71,7 @@ const computeElement: (parameters: {
             totalIndices,
         }: ComputeElementParameters,
     ): ContourElement<PitchDurationGainSustainScale> => {
-        const layerProgress: UnitScalar = computeLayerProgress({ iterationIndex, layerIndices, layersProgresses })
+        const layerProgress: NormalScalar = computeLayerProgress({ iterationIndex, layerIndices, layersProgresses })
 
         const pitchIndex: Ordinal =
             computePitchIndex({ iterationIndex, iterationKernel })

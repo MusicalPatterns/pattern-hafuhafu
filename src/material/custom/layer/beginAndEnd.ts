@@ -7,10 +7,10 @@ import {
     INITIAL,
     insteadOf,
 
+    NormalScalar,
     Ordinal,
     reciprocal,
     Scalar,
-    UnitScalar,
     use,
 } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
@@ -22,14 +22,14 @@ const computeLayerBegin: (parameters: {
     layerCount: Cardinal<Layer[]>,
     layerIndex: LayerIndex,
     mode: HafuhafuMode,
-}) => UnitScalar =
-    ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): UnitScalar => {
+}) => NormalScalar =
+    ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): NormalScalar => {
         if (layerCount === as.Cardinal<Layer[]>(1)) {
-            return as.UnitScalar(0)
+            return as.NormalScalar(0)
         }
 
         const activeLayerCount: Cardinal = use.Cardinal(layerCount, DECREMENT)
-        const layerStep: UnitScalar<Scalar> = as.UnitScalar<Scalar>(as.number(reciprocal(activeLayerCount)))
+        const layerStep: NormalScalar<Scalar> = as.NormalScalar<Scalar>(as.number(reciprocal(activeLayerCount)))
 
         const baseScalarFromIndex: Scalar = as.Scalar(as.number(
             mode === HafuhafuMode.DROSTE || layerIndex === insteadOf<Ordinal, Layer[]>(INITIAL) ?
@@ -37,17 +37,17 @@ const computeLayerBegin: (parameters: {
                 use.Cardinal(layerIndex, DECREMENT),
         ))
 
-        return as.UnitScalar(as.number(use.UnitScalar(baseScalarFromIndex, layerStep)))
+        return as.NormalScalar(as.number(use.NormalScalar(baseScalarFromIndex, layerStep)))
     }
 
 const computeLayerEnd: (parameters: {
     layerCount: Cardinal<Layer[]>,
     layerIndex: LayerIndex,
     mode: HafuhafuMode,
-}) => UnitScalar =
-    ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): UnitScalar =>
+}) => NormalScalar =
+    ({ layerCount, layerIndex, mode }: ComputeLayerBeginAndEndParameters): NormalScalar =>
         layerIndex === finalIndexFromElementsTotal(layerCount) ?
-            as.UnitScalar(1) :
+            as.NormalScalar(1) :
             computeLayerBegin({ layerCount, layerIndex: use.Cardinal(layerIndex, INCREMENT), mode })
 
 export {

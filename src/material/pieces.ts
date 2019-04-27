@@ -7,9 +7,9 @@ import {
     INITIAL,
     Integer,
 
+    NormalScalar,
     Ordinal,
     slice,
-    UnitScalar,
 } from '@musical-patterns/utilities'
 import { HafuhafuSpecs } from '../spec'
 import { LayerIndex } from '../types'
@@ -30,7 +30,7 @@ const computePiece:
             computeTotalIndices({ layerCount, mode, sieve, sieveFractalRepetitions })
         const layerIndices: LayerIndex[] =
             computeLayerIndices({ layerCount, mode, reverse, sieve, totalIndices })
-        const layersProgresses: UnitScalar[][] =
+        const layersProgresses: NormalScalar[][] =
             computeLayersProgresses({ layerCount, mode, reverse, sieve, totalIndices })
 
         return as.ContourPiece<PitchDurationGainSustainScale>(

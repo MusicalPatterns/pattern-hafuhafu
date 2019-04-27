@@ -12,10 +12,10 @@ import {
     isUndefined,
     Maybe,
 
+    NormalScalar,
     Ordinal,
     Scalar,
     Time,
-    UnitScalar,
     use,
     VERY_LOW_PRECISION,
 } from '@musical-patterns/utilities'
@@ -193,35 +193,35 @@ no matter the layer count`,
         })
 
         it('the first element in the iteration has element progress 0', () => {
-            const elementProgress: UnitScalar = computeElementProgress({
+            const elementProgress: NormalScalar = computeElementProgress({
                 iterationIndex: insteadOf<Ordinal, Block>(INITIAL),
                 reverse,
                 totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
             })
 
             expect(elementProgress)
-                .toBe(as.UnitScalar(0))
+                .toBe(as.NormalScalar(0))
         })
 
         it('the final element in the iteration almost has element progress almost 1 (the next one would be 1)', () => {
-            const elementProgress: UnitScalar = computeElementProgress({
+            const elementProgress: NormalScalar = computeElementProgress({
                 iterationIndex: FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 reverse,
                 totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
             })
 
             expect(elementProgress)
-                .toBe(as.UnitScalar(1 - (1 / as.number(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
+                .toBe(as.NormalScalar(1 - (1 / as.number(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
         })
 
         it('each element progress result is greater than the one before it', () => {
-            let previousIterationElementProgress: Maybe<UnitScalar> = undefined
+            let previousIterationElementProgress: Maybe<NormalScalar> = undefined
             for (
                 let iterationIndex: Ordinal<Block> = insteadOf<Ordinal, Block>(INITIAL);
                 iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
                 iterationIndex = use.Cardinal(iterationIndex, INCREMENT)
             ) {
-                const elementProgress: UnitScalar = computeElementProgress({
+                const elementProgress: NormalScalar = computeElementProgress({
                     iterationIndex,
                     reverse,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
@@ -242,18 +242,18 @@ no matter the layer count`,
             })
 
             it('the first element in the iteration has element progress almost 1 (the reversed next one would be 1)', () => {
-                const elementProgress: UnitScalar = computeElementProgress({
+                const elementProgress: NormalScalar = computeElementProgress({
                     iterationIndex: insteadOf<Ordinal, Block>(INITIAL),
                     reverse,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 })
 
                 expect(elementProgress)
-                    .toBe(as.UnitScalar(1 - (1 / as.number(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
+                    .toBe(as.NormalScalar(1 - (1 / as.number(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))))
             })
 
             it('the penultimate element in the iteration has element progress almost 0 (the next one would be 0)', () => {
-                const elementProgress: UnitScalar = computeElementProgress({
+                const elementProgress: NormalScalar = computeElementProgress({
                     iterationIndex: use.Cardinal(FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2, DECREMENT),
                     reverse,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
@@ -264,24 +264,24 @@ no matter the layer count`,
             })
 
             it('the final element in the iteration has element progress 1 (because it has been cycled by one element to account for how durations are on the other side of their notes when they are reversed', () => {
-                const elementProgress: UnitScalar = computeElementProgress({
+                const elementProgress: NormalScalar = computeElementProgress({
                     iterationIndex: FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                     reverse,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 })
 
                 expect(elementProgress)
-                    .toBe(as.UnitScalar(1))
+                    .toBe(as.NormalScalar(1))
             })
 
             it('each element progress result is less than the one before it', () => {
-                let previousIterationElementProgress: Maybe<UnitScalar> = undefined
+                let previousIterationElementProgress: Maybe<NormalScalar> = undefined
                 for (
                     let iterationIndex: Ordinal<Block> = insteadOf<Ordinal, Block>(INITIAL);
                     iterationIndex < FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
                     iterationIndex = use.Cardinal(iterationIndex, INCREMENT)
                 ) {
-                    const elementProgress: UnitScalar = computeElementProgress({
+                    const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,
                         reverse,
                         totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
@@ -297,23 +297,23 @@ no matter the layer count`,
             })
 
             it('each next element progress result increments by the same amount', () => {
-                let previousIterationElementProgress: Maybe<UnitScalar> = undefined
-                let previousIterationElementProgressDifference: Maybe<UnitScalar> = undefined
+                let previousIterationElementProgress: Maybe<NormalScalar> = undefined
+                let previousIterationElementProgressDifference: Maybe<NormalScalar> = undefined
                 for (
                     let iterationIndex: Ordinal<Block> = insteadOf<Ordinal, Block>(INITIAL);
                     iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
                     iterationIndex = use.Cardinal(iterationIndex, INCREMENT)
                 ) {
-                    const elementProgress: UnitScalar = computeElementProgress({
+                    const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,
                         reverse,
                         totalIndices: TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                     })
 
                     if (!isUndefined(previousIterationElementProgress)) {
-                        let iterationElementProgressDifference: Maybe<UnitScalar>
+                        let iterationElementProgressDifference: Maybe<NormalScalar>
                         if (!isUndefined(previousIterationElementProgressDifference)) {
-                            iterationElementProgressDifference = as.UnitScalar(
+                            iterationElementProgressDifference = as.NormalScalar(
                                 as.number(elementProgress) - as.number(previousIterationElementProgress),
                             )
                             expect(iterationElementProgressDifference)
@@ -336,18 +336,18 @@ no matter the layer count`,
             })
 
             it('the first element in the iteration has element progress 0', () => {
-                const elementProgress: UnitScalar = computeElementProgress({
+                const elementProgress: NormalScalar = computeElementProgress({
                     iterationIndex: insteadOf<Ordinal, Block>(INITIAL),
                     reverse,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                 })
 
                 expect(elementProgress)
-                    .toBe(as.UnitScalar(0))
+                    .toBe(as.NormalScalar(0))
             })
 
             it('the final element in the iteration almost has element progress 1 (the next one would be 1)', () => {
-                const elementProgress: UnitScalar = computeElementProgress({
+                const elementProgress: NormalScalar = computeElementProgress({
                     iterationIndex: FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                     reverse,
                     totalIndices: TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
@@ -358,13 +358,13 @@ no matter the layer count`,
             })
 
             it('each element progress result is greater than the one before it', () => {
-                let previousIterationElementProgress: Maybe<UnitScalar> = undefined
+                let previousIterationElementProgress: Maybe<NormalScalar> = undefined
                 for (
                     let iterationIndex: Ordinal<Block> = insteadOf<Ordinal, Block>(INITIAL);
                     iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
                     iterationIndex = use.Cardinal(iterationIndex, INCREMENT)
                 ) {
-                    const elementProgress: UnitScalar = computeElementProgress({
+                    const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,
                         reverse,
                         totalIndices: TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
@@ -380,23 +380,23 @@ no matter the layer count`,
             })
 
             it('each next element progress result increments by the same amount', () => {
-                let previousIterationElementProgress: Maybe<UnitScalar> = undefined
-                let previousIterationElementProgressDifference: Maybe<UnitScalar> = undefined
+                let previousIterationElementProgress: Maybe<NormalScalar> = undefined
+                let previousIterationElementProgressDifference: Maybe<NormalScalar> = undefined
                 for (
                     let iterationIndex: Ordinal<Block> = insteadOf<Ordinal, Block>(INITIAL);
                     iterationIndex <= FINAL_ITERATION_INDEX_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2;
                     iterationIndex = use.Cardinal(iterationIndex, INCREMENT)
                 ) {
-                    const elementProgress: UnitScalar = computeElementProgress({
+                    const elementProgress: NormalScalar = computeElementProgress({
                         iterationIndex,
                         reverse,
                         totalIndices: TOTAL_INDICES_WHEN_SIEVE_3_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                     })
 
                     if (!isUndefined(previousIterationElementProgress)) {
-                        let iterationElementProgressDifference: Maybe<UnitScalar>
+                        let iterationElementProgressDifference: Maybe<NormalScalar>
                         if (!isUndefined(previousIterationElementProgressDifference)) {
-                            iterationElementProgressDifference = as.UnitScalar(
+                            iterationElementProgressDifference = as.NormalScalar(
                                 as.number(elementProgress) - as.number(previousIterationElementProgress),
                             )
                             expect(iterationElementProgressDifference)

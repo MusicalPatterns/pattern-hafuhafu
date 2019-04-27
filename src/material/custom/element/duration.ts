@@ -4,14 +4,14 @@ import {
     Cardinal,
     INCREMENT,
     insteadOf,
-    invertUnitScalar,
+    invertNormalScalar,
 
+    NormalScalar,
     Ordinal,
     quotient,
     reciprocal,
     Scalar,
     Time,
-    UnitScalar,
     use,
 } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
@@ -23,12 +23,12 @@ const computeElementProgress: (parameters: {
     iterationIndex: Ordinal<Block>,
     reverse: boolean,
     totalIndices: Cardinal<LayerIndex[]>,
-}) => UnitScalar =
-    ({ iterationIndex, reverse, totalIndices }: ComputeElementProgressParameters): UnitScalar => {
+}) => NormalScalar =
+    ({ iterationIndex, reverse, totalIndices }: ComputeElementProgressParameters): NormalScalar => {
         const rawTotalIndices: number = as.number(totalIndices)
 
         if (!reverse) {
-            return as.UnitScalar(quotient(as.number(iterationIndex), rawTotalIndices))
+            return as.NormalScalar(quotient(as.number(iterationIndex), rawTotalIndices))
         }
 
         const indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote: Ordinal<Block> = use.IntegerModulus(
@@ -36,7 +36,7 @@ const computeElementProgress: (parameters: {
             as.IntegerModulus<Ordinal<Block>>(rawTotalIndices),
         )
 
-        return invertUnitScalar(as.UnitScalar(quotient(
+        return invertNormalScalar(as.NormalScalar(quotient(
             as.number(indexReassignedToChangeOwnershipOfIntervalWithNeighboringNote),
             rawTotalIndices,
         )))
@@ -51,14 +51,14 @@ const computeDuration: (parameters: {
     totalIndices: Cardinal<LayerIndex[]>,
 }) => Scalar<Time> =
     ({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices }: ComputeDurationParameters): Scalar<Time> => {
-        const elementProgress: UnitScalar = computeElementProgress({ iterationIndex, reverse, totalIndices })
+        const elementProgress: NormalScalar = computeElementProgress({ iterationIndex, reverse, totalIndices })
 
         return mode === HafuhafuMode.ZENO && layerCount === as.Cardinal<Layer[]>(1) ?
             as.Scalar<Time>(1) :
             as.Scalar<Time>(use.Scalar(
                 use.Exponent(
                     as.number(sieve),
-                    as.Exponent(as.number(invertUnitScalar(elementProgress))),
+                    as.Exponent(as.number(invertNormalScalar(elementProgress))),
                 ),
                 insteadOf<Scalar>(reciprocal(sieve)),
             ))

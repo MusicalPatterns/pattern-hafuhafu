@@ -5,9 +5,9 @@ import {
     INITIAL,
     insteadOf,
     length,
+    NormalScalar,
     Scalar,
     slice,
-    UnitScalar,
     VERY_LOW_PRECISION,
 } from '@musical-patterns/utilities'
 import { computeLayersProgresses, HafuhafuMode, Layer, LayerIndex, Sieve } from '../../../../../src/indexForTest'
@@ -225,7 +225,7 @@ and span it quadratically (except the first layer, the home layer, which just st
 
             it('the progress goes from one to zero', () => {
                 expect(length(layersProgresses))
-                    .toBe(as.Cardinal<UnitScalar[][]>(1))
+                    .toBe(as.Cardinal<NormalScalar[][]>(1))
                 expect(layersProgresses[ 0 ])
                     .toGoMonotonicallyFromValueToValue(
                         as.Scalar(0),

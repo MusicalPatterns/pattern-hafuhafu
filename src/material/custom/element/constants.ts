@@ -1,8 +1,8 @@
 // tslint:disable no-magic-numbers
 
-import { as, Multiple, negative, Scalar, Translation, UnitScalar } from '@musical-patterns/utilities'
+import { as, Multiple, negative, NormalScalar, Scalar, Translation } from '@musical-patterns/utilities'
 
-const HALFWAY_THROUGH: UnitScalar = as.UnitScalar(0.5)
+const HALFWAY_THROUGH: NormalScalar = as.NormalScalar(0.5)
 
 const DOUBLE_THE_PROGRESS_AS_A_HACK_TO_MAKE_IT_WORK_FOR_HALF_AN_ITERATION: Multiple<Scalar> =
     as.Multiple<Scalar>(2)
