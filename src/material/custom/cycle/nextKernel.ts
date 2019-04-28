@@ -5,19 +5,13 @@ import {
     Cardinal,
     Cycle,
     DECREMENT,
-    indexJustBeyondFinalElementFromElementsTotal,
-    INITIAL,
     insteadOf,
-    Integer,
     length,
     Multiple,
     negative,
-    NEXT,
-
     Ordinal,
-    slice,
+    range,
     use,
-    ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { LayerIndex, Sieve } from '../../../types'
 import { ComputeNextKernelParameters } from './types'
@@ -38,31 +32,25 @@ const computeNextKernel: (parameters: {
                 insteadOf<Cardinal, Cycle>(negative(totalIndices)),
             )
 
-            for (
-                let terminalKernelIndex: Ordinal = INITIAL;
-                terminalKernelIndex < indexJustBeyondFinalElementFromElementsTotal(kernelLength);
-                terminalKernelIndex = use.Cardinal(terminalKernelIndex, NEXT)
-            ) {
-                const nextKernelIndex: Ordinal = use.Remaindee(
-                    use.Transition(
-                        use.Multiple(terminalKernelIndex, insteadOf<Multiple, Ordinal>(sieve)),
-                        as.Transition(as.number(use.Cardinal(sieve, DECREMENT))),
-                    ),
-                    as.Remaindee<Ordinal>(as.number(kernelLength)),
-                )
+            range(kernelLength)
+                .map(as.Ordinal)
+                .forEach((terminalKernelIndex: Ordinal) => {
+                    const nextKernelIndex: Ordinal = use.Remaindee(
+                        use.Transition(
+                            use.Multiple(terminalKernelIndex, insteadOf<Multiple, Ordinal>(sieve)),
+                            as.Transition(as.number(use.Cardinal(sieve, DECREMENT))),
+                        ),
+                        as.Remaindee<Ordinal>(as.number(kernelLength)),
+                    )
 
-                arraySet(nextKernel, nextKernelIndex, use.Ordinal(terminalKernel, terminalKernelIndex))
-            }
+                    arraySet(nextKernel, nextKernelIndex, use.Ordinal(terminalKernel, terminalKernelIndex))
+                })
 
             return nextKernel
         }
 
         return as.Block(
-            slice(
-                ZERO_AND_POSITIVE_INTEGERS,
-                INITIAL,
-                insteadOf<Ordinal, Integer[]>(indexJustBeyondFinalElementFromElementsTotal(kernelLength)),
-            )
+            range(kernelLength)
                 .map(as.Ordinal)
                 .map((index: Ordinal) => {
                     const nextIndex: Ordinal = use.Transition(

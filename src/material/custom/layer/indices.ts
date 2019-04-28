@@ -4,20 +4,17 @@ import {
     Cardinal,
     Cycle,
     deepClone,
-    INITIAL,
     insteadOf,
     Integer,
     NO_SHIFT,
-
     Ordinal,
-    slice,
+    range,
     use,
 } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { LayerIndex, Sieve } from '../../../types'
 import { DROSTE_ITERATION_REALIGNMENT_SHIFT } from '../constants'
-import { zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities } from '../integers'
 import { computeSieveFractal } from './sieveFractals'
 import { ComputeLayerIndexParameters, LayerParameters } from './types'
 
@@ -50,11 +47,7 @@ const computeLayerIndices: (parameters: {
     totalIndices: Cardinal<LayerIndex[]>,
 }) => LayerIndex[] =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): LayerIndex[] =>
-        slice(
-            zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities,
-            INITIAL,
-            as.Ordinal<Integer[]>(as.number(totalIndices)),
-        )
+        range(totalIndices)
             .map((integer: Integer) => as.Ordinal<Block>(integer))
             .map((iterationIndex: Ordinal<Block>) =>
                 computeLayerIndex({ iterationIndex, layerCount, mode, reverse, sieve }),

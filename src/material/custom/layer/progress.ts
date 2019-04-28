@@ -1,15 +1,12 @@
 import {
     as,
     Cardinal,
-    INITIAL,
     Integer,
-
     NormalScalar,
+    range,
     Scalar,
-    slice,
     Time,
     valueLinearlyBetweenValues,
-    ZERO_AND_POSITIVE_INTEGERS,
 } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
@@ -69,11 +66,7 @@ const computeLayersProgresses: (parameters: {
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): NormalScalar[][] => {
         const totalDuration: Scalar<Time> = computeTotalDuration({ layerCount, mode, reverse, sieve, totalIndices })
 
-        return slice(
-            ZERO_AND_POSITIVE_INTEGERS,
-            INITIAL,
-            as.Ordinal<Integer[]>(as.number(layerCount)),
-        )
+        return range(layerCount)
             .map((integer: Integer) => as.Ordinal<Layer[]>(integer))
             .map((layerIndex: LayerIndex) => computeLayerProgresses({
                 layerCount,

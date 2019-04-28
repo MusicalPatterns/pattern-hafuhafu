@@ -1,5 +1,3 @@
-export { zeroAndPositiveIntegersButMoreOfThemThanYouGetFromUtilities } from './integers'
-
 export {
     computeKernelCycle,
     computeTotalIndices,
