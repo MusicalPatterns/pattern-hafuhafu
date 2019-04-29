@@ -1,6 +1,6 @@
 // tslint:disable no-duplicate-string
 
-import { Note, NoteFeature, PitchDurationGainSustainScale, Scale } from '@musical-patterns/material'
+import { Feature, Note, PitchDurationGainSustainScale, Scale } from '@musical-patterns/material'
 import { as, Duration, Gain, Pitch, Scalar } from '@musical-patterns/utilities'
 import { computeNote } from '../../../src/indexForTest'
 
@@ -12,7 +12,7 @@ describe('features', () => {
         })
 
         describe('duration', () => {
-            let duration: NoteFeature<Duration>
+            let duration: Feature<Duration>
             beforeEach(() => {
                 duration = note.duration || {}
             })
@@ -29,7 +29,7 @@ describe('features', () => {
         })
 
         describe('gain', () => {
-            let gain: NoteFeature<Gain>
+            let gain: Feature<Gain>
             beforeEach(() => {
                 gain = note.gain || {}
             })
@@ -41,7 +41,7 @@ describe('features', () => {
         })
 
         describe('pitch', () => {
-            let pitch: NoteFeature<Pitch>
+            let pitch: Feature<Pitch>
             beforeEach(() => {
                 pitch = note.pitch || {}
             })
@@ -70,7 +70,7 @@ describe('features', () => {
         })
 
         describe('duration', () => {
-            let duration: NoteFeature<Duration>
+            let duration: Feature<Duration>
             beforeEach(() => {
                 duration = note.duration || {}
             })
@@ -87,7 +87,7 @@ describe('features', () => {
         })
 
         describe('gain', () => {
-            let gain: NoteFeature<Gain>
+            let gain: Feature<Gain>
             beforeEach(() => {
                 gain = note.gain || {}
             })
@@ -99,7 +99,7 @@ describe('features', () => {
         })
 
         describe('pitch index', () => {
-            let pitch: NoteFeature<Pitch>
+            let pitch: Feature<Pitch>
             beforeEach(() => {
                 pitch = note.pitch || {}
             })
@@ -128,7 +128,7 @@ describe('features', () => {
         })
 
         describe('duration', () => {
-            let duration: NoteFeature<Duration>
+            let duration: Feature<Duration>
             beforeEach(() => {
                 duration = note.duration || {}
             })
@@ -145,7 +145,7 @@ describe('features', () => {
         })
 
         describe('gain', () => {
-            let gain: NoteFeature<Gain>
+            let gain: Feature<Gain>
             beforeEach(() => {
                 gain = note.gain || {}
             })
