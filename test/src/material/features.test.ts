@@ -21,11 +21,6 @@ describe('features', () => {
                 expect(value.scalar)
                     .toBe(as.Scalar<Value>(0.5))
             })
-
-            it('uses the scale for values', () => {
-                expect(value.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Value>>>(1))
-            })
         })
 
         describe('intensity', () => {
@@ -44,11 +39,6 @@ describe('features', () => {
             let pitch: Feature<Pitch>
             beforeEach(() => {
                 pitch = note.pitch || {}
-            })
-
-            it('uses the scale for pitches', () => {
-                expect(pitch.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Pitch>>>(2))
             })
 
             it('uses the pitch parameter', () => {
@@ -79,11 +69,6 @@ describe('features', () => {
                 expect(value.scalar)
                     .toBe(as.Scalar<Value>(0.25))
             })
-
-            it('uses the scale for values', () => {
-                expect(value.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Value>>>(1))
-            })
         })
 
         describe('intensity', () => {
@@ -102,11 +87,6 @@ describe('features', () => {
             let pitch: Feature<Pitch>
             beforeEach(() => {
                 pitch = note.pitch || {}
-            })
-
-            it('uses the scale for pitches', () => {
-                expect(pitch.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Pitch>>>(2))
             })
 
             it('uses the pitch parameter as the index', () => {
@@ -136,11 +116,6 @@ describe('features', () => {
             it('uses the value parameter as the scalar', () => {
                 expect(value.scalar)
                     .toBe(as.Scalar<Value>(0.5))
-            })
-
-            it('uses the scale for values', () => {
-                expect(value.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Value>>>(1))
             })
         })
 

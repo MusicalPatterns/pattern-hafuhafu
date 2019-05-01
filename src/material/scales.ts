@@ -1,9 +1,9 @@
-import { MaterializeScales, materializeStandardScales, Scale } from '@musical-patterns/material'
+import { MaterializeScales, materializeStandardScales, Scales } from '@musical-patterns/material'
 import { HafuhafuSpecs } from '../spec'
 import { computePitchScalars } from './scalars'
 
 const materializeScales: MaterializeScales =
-    (specs: HafuhafuSpecs): Scale[] =>
+    (specs: HafuhafuSpecs): Scales =>
         materializeStandardScales(specs, { pitchScalars: computePitchScalars(specs) })
 
 export {
