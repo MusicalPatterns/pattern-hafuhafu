@@ -8,14 +8,14 @@ export {
 export {
     computeElementProgress,
     computePitchIndex,
-    computeRandomDropGain,
-    computeSustain,
-    computeDuration,
+    computeRandomDropIntensity,
+    computeEnvelope,
+    computeValue,
 } from './element/indexForTest'
 export {
     computeLayerIndices,
     computeLayersProgresses,
     computeSieveFractal,
-    computeDurationProgress,
-    computeTotalDuration,
+    computeValueProgress,
+    computeTotalValue,
 } from './layer/indexForTest'

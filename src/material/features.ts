@@ -1,46 +1,46 @@
 import {
     Note,
-    PitchDurationGainSustainScale,
+    PitchValueIntensityEnvelopeScale,
     SILENT,
-    STANDARD_DURATION_SCALE_INDEX,
     STANDARD_PITCH_INDEX_INDICATING_REST,
     STANDARD_PITCH_SCALE_INDEX,
+    STANDARD_VALUE_SCALE_INDEX,
 } from '@musical-patterns/material'
-import { as, ContourElement, Duration, Gain,  Pitch, Scalar } from '@musical-patterns/utilities'
+import { as, ContourElement, Intensity, Pitch, Scalar, Value } from '@musical-patterns/utilities'
 
-const computeNote: (contourElement: ContourElement<PitchDurationGainSustainScale>) => Note =
-    ([ pitch, duration, gain, sustain, scale ]: ContourElement<PitchDurationGainSustainScale>): Note => {
+const computeNote: (contourElement: ContourElement<PitchValueIntensityEnvelopeScale>) => Note =
+    ([ pitch, value, intensity, envelope, scale ]: ContourElement<PitchValueIntensityEnvelopeScale>): Note => {
         if (pitch === as.number(STANDARD_PITCH_INDEX_INDICATING_REST)) {
             return {
-                duration: {
-                    scalar: as.Scalar<Duration>(duration),
-                    scaleIndex: STANDARD_DURATION_SCALE_INDEX,
+                envelope: {
+                    scaleIndex: STANDARD_VALUE_SCALE_INDEX,
                 },
-                gain: {
+                intensity: {
                     scalar: SILENT,
                 },
-                sustain: {
-                    scaleIndex: STANDARD_DURATION_SCALE_INDEX,
+                value: {
+                    scalar: as.Scalar<Value>(value),
+                    scaleIndex: STANDARD_VALUE_SCALE_INDEX,
                 },
             }
         }
 
         return {
-            duration: {
-                scalar: as.Scalar<Duration>(duration),
-                scaleIndex: STANDARD_DURATION_SCALE_INDEX,
+            envelope: {
+                scalar: as.Scalar<Value>(envelope),
+                scaleIndex: STANDARD_VALUE_SCALE_INDEX,
             },
-            gain: {
-                scalar: as.Scalar<Gain>(gain),
+            intensity: {
+                scalar: as.Scalar<Intensity>(intensity),
             },
             pitch: {
                 index: as.Ordinal<Array<Scalar<Pitch>>>(pitch),
                 scalar: as.Scalar<Pitch>(scale),
                 scaleIndex: STANDARD_PITCH_SCALE_INDEX,
             },
-            sustain: {
-                scalar: as.Scalar<Duration>(sustain),
-                scaleIndex: STANDARD_DURATION_SCALE_INDEX,
+            value: {
+                scalar: as.Scalar<Value>(value),
+                scaleIndex: STANDARD_VALUE_SCALE_INDEX,
             },
         }
     }

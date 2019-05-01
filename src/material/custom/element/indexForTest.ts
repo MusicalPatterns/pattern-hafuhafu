@@ -1,6 +1,6 @@
 // tslint:disable no-reaching-imports
 
 export { computePitchIndex } from './pitch'
-export { computeDuration, computeElementProgress } from './duration'
-export { computeSustain } from './sustain'
-export { computeRandomDropGain } from './gain'
+export { computeValue, computeElementProgress } from './value'
+export { computeEnvelope } from './envelope'
+export { computeRandomDropIntensity } from './intensity'

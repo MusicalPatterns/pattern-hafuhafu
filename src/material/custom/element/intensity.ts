@@ -1,9 +1,8 @@
 import { FULL_GAIN, SILENT } from '@musical-patterns/material'
 import {
     as,
-    Gain,
+    Intensity,
     invertNormalScalar,
-
     NormalScalar,
     random,
     Scalar,
@@ -16,14 +15,14 @@ import {
     DOUBLE_THE_PROGRESS_AS_A_HACK_TO_MAKE_IT_WORK_FOR_HALF_AN_ITERATION,
     HALFWAY_THROUGH,
 } from './constants'
-import { ComputeGainParameters, ComputeRandomDropGainParameters } from './types'
+import { ComputeIntensityParameters, ComputeRandomDropIntensityParameters } from './types'
 
-const computeRandomDropGain: (parameters: {
-    fadingGain: Scalar<Gain>,
+const computeRandomDropIntensity: (parameters: {
+    fadingIntensity: Scalar<Intensity>,
     randomizingFunction: (within?: number) => number,
-}) => Scalar<Gain> =
-    ({ fadingGain, randomizingFunction }: ComputeRandomDropGainParameters): Scalar<Gain> =>
-        randomizingFunction() < as.number(fadingGain) ?
+}) => Scalar<Intensity> =
+    ({ fadingIntensity, randomizingFunction }: ComputeRandomDropIntensityParameters): Scalar<Intensity> =>
+        randomizingFunction() < as.number(fadingIntensity) ?
             FULL_GAIN :
             SILENT
 
@@ -44,9 +43,9 @@ const transformProgressToUseItForSecondHalf: (elementProgress: NormalScalar) => 
             DOUBLE_THE_PROGRESS_AS_A_HACK_TO_MAKE_IT_WORK_FOR_HALF_AN_ITERATION,
         )))
 
-const computeGain: (parameters: ComputeGainParameters) => Scalar<Gain> =
-    ({ existenceStyle, layerProgress, mode }: ComputeGainParameters): Scalar<Gain> => {
-        const fadingGain: Scalar<Gain> = as.Scalar<Gain>(
+const computeIntensity: (parameters: ComputeIntensityParameters) => Scalar<Intensity> =
+    ({ existenceStyle, layerProgress, mode }: ComputeIntensityParameters): Scalar<Intensity> => {
+        const fadingIntensity: Scalar<Intensity> = as.Scalar<Intensity>(
             mode === HafuhafuMode.ZENO ?
                 as.number(invertNormalScalar(layerProgress)) :
                 layerProgress < HALFWAY_THROUGH ?
@@ -55,11 +54,11 @@ const computeGain: (parameters: ComputeGainParameters) => Scalar<Gain> =
         )
 
         return existenceStyle === ExistenceStyle.FADE ?
-            fadingGain :
-            computeRandomDropGain({ fadingGain, randomizingFunction: random })
+            fadingIntensity :
+            computeRandomDropIntensity({ fadingIntensity, randomizingFunction: random })
     }
 
 export {
-    computeGain,
-    computeRandomDropGain,
+    computeIntensity,
+    computeRandomDropIntensity,
 }

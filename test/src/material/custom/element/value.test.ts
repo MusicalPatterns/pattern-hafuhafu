@@ -11,24 +11,23 @@ import {
     insteadOf,
     isUndefined,
     Maybe,
-
     NormalScalar,
     Ordinal,
     Scalar,
-    Time,
     use,
+    Value,
     VERY_LOW_PRECISION,
 } from '@musical-patterns/utilities'
 import {
-    computeDuration,
     computeElementProgress,
+    computeValue,
     HafuhafuMode,
     Layer,
     LayerIndex,
     Sieve,
 } from '../../../../../src/indexForTest'
 
-describe('duration', () => {
+describe('value', () => {
     const ARBITRARY_TOTAL_INDICES: Cardinal<LayerIndex[]> = as.Cardinal<LayerIndex[]>(100)
     let reverse: boolean = false
 
@@ -43,8 +42,8 @@ describe('duration', () => {
                 indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = as.Ordinal(10)
             })
 
-            it('when an iteration begins, gives you the full duration 1', () => {
-                const duration: Scalar<Time> = computeDuration({
+            it('when an iteration begins, gives you the full value 1', () => {
+                const value: Scalar<Value> = computeValue({
                     iterationIndex: as.Ordinal<Block>(0),
                     layerCount,
                     mode: HafuhafuMode.ZENO,
@@ -53,15 +52,15 @@ describe('duration', () => {
                     totalIndices: ARBITRARY_TOTAL_INDICES,
                 })
 
-                expect(duration)
-                    .toBe(as.Scalar<Time>(1))
+                expect(value)
+                    .toBe(as.Scalar<Value>(1))
             })
 
             it(
-                `when an iteration is ending, gives you the duration 1/sieve (in this case 1/2), \
+                `when an iteration is ending, gives you the value 1/sieve (in this case 1/2), \
 effectively increasing the tempo in proportion to counteract the fading out of the count of sieved notes`,
                 () => {
-                    const duration: Scalar<Time> = computeDuration({
+                    const value: Scalar<Value> = computeValue({
                         iterationIndex: insteadOf<Ordinal, Block>(finalIndexFromElementsTotal(ARBITRARY_TOTAL_INDICES)),
                         layerCount,
                         mode: HafuhafuMode.ZENO,
@@ -70,8 +69,8 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                         totalIndices: ARBITRARY_TOTAL_INDICES,
                     })
 
-                    expect(duration)
-                        .toBeCloseToTyped(as.Scalar<Time>(1 / 2))
+                    expect(value)
+                        .toBeCloseToTyped(as.Scalar<Value>(1 / 2))
                 },
             )
         })
@@ -82,8 +81,8 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                 indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = as.Ordinal(15)
             })
 
-            it('when an iteration begins, gives you the full duration 1', () => {
-                const duration: Scalar<Time> = computeDuration({
+            it('when an iteration begins, gives you the full value 1', () => {
+                const value: Scalar<Value> = computeValue({
                     iterationIndex: as.Ordinal<Block>(0),
                     layerCount,
                     mode: HafuhafuMode.ZENO,
@@ -92,15 +91,15 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                     totalIndices: ARBITRARY_TOTAL_INDICES,
                 })
 
-                expect(duration)
-                    .toBe(as.Scalar<Time>(1))
+                expect(value)
+                    .toBe(as.Scalar<Value>(1))
             })
 
             it(
-                `when an iteration is ending, gives you the duration 1/sieve (in this case 1/3), \
+                `when an iteration is ending, gives you the value 1/sieve (in this case 1/3), \
 effectively increasing the tempo in proportion to counteract the fading out of the count of sieved notes`,
                 () => {
-                    const duration: Scalar<Time> = computeDuration({
+                    const value: Scalar<Value> = computeValue({
                         iterationIndex: insteadOf<Ordinal, Block>(finalIndexFromElementsTotal(ARBITRARY_TOTAL_INDICES)),
                         layerCount,
                         mode: HafuhafuMode.ZENO,
@@ -109,8 +108,8 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                         totalIndices: ARBITRARY_TOTAL_INDICES,
                     })
 
-                    expect(duration)
-                        .toBeCloseToTyped(as.Scalar<Time>(1 / 3))
+                    expect(value)
+                        .toBeCloseToTyped(as.Scalar<Value>(1 / 3))
                 },
             )
         })
@@ -122,8 +121,8 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                 indexAfterTheFinalIndexGivenThisSetupJustToHelpProveThePointBecauseOtherwiseItWouldBeOneStepAwayFromExact = as.Ordinal(41)
             })
 
-            it('when an iteration begins, gives you the full duration 1', () => {
-                const duration: Scalar<Time> = computeDuration({
+            it('when an iteration begins, gives you the full value 1', () => {
+                const value: Scalar<Value> = computeValue({
                     iterationIndex: as.Ordinal<Block>(0),
                     layerCount,
                     mode: HafuhafuMode.ZENO,
@@ -132,17 +131,17 @@ effectively increasing the tempo in proportion to counteract the fading out of t
                     totalIndices: ARBITRARY_TOTAL_INDICES,
                 })
 
-                expect(duration)
-                    .toBe(as.Scalar<Time>(1))
+                expect(value)
+                    .toBe(as.Scalar<Value>(1))
             })
 
             it(
-                `when an iteration is ending, gives you the duration 1/sieve (in this case 1/2), \
+                `when an iteration is ending, gives you the value 1/sieve (in this case 1/2), \
 effectively increasing the tempo in proportion to counteract the fading out of the count of sieved notes; \
 it does not scale by the layer count as I once thought, because the proportion of staying to leaving notes stays the same \
 no matter the layer count`,
                 () => {
-                    const duration: Scalar<Time> = computeDuration({
+                    const value: Scalar<Value> = computeValue({
                         iterationIndex: insteadOf<Ordinal, Block>(finalIndexFromElementsTotal(ARBITRARY_TOTAL_INDICES)),
                         layerCount,
                         mode: HafuhafuMode.ZENO,
@@ -151,9 +150,9 @@ no matter the layer count`,
                         totalIndices: ARBITRARY_TOTAL_INDICES,
                     })
 
-                    expect(duration)
+                    expect(value)
                         .toBeCloseToTyped(
-                            as.Scalar<Time>(1 / 2),
+                            as.Scalar<Value>(1 / 2),
                             VERY_LOW_PRECISION,
                         )
                 },
@@ -161,8 +160,8 @@ no matter the layer count`,
         })
 
         describe('when layer count is 1', () => {
-            it('the duration stays at 1, because there are not enough layers to affect any transformation', () => {
-                const duration: Scalar<Time> = computeDuration({
+            it('the value stays at 1, because there are not enough layers to affect any transformation', () => {
+                const value: Scalar<Value> = computeValue({
                     iterationIndex: as.Ordinal<Block>(4),
                     layerCount: as.Cardinal<Layer[]>(1),
                     mode: HafuhafuMode.ZENO,
@@ -171,8 +170,8 @@ no matter the layer count`,
                     totalIndices: ARBITRARY_TOTAL_INDICES,
                 })
 
-                expect(duration)
-                    .toBe(as.Scalar<Time>(1))
+                expect(value)
+                    .toBe(as.Scalar<Value>(1))
             })
         })
     })
@@ -263,7 +262,7 @@ no matter the layer count`,
                     .toBeCloseTo(1 / as.number(TOTAL_INDICES_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2))
             })
 
-            it('the final element in the iteration has element progress 1 (because it has been cycled by one element to account for how durations are on the other side of their notes when they are reversed', () => {
+            it('the final element in the iteration has element progress 1 (because it has been cycled by one element to account for how values are on the other side of their notes when they are reversed', () => {
                 const elementProgress: NormalScalar = computeElementProgress({
                     iterationIndex: FINAL_ITERATION_INDEX_WHEN_SIEVE_2_SIEVE_FRACTAL_REPETITIONS_80_AND_LAYER_COUNT_2,
                     reverse,

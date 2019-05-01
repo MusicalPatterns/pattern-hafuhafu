@@ -1,4 +1,4 @@
-import { PitchDurationGainSustainScale } from '@musical-patterns/material'
+import { PitchValueIntensityEnvelopeScale } from '@musical-patterns/material'
 import { as, Cardinal, ContourWhole, length } from '@musical-patterns/utilities'
 import { computeWholes, HafuhafuSpecs, initialSpecs, Layer, LayerIndex } from '../../../src/indexForTest'
 
@@ -15,11 +15,11 @@ where the sieve fractal cycle length is the sieve^(layerCount - 1)`,
                 sieveFractalRepetitions: as.Multiple<Cardinal<LayerIndex[]>>(7),
             }
 
-            const wholes: ContourWhole<PitchDurationGainSustainScale> = computeWholes(specs)
+            const wholes: ContourWhole<PitchValueIntensityEnvelopeScale> = computeWholes(specs)
 
             expect(length(wholes))
             // tslint:disable-next-line binary-expression-operand-order
-                .toBe(as.Cardinal<ContourWhole<PitchDurationGainSustainScale>>(4 * Math.pow(3, 1) * 7))
+                .toBe(as.Cardinal<ContourWhole<PitchValueIntensityEnvelopeScale>>(4 * Math.pow(3, 1) * 7))
         },
     )
 })

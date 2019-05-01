@@ -3,27 +3,27 @@ import {
     Block,
     Cardinal,
     Exponent,
-    Frequency,
     insteadOf,
     MULTIPLICATIVE_IDENTITY,
     negative,
-
     NormalScalar,
     ONE_FEWER,
     ONE_HALF,
     Ordinal,
+    Pitch,
     Scalar,
     use,
     valueLinearlyBetweenValues,
 } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
-import { LayerIndex, Sieve } from '../../../types'
+import { Sieve } from '../../../types'
 import { ComputePitchIndexParameters, ComputePitchScalarParameters } from './types'
 
-const computePitchIndex: (parameters: { iterationIndex: Ordinal<Block>, iterationKernel: Block }) => Ordinal =
-    ({ iterationKernel, iterationIndex }: ComputePitchIndexParameters): Ordinal =>
-        as.Ordinal(use.Ordinal(
+const computePitchIndex:
+    (parameters: { iterationIndex: Ordinal<Block>, iterationKernel: Block }) => Ordinal<Array<Scalar<Pitch>>> =
+    ({ iterationKernel, iterationIndex }: ComputePitchIndexParameters): Ordinal<Array<Scalar<Pitch>>> =>
+        as.Ordinal<Array<Scalar<Pitch>>>(use.Ordinal(
             as.Cycle(iterationKernel),
             insteadOf<Ordinal, Block>(iterationIndex),
         ))
@@ -49,8 +49,8 @@ const computePitchScalar: (parameters: {
     mode: HafuhafuMode,
     sieve: Sieve,
     stretchPitch: boolean,
-}) => Scalar<Frequency> =
-    ({ layerCount, layerProgress, mode, sieve, stretchPitch }: ComputePitchScalarParameters): Scalar<Frequency> => {
+}) => Scalar<Pitch> =
+    ({ layerCount, layerProgress, mode, sieve, stretchPitch }: ComputePitchScalarParameters): Scalar<Pitch> => {
         if (!stretchPitch) {
             return MULTIPLICATIVE_IDENTITY
         }
@@ -61,7 +61,7 @@ const computePitchScalar: (parameters: {
             computeDrostePitchScalarPower(activeLayerCount, layerProgress) :
             as.Exponent(as.number(use.Scalar(layerProgress, layerScalar)))
 
-        return as.Scalar<Frequency>(use.Exponent(
+        return as.Scalar<Pitch>(use.Exponent(
             as.number(sieve),
             pitchScalarPower,
         ))

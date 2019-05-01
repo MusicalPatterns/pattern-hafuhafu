@@ -1,4 +1,4 @@
-import { Block, Cardinal, Gain, NormalScalar, Ordinal, Scalar } from '@musical-patterns/utilities'
+import { Block, Cardinal, Intensity, NormalScalar, Ordinal, Scalar } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { ExistenceStyle, HafuhafuMode } from '../../../spec'
 import { LayerIndex, Sieve } from '../../../types'
@@ -30,7 +30,7 @@ interface ComputePitchScalarParameters {
     stretchPitch: boolean,
 }
 
-interface ComputeDurationParameters {
+interface ComputeValueParameters {
     iterationIndex: Ordinal<Block>,
     layerCount: Cardinal<Layer[]>,
     mode: HafuhafuMode,
@@ -39,7 +39,7 @@ interface ComputeDurationParameters {
     totalIndices: Cardinal<LayerIndex[]>,
 }
 
-interface ComputeGainParameters {
+interface ComputeIntensityParameters {
     existenceStyle: ExistenceStyle,
     layerProgress: NormalScalar,
     mode: HafuhafuMode,
@@ -61,19 +61,19 @@ interface ComputeLayerProgressParameters {
     layersProgresses: NormalScalar[][],
 }
 
-interface ComputeRandomDropGainParameters {
-    fadingGain: Scalar<Gain>,
+interface ComputeRandomDropIntensityParameters {
+    fadingIntensity: Scalar<Intensity>,
     randomizingFunction: (within?: number) => number
 }
 
 export {
     ComputePitchIndexParameters,
-    ComputeGainParameters,
-    ComputeDurationParameters,
+    ComputeIntensityParameters,
+    ComputeValueParameters,
     ComputeSustainParameters,
     ComputeElementProgressParameters,
     ComputeElementParameters,
     ComputePitchScalarParameters,
     ComputeLayerProgressParameters,
-    ComputeRandomDropGainParameters,
+    ComputeRandomDropIntensityParameters,
 }

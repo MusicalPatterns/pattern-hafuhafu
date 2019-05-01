@@ -5,16 +5,16 @@ import {
     NormalScalar,
     range,
     Scalar,
-    Time,
+    Value,
     valueLinearlyBetweenValues,
 } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { LayerIndex, Sieve } from '../../../types'
 import { computeLayerBegin, computeLayerEnd } from './beginAndEnd'
-import { computeDurationProgresses } from './durationProgress'
-import { computeTotalDuration } from './totalDuration'
+import { computeTotalValue } from './totalValue'
 import { ComputeLayerProgressesParameters, LayerParameters } from './types'
+import { computeValueProgresses } from './valueProgress'
 
 const computeLayerProgresses: (parameters: {
     layerCount: Cardinal<Layer[]>,
@@ -22,8 +22,8 @@ const computeLayerProgresses: (parameters: {
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Sieve,
-    totalDuration: Scalar<Time>,
     totalIndices: Cardinal<LayerIndex[]>,
+    totalValue: Scalar<Value>,
 }) => NormalScalar[] =
     (
         {
@@ -32,27 +32,27 @@ const computeLayerProgresses: (parameters: {
             mode,
             reverse,
             sieve,
-            totalDuration,
+            totalValue,
             totalIndices,
         }: ComputeLayerProgressesParameters,
     ): NormalScalar[] => {
         const begin: NormalScalar = computeLayerBegin({ layerCount, layerIndex, mode })
         const end: NormalScalar = computeLayerEnd({ layerCount, layerIndex, mode })
 
-        const durationProgresses: Array<NormalScalar<NormalScalar>> = computeDurationProgresses({
+        const valueProgresses: Array<NormalScalar<NormalScalar>> = computeValueProgresses({
             layerCount,
             mode,
             reverse,
             sieve,
-            totalDuration,
             totalIndices,
+            totalValue,
         })
 
-        return durationProgresses.map((durationProgress: NormalScalar<NormalScalar>) =>
+        return valueProgresses.map((valueProgress: NormalScalar<NormalScalar>) =>
             valueLinearlyBetweenValues(
                 reverse ? end : begin,
                 reverse ? begin : end,
-                durationProgress,
+                valueProgress,
             ))
     }
 
@@ -64,7 +64,7 @@ const computeLayersProgresses: (parameters: {
     totalIndices: Cardinal<LayerIndex[]>,
 }) => NormalScalar[][] =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): NormalScalar[][] => {
-        const totalDuration: Scalar<Time> = computeTotalDuration({ layerCount, mode, reverse, sieve, totalIndices })
+        const totalValue: Scalar<Value> = computeTotalValue({ layerCount, mode, reverse, sieve, totalIndices })
 
         return range(layerCount)
             .map((integer: Integer) => as.Ordinal<Layer[]>(integer))
@@ -74,8 +74,8 @@ const computeLayersProgresses: (parameters: {
                 mode,
                 reverse,
                 sieve,
-                totalDuration,
                 totalIndices,
+                totalValue,
             }))
     }
 

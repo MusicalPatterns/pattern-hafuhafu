@@ -59,7 +59,7 @@ iteration to complete`,
     },
     [ HafuhafuSpec.LAYER_COUNT ]: {
         constraint: rangedConstraints[ HafuhafuSpec.LAYER_COUNT ],
-        description: `how many layers of speeds / gains / pitches to have present simultaneously; \
+        description: `how many layers of speeds / intensities / pitches to have present simultaneously; \
 essentially fractalizes the sieve`,
         formattedName: 'Layers',
         hideInput: RangedInputType.RANGE,
@@ -67,7 +67,7 @@ essentially fractalizes the sieve`,
         order: specsOrder.indexOf(HafuhafuSpec.LAYER_COUNT),
     },
     [ HafuhafuSpec.STRETCH_PITCH ]: {
-        description: 'whether or not a pitch stretch proportional to duration is applied, differentiating layers',
+        description: 'whether or not a pitch stretch proportional to value is applied, differentiating layers',
         inputType: InputType.TOGGLED,
         order: specsOrder.indexOf(HafuhafuSpec.STRETCH_PITCH),
     },

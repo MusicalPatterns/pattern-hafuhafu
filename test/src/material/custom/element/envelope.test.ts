@@ -1,7 +1,7 @@
-import { as, Cardinal, Time } from '@musical-patterns/utilities'
-import { computeSustain, Layer, LayerIndex, Sieve } from '../../../../../src/indexForTest'
+import { as, Cardinal, Value } from '@musical-patterns/utilities'
+import { computeEnvelope, Layer, LayerIndex, Sieve } from '../../../../../src/indexForTest'
 
-describe('sustain', () => {
+describe('envelope', () => {
     let sieve: Sieve
     let layerCount: Cardinal<Layer[]>
 
@@ -12,12 +12,12 @@ describe('sustain', () => {
         })
 
         it(
-            `every sustain is the same, and its the reciprocal of the sieve, so that even when sieve-x notes are playing \
+            `every envelope is the same, and its the reciprocal of the sieve, so that even when sieve-x notes are playing \
 in the space of 1 right before all the sieved ones finally officially cease to exist, the one note \
 in the cluster that is audible does not seem to suddenly become more staccato after it wraps around`,
             () => {
-                expect(computeSustain({ sieve }))
-                    .toBe(as.Scalar<Time>(1 / 2))
+                expect(computeEnvelope({ sieve }))
+                    .toBe(as.Scalar<Value>(1 / 2))
             },
         )
     })
@@ -29,12 +29,12 @@ in the cluster that is audible does not seem to suddenly become more staccato af
         })
 
         it(
-            `every sustain is the same, and its the reciprocal of the sieve, so that even when sieve-x notes are playing \
+            `every envelope is the same, and its the reciprocal of the sieve, so that even when sieve-x notes are playing \
 in the space of 1 right before all the sieved ones finally officially cease to exist, the one note \
 in the cluster that is audible does not seem to suddenly become more staccato after it wraps around`,
             () => {
-                expect(computeSustain({ sieve }))
-                    .toBe(as.Scalar<Time>(1 / 3))
+                expect(computeEnvelope({ sieve }))
+                    .toBe(as.Scalar<Value>(1 / 3))
             },
         )
     })

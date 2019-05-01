@@ -2,6 +2,6 @@
 
 export { computeLayerIndices } from './indices'
 export { computeSieveFractal } from './sieveFractals'
-export { computeDurationProgress } from './durationProgress'
+export { computeValueProgress } from './valueProgress'
 export { computeLayersProgresses } from './progress'
-export { computeTotalDuration } from './totalDuration'
+export { computeTotalValue } from './totalValue'

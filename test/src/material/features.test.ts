@@ -1,42 +1,42 @@
 // tslint:disable no-duplicate-string
 
-import { Feature, Note, PitchDurationGainSustainScale, Scale } from '@musical-patterns/material'
-import { as, Duration, Gain, Pitch, Scalar } from '@musical-patterns/utilities'
+import { Feature, Note, PitchValueIntensityEnvelopeScale, Scale } from '@musical-patterns/material'
+import { as, Intensity, Pitch, Scalar, Value } from '@musical-patterns/utilities'
 import { computeNote } from '../../../src/indexForTest'
 
 describe('features', () => {
     describe('example one', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(as.ContourElement<PitchDurationGainSustainScale>([ 3, 0.5, 2, 0.5, 0.333 ]))
+            note = computeNote(as.ContourElement<PitchValueIntensityEnvelopeScale>([ 3, 0.5, 2, 0.5, 0.333 ]))
         })
 
-        describe('duration', () => {
-            let duration: Feature<Duration>
+        describe('value', () => {
+            let value: Feature<Value>
             beforeEach(() => {
-                duration = note.duration || {}
+                value = note.value || {}
             })
 
-            it('uses the duration parameter as the scalar', () => {
-                expect(duration.scalar)
-                    .toBe(as.Scalar<Duration>(0.5))
+            it('uses the value parameter as the scalar', () => {
+                expect(value.scalar)
+                    .toBe(as.Scalar<Value>(0.5))
             })
 
-            it('uses the scale for durations', () => {
-                expect(duration.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Duration>>>(1))
+            it('uses the scale for values', () => {
+                expect(value.scaleIndex)
+                    .toBe(as.Ordinal<Array<Scale<Value>>>(1))
             })
         })
 
-        describe('gain', () => {
-            let gain: Feature<Gain>
+        describe('intensity', () => {
+            let intensity: Feature<Intensity>
             beforeEach(() => {
-                gain = note.gain || {}
+                intensity = note.intensity || {}
             })
 
-            it('uses the gain parameter as the scalar', () => {
-                expect(gain.scalar)
-                    .toBe(as.Scalar<Gain>(2))
+            it('uses the intensity parameter as the scalar', () => {
+                expect(intensity.scalar)
+                    .toBe(as.Scalar<Intensity>(2))
             })
         })
 
@@ -66,35 +66,35 @@ describe('features', () => {
     describe('example two', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(as.ContourElement<PitchDurationGainSustainScale>([ 4, 0.25, 1.5, 0.25, 0.666 ]))
+            note = computeNote(as.ContourElement<PitchValueIntensityEnvelopeScale>([ 4, 0.25, 1.5, 0.25, 0.666 ]))
         })
 
-        describe('duration', () => {
-            let duration: Feature<Duration>
+        describe('value', () => {
+            let value: Feature<Value>
             beforeEach(() => {
-                duration = note.duration || {}
+                value = note.value || {}
             })
 
-            it('uses the duration parameter as the scalar', () => {
-                expect(duration.scalar)
-                    .toBe(as.Scalar<Duration>(0.25))
+            it('uses the value parameter as the scalar', () => {
+                expect(value.scalar)
+                    .toBe(as.Scalar<Value>(0.25))
             })
 
-            it('uses the scale for durations', () => {
-                expect(duration.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Duration>>>(1))
+            it('uses the scale for values', () => {
+                expect(value.scaleIndex)
+                    .toBe(as.Ordinal<Array<Scale<Value>>>(1))
             })
         })
 
-        describe('gain', () => {
-            let gain: Feature<Gain>
+        describe('intensity', () => {
+            let intensity: Feature<Intensity>
             beforeEach(() => {
-                gain = note.gain || {}
+                intensity = note.intensity || {}
             })
 
-            it('uses the gain parameter as the scalar', () => {
-                expect(gain.scalar)
-                    .toBe(as.Scalar<Gain>(1.5))
+            it('uses the intensity parameter as the scalar', () => {
+                expect(intensity.scalar)
+                    .toBe(as.Scalar<Intensity>(1.5))
             })
         })
 
@@ -124,35 +124,35 @@ describe('features', () => {
     describe('example - rest', () => {
         let note: Note
         beforeEach(() => {
-            note = computeNote(as.ContourElement<PitchDurationGainSustainScale>([ -1, 0.5, 2, 0.4, 0.7 ]))
+            note = computeNote(as.ContourElement<PitchValueIntensityEnvelopeScale>([ -1, 0.5, 2, 0.4, 0.7 ]))
         })
 
-        describe('duration', () => {
-            let duration: Feature<Duration>
+        describe('value', () => {
+            let value: Feature<Value>
             beforeEach(() => {
-                duration = note.duration || {}
+                value = note.value || {}
             })
 
-            it('uses the duration parameter as the scalar', () => {
-                expect(duration.scalar)
-                    .toBe(as.Scalar<Duration>(0.5))
+            it('uses the value parameter as the scalar', () => {
+                expect(value.scalar)
+                    .toBe(as.Scalar<Value>(0.5))
             })
 
-            it('uses the scale for durations', () => {
-                expect(duration.scaleIndex)
-                    .toBe(as.Ordinal<Array<Scale<Duration>>>(1))
+            it('uses the scale for values', () => {
+                expect(value.scaleIndex)
+                    .toBe(as.Ordinal<Array<Scale<Value>>>(1))
             })
         })
 
-        describe('gain', () => {
-            let gain: Feature<Gain>
+        describe('intensity', () => {
+            let intensity: Feature<Intensity>
             beforeEach(() => {
-                gain = note.gain || {}
+                intensity = note.intensity || {}
             })
 
-            it('has no gain', () => {
-                expect(gain.scalar)
-                    .toBe(as.Scalar<Gain>(0))
+            it('has no intensity', () => {
+                expect(intensity.scalar)
+                    .toBe(as.Scalar<Intensity>(0))
             })
         })
     })

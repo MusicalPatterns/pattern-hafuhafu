@@ -1,4 +1,4 @@
-import { as, Cardinal, DECREMENT, NO_SHIFT,  use } from '@musical-patterns/utilities'
+import { as, Cardinal, DECREMENT, NO_SHIFT, use } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { LayerIndex, Sieve, SieveFractalRepetitions } from '../../../types'

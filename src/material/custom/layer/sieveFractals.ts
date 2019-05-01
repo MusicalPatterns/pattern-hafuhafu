@@ -6,7 +6,6 @@ import {
     DECREMENT,
     INITIAL,
     NEXT,
-
     Ordinal,
     repeat,
     use,

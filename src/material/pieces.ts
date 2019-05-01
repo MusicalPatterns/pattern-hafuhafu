@@ -1,12 +1,12 @@
-import { PitchDurationGainSustainScale } from '@musical-patterns/material'
+import { PitchValueIntensityEnvelopeScale } from '@musical-patterns/material'
 import { as, Block, Cardinal, ContourPiece, Integer, NormalScalar, Ordinal, range } from '@musical-patterns/utilities'
 import { HafuhafuSpecs } from '../spec'
 import { LayerIndex } from '../types'
 import { computeElement, computeLayerIndices, computeLayersProgresses, computeTotalIndices } from './custom'
 
 const computePiece:
-    (iterationKernel: Block, specs: HafuhafuSpecs) => ContourPiece<PitchDurationGainSustainScale> =
-    (iterationKernel: Block, specs: HafuhafuSpecs): ContourPiece<PitchDurationGainSustainScale> => {
+    (iterationKernel: Block, specs: HafuhafuSpecs) => ContourPiece<PitchValueIntensityEnvelopeScale> =
+    (iterationKernel: Block, specs: HafuhafuSpecs): ContourPiece<PitchValueIntensityEnvelopeScale> => {
         const { existenceStyle, layerCount, mode, reverse, sieve, sieveFractalRepetitions, stretchPitch } = specs
 
         const totalIndices: Cardinal<LayerIndex[]> =
@@ -16,7 +16,7 @@ const computePiece:
         const layersProgresses: NormalScalar[][] =
             computeLayersProgresses({ layerCount, mode, reverse, sieve, totalIndices })
 
-        return as.ContourPiece<PitchDurationGainSustainScale>(
+        return as.ContourPiece<PitchValueIntensityEnvelopeScale>(
             range(totalIndices)
                 .map((integer: Integer) => as.Ordinal<Block>(integer))
                 .map((iterationIndex: Ordinal<Block>) =>

@@ -5,19 +5,18 @@ import {
     INCREMENT,
     insteadOf,
     invertNormalScalar,
-
     NormalScalar,
     Ordinal,
     quotient,
     reciprocal,
     Scalar,
-    Time,
     use,
+    Value,
 } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { LayerIndex, Sieve } from '../../../types'
-import { ComputeDurationParameters, ComputeElementProgressParameters } from './types'
+import { ComputeElementProgressParameters, ComputeValueParameters } from './types'
 
 const computeElementProgress: (parameters: {
     iterationIndex: Ordinal<Block>,
@@ -42,20 +41,20 @@ const computeElementProgress: (parameters: {
         )))
     }
 
-const computeDuration: (parameters: {
+const computeValue: (parameters: {
     iterationIndex: Ordinal<Block>,
     layerCount: Cardinal<Layer[]>,
     mode: HafuhafuMode,
     reverse: boolean,
     sieve: Sieve,
     totalIndices: Cardinal<LayerIndex[]>,
-}) => Scalar<Time> =
-    ({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices }: ComputeDurationParameters): Scalar<Time> => {
+}) => Scalar<Value> =
+    ({ iterationIndex, layerCount, mode, reverse, sieve, totalIndices }: ComputeValueParameters): Scalar<Value> => {
         const elementProgress: NormalScalar = computeElementProgress({ iterationIndex, reverse, totalIndices })
 
         return mode === HafuhafuMode.ZENO && layerCount === as.Cardinal<Layer[]>(1) ?
-            as.Scalar<Time>(1) :
-            as.Scalar<Time>(use.Scalar(
+            as.Scalar<Value>(1) :
+            as.Scalar<Value>(use.Scalar(
                 use.Exponent(
                     as.number(sieve),
                     as.Exponent(as.number(invertNormalScalar(elementProgress))),
@@ -65,6 +64,6 @@ const computeDuration: (parameters: {
     }
 
 export {
-    computeDuration,
+    computeValue,
     computeElementProgress,
 }

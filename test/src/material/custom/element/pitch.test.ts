@@ -1,4 +1,4 @@
-import { as, Block } from '@musical-patterns/utilities'
+import { as, Block, Pitch, Scalar } from '@musical-patterns/utilities'
 import { computePitchIndex } from '../../../../../src/indexForTest'
 
 describe('pitch', () => {
@@ -10,19 +10,19 @@ describe('pitch', () => {
                 iterationIndex: as.Ordinal<Block>(2),
                 iterationKernel,
             }))
-                .toBe(as.Ordinal(3))
+                .toBe(as.Ordinal<Array<Scalar<Pitch>>>(3))
 
             expect(computePitchIndex({
                 iterationIndex: as.Ordinal<Block>(3),
                 iterationKernel,
             }))
-                .toBe(as.Ordinal(4))
+                .toBe(as.Ordinal<Array<Scalar<Pitch>>>(4))
 
             expect(computePitchIndex({
                 iterationIndex: as.Ordinal<Block>(99),
                 iterationKernel,
             }))
-                .toBe(as.Ordinal(5))
+                .toBe(as.Ordinal<Array<Scalar<Pitch>>>(5))
         })
     })
 })

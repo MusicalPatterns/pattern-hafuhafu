@@ -1,5 +1,5 @@
 export { computeElement } from './elements'
-export { computeDuration } from './duration'
+export { computeValue } from './value'
 
 export {
     ComputeElementParameters,

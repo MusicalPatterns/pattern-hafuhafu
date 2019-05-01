@@ -1,4 +1,4 @@
-import { Block, Cardinal, NormalScalar, Ordinal, Scalar, Time } from '@musical-patterns/utilities'
+import { Block, Cardinal, NormalScalar, Ordinal, Scalar, Value } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
 import { HafuhafuMode } from '../../../spec'
 import { LayerIndex, Sieve } from '../../../types'
@@ -11,16 +11,16 @@ interface LayerParameters {
     totalIndices: Cardinal<LayerIndex[]>,
 }
 
-interface ComputeDurationProgressesParameters extends LayerParameters {
-    totalDuration: Scalar<Time>,
+interface ComputeValueProgressesParameters extends LayerParameters {
+    totalValue: Scalar<Value>,
 }
 
-interface ComputeDurationProgressParameters extends ComputeDurationProgressesParameters {
-    durationProgress: NormalScalar<NormalScalar>,
+interface ComputeValueProgressParameters extends ComputeValueProgressesParameters {
     iterationIndex: Ordinal<Block>,
+    valueProgress: NormalScalar<NormalScalar>,
 }
 
-interface ComputeLayerProgressesParameters extends ComputeDurationProgressesParameters {
+interface ComputeLayerProgressesParameters extends ComputeValueProgressesParameters {
     layerIndex: LayerIndex,
 }
 
@@ -39,9 +39,9 @@ interface ComputeLayerBeginAndEndParameters {
 }
 
 export {
-    ComputeDurationProgressesParameters,
+    ComputeValueProgressesParameters,
     ComputeLayerBeginAndEndParameters,
-    ComputeDurationProgressParameters,
+    ComputeValueProgressParameters,
     ComputeLayerProgressesParameters,
     LayerParameters,
     ComputeLayerIndexParameters,

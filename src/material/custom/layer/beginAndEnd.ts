@@ -6,7 +6,6 @@ import {
     INCREMENT,
     INITIAL,
     insteadOf,
-
     NormalScalar,
     Ordinal,
     reciprocal,
