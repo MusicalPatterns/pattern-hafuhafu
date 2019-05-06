@@ -1,5 +1,5 @@
 import { PitchValueIntensityEnvelopeScale } from '@musical-patterns/material'
-import { as, Block, ContourPiece, ContourWhole, Cycle, sequence } from '@musical-patterns/utilities'
+import { as, Block, ContourPiece, ContourWhole, Cycle, flatten } from '@musical-patterns/utilities'
 import { HafuhafuSpecs } from '../spec'
 import { computeKernelCycle } from './custom'
 import { computePiece } from './pieces'
@@ -12,7 +12,7 @@ const computeWholes: (specs: HafuhafuSpecs) => ContourWhole<PitchValueIntensityE
                 computePiece(iterationKernel, specs),
         )
 
-        return as.ContourWhole<PitchValueIntensityEnvelopeScale>(sequence(...pieces))
+        return as.ContourWhole<PitchValueIntensityEnvelopeScale>(flatten(pieces))
     }
 
 export {
