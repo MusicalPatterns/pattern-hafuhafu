@@ -5,6 +5,7 @@ import {
     as,
     Block,
     Cardinal,
+    computeLength,
     ContourElement,
     ContourPiece,
     Cycle,
@@ -14,7 +15,6 @@ import {
     forEach,
     indexOfFinalElement,
     INITIAL,
-    length,
     oddElements,
     Ordinal,
     slice,
@@ -64,7 +64,7 @@ describe('compute piece', () => {
             })
 
             it('has length equal to the sieve fractal repetitions times the sieve to the power of the layer count minus 1, plus one extra for realignment', () => {
-                expect(length(piece))
+                expect(computeLength(piece))
                     .toEqual(as.Cardinal<ContourPiece<PitchValueIntensityEnvelopeScale>>(401))
             })
 
@@ -171,7 +171,7 @@ describe('compute piece', () => {
             })
 
             it('has length equal to the sieve fractal repetitions times the sieve to the power of the layer count minus 1, plus one extra for realignment', () => {
-                expect(length(piece))
+                expect(computeLength(piece))
                     .toEqual(as.Cardinal<ContourPiece<PitchValueIntensityEnvelopeScale>>(801))
             })
 
@@ -340,12 +340,12 @@ this is because when one reverses a set of notes, their original values are no l
 so you have to give your value to the element behind you`,
                     () => {
                         const SHIFT_TO_FLIP_DURATION_ASSOCIATIONS_WHEN_REVERSE: Cardinal<Cycle> = as.Cardinal<Cycle>(1)
-                        const values: number[] = use.Cardinal(
+                        const values: number[] = as.unbrandedArray(use.Cardinal(
                             as.Cycle(piece.map(
                                 (element: ContourElement<PitchValueIntensityEnvelopeScale>) => use.Ordinal(element, INDEX_OF_DURATION_IN_CONTOUR),
                             )),
                             SHIFT_TO_FLIP_DURATION_ASSOCIATIONS_WHEN_REVERSE,
-                        )
+                        ))
 
                         expect(values)
                             .toGoMonotonicallyFromValueToValue(1 / 2, 1, VERY_LOW_PRECISION)

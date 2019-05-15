@@ -2,13 +2,13 @@ import {
     as,
     Block,
     Cardinal,
+    computeReverse,
     Cycle,
     insteadOf,
     Integer,
     NO_SHIFT,
     Ordinal,
     range,
-    reverse as utilitiesReverse,
     use,
 } from '@musical-patterns/utilities'
 import { Layer } from '../../../nominals'
@@ -30,7 +30,7 @@ const computeLayerIndex: (parameters: {
 
         const maybeReversedSieveFractalCycle: Cycle<LayerIndex> = reverse ?
             use.Cardinal(
-                as.Cycle(utilitiesReverse(sieveFractalCycle)),
+                as.Cycle<LayerIndex>(computeReverse(sieveFractalCycle)),
                 mode === HafuhafuMode.DROSTE ? DROSTE_ITERATION_REALIGNMENT_SHIFT : NO_SHIFT,
             ) :
             sieveFractalCycle

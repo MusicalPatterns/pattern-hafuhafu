@@ -5,8 +5,8 @@ import {
     Block,
     Cardinal,
     computeCommonFactors,
+    computeLength,
     Integer,
-    length,
     Ordinal,
     slice,
 } from '@musical-patterns/utilities'
@@ -18,7 +18,7 @@ const computeValidations: ComputeValidations<HafuhafuSpecs> =
         const sourceKernel: Block = hafuhafuSpecs[ HafuhafuSpec.SOURCE_KERNEL ]
         const sieve: Sieve = hafuhafuSpecs[ HafuhafuSpec.SIEVE ]
 
-        const kernelLength: Cardinal<Block> = length(sourceKernel)
+        const kernelLength: Cardinal<Block> = computeLength(sourceKernel)
         if (!areCoprime(kernelLength, sieve)) {
             const doNotIncludeTheFirstCommonFactorBecauseItIsJustOne: Ordinal<Integer[]> = as.Ordinal<Integer[]>(1)
             const commonFactors: Integer[] = slice(

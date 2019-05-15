@@ -3,10 +3,10 @@ import {
     as,
     Block,
     Cardinal,
+    computeLength,
     Cycle,
     DECREMENT,
     insteadOf,
-    length,
     Multiple,
     negative,
     Ordinal,
@@ -23,7 +23,7 @@ const computeNextKernel: (parameters: {
     totalIndices: Cardinal<LayerIndex[]>,
 }) => Block =
     ({ totalIndices, previousKernel, reverse, sieve }: ComputeNextKernelParameters): Block => {
-        const kernelLength: Cardinal<Block> = length(previousKernel)
+        const kernelLength: Cardinal<Block> = computeLength(previousKernel)
 
         if (reverse) {
             const nextKernel: Block = as.Block([])

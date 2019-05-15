@@ -1,10 +1,10 @@
 import {
     as,
     Cardinal,
+    computeLength,
     indexOfFinalElement,
     INITIAL,
     insteadOf,
-    length,
     NormalScalar,
     Scalar,
     slice,
@@ -32,7 +32,7 @@ describe('layers progresses', () => {
 
         it('each layer has a progress for each index', () => {
             layersProgresses.forEach((layerProgress: Scalar[]) => {
-                expect(length(layerProgress))
+                expect(computeLength(layerProgress))
                     .toBe(insteadOf<Cardinal, Scalar[]>(totalIndices))
             })
         })
@@ -135,7 +135,7 @@ and span it quadratically (except the last layer, the beyond layer, which just s
 
         it('each layer has a progress for each index', () => {
             layersProgresses.forEach((layerProgress: Scalar[]) => {
-                expect(length(layerProgress))
+                expect(computeLength(layerProgress))
                     .toBe(insteadOf<Cardinal, Scalar[]>(totalIndices))
             })
         })
@@ -224,7 +224,7 @@ and span it quadratically (except the first layer, the home layer, which just st
             })
 
             it('the progress goes from one to zero', () => {
-                expect(length(layersProgresses))
+                expect(computeLength(layersProgresses))
                     .toBe(as.Cardinal<NormalScalar[][]>(1))
                 expect(layersProgresses[ 0 ])
                     .toGoMonotonicallyFromValueToValue(
