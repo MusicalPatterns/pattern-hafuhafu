@@ -2,7 +2,7 @@ import {
     Configurations,
     OptionedConfiguration,
     RangedConfiguration,
-    StandardSpecs,
+    Specs,
     ToggledConfiguration,
 } from '@musical-patterns/spec'
 import { Block, Cardinal, Frequency, Logarithm } from '@musical-patterns/utilities'
@@ -31,7 +31,7 @@ enum HafuhafuSpec {
     STRETCH_PITCH = 'stretchPitch',
 }
 
-interface HafuhafuSpecs extends StandardSpecs {
+interface HafuhafuSpecs extends Specs {
     [ HafuhafuSpec.EXISTENCE_STYLE ]: ExistenceStyle,
     [ HafuhafuSpec.SIEVE_FRACTAL_REPETITIONS ]: SieveFractalRepetitions,
     [ HafuhafuSpec.SOURCE_KERNEL ]: Block,

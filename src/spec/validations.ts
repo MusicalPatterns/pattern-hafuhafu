@@ -25,7 +25,7 @@ const computeValidations: ComputeValidations<HafuhafuSpecs> =
                 computeCommonFactors(kernelLength, sieve),
                 doNotIncludeTheFirstCommonFactorBecauseItIsJustOne,
             )
-            const validationMessage: string = `The sieve and kernel share at least one non-1 factor (${commonFactors}) \
+            const validationMessage: string = `The sieve and kernel share at least one non-1 factor (${String(commonFactors)}) \
 and thus some kernel elements will not be preserved across iterations, preventing the formation of a kernel cycle.`
 
             return {
