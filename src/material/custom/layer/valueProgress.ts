@@ -64,8 +64,8 @@ const computeValueProgresses: (parameters: {
         let valueProgress: NormalScalar<NormalScalar> = as.NormalScalar<NormalScalar>(0)
 
         return range(totalIndices)
-            .map((integer: Integer) => as.Ordinal<Block>(integer))
-            .map((iterationIndex: Ordinal<Block>) => {
+            .map((integer: Integer): Ordinal<Block> => as.Ordinal<Block>(integer))
+            .map((iterationIndex: Ordinal<Block>): NormalScalar<NormalScalar> => {
                 valueProgress = computeValueProgress({
                     iterationIndex,
                     layerCount,

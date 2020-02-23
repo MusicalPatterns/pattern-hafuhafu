@@ -34,7 +34,7 @@ const computeNextKernel: (parameters: {
 
             range(kernelLength)
                 .map(as.Ordinal)
-                .forEach((terminalKernelIndex: Ordinal) => {
+                .forEach((terminalKernelIndex: Ordinal): void => {
                     const nextKernelIndex: Ordinal = use.Remaindee(
                         use.Transition(
                             use.Multiple(terminalKernelIndex, insteadOf<Multiple, Ordinal>(sieve)),
@@ -52,7 +52,7 @@ const computeNextKernel: (parameters: {
         return as.Block(
             range(kernelLength)
                 .map(as.Ordinal)
-                .map((index: Ordinal) => {
+                .map((index: Ordinal): number => {
                     const nextIndex: Ordinal = use.Transition(
                         use.Multiple(index, insteadOf<Multiple, Ordinal>(sieve)),
                         as.Transition(as.number(totalIndices)),

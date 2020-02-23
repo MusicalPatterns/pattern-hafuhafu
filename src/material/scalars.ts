@@ -5,7 +5,7 @@ import { ENOUGH_PITCH_SCALARS_THAT_NO_ONE_WILL_PROBABLY_EVER_NOTICE } from './co
 const computePitchScalars: (specs: HafuhafuSpecs) => Array<Scalar<Pitch>> =
     ({ pitchStep }: HafuhafuSpecs): Array<Scalar<Pitch>> =>
         range(ENOUGH_PITCH_SCALARS_THAT_NO_ONE_WILL_PROBABLY_EVER_NOTICE)
-            .map((integer: Integer) =>
+            .map((integer: Integer): Scalar<Pitch> =>
                 as.Scalar<Pitch>(as.number(pow(
                     pitchStep,
                     as.Power<Frequency>(integer),

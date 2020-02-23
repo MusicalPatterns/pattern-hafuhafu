@@ -8,10 +8,10 @@ import {
     SieveFractalRepetitions,
 } from '../../../../../src/indexForTest'
 
-describe('kernel cycle', () => {
+describe('kernel cycle', (): void => {
     let mode: HafuhafuMode
-    describe('when mode is droste', () => {
-        beforeEach(() => {
+    describe('when mode is droste', (): void => {
+        beforeEach((): void => {
             mode = HafuhafuMode.DROSTE
         })
 
@@ -19,7 +19,7 @@ describe('kernel cycle', () => {
             `computes a series of kernels taking into account how many times the sieve fractal is repeated - \
 each next kernel has every sieve'th element chosen until all have been chosen, but starting from a point translated \
 based on where the previous iteration left off`,
-            () => {
+            (): void => {
                 const sourceKernel: Block = as.Block([ 1, 2, 3, 4, 5 ])
                 const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(3)
 
@@ -55,7 +55,7 @@ based on where the previous iteration left off`,
             },
         )
 
-        it('works for other layer counts greater than 3', () => {
+        it('works for other layer counts greater than 3', (): void => {
             const sourceKernel: Block = as.Block([ 1, 2, 3, 4, 5 ])
             const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(4)
 
@@ -90,7 +90,7 @@ based on where the previous iteration left off`,
                 ].map(as.Block)))
         })
 
-        it('when sieve is greater than 2', () => {
+        it('when sieve is greater than 2', (): void => {
             const sourceKernel: Block = as.Block([ 1, 2, 3, 4, 5 ])
             const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(3)
 
@@ -110,8 +110,8 @@ based on where the previous iteration left off`,
                 ].map(as.Block)))
         })
 
-        describe('reverse', () => {
-            it('example one, easy - the last kernel length of elements at the end is the same as those at the beginning, because the kernel divides evenly into the iteration', () => {
+        describe('reverse', (): void => {
+            it('example one, easy - the last kernel length of elements at the end is the same as those at the beginning, because the kernel divides evenly into the iteration', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
@@ -128,7 +128,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('example two, where kernel length does not divide evenly into iteration length', () => {
+            it('example two, where kernel length does not divide evenly into iteration length', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
@@ -145,7 +145,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('example three, with higher sieve', () => {
+            it('example three, with higher sieve', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
@@ -162,7 +162,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('example four, with higher layer count', () => {
+            it('example four, with higher layer count', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(4),
                     mode: HafuhafuMode.DROSTE,
@@ -179,7 +179,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('example five, with a different kernel length', () => {
+            it('example five, with a different kernel length', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(3),
                     mode: HafuhafuMode.DROSTE,
@@ -197,7 +197,7 @@ based on where the previous iteration left off`,
         })
     })
 
-    describe('when mode is zeno', () => {
+    describe('when mode is zeno', (): void => {
         let sieve: Sieve
         const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_THREE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: SieveFractalRepetitions = as.Multiple<Cardinal<LayerIndex[]>>(3)
         const REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_FIVE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION: SieveFractalRepetitions = as.Multiple<Cardinal<LayerIndex[]>>(5)
@@ -205,16 +205,16 @@ based on where the previous iteration left off`,
         const sieveFractalRepetitions: SieveFractalRepetitions = REPETITIONS_COUNT_MATCHING_KERNEL_LENGTH_FIVE_SO_THAT_KERNEL_DIVIDES_EVENLY_INTO_ITERATION
         const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(3)
 
-        beforeEach(() => {
+        beforeEach((): void => {
             mode = HafuhafuMode.ZENO
         })
 
-        describe('when sieve is 2', () => {
-            beforeEach(() => {
+        describe('when sieve is 2', (): void => {
+            beforeEach((): void => {
                 sieve = as.Multiple<LayerIndex>(2)
             })
 
-            it('returns the cycle of kernels required to get from the original kernel back to itself by repeatedly applying the sieve, for a four-phase cycle', () => {
+            it('returns the cycle of kernels required to get from the original kernel back to itself by repeatedly applying the sieve, for a four-phase cycle', (): void => {
                 expect(computeKernelCycle({
                     layerCount,
                     mode,
@@ -231,7 +231,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('works for a two-phase cycle', () => {
+            it('works for a two-phase cycle', (): void => {
                 expect(computeKernelCycle({
                     layerCount,
                     mode,
@@ -246,7 +246,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('works for a one-phase cycle (a kernel which goes into itself)', () => {
+            it('works for a one-phase cycle (a kernel which goes into itself)', (): void => {
                 expect(computeKernelCycle({
                     layerCount,
                     mode,
@@ -260,7 +260,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('works for a three-phase cycle', () => {
+            it('works for a three-phase cycle', (): void => {
                 expect(computeKernelCycle({
                     layerCount,
                     mode,
@@ -277,8 +277,8 @@ based on where the previous iteration left off`,
             })
         })
 
-        describe('when sieve is 3', () => {
-            it('works', () => {
+        describe('when sieve is 3', (): void => {
+            it('works', (): void => {
                 expect(computeKernelCycle({
                     layerCount,
                     mode,
@@ -295,7 +295,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('when sieve is greater than the kernel length, it still works', () => {
+            it('when sieve is greater than the kernel length, it still works', (): void => {
                 expect(computeKernelCycle({
                     layerCount,
                     mode,
@@ -311,8 +311,8 @@ based on where the previous iteration left off`,
             })
         })
 
-        describe('when the kernel length does not divide evenly into the iteration length', () => {
-            it('offsets where in the next iteration kernel the sieving begins', () => {
+        describe('when the kernel length does not divide evenly into the iteration length', (): void => {
+            it('offsets where in the next iteration kernel the sieving begins', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(4),
                     mode,
@@ -330,8 +330,8 @@ based on where the previous iteration left off`,
             })
         })
 
-        describe('reverse', () => {
-            it('example one, easy - the last kernel length of elements at the end is the same as those at the beginning, because the kernel divides evenly into the iteration', () => {
+        describe('reverse', (): void => {
+            it('example one, easy - the last kernel length of elements at the end is the same as those at the beginning, because the kernel divides evenly into the iteration', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(2),
                     mode,
@@ -348,7 +348,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('example two, where kernel length does not divide evenly into iteration length', () => {
+            it('example two, where kernel length does not divide evenly into iteration length', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(2),
                     mode,
@@ -365,7 +365,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('example three, with higher sieve', () => {
+            it('example three, with higher sieve', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(2),
                     mode,
@@ -382,7 +382,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('example four, with higher layer count', () => {
+            it('example four, with higher layer count', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(3),
                     mode,
@@ -399,7 +399,7 @@ based on where the previous iteration left off`,
                     ].map(as.Block)))
             })
 
-            it('example five, with a different kernel length', () => {
+            it('example five, with a different kernel length', (): void => {
                 expect(computeKernelCycle({
                     layerCount: as.Cardinal<Layer[]>(2),
                     mode,

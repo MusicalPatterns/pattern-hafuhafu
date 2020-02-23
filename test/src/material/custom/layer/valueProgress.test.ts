@@ -1,11 +1,11 @@
 import { as, Cardinal, NormalScalar, Ordinal, Scalar, Value } from '@musical-patterns/utilities'
 import { computeValueProgress, HafuhafuMode, Layer, LayerIndex, Sieve } from '../../../../../src/indexForTest'
 
-describe('value progress', () => {
-    describe('zeno mode', () => {
+describe('value progress', (): void => {
+    describe('zeno mode', (): void => {
         const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(2)
 
-        it('takes the existing iteration value progress and adds to it the progress from the next element', () => {
+        it('takes the existing iteration value progress and adds to it the progress from the next element', (): void => {
             const FOR_SIMPLICITY_TESTING_THE_BEGINNING_PROGRESS: NormalScalar<NormalScalar> = as.NormalScalar<NormalScalar>(0)
             // tslint:disable-next-line no-any
             const FOR_SIMPLICITY_TESTING_THE_BEGINNING_INDEX: Ordinal<any> = as.Ordinal<any>(0)

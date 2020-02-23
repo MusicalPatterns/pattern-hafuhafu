@@ -2,7 +2,7 @@ import {
     as,
     Cardinal,
     Integer,
-    NormalScalar,
+    NormalScalar, Ordinal,
     range,
     Scalar,
     Value,
@@ -48,7 +48,7 @@ const computeLayerProgresses: (parameters: {
             totalValue,
         })
 
-        return valueProgresses.map((valueProgress: NormalScalar<NormalScalar>) =>
+        return valueProgresses.map((valueProgress: NormalScalar<NormalScalar>): NormalScalar =>
             valueLinearlyBetweenValues(
                 reverse ? end : begin,
                 reverse ? begin : end,
@@ -67,8 +67,8 @@ const computeLayersProgresses: (parameters: {
         const totalValue: Scalar<Value> = computeTotalValue({ layerCount, mode, reverse, sieve, totalIndices })
 
         return range(layerCount)
-            .map((integer: Integer) => as.Ordinal<Layer[]>(integer))
-            .map((layerIndex: LayerIndex) => computeLayerProgresses({
+            .map((integer: Integer): Ordinal<Layer[]> => as.Ordinal<Layer[]>(integer))
+            .map((layerIndex: LayerIndex): NormalScalar[] => computeLayerProgresses({
                 layerCount,
                 layerIndex,
                 mode,

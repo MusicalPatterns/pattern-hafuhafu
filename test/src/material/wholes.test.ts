@@ -2,12 +2,12 @@ import { PitchValueIntensityEnvelopeScale } from '@musical-patterns/material'
 import { as, Cardinal, computeLength, ContourWhole } from '@musical-patterns/utilities'
 import { computeWholes, HafuhafuSpecs, initialSpecs, Layer, LayerIndex } from '../../../src/indexForTest'
 
-describe('wholes', () => {
+describe('wholes', (): void => {
     it(
         `should return an array with length equal to the kernel cycle length times the iteration length, \
 which in turn is the sieve fractal length times the sieve fractal repetitions, \
 where the sieve fractal cycle length is the sieve^(layerCount - 1)`,
-        () => {
+        (): void => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 layerCount: as.Cardinal<Layer[]>(2),

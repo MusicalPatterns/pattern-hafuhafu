@@ -1,4 +1,4 @@
-import { ComputeValidations, Validations } from '@musical-patterns/spec'
+import { ComputeValidations, Validation, Validations } from '@musical-patterns/spec'
 import {
     areCoprime,
     as,
@@ -29,7 +29,7 @@ const computeValidations: ComputeValidations<HafuhafuSpecs> =
 and thus some kernel elements will not be preserved across iterations, preventing the formation of a kernel cycle.`
 
             return {
-                [ HafuhafuSpec.SOURCE_KERNEL ]: sourceKernel.map(() => validationMessage),
+                [ HafuhafuSpec.SOURCE_KERNEL ]: sourceKernel.map((): string => validationMessage),
                 [ HafuhafuSpec.SIEVE ]: validationMessage,
             }
         }

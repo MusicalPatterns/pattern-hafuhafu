@@ -4,9 +4,9 @@ import { Validations } from '@musical-patterns/spec'
 import { as } from '@musical-patterns/utilities'
 import { computeValidations, HafuhafuSpec, HafuhafuSpecs, initialSpecs, LayerIndex } from '../../../src/indexForTest'
 
-describe('validations', () => {
-    describe('when the source kernel length and sieve are coprime', () => {
-        it('when the source kernel length is a multiple of the sieve', () => {
+describe('validations', (): void => {
+    describe('when the source kernel length and sieve are coprime', (): void => {
+        it('when the source kernel length is a multiple of the sieve', (): void => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: as.Block([ 0, 1, 0, 1 ]),
@@ -27,7 +27,7 @@ describe('validations', () => {
                 })
         })
 
-        it('when the sieve is a multiple of the source kernel length', () => {
+        it('when the sieve is a multiple of the source kernel length', (): void => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: as.Block([ 0, 1, 1 ]),
@@ -47,7 +47,7 @@ describe('validations', () => {
                 })
         })
 
-        it(`when the sieve and the source kernel's length share a factor`, () => {
+        it(`when the sieve and the source kernel's length share a factor`, (): void => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: as.Block([ 0, 1, 1, 0 ]),
@@ -69,8 +69,8 @@ describe('validations', () => {
         })
     })
 
-    describe('when the source kernel and sieve are not coprime', () => {
-        it('all is well', () => {
+    describe('when the source kernel and sieve are not coprime', (): void => {
+        it('all is well', (): void => {
             const specs: HafuhafuSpecs = {
                 ...initialSpecs,
                 [ HafuhafuSpec.SOURCE_KERNEL ]: as.Block([ 0, 1, 1, 1 ]),

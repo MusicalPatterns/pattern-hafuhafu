@@ -1,5 +1,15 @@
 import { PitchValueIntensityEnvelopeScale } from '@musical-patterns/material'
-import { as, Block, Cardinal, ContourPiece, Integer, NormalScalar, Ordinal, range } from '@musical-patterns/utilities'
+import {
+    as,
+    Block,
+    Cardinal,
+    ContourElement,
+    ContourPiece,
+    Integer,
+    NormalScalar,
+    Ordinal,
+    range,
+} from '@musical-patterns/utilities'
 import { HafuhafuSpecs } from '../spec'
 import { LayerIndex } from '../types'
 import { computeElement, computeLayerIndices, computeLayersProgresses, computeTotalIndices } from './custom'
@@ -18,8 +28,8 @@ const computePiece:
 
         return as.ContourPiece<PitchValueIntensityEnvelopeScale>(
             range(totalIndices)
-                .map((integer: Integer) => as.Ordinal<Block>(integer))
-                .map((iterationIndex: Ordinal<Block>) =>
+                .map((integer: Integer): Ordinal<Block> => as.Ordinal<Block>(integer))
+                .map((iterationIndex: Ordinal<Block>): ContourElement<PitchValueIntensityEnvelopeScale> =>
                     computeElement({
                         existenceStyle,
                         iterationIndex,

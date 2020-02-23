@@ -41,6 +41,9 @@ iteration to complete`,
         order: specsOrder.indexOf(HafuhafuSpec.SOURCE_KERNEL),
     },
     [ HafuhafuSpec.PITCH_STEP ]: {
+        constraint: {
+            required: true,
+        },
         description: 'the pitch resolution you write your melody in',
         inputType: InputType.RANGED,
         order: specsOrder.indexOf(HafuhafuSpec.PITCH_STEP),

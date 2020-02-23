@@ -1,9 +1,9 @@
 import { as, Block, Pitch, Scalar } from '@musical-patterns/utilities'
 import { computePitchIndex } from '../../../../../src/indexForTest'
 
-describe('pitch', () => {
-    describe('pitch index', () => {
-        it('takes the pitch from the iteration kernel at the index, wrapping around if it exceeds the end', () => {
+describe('pitch', (): void => {
+    describe('pitch index', (): void => {
+        it('takes the pitch from the iteration kernel at the index, wrapping around if it exceeds the end', (): void => {
             const iterationKernel: Block = as.Block([ 1, 2, 3, 4, 5 ])
 
             expect(computePitchIndex({

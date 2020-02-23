@@ -12,15 +12,15 @@ import {
 } from '@musical-patterns/utilities'
 import { computeLayersProgresses, HafuhafuMode, Layer, LayerIndex, Sieve } from '../../../../../src/indexForTest'
 
-describe('layers progresses', () => {
-    describe('droste mode', () => {
+describe('layers progresses', (): void => {
+    describe('droste mode', (): void => {
         let layersProgresses: Scalar[][]
         const totalIndices: Cardinal<LayerIndex[]> = as.Cardinal<LayerIndex[]>(27)
 
         const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(4)
         const sieve: Sieve = as.Multiple<LayerIndex>(3)
 
-        beforeEach(() => {
+        beforeEach((): void => {
             layersProgresses = computeLayersProgresses({
                 layerCount,
                 mode: HafuhafuMode.DROSTE,
@@ -30,8 +30,8 @@ describe('layers progresses', () => {
             })
         })
 
-        it('each layer has a progress for each index', () => {
-            layersProgresses.forEach((layerProgress: Scalar[]) => {
+        it('each layer has a progress for each index', (): void => {
+            layersProgresses.forEach((layerProgress: Scalar[]): void => {
                 expect(computeLength(layerProgress))
                     .toBe(insteadOf<Cardinal, Scalar[]>(totalIndices))
             })
@@ -40,7 +40,7 @@ describe('layers progresses', () => {
         it(
             `each layer's progresses span the correct segment of the interval from 0 to 1, \
 and span it quadratically (except the last layer, the beyond layer, which just sticks at 1)`,
-            () => {
+            (): void => {
                 const firstLayerProgresses: Scalar[] = layersProgresses[ 0 ]
                 expect(firstLayerProgresses)
                     .toGoQuadraticallyFromValueToValue(
@@ -69,8 +69,8 @@ and span it quadratically (except the last layer, the beyond layer, which just s
             },
         )
 
-        describe('when reverse is true', () => {
-            it('progresses go from the same thing to the same thing per layer, just in the other direction (plus you have to switch the first and last elements)', () => {
+        describe('when reverse is true', (): void => {
+            it('progresses go from the same thing to the same thing per layer, just in the other direction (plus you have to switch the first and last elements)', (): void => {
                 layersProgresses = computeLayersProgresses({
                     layerCount,
                     mode: HafuhafuMode.DROSTE,
@@ -116,14 +116,14 @@ and span it quadratically (except the last layer, the beyond layer, which just s
         })
     })
 
-    describe('zeno mode', () => {
+    describe('zeno mode', (): void => {
         let layersProgresses: Scalar[][]
         const totalIndices: Cardinal<LayerIndex[]> = as.Cardinal<LayerIndex[]>(27)
 
         const layerCount: Cardinal<Layer[]> = as.Cardinal<Layer[]>(4)
         const sieve: Sieve = as.Multiple<LayerIndex>(3)
 
-        beforeEach(() => {
+        beforeEach((): void => {
             layersProgresses = computeLayersProgresses({
                 layerCount,
                 mode: HafuhafuMode.ZENO,
@@ -133,8 +133,8 @@ and span it quadratically (except the last layer, the beyond layer, which just s
             })
         })
 
-        it('each layer has a progress for each index', () => {
-            layersProgresses.forEach((layerProgress: Scalar[]) => {
+        it('each layer has a progress for each index', (): void => {
+            layersProgresses.forEach((layerProgress: Scalar[]): void => {
                 expect(computeLength(layerProgress))
                     .toBe(insteadOf<Cardinal, Scalar[]>(totalIndices))
             })
@@ -143,7 +143,7 @@ and span it quadratically (except the last layer, the beyond layer, which just s
         it(
             `each layer's progresses span the correct segment of the interval from 0 to 1, \
 and span it quadratically (except the first layer, the home layer, which just sticks at 0)`,
-            () => {
+            (): void => {
                 expect(layersProgresses[ 0 ])
                     .toBeHomogenous(as.Scalar(0))
                 expect(layersProgresses[ 1 ])
@@ -167,8 +167,8 @@ and span it quadratically (except the first layer, the home layer, which just st
             },
         )
 
-        describe('when reverse is true', () => {
-            it('progresses go from the same thing to the same thing per layer, just in the other direction (plus you have to switch the first and last elements)', () => {
+        describe('when reverse is true', (): void => {
+            it('progresses go from the same thing to the same thing per layer, just in the other direction (plus you have to switch the first and last elements)', (): void => {
                 layersProgresses = computeLayersProgresses({
                     layerCount,
                     mode: HafuhafuMode.ZENO,
@@ -212,8 +212,8 @@ and span it quadratically (except the first layer, the home layer, which just st
             })
         })
 
-        describe('when layer count is one', () => {
-            beforeEach(() => {
+        describe('when layer count is one', (): void => {
+            beforeEach((): void => {
                 layersProgresses = computeLayersProgresses({
                     layerCount: as.Cardinal<Layer[]>(1),
                     mode: HafuhafuMode.ZENO,
@@ -223,7 +223,7 @@ and span it quadratically (except the first layer, the home layer, which just st
                 })
             })
 
-            it('the progress goes from one to zero', () => {
+            it('the progress goes from one to zero', (): void => {
                 expect(computeLength(layersProgresses))
                     .toBe(as.Cardinal<NormalScalar[][]>(1))
                 expect(layersProgresses[ 0 ])

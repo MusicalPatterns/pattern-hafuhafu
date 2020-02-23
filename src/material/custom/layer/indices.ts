@@ -47,8 +47,8 @@ const computeLayerIndices: (parameters: {
 }) => LayerIndex[] =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): LayerIndex[] =>
         range(totalIndices)
-            .map((integer: Integer) => as.Ordinal<Block>(integer))
-            .map((iterationIndex: Ordinal<Block>) =>
+            .map((integer: Integer): Ordinal<Block> => as.Ordinal<Block>(integer))
+            .map((iterationIndex: Ordinal<Block>): LayerIndex =>
                 computeLayerIndex({ iterationIndex, layerCount, mode, reverse, sieve }),
             )
 

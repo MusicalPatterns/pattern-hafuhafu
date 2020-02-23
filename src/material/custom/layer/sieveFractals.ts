@@ -41,7 +41,7 @@ const computeSieveFractal:
             mode,
         )
         const incrementedSieveFractal: LayerIndex[] = lowerLayerSieveFractal.map(
-            (sieveFractalElement: LayerIndex) => use.Cardinal(sieveFractalElement, NEXT),
+            (sieveFractalElement: LayerIndex): LayerIndex => use.Cardinal(sieveFractalElement, NEXT),
         )
 
         const sieveFractal: LayerIndex[] = repeat(

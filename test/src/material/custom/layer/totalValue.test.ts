@@ -1,9 +1,9 @@
 import { as, Scalar, sum, Value } from '@musical-patterns/utilities'
 import { computeTotalValue, HafuhafuMode, Layer, LayerIndex } from '../../../../../src/indexForTest'
 
-describe('total value', () => {
-    describe('zeno mode', () => {
-        it('sums the values of every element', () => {
+describe('total value', (): void => {
+    describe('zeno mode', (): void => {
+        it('sums the values of every element', (): void => {
             const totalValue: Scalar<Value> = computeTotalValue({
                 layerCount: as.Cardinal<Layer[]>(2),
                 mode: HafuhafuMode.ZENO,

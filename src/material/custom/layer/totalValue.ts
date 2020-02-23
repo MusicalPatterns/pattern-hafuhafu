@@ -14,9 +14,9 @@ const computeTotalValue: (parameters: {
 }) => Scalar<Value> =
     ({ layerCount, mode, reverse, sieve, totalIndices }: LayerParameters): Scalar<Value> =>
         range(totalIndices)
-            .map((integer: Integer) => as.Ordinal<Block>(integer))
+            .map((integer: Integer): Ordinal<Block> => as.Ordinal<Block>(integer))
             .reduce(
-                (totalValue: Scalar<Value>, iterationIndex: Ordinal<Block>) =>
+                (totalValue: Scalar<Value>, iterationIndex: Ordinal<Block>): Scalar<Value> =>
                     use.Translation(
                         totalValue,
                         as.Translation(ofNotAs(computeValue({
