@@ -1,6 +1,6 @@
 // tslint:disable no-duplicate-string
 
-import { Feature, Note, PitchValueIntensityEnvelopeScale, Scale } from '@musical-patterns/material'
+import { Feature, Note, PitchValueIntensityEnvelopeScale } from '@musical-patterns/material'
 import { as, Intensity, Pitch, Scalar, Value } from '@musical-patterns/utilities'
 import { computeNote } from '../../../src/indexForTest'
 

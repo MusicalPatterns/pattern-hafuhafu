@@ -1,4 +1,4 @@
-import { ComputeValidations, Validation, Validations } from '@musical-patterns/spec'
+import { ComputeValidations, Validations } from '@musical-patterns/spec'
 import {
     areCoprime,
     as,

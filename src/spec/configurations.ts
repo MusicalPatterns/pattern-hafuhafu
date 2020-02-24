@@ -31,6 +31,7 @@ iteration to complete`,
     [ HafuhafuSpec.SOURCE_KERNEL ]: {
         arrayedConstraint: {
             minLength: 1,
+            required: true,
         },
         arrayedNewFieldInitialValue: as.number(STANDARD_PITCH_INDEX_INDICATING_REST),
         constraint: rangedConstraints[ HafuhafuSpec.SOURCE_KERNEL ],
